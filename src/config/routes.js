@@ -1,11 +1,23 @@
-import { DrawerNavigator } from "react-navigation";
+import { DrawerNavigator, TabNavigator } from "react-navigation";
 
-import Login from "../layouts/login";
-import Home from "../layouts/home";
+import QrCodeScreen from "../layouts/qrCode";
+import FeedsScreen from "../layouts/feeds";
+import FriendsScreen from "../layouts/friends";
+import SettingsScreen from "../layouts/settings";
+import LoginScreen from "../layouts/login";
 
-const MircleApp = DrawerNavigator({
-  Home: { screen: Home },
-  Login: { screen: Login }
+const tabNav = TabNavigator({
+  QrCode: { screen: QrCodeScreen },
+  Feeds: { screen: FeedsScreen },
+  Friends: { screen: FriendsScreen }
 });
 
-export default MircleApp;
+const drawerNav = DrawerNavigator({
+  QrCode: { screen: tabNav },
+  Feeds: { screen: tabNav },
+  Friends: { screen: tabNav },
+  Settings: { screen: SettingsScreen },
+  Login: { screen: LoginScreen, title: "Logout" }
+});
+
+export default drawerNav;

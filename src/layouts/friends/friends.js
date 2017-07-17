@@ -1,13 +1,13 @@
 import React from "react";
 import { View, Text, Button, StatusBar } from "react-native";
 
-const Home = ({ navigation }) => {
+const Friends = ({ navigation }) => {
   const { navigate } = navigation;
 
   return (
     <View>
       <StatusBar backgroundColor="steelblue" barStyle="dark-content" />
-      <Text>Home</Text>
+      <Text>Friends</Text>
       <Button
         onPress={() => navigate("Login")}
         title="Press to go to login page"
@@ -16,4 +16,4 @@ const Home = ({ navigation }) => {
   );
 };
 
-export default Home;
+export default Friends;
