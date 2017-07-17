@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { AppRegistry } from "react-native";
 
-import Main from "./main";
+import AppRoutes from "./config/routes";
 
-AppRegistry.registerComponent("mircle_native", () => Main);
+AppRegistry.registerComponent("mircle_native", () => AppRoutes);
