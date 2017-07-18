@@ -1,17 +1,25 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, TouchableHighlight } from "react-native";
+
+import styles from "./styles";
 
 const Login = ({ navigation }) => {
-  console.log(navigation);
   const { navigate } = navigation;
 
   return (
-    <View>
-      <Text>Login page</Text>
-      <Button
-        onPress={() => navigate("QrCode")}
-        title="Press to go to home page"
-      />
+    <View style={styles.container}>
+      <View style={styles.title}>
+        <Text style={styles.titleText}>Mircle</Text>
+      </View>
+
+      <View style={styles.scanner}>
+        <TouchableHighlight
+          style={styles.scannerText}
+          onPress={() => navigate("QrCode")}
+        >
+          <Text>Authenticate</Text>
+        </TouchableHighlight>
+      </View>
     </View>
   );
 };

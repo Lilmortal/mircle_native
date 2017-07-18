@@ -12,12 +12,17 @@ const tabNav = TabNavigator({
   Friends: { screen: FriendsScreen }
 });
 
-const drawerNav = DrawerNavigator({
-  QrCode: { screen: tabNav },
-  Feeds: { screen: tabNav },
-  Friends: { screen: tabNav },
-  Settings: { screen: SettingsScreen },
-  Login: { screen: LoginScreen, title: "Logout" }
-});
+const drawerNav = DrawerNavigator(
+  {
+    QrCode: { screen: tabNav },
+    Feeds: { screen: tabNav },
+    Friends: { screen: tabNav },
+    Settings: { screen: SettingsScreen },
+    Login: { screen: LoginScreen, title: "Logout" }
+  },
+  {
+    initialRouteName: "Login"
+  }
+);
 
 export default drawerNav;

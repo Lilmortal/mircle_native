@@ -9,24 +9,15 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    justifyContent: "flex-end"
-  },
-  titleText: {
-    fontSize: 40,
-    fontWeight: "bold"
-  },
-  scanner: {
-    flex: 2,
     justifyContent: "center"
   },
-  scannerText: {
-    borderRadius: 100,
-    borderWidth: 2,
-    borderColor: "black",
-    width: 150,
-    height: 150,
-    justifyContent: "center",
-    alignItems: "center"
+  titleText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  qrCode: {
+    flex: 2,
+    justifyContent: "center"
   }
 });
 
