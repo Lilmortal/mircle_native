@@ -1,17 +1,25 @@
 import React from "react";
 import { View, Text, Button, StatusBar } from "react-native";
 
+import styles from "./styles";
+
 const Friends = ({ navigation }) => {
   const { navigate } = navigation;
 
   return (
-    <View>
-      <StatusBar backgroundColor="steelblue" barStyle="dark-content" />
-      <Text>Friends</Text>
-      <Button
-        onPress={() => navigate("Login")}
-        title="Press to go to login page"
-      />
+    <View style={styles.container}>
+      {/*<View style={styles.feed}>
+        <Text>Friend 1</Text>
+      </View>
+      <View style={styles.feed}>
+        <Text>Friend 2</Text>
+      </View>*/}
+      <View style={styles.message}>
+        <Text>
+          You don't have any friends on Mircle at the moment, start adding new
+          friends now!
+        </Text>
+      </View>
     </View>
   );
 };
