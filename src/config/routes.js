@@ -1,10 +1,18 @@
-import { DrawerNavigator, TabNavigator } from "react-navigation";
+import {
+  StackNavigator,
+  DrawerNavigator,
+  TabNavigator
+} from "react-navigation";
 
 import QrCodeScreen from "../layouts/qrCode";
 import FeedsScreen from "../layouts/feeds";
 import FriendsScreen from "../layouts/friends";
 import SettingsScreen from "../layouts/settings";
 import LoginScreen from "../layouts/login";
+
+const settingsNav = StackNavigator({
+  Settings: { screen: SettingsScreen }
+});
 
 const tabNav = TabNavigator({
   QrCode: { screen: QrCodeScreen },
@@ -17,7 +25,7 @@ const drawerNav = DrawerNavigator(
     QrCode: { screen: tabNav },
     Feeds: { screen: tabNav },
     Friends: { screen: tabNav },
-    Settings: { screen: SettingsScreen },
+    Settings: { screen: settingsNav },
     Login: { screen: LoginScreen, title: "Logout" }
   },
   {

@@ -7,9 +7,9 @@ const styles = StyleSheet.create({
   },
   feed: {
     borderBottomWidth: 2,
-    height: 200,
     paddingTop: 20,
-    paddingLeft: 20
+    paddingLeft: 20,
+    paddingBottom: 20
   },
   message: {
     flex: 1,
