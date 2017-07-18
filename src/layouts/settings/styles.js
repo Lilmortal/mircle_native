@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: "gray"
   },
+  title: {
+    fontWeight: "bold"
+  },
   list: {
     flexDirection: "row",
     justifyContent: "space-between",

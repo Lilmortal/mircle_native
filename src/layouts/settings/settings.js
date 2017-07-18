@@ -1,20 +1,23 @@
 import React from "react";
-import { View, Text, TextInput, Button, Slider, Switch } from "react-native";
+import { View, Text, TextInput, Button, Slider, Switch, Modal } from "react-native";
 
 import styles from "./styles";
 
+const toggleModalVisible = (visible) => {
+  
+}
 const Settings = ({ navigation }) => {
   const { navigate } = navigation;
 
   return (
     <View style={styles.container}>
-      {/*<View style={styles.setting}>
+      <View style={styles.setting}>
         <Text style={styles.title}>Profile</Text>
         <View style={styles.list}>
-          <Text style={styles.listText}>New Password</Text>
-          <TextInput style={styles.textfield} />
+          <Button title="Change password" />
+          <Modal visible={}
         </View>
-      </View>*/}
+      </View>
       <View style={styles.setting}>
         <Text style={styles.title}>Sound</Text>
         <View style={styles.list}>
