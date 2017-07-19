@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button, Image, TouchableHighlight } from "react-native";
+import { View, Text, Image, TouchableHighlight } from "react-native";
 
 import images from "../../config/images";
 import styles from "./styles";
@@ -33,9 +33,5 @@ Login.navigationOptions = {
   title: "Logout",
   tabBarVisible: false
 };
-
-Login.defaultProps = {
-  
-}
 
 export default Login;

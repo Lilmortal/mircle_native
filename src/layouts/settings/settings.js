@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from "react";
 import {
   View,
@@ -11,7 +13,7 @@ import {
 
 import styles from "./styles";
 
-const toggleModalVisible = visible => {};
+const add = (a: number, b: number) => a + b;
 
 class Settings extends Component {
   static navigationOptions = {
@@ -26,9 +28,10 @@ class Settings extends Component {
     };
   }
 
-  togglePasswordModal() {
-    this.setState({ passwordModalVisible: !this.state.passwordModalVisible });
-  }
+  setPasswordModalVisibility = (visible: boolean) => {
+    this.setState({ passwordModalVisible: visible * visible });
+    add("4", 5);
+  };
 
   render() {
     return (
@@ -38,13 +41,13 @@ class Settings extends Component {
           <View style={styles.list}>
             <Button
               title="Change password"
-              onPress={this.togglePasswordModal.bind(this)}
+              onPress={() => this.setPasswordModalVisibility("2")}
             />
             <Modal
               animationType={"slide"}
               transparent={false}
               visible={this.state.passwordModalVisible}
-              onRequestClose={this.togglePasswordModal.bind(this)}
+              onRequestClose={() => this.setPasswordModalVisibility(false)}
             >
               <View>
                 <Text>New Password</Text>
@@ -53,11 +56,11 @@ class Settings extends Component {
                 <TextInput />
 
                 <Button
-                  onPress={this.togglePasswordModal.bind(this)}
+                  onPress={() => this.setPasswordModalVisibility(false)}
                   title="Cancel"
                 />
                 <Button
-                  onPress={this.togglePasswordModal.bind(this)}
+                  onPress={() => this.setPasswordModalVisibility(false)}
                   title="Close Modal"
                 />
               </View>
