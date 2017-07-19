@@ -41,6 +41,8 @@ class Settings extends Component {
               onPress={this.togglePasswordModal.bind(this)}
             />
             <Modal
+              animationType={"slide"}
+              transparent={false}
               visible={this.state.passwordModalVisible}
               onRequestClose={this.togglePasswordModal.bind(this)}
             >

@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, Button, TouchableHighlight } from "react-native";
+import { View, Text, Button, Image, TouchableHighlight } from "react-native";
 
+import images from "../../config/images";
 import styles from "./styles";
 
 const Login = ({ navigation }) => {
@@ -17,7 +18,11 @@ const Login = ({ navigation }) => {
           style={styles.scannerText}
           onPress={() => navigate("QrCode")}
         >
-          <Text>Authenticate</Text>
+          <Image
+            source={images.fingerprint}
+            style={styles.fingerprint}
+            resizeMode="cover"
+          />
         </TouchableHighlight>
       </View>
     </View>
@@ -28,5 +33,9 @@ Login.navigationOptions = {
   title: "Logout",
   tabBarVisible: false
 };
+
+Login.defaultProps = {
+  
+}
 
 export default Login;

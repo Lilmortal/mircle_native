@@ -20,13 +20,15 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   scannerText: {
-    borderRadius: 100,
-    borderWidth: 2,
-    borderColor: "black",
-    width: 150,
-    height: 150,
     justifyContent: "center",
     alignItems: "center"
+  },
+  fingerprint: {
+    alignSelf: "center",
+    backgroundColor: "transparent",
+    borderRadius: 200,
+    borderWidth: 1,
+    borderColor: "black"
   }
 });
 
