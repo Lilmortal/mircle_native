@@ -13,15 +13,17 @@ import {
 
 import styles from "./styles";
 
-const add = (a: number, b: number) => a + b;
-
 class Settings extends Component {
+  state: {
+    passwordModalVisible: boolean
+  };
+
   static navigationOptions = {
     title: "Settings",
     headerBackTitle: "Back"
   };
 
-  constructor(props) {
+  constructor(props: {}) {
     super(props);
     this.state = {
       passwordModalVisible: false
@@ -29,8 +31,7 @@ class Settings extends Component {
   }
 
   setPasswordModalVisibility = (visible: boolean) => {
-    this.setState({ passwordModalVisible: visible * visible });
-    add("4", 5);
+    this.setState({ passwordModalVisible: visible });
   };
 
   render() {
@@ -41,7 +42,7 @@ class Settings extends Component {
           <View style={styles.list}>
             <Button
               title="Change password"
-              onPress={() => this.setPasswordModalVisibility("2")}
+              onPress={() => this.setPasswordModalVisibility(true)}
             />
             <Modal
               animationType={"slide"}
