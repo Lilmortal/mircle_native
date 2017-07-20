@@ -1,5 +1,8 @@
 import React from "react";
+import { Image } from "react-native";
 import Hamburger from "../components/hamburger";
+
+import images from "./images";
 
 import {
   StackNavigator,
@@ -39,7 +42,13 @@ const rootNav = StackNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       title: "Mircle",
-      headerLeft: <Hamburger navigation={navigation} />
+      headerLeft: <Hamburger navigation={navigation} />,
+      headerRight: (
+        <Image
+          source={images.camera}
+          style={{ width: 50, height: 50, marginRight: 10 }}
+        />
+      )
     })
   }
 );
