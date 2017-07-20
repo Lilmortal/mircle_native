@@ -1,5 +1,5 @@
 const fonts = {
-  loginTitleFont: "'Roboto', sans-serif"
+  loginTitleFont: "Rye"
 };
 
 export default fonts;

@@ -31,7 +31,8 @@ const Login = ({ navigation }) => {
 
 Login.navigationOptions = {
   title: "Logout",
-  tabBarVisible: false
+  tabBarVisible: false,
+  header: false
 };
 
 export default Login;

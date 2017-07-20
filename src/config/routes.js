@@ -10,10 +10,6 @@ import FriendsScreen from "../layouts/friends";
 import SettingsScreen from "../layouts/settings";
 import LoginScreen from "../layouts/login";
 
-const settingsNav = StackNavigator({
-  Settings: { screen: SettingsScreen }
-});
-
 const tabNav = TabNavigator({
   QrCode: { screen: QrCodeScreen },
   Feeds: { screen: FeedsScreen },
@@ -25,7 +21,7 @@ const drawerNav = DrawerNavigator(
     QrCode: { screen: tabNav },
     Feeds: { screen: tabNav },
     Friends: { screen: tabNav },
-    Settings: { screen: settingsNav },
+    Settings: { screen: SettingsScreen },
     Login: { screen: LoginScreen, title: "Logout" }
   },
   {
@@ -33,4 +29,15 @@ const drawerNav = DrawerNavigator(
   }
 );
 
-export default drawerNav;
+const rootNav = StackNavigator(
+  {
+    Dashboard: { screen: drawerNav }
+  },
+  {
+    navigationOptions: {
+      title: "Mircle"
+    }
+  }
+);
+
+export default rootNav;

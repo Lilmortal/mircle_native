@@ -16,8 +16,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   qrCode: {
-    flex: 2,
-    justifyContent: "center"
+    flex: 2
   }
 });
 

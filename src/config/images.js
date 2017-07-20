@@ -1,4 +1,4 @@
-import fingerprint from "../images/fingerprint.png";
+import fingerprint from "../assets/images/fingerprint.png";
 
 const images = {
   fingerprint

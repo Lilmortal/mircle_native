@@ -52,6 +52,10 @@
 		</dict>
 	</dict>
 	<key>UIAppFonts</key>
-	<array/>
+	<array>
+		<string>IMFePIrm28P.ttf</string>
+		<string>IM-Fell-DW-Picaf.ttf</string>
+		<string>Rye-Regular.ttf</string>
+	</array>
 </dict>
 </plist>

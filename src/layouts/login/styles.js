@@ -1,19 +1,25 @@
 import { StyleSheet } from "react-native";
 
+import colors from "../../styles/color-palette";
+import fonts from "../../styles/fonts";
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: colors.mircle
   },
   title: {
     flex: 1,
-    justifyContent: "flex-end"
+    justifyContent: "center"
   },
   titleText: {
     fontSize: 40,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    color: "white",
+    fontFamily: fonts.loginTitleFont
   },
   scanner: {
     flex: 2,
