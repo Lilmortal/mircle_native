@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   feed: {
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
+    borderColor: "gray",
     paddingTop: 20,
     paddingLeft: 20,
     paddingBottom: 20
