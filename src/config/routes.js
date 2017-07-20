@@ -31,7 +31,8 @@ const drawerNav = DrawerNavigator(
     Login: { screen: LoginScreen, title: "Logout" }
   },
   {
-    initialRouteName: "Login"
+    initialRouteName: "Login",
+    drawerWidth: 200
   }
 );
 
