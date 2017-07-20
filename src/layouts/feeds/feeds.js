@@ -5,7 +5,7 @@ import { View, Text, ListView } from "react-native";
 
 import styles from "./styles";
 
-class Feeds extends Component {
+export default class Feeds extends Component {
   state: {
     dataSource: Object
   };
@@ -39,5 +39,3 @@ class Feeds extends Component {
     );
   }
 }
-
-export default Feeds;

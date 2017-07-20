@@ -3,7 +3,7 @@ import { View, Text, ListView } from "react-native";
 
 import styles from "./styles";
 
-class Friends extends Component {
+export default class Friends extends Component {
   state: {
     dataSource: Object
   };
@@ -40,5 +40,3 @@ class Friends extends Component {
     );
   }
 }
-
-export default Friends;

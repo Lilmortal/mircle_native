@@ -13,7 +13,7 @@ import {
 
 import styles from "./styles";
 
-class Settings extends Component {
+export default class Settings extends Component {
   state: {
     passwordModalVisible: boolean
   };
@@ -86,5 +86,3 @@ class Settings extends Component {
     );
   }
 }
-
-export default Settings;

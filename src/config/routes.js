@@ -1,3 +1,6 @@
+import React from "react";
+import Hamburger from "../components/hamburger";
+
 import {
   StackNavigator,
   DrawerNavigator,
@@ -34,9 +37,10 @@ const rootNav = StackNavigator(
     Dashboard: { screen: drawerNav }
   },
   {
-    navigationOptions: {
-      title: "Mircle"
-    }
+    navigationOptions: ({ navigation }) => ({
+      title: "Mircle",
+      headerLeft: <Hamburger navigation={navigation} />
+    })
   }
 );
 
