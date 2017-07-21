@@ -49,7 +49,7 @@ export default class Settings extends Component {
               visible={this.state.passwordModalVisible}
               onRequestClose={() => this.setPasswordModalVisibility(false)}
             >
-              <View>
+              <View style={styles.modal}>
                 <Text>New Password</Text>
                 <TextInput />
                 <Text>Type new password again</Text>

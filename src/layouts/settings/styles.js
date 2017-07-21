@@ -26,6 +26,12 @@ const styles = StyleSheet.create({
   },
   slider: {
     width: width * 0.8
+  },
+  modal: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
 
