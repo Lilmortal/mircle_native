@@ -17,4 +17,8 @@ const QrCodeScreen = () =>
     </View>
   </View>;
 
+QrCodeScreen.navigationOptions = {
+  title: "QR Code"
+};
+
 export default QrCodeScreen;

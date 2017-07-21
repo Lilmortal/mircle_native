@@ -4,6 +4,10 @@ import { View, Text, ListView } from "react-native";
 import styles from "./styles";
 
 export default class Friends extends Component {
+  static navigationOptions = {
+    title: "Friends"
+  };
+
   state: {
     dataSource: Object
   };

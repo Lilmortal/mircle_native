@@ -6,6 +6,11 @@ import { View, Text, ListView } from "react-native";
 import styles from "./styles";
 
 export default class Feeds extends Component {
+  static navigationOptions = {
+    drawerLabel: "Feeds",
+    title: "Feeds"
+  };
+
   state: {
     dataSource: Object
   };

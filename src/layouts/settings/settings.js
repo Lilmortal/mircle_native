@@ -14,13 +14,12 @@ import {
 import styles from "./styles";
 
 export default class Settings extends Component {
-  state: {
-    passwordModalVisible: boolean
+  static navigationOptions = {
+    title: "Settings"
   };
 
-  static navigationOptions = {
-    title: "Settings",
-    headerBackTitle: "Back"
+  state: {
+    passwordModalVisible: boolean
   };
 
   constructor(props: {}) {
