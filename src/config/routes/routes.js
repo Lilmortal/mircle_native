@@ -1,8 +1,8 @@
 import React from "react";
 import { Image } from "react-native";
-import Hamburger from "../components/hamburger";
+import Hamburger from "../../components/hamburger";
 
-import images from "./images";
+import images from "../images";
 
 import {
   StackNavigator,
@@ -10,11 +10,18 @@ import {
   TabNavigator
 } from "react-navigation";
 
-import QrCodeScreen from "../layouts/qrCode";
-import FeedsScreen from "../layouts/feeds";
-import FriendsScreen from "../layouts/friends";
-import SettingsScreen from "../layouts/settings";
-import LoginScreen from "../layouts/login";
+import { withStack } from "./routeLibs";
+
+//import BaseLayout from "../../layouts/baseLayout";
+import LoginScreen from "../../layouts/login";
+
+import QrCodeScreen from "../../routes/qrCode";
+import FeedsScreen from "../../routes/feeds";
+import FriendsScreen from "../../routes/friends";
+import SettingsScreen from "../../routes/settings";
+import ChangePasswordScreen from "../../routes/changePassword";
+
+//const FriendsScreenWithLayout = withLayout(BaseLayout)(FriendsScreen);
 
 const navOptions = {
   navigationOptions: ({ navigation }) => ({
@@ -28,17 +35,6 @@ const navOptions = {
   })
 };
 
-const withStack = navOptions => obj => {
-  return StackNavigator(obj, navOptions);
-};
-
-const friendsTab = TabNavigator({
-  Friends: { screen: FriendsScreen },
-  Pending: { screen: FriendsScreen },
-  Waiting: { screen: FriendsScreen },
-  Blocked: { screen: FriendsScreen }
-});
-
 const qrCodeStack = withStack(navOptions)({
   QrCode: { screen: QrCodeScreen }
 });
@@ -47,12 +43,20 @@ const feedsStack = withStack(navOptions)({
   Feeds: { screen: FeedsScreen }
 });
 
+const friendsTab = TabNavigator({
+  Friends: { screen: FriendsScreen },
+  Pending: { screen: FriendsScreen },
+  Waiting: { screen: FriendsScreen },
+  Blocked: { screen: FriendsScreen }
+});
+
 const friendsStack = withStack(navOptions)({
   Friends: { screen: friendsTab }
 });
 
 const settingsStack = withStack(navOptions)({
-  Settings: { screen: SettingsScreen }
+  Settings: { screen: SettingsScreen },
+  ChangePassword: { screen: ChangePasswordScreen }
 });
 
 const drawerNav = DrawerNavigator(

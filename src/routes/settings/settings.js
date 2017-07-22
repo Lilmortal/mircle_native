@@ -11,6 +11,7 @@ import {
   Modal
 } from "react-native";
 
+import ChangePassword from "../changePassword";
 import styles from "./styles";
 
 export default class Settings extends Component {
@@ -49,21 +50,9 @@ export default class Settings extends Component {
               visible={this.state.passwordModalVisible}
               onRequestClose={() => this.setPasswordModalVisibility(false)}
             >
-              <View style={styles.modal}>
-                <Text>New Password</Text>
-                <TextInput />
-                <Text>Type new password again</Text>
-                <TextInput />
-
-                <Button
-                  onPress={() => this.setPasswordModalVisibility(false)}
-                  title="Cancel"
-                />
-                <Button
-                  onPress={() => this.setPasswordModalVisibility(false)}
-                  title="Close Modal"
-                />
-              </View>
+              <ChangePassword
+                onPress={() => this.setPasswordModalVisibility(false)}
+              />
             </Modal>
           </View>
         </View>
