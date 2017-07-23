@@ -1,8 +1,9 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, Text, ListView } from "react-native";
+import { View, Text, Image, ListView } from "react-native";
 
+import images from "../../config/images";
 import styles from "./styles";
 
 export default class Feeds extends Component {
@@ -21,7 +22,50 @@ export default class Feeds extends Component {
       rowHasChanged: (r1, r2) => r1 !== r2
     });
     this.state = {
-      dataSource: ds.cloneWithRows(["row 1", "row 2"])
+      dataSource: ds.cloneWithRows([
+        {
+          profilePicture: images.anonymous,
+          profileName: "Will Smith",
+          date: "9 June, 2017",
+          profileDescription: "Is now connected to you!"
+        },
+        {
+          profilePicture: images.anonymous,
+          profileName: "Eren Jaegur",
+          date: "7 June, 2017",
+          profileDescription: "Changed his facebook link to facebook.com/fish"
+        },
+        {
+          profilePicture: images.anonymous,
+          profileName: "Eren Jaegur",
+          date: "7 June, 2017",
+          profileDescription: "Changed his facebook link to facebook.com/fish"
+        },
+        {
+          profilePicture: images.anonymous,
+          profileName: "Eren Jaegur",
+          date: "7 June, 2017",
+          profileDescription: "Changed his facebook link to facebook.com/fish"
+        },
+        {
+          profilePicture: images.anonymous,
+          profileName: "Eren Jaegur",
+          date: "7 June, 2017",
+          profileDescription: "Changed his facebook link to facebook.com/fish"
+        },
+        {
+          profilePicture: images.anonymous,
+          profileName: "Eren Jaegur",
+          date: "7 June, 2017",
+          profileDescription: "Changed his facebook link to facebook.com/fish"
+        },
+        {
+          profilePicture: images.anonymous,
+          profileName: "Eren Jaegur",
+          date: "7 June, 2017",
+          profileDescription: "Changed his facebook link to facebook.com/fish"
+        }
+      ])
     };
   }
 
@@ -32,12 +76,24 @@ export default class Feeds extends Component {
           dataSource={this.state.dataSource}
           renderRow={rowData =>
             <View style={styles.feed}>
-              <Text>
-                {rowData}
-              </Text>
+              <Image
+                source={rowData.profilePicture}
+                style={styles.profilePicture}
+              />
+              <View style={styles.profileContainer}>
+                <Text style={styles.profileName}>
+                  {rowData.profileName}
+                </Text>
+                <Text style={styles.date}>
+                  {rowData.date}
+                </Text>
+                <Text style={styles.profileDescription}>
+                  {rowData.profileDescription}
+                </Text>
+              </View>
             </View>}
         />
-        {/* <View style={styles.message}>
+        {/* <View style={styles.noFeedMessage}>
       <Text>Start adding new friends to populate your feeds!</Text>
     </View>*/}
       </View>
