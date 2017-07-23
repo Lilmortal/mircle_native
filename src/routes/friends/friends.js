@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, Image, ListView } from "react-native";
+import { View, Text, Image, ListView, TouchableHighlight } from "react-native";
 
 import images from "../../config/images";
 import styles from "./styles";
@@ -72,25 +72,29 @@ export default class Friends extends Component {
         <ListView
           dataSource={this.state.dataSource}
           renderRow={rowData =>
-            <View style={styles.friends}>
-              <Image
-                source={rowData.profilePicture}
-                style={styles.profilePicture}
-              />
-              <View style={styles.profileContainer}>
-                <Text style={styles.profileName}>
-                  {rowData.profileName}
-                </Text>
-                <View style={styles.profileDescription}>
-                  <Text>
-                    Worked as a {rowData.occupation} at {rowData.company}
+            <TouchableHighlight
+              onPress={() => this.props.navigation.navigate("Profile")}
+            >
+              <View style={styles.friends}>
+                <Image
+                  source={rowData.profilePicture}
+                  style={styles.profilePicture}
+                />
+                <View style={styles.profileContainer}>
+                  <Text style={styles.profileName}>
+                    {rowData.profileName}
                   </Text>
-                  <Text>
-                    Added each other on {rowData.addedTime}
-                  </Text>
+                  <View style={styles.profileDescription}>
+                    <Text>
+                      Worked as a {rowData.occupation} at {rowData.company}
+                    </Text>
+                    <Text>
+                      Added each other on {rowData.addedTime}
+                    </Text>
+                  </View>
                 </View>
               </View>
-            </View>}
+            </TouchableHighlight>}
         />
         {/* <View style={styles.noFriendsMessage}>
       <Text>

@@ -18,6 +18,7 @@ import LoginScreen from "../../layouts/login";
 import QrCodeScreen from "../../routes/qrCode";
 import FeedsScreen from "../../routes/feeds";
 import FriendsScreen from "../../routes/friends";
+import ProfileScreen from "../../routes/friends/profile";
 import SettingsScreen from "../../routes/settings";
 
 //const FriendsScreenWithLayout = withLayout(BaseLayout)(FriendsScreen);
@@ -50,7 +51,8 @@ const friendsTab = TabNavigator({
 });
 
 const friendsStack = withStack(navOptions)({
-  Friends: { screen: friendsTab }
+  Friends: { screen: friendsTab },
+  Profile: { screen: ProfileScreen }
 });
 
 const settingsStack = withStack(navOptions)({
