@@ -23,7 +23,7 @@ import SettingsScreen from "../../routes/settings";
 
 //const FriendsScreenWithLayout = withLayout(BaseLayout)(FriendsScreen);
 
-const navOptions = ({ navigation }) => ({
+const mainOptions = ({ navigation }) => ({
   headerLeft: <Hamburger onPress={() => navigation.navigate("DrawerOpen")} />,
   headerRight: (
     <Image
@@ -33,7 +33,7 @@ const navOptions = ({ navigation }) => ({
   )
 });
 
-const navOptionsWithNoHamburger = () => ({
+const childOptions = () => ({
   headerRight: (
     <Image
       source={images.camera}
@@ -43,11 +43,11 @@ const navOptionsWithNoHamburger = () => ({
 });
 
 const qrCodeStack = StackNavigator({
-  QrCode: withOptions(QrCodeScreen)(navOptions)
+  QrCode: withOptions(QrCodeScreen)(mainOptions)
 });
 
 const feedsStack = StackNavigator({
-  Feeds: withOptions(FeedsScreen)(navOptions)
+  Feeds: withOptions(FeedsScreen)(mainOptions)
 });
 
 const friendsTab = TabNavigator({
@@ -58,12 +58,12 @@ const friendsTab = TabNavigator({
 });
 
 const friendsStack = StackNavigator({
-  Friends: withOptions(friendsTab)(navOptions),
-  Profile: withOptions(ProfileScreen)(navOptionsWithNoHamburger)
+  Friends: withOptions(friendsTab)(mainOptions),
+  Profile: withOptions(ProfileScreen)(childOptions)
 });
 
 const settingsStack = StackNavigator({
-  Settings: withOptions(SettingsScreen)(navOptions)
+  Settings: withOptions(SettingsScreen)(mainOptions)
 });
 
 const drawerNav = DrawerNavigator(

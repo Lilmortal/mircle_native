@@ -12,10 +12,6 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200
   },
-  block: {
-    paddingTop: 20,
-    paddingBottom: 20
-  },
   title: {
     fontWeight: "500"
   },
