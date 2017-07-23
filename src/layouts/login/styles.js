@@ -1,40 +1,61 @@
 import { StyleSheet } from "react-native";
 
-import colors from "../../styles/color-palette";
-import fonts from "../../styles/fonts";
+import colors from "../../config/color-palette";
 
 const styles = StyleSheet.create({
-  container: {
+  backgroundImage: {
     flex: 1,
-    flexDirection: "column",
+    width: null,
+    height: null,
+    resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: colors.mircle
+    flexDirection: "column"
   },
   title: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "center",
+    alignItems: "center"
   },
   titleText: {
     fontSize: 40,
     fontWeight: "bold",
-    color: "white",
-    fontFamily: fonts.loginTitleFont
+    alignItems: "center"
   },
-  scanner: {
+  titleDescription: {
+    fontSize: 20
+  },
+  body: {
     flex: 2,
     justifyContent: "center"
   },
-  scannerText: {
+  textInput: {
+    color: "white"
+  },
+  button: {
+    marginTop: 20,
+    marginBottom: 20,
+    backgroundColor: "purple",
+    height: 60,
+    borderRadius: 5,
+    borderWidth: 1,
     justifyContent: "center",
     alignItems: "center"
   },
-  fingerprint: {
-    alignSelf: "center",
-    backgroundColor: "transparent",
-    borderRadius: 200,
-    borderWidth: 1,
-    borderColor: "black"
+  facebookLogo: {
+    backgroundColor: "#3b5998",
+    borderColor: "#3b5998"
+  },
+  twitterLogo: {
+    backgroundColor: "#1dcaff",
+    borderColor: "#1dcaff"
+  },
+  buttonChildren: {
+    flexDirection: "row"
+  },
+  buttonText: {
+    marginLeft: 20,
+    color: "white"
   }
 });
 
