@@ -10,7 +10,7 @@ import {
   TabNavigator
 } from "react-navigation";
 
-import { withStack } from "./routeLibs";
+import { withOptions } from "./routeLibs";
 
 //import BaseLayout from "../../layouts/baseLayout";
 import LoginScreen from "../../layouts/login";
@@ -23,24 +23,31 @@ import SettingsScreen from "../../routes/settings";
 
 //const FriendsScreenWithLayout = withLayout(BaseLayout)(FriendsScreen);
 
-const navOptions = {
-  navigationOptions: ({ navigation }) => ({
-    headerLeft: <Hamburger onPress={() => navigation.navigate("DrawerOpen")} />,
-    headerRight: (
-      <Image
-        source={images.camera}
-        style={{ width: 50, height: 50, marginRight: 10 }}
-      />
-    )
-  })
-};
-
-const qrCodeStack = withStack(navOptions)({
-  QrCode: { screen: QrCodeScreen }
+const navOptions = ({ navigation }) => ({
+  headerLeft: <Hamburger onPress={() => navigation.navigate("DrawerOpen")} />,
+  headerRight: (
+    <Image
+      source={images.camera}
+      style={{ width: 50, height: 50, marginRight: 10 }}
+    />
+  )
 });
 
-const feedsStack = withStack(navOptions)({
-  Feeds: { screen: FeedsScreen }
+const navOptionsWithNoHamburger = () => ({
+  headerRight: (
+    <Image
+      source={images.camera}
+      style={{ width: 50, height: 50, marginRight: 10 }}
+    />
+  )
+});
+
+const qrCodeStack = StackNavigator({
+  QrCode: withOptions(QrCodeScreen)(navOptions)
+});
+
+const feedsStack = StackNavigator({
+  Feeds: withOptions(FeedsScreen)(navOptions)
 });
 
 const friendsTab = TabNavigator({
@@ -50,13 +57,13 @@ const friendsTab = TabNavigator({
   Blocked: { screen: FriendsScreen }
 });
 
-const friendsStack = withStack(navOptions)({
-  Friends: { screen: friendsTab },
-  Profile: { screen: ProfileScreen }
+const friendsStack = StackNavigator({
+  Friends: withOptions(friendsTab)(navOptions),
+  Profile: withOptions(ProfileScreen)(navOptionsWithNoHamburger)
 });
 
-const settingsStack = withStack(navOptions)({
-  Settings: { screen: SettingsScreen }
+const settingsStack = StackNavigator({
+  Settings: withOptions(SettingsScreen)(navOptions)
 });
 
 const drawerNav = DrawerNavigator(
