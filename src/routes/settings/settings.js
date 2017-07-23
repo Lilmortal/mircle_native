@@ -1,15 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  Button,
-  Slider,
-  Switch,
-  Modal
-} from "react-native";
+import { View, Text, TextInput, Button, Slider, Switch } from "react-native";
 
 import ChangePassword from "../changePassword";
 import styles from "./styles";
@@ -25,35 +17,27 @@ export default class Settings extends Component {
 
   constructor(props: {}) {
     super(props);
-    this.state = {
-      passwordModalVisible: false
-    };
   }
-
-  setPasswordModalVisibility = (visible: boolean) => {
-    this.setState({ passwordModalVisible: visible });
-  };
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.setting}>
           <Text style={styles.title}>Profile</Text>
-          <View style={styles.list}>
+          <View style={styles.profile}>
+            <View style={styles.profileBlock}>
+              <Text style={styles.listText}>Current password</Text>
+              <TextInput />
+            </View>
+            <View style={styles.profileBlock}>
+              <Text style={styles.listText}>New password</Text>
+              <TextInput />
+            </View>
             <Button
               title="Change password"
-              onPress={() => this.setPasswordModalVisibility(true)}
+              style={styles.profileButton}
+              onPress={() => {}}
             />
-            <Modal
-              animationType={"slide"}
-              transparent={false}
-              visible={this.state.passwordModalVisible}
-              onRequestClose={() => this.setPasswordModalVisibility(false)}
-            >
-              <ChangePassword
-                onPress={() => this.setPasswordModalVisibility(false)}
-              />
-            </Modal>
           </View>
         </View>
         <View style={styles.setting}>

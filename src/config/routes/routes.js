@@ -19,7 +19,6 @@ import QrCodeScreen from "../../routes/qrCode";
 import FeedsScreen from "../../routes/feeds";
 import FriendsScreen from "../../routes/friends";
 import SettingsScreen from "../../routes/settings";
-import ChangePasswordScreen from "../../routes/changePassword";
 
 //const FriendsScreenWithLayout = withLayout(BaseLayout)(FriendsScreen);
 
@@ -55,8 +54,7 @@ const friendsStack = withStack(navOptions)({
 });
 
 const settingsStack = withStack(navOptions)({
-  Settings: { screen: SettingsScreen },
-  ChangePassword: { screen: ChangePasswordScreen }
+  Settings: { screen: SettingsScreen }
 });
 
 const drawerNav = DrawerNavigator(

@@ -21,6 +21,19 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10
   },
+  profile: {
+    flexDirection: "column",
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  profileBlock: {
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  profileButton: {
+    paddingTop: 10,
+    paddingBottom: 10
+  },
   textfield: {
     width
   },
