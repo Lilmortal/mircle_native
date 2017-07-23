@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import { View, Text, TextInput, Button, Slider, Switch } from "react-native";
 
-import ChangePassword from "../changePassword";
 import styles from "./styles";
 
 export default class Settings extends Component {
