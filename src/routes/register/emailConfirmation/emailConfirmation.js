@@ -29,7 +29,8 @@ const RegisterSummary = ({ navigation }) =>
   </Image>;
 
 RegisterSummary.navigationOptions = {
-  title: "Email Confirmation"
+  title: "Email Confirmation",
+  headerLeft: null
 };
 
 export default RegisterSummary;
