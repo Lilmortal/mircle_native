@@ -1,6 +1,8 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 import colors from "../../config/color-palette";
+
+const windowWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -72,6 +74,28 @@ const styles = StyleSheet.create({
   },
   helpText: {
     color: "white"
+  },
+  forgottenPassword: {
+    flex: 3,
+    width: windowWidth,
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  forgottenpasswordTitle: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  forgottenPasswordTitleText: {
+    color: "white",
+    fontSize: 40,
+    fontWeight: "bold"
+  },
+  forgottenPasswordText: {
+    color: "white",
+    paddingLeft: 20,
+    paddingRight: 20,
+    textAlign: "center"
   }
 });
 
