@@ -66,7 +66,12 @@ const Login = ({ navigation }) => {
         </View>
 
         <View style={styles.help}>
-          <Text style={styles.helpText}>Register</Text>
+          <Text
+            style={styles.helpText}
+            onPress={() => navigation.navigate("RegisterStep1")}
+          >
+            Register
+          </Text>
           <Text style={styles.helpText}>Forgot password?</Text>
         </View>
       </View>

@@ -14,6 +14,10 @@ import { withOptions } from "./routeLibs";
 
 //import BaseLayout from "../../layouts/baseLayout";
 import LoginScreen from "../../layouts/login";
+import RegisterStep1Screen from "../../routes/register/step1";
+import RegisterStep2Screen from "../../routes/register/step2";
+import RegisterSummaryScreen from "../../routes/register/summary";
+import RegisterEmailConfirmationScreen from "../../routes/register/emailConfirmation";
 
 import QrCodeScreen from "../../routes/qrCode";
 import FeedsScreen from "../../routes/feeds";
@@ -75,13 +79,21 @@ const settingsStack = StackNavigator({
   Settings: withOptions(SettingsScreen)(mainOptions)
 });
 
+const loginStack = StackNavigator({
+  Login: { screen: LoginScreen, title: "Logout" },
+  RegisterStep1: { screen: RegisterStep1Screen },
+  RegisterStep2: { screen: RegisterStep2Screen },
+  RegisterSummary: { screen: RegisterSummaryScreen },
+  RegisterEmailConfirmation: { screen: RegisterEmailConfirmationScreen }
+});
+
 const drawerNav = DrawerNavigator(
   {
     QrCode: { screen: qrCodeStack },
     Feeds: { screen: feedsStack },
     Friends: { screen: friendsStack },
     Settings: { screen: settingsStack },
-    Login: { screen: LoginScreen, title: "Logout" }
+    Login: { screen: loginStack }
   },
   {
     initialRouteName: "Login",
