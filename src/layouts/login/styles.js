@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 20,
     marginBottom: 20,
+    borderColor: "purple",
     backgroundColor: "purple",
     height: 60,
     borderRadius: 5,

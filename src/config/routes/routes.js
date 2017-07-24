@@ -1,5 +1,5 @@
 import React from "react";
-import { Image } from "react-native";
+import { View, Image } from "react-native";
 import Hamburger from "../../components/hamburger";
 
 import images from "../images";
@@ -36,19 +36,31 @@ import SettingsScreen from "../../routes/settings";
 const mainOptions = ({ navigation }) => ({
   headerLeft: <Hamburger onPress={() => navigation.navigate("DrawerOpen")} />,
   headerRight: (
-    <Image
-      source={images.camera}
-      style={{ width: 50, height: 50, marginRight: 10 }}
-    />
+    <View style={{ flexDirection: "row" }}>
+      <Image
+        source={images.profile}
+        style={{ marginRight: 20, width: 50, height: 50 }}
+      />
+      <Image
+        source={images.camera}
+        style={{ width: 50, height: 50, marginRight: 10 }}
+      />
+    </View>
   )
 });
 
 const childOptions = () => ({
   headerRight: (
-    <Image
-      source={images.camera}
-      style={{ width: 50, height: 50, marginRight: 10 }}
-    />
+    <View style={{ flexDirection: "row" }}>
+      <Image
+        source={images.profile}
+        style={{ marginRight: 20, width: 50, height: 50 }}
+      />
+      <Image
+        source={images.camera}
+        style={{ width: 50, height: 50, marginRight: 10 }}
+      />
+    </View>
   )
 });
 

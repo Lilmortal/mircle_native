@@ -6,6 +6,7 @@ import facebookLogo from "../assets/images/facebook_logo.jpg";
 import twitterLogo from "../assets/images/twitter_logo.jpg";
 import anonymous from "../assets/images/anonymous.gif";
 import register from "../assets/images/register.jpg";
+import profile from "../assets/images/profile.png";
 
 const images = {
   fingerprint,
@@ -15,7 +16,8 @@ const images = {
   facebookLogo,
   twitterLogo,
   anonymous,
-  register
+  register,
+  profile
 };
 
 export default images;
