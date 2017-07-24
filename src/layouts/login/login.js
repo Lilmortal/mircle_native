@@ -41,6 +41,10 @@ const Login = ({ navigation }) => {
             />
           </View>
 
+          <View style={styles.center}>
+            <Text style={styles.centerText}>or</Text>
+          </View>
+
           <TouchableHighlight
             onPress={() => navigate("QrCode")}
             style={[styles.button, styles.facebookLogo]}
@@ -59,6 +63,11 @@ const Login = ({ navigation }) => {
               <Text style={styles.buttonText}>TWITTER</Text>
             </View>
           </TouchableHighlight>
+        </View>
+
+        <View style={styles.help}>
+          <Text style={styles.helpText}>Register</Text>
+          <Text style={styles.helpText}>Forgot password?</Text>
         </View>
       </View>
     </Image>

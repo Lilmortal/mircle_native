@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   title: {
-    flex: 1,
+    flex: 2,
     justifyContent: "center",
     alignItems: "center"
   },
@@ -26,10 +26,18 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   body: {
-    flex: 2,
+    flex: 4,
     justifyContent: "center"
   },
   textInput: {
+    color: "white"
+  },
+  center: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  centerText: {
     color: "white"
   },
   button: {
@@ -55,6 +63,14 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     marginLeft: 20,
+    color: "white"
+  },
+  help: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  helpText: {
     color: "white"
   }
 });
