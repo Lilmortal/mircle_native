@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { View, Text, Image, ListView, TouchableHighlight } from "react-native";
 
-import images from "../../config/images";
+import images from "../../../config/images";
 import styles from "./styles";
 
-export default class Friends extends Component {
+export default class BlockedFriends extends Component {
   static navigationOptions = {
-    title: "Friends"
+    title: "Blocked"
   };
 
   state: {
@@ -59,7 +59,7 @@ export default class Friends extends Component {
           profilePicture: images.anonymous,
           profileName: "Eren Jaegur",
           occupation: "student",
-          company: "botany downs",
+          company: "botany downs secondary college",
           addedTime: "6 June, 2017"
         }
       ])
@@ -73,7 +73,7 @@ export default class Friends extends Component {
           dataSource={this.state.dataSource}
           renderRow={rowData =>
             <TouchableHighlight
-              onPress={() => this.props.navigation.navigate("Profile")}
+              onPress={() => this.props.navigation.navigate("BlockedProfile")}
             >
               <View style={styles.friends}>
                 <Image

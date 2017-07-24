@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, Image, ListView } from "react-native";
 
-import images from "../../../config/images";
+import images from "../../../../config/images";
 import styles from "./styles";
 
 export default class Profile extends Component {
