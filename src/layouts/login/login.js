@@ -1,21 +1,13 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  Image,
-  TouchableHighlight,
-  Modal,
-  Alert
-} from "react-native";
+import { View, Image, TouchableHighlight, Modal, Alert } from "react-native";
 
 import Icon from "../../components/icon";
+import TextInput from "../../components/textInput";
+import Button from "../../components/button";
 import LoginText from "./loginText";
 
 import images from "../../config/images";
 import styles from "./styles";
-
-const textInputColor = "white";
 
 class Login extends Component {
   constructor(props) {
@@ -31,7 +23,9 @@ class Login extends Component {
   };
 
   showAlert = () => {
-    Alert.alert("email sent.");
+    Alert.alert(
+      "willsmith@gmail.com has been sent an email, have a look at it to reset your password."
+    );
   };
 
   sendEmail = () => {
@@ -51,58 +45,55 @@ class Login extends Component {
             </LoginText>
           </View>
 
-          <View style={styles.body}>
+          <View style={styles.loginFields}>
             <View style={styles.loginForm}>
-              <TextInput
-                placeholder="Email address"
-                style={styles.textInput}
-                placeholderTextColor={textInputColor}
-                selectionColor={textInputColor}
-                underlineColorAndroid={textInputColor}
-              />
-              <TextInput
-                placeholder="Password"
-                style={styles.textInput}
-                placeholderTextColor={textInputColor}
-                selectionColor={textInputColor}
-                underlineColorAndroid={textInputColor}
-                secureTextEntry
-              />
+              <TextInput placeholder="Email address" color="white" />
+              <TextInput placeholder="Password" color="white" secureTextEntry />
             </View>
 
-            <View style={styles.center}>
-              <Text style={styles.centerText}>or</Text>
-            </View>
-
-            <TouchableHighlight
-              onPress={() => navigate("QrCode")}
-              style={[styles.button, styles.facebookLogo]}
-            >
-              <View style={styles.buttonChildren}>
-                <Icon source={images.facebookLogo} />
-                <Text style={styles.buttonText}>FACEBOOK</Text>
+            <Button onPress={() => navigate("QrCode")}>
+              <View>
+                <LoginText style={[styles.loginText]}>
+                  Login to my account >
+                </LoginText>
               </View>
-            </TouchableHighlight>
-            <TouchableHighlight
-              onPress={() => navigate("QrCode")}
-              style={[styles.button, styles.twitterLogo]}
-            >
-              <View style={styles.buttonChildren}>
-                <Icon source={images.twitterLogo} />
-                <Text style={styles.buttonText}>TWITTER</Text>
-              </View>
-            </TouchableHighlight>
+            </Button>
           </View>
 
+          <View style={styles.seperator}>
+            <LoginText>OR</LoginText>
+          </View>
+
+          <Button
+            onPress={() => navigate("QrCode")}
+            style={styles.facebookButton}
+          >
+            <View style={styles.buttonContainer}>
+              <Icon source={images.facebookLogo} style={styles.icon} />
+              <LoginText>Sign in with Facebook</LoginText>
+            </View>
+          </Button>
+
+          <Button
+            onPress={() => navigate("QrCode")}
+            style={styles.twitterButton}
+          >
+            <View style={styles.buttonContainer}>
+              <Icon source={images.twitterLogo} style={styles.icon} />
+              <LoginText>Sign in with Twitter</LoginText>
+            </View>
+          </Button>
+
           <View style={styles.help}>
-            <Text
-              style={styles.helpText}
-              onPress={() => navigate("RegisterStep1")}
-            >
-              Register
-            </Text>
+            <TouchableHighlight onPress={() => navigate("RegisterStep1")}>
+              <View>
+                <LoginText style={styles.helpText}>Register</LoginText>
+              </View>
+            </TouchableHighlight>
             <TouchableHighlight onPress={() => this.setModalVisible(true)}>
-              <Text style={styles.helpText}>Forgot password?</Text>
+              <View>
+                <LoginText style={styles.helpText}>Forgot password?</LoginText>
+              </View>
             </TouchableHighlight>
           </View>
         </View>
@@ -118,35 +109,25 @@ class Login extends Component {
             style={styles.backgroundImage}
             blurRadius={2}
           >
-            <View style={styles.forgottenpasswordTitle}>
-              <Text style={styles.forgottenPasswordTitleText}>
-                Forgotten Password
-              </Text>
-              <Text style={styles.forgottenPasswordText}>
+            <View style={styles.title}>
+              <LoginText style={styles.titleText}>Forgotten Password</LoginText>
+              <LoginText style={styles.forgottenPasswordDescription}>
                 Enter your email address, we will send you an email to confirm
                 if you want to reset your password.
-              </Text>
+              </LoginText>
             </View>
             <View style={styles.forgottenPassword}>
-              <TextInput
-                placeholder="Email address"
-                style={styles.textInput}
-                placeholderTextColor={textInputColor}
-                selectionColor={textInputColor}
-                underlineColorAndroid={textInputColor}
-              />
-              <TouchableHighlight
-                onPress={this.sendEmail}
-                style={styles.button}
-              >
-                <Text style={styles.buttonText}>Send email</Text>
-              </TouchableHighlight>
-              <TouchableHighlight
-                onPress={() => this.setModalVisible(false)}
-                style={styles.button}
-              >
-                <Text style={styles.buttonText}>Cancel</Text>
-              </TouchableHighlight>
+              <TextInput placeholder="Email address" color="white" />
+              <Button onPress={this.sendEmail}>
+                <View>
+                  <LoginText>Send email</LoginText>
+                </View>
+              </Button>
+              <Button onPress={() => this.setModalVisible(false)}>
+                <View>
+                  <LoginText>Cancel</LoginText>
+                </View>
+              </Button>
             </View>
           </Image>
         </Modal>

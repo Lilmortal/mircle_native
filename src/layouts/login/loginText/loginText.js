@@ -1,11 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
 import { Text } from "react-native";
 
 import styles from "./styles";
 
-const LoginText = ({ children, style }) =>
-  <Text style={[style, styles.loginFont]}>
-    {children}
-  </Text>;
+export default class LoginText extends Component {
+  setNativeProps = nativeProps => {
+    this._root.setNativeProps(nativeProps);
+  };
 
-export default LoginText;
+  render() {
+    const { children, style } = this.props;
+
+    return (
+      <Text style={[styles.loginFont, style]}>
+        {children}
+      </Text>
+    );
+  }
+}

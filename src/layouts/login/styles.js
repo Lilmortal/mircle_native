@@ -27,76 +27,50 @@ const styles = StyleSheet.create({
   titleDescription: {
     fontSize: 20
   },
-  body: {
-    flex: 4,
+  loginFields: {
+    flex: 2,
     justifyContent: "center"
   },
-  textInput: {
-    color: "white"
+  loginText: {
+    fontSize: 18,
+    fontWeight: "500"
   },
-  center: {
-    flexDirection: "row",
-    justifyContent: "center",
+  seperator: {
+    paddingTop: 5,
+    paddingBottom: 5,
     alignItems: "center"
   },
-  centerText: {
-    color: "white"
+  buttonContainer: {
+    flexDirection: "row"
   },
-  button: {
-    marginTop: 20,
-    marginBottom: 20,
-    borderColor: "purple",
-    backgroundColor: "purple",
-    height: 60,
-    borderRadius: 5,
-    borderWidth: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  facebookLogo: {
+  facebookButton: {
     backgroundColor: "#3b5998",
     borderColor: "#3b5998"
   },
-  twitterLogo: {
-    backgroundColor: "#1dcaff",
-    borderColor: "#1dcaff"
+  twitterButton: {
+    backgroundColor: "#00aced",
+    borderColor: "#00aced"
   },
-  buttonChildren: {
-    flexDirection: "row"
-  },
-  buttonText: {
-    marginLeft: 20,
-    color: "white"
+  icon: {
+    marginRight: 20
   },
   help: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    alignItems: "center"
   },
-  helpText: {
-    color: "white"
+  forgottenPasswordDescription: {
+    color: "white",
+    paddingLeft: 20,
+    paddingRight: 20,
+    textAlign: "center"
   },
   forgottenPassword: {
     flex: 3,
     width: windowWidth,
     paddingLeft: 20,
     paddingRight: 20
-  },
-  forgottenpasswordTitle: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  forgottenPasswordTitleText: {
-    color: "white",
-    fontSize: 40,
-    fontWeight: "bold"
-  },
-  forgottenPasswordText: {
-    color: "white",
-    paddingLeft: 20,
-    paddingRight: 20,
-    textAlign: "center"
   }
 });
 
