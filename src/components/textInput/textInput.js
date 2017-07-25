@@ -1,19 +1,33 @@
 import React from "react";
-import { TextInput } from "react-native";
+import { View, TextInput } from "react-native";
+
+import Icon from "../icon";
+
+import styles from "./styles";
 
 const CustomTextInput = ({
   placeholder,
+  icon,
   color = "gray",
   secureTextEntry = false,
-  style
-}) =>
-  <TextInput
-    placeholder={placeholder}
-    style={[{ color }, style]}
-    placeholderTextColor={color}
-    selectionColor={color}
-    underlineColorAndroid={color}
-    secureTextEntry={secureTextEntry}
-  />;
+  style,
+  hideUnderlineColor = false
+}) => {
+  return (
+    <View style={styles.textInputContainer}>
+      <View style={styles.icon}>
+        <Icon source={icon} />
+      </View>
+      <TextInput
+        placeholder={placeholder}
+        style={[{ color }, styles.textInput, style]}
+        placeholderTextColor={color}
+        selectionColor={color}
+        underlineColorAndroid={hideUnderlineColor ? "transparent" : color}
+        secureTextEntry={secureTextEntry}
+      />
+    </View>
+  );
+};
 
 export default CustomTextInput;

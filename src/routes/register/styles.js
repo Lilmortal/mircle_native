@@ -15,14 +15,6 @@ const styles = StyleSheet.create({
     flex: 3,
     justifyContent: "center"
   },
-  registerTextField: {
-    borderColor: "gray",
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingLeft: 10,
-    marginTop: 10,
-    marginBottom: 10
-  },
   submitArea: {
     flex: 1
   },

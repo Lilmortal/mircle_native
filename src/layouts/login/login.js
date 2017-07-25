@@ -49,7 +49,12 @@ class Login extends Component {
           <View style={styles.loginFields}>
             <View style={styles.loginForm}>
               <TextInput placeholder="Email address" color="white" />
-              <TextInput placeholder="Password" color="white" secureTextEntry />
+              <TextInput
+                icon={images.passwordIcon}
+                placeholder="Password"
+                color="white"
+                secureTextEntry
+              />
             </View>
 
             <Button onPress={() => navigate("QrCode")}>

@@ -1,8 +1,6 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 
 import colors from "../../config/color-palette";
-
-const windowWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
   container: {
@@ -61,8 +59,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   forgottenPassword: {
-    flex: 3,
-    width: windowWidth * 0.9
+    flex: 3
   }
 });
 

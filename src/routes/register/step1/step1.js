@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 
 import Button from "../../../components/button";
-import TextInput from "../../../components/textInput";
+import TextInput from "../components/registerTextInput";
 import BackgroundImage from "../../../components/backgroundImage";
 
 import images from "../../../config/images";
@@ -16,17 +16,8 @@ const RegisterStep1 = ({ navigation }) =>
       <Text style={registerStyles.titleText}>CREATE ACCOUNT</Text>
     </View>
     <View style={registerStyles.registerForm}>
-      <TextInput
-        placeholder="Email"
-        style={registerStyles.registerTextField}
-        underlineColorAndroid="transparent"
-      />
-      <TextInput
-        placeholder="Password"
-        style={registerStyles.registerTextField}
-        underlineColorAndroid="transparent"
-        secureTextEntry
-      />
+      <TextInput placeholder="Email" />
+      <TextInput placeholder="Password" secureTextEntry />
     </View>
     <View style={registerStyles.submitArea}>
       <Button
