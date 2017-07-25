@@ -1,46 +1,42 @@
 import React from "react";
-import { View, Text, TextInput, TouchableHighlight, Image } from "react-native";
+import { View, Text, Image } from "react-native";
+
+import Button from "../../../components/button";
+import TextInput from "../../../components/textInput";
+import BackgroundImage from "../../../components/backgroundImage";
 
 import images from "../../../config/images";
-import styles from "./styles";
+import registerStyles from "../styles";
 
 const textInputColor = "white";
 
 const RegisterStep1 = ({ navigation }) =>
-  <Image source={images.register} style={styles.backgroundImage} blurRadius={2}>
-    <View style={styles.stages} />
-
-    <View style={styles.title}>
-      <Text style={styles.titleText}>CREATE ACCOUNT</Text>
+  <BackgroundImage source={images.register}>
+    <View style={registerStyles.title}>
+      <Text style={registerStyles.titleText}>CREATE ACCOUNT</Text>
     </View>
-    <View style={styles.inputFields}>
+    <View style={registerStyles.registerForm}>
       <TextInput
-        style={styles.textInput}
-        underlineColorAndroid="transparent"
         placeholder="Email"
-        placeholderTextColor={textInputColor}
-        selectionColor={textInputColor}
-        underlineColorAndroid={textInputColor}
+        style={registerStyles.registerTextField}
+        underlineColorAndroid="transparent"
       />
       <TextInput
-        style={styles.textInput}
-        underlineColorAndroid="transparent"
         placeholder="Password"
-        placeholderTextColor={textInputColor}
-        selectionColor={textInputColor}
-        underlineColorAndroid={textInputColor}
+        style={registerStyles.registerTextField}
+        underlineColorAndroid="transparent"
         secureTextEntry
       />
     </View>
-    <View style={styles.submit}>
-      <TouchableHighlight
+    <View style={registerStyles.submitArea}>
+      <Button
         onPress={() => navigation.navigate("RegisterStep2")}
-        style={styles.button}
+        style={registerStyles.button}
       >
-        <Text style={styles.buttonText}>NEXT</Text>
-      </TouchableHighlight>
+        <Text style={registerStyles.buttonText}>NEXT</Text>
+      </Button>
     </View>
-  </Image>;
+  </BackgroundImage>;
 
 RegisterStep1.navigationOptions = {
   title: "Register step 1"

@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import fonts from "../../../config/fonts";
+import fonts from "../../../../config/fonts";
 
 const styles = {
   loginFont: {

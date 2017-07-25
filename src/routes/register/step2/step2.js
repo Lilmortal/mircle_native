@@ -1,61 +1,51 @@
 import React from "react";
-import { View, Text, TextInput, TouchableHighlight, Image } from "react-native";
+import { View, Text, Image } from "react-native";
+
+import Button from "../../../components/button";
+import TextInput from "../../../components/textInput";
+import BackgroundImage from "../../../components/backgroundImage";
 
 import images from "../../../config/images";
-import styles from "./styles";
-
-const textInputColor = "white";
+import registerStyles from "../styles";
 
 const RegisterStep2 = ({ navigation }) =>
-  <Image source={images.register} style={styles.backgroundImage} blurRadius={2}>
-    <View style={styles.stages} />
-
-    <View style={styles.title}>
-      <Text style={styles.titleText}>We like to know more about you...</Text>
+  <BackgroundImage source={images.register}>
+    <View style={registerStyles.title}>
+      <Text style={registerStyles.titleText}>
+        We like to know more about you...
+      </Text>
     </View>
-    <View style={styles.inputFields}>
+    <View style={registerStyles.registerForm}>
       <TextInput
-        style={styles.textInput}
-        underlineColorAndroid="transparent"
         placeholder="First Name"
-        placeholderTextColor={textInputColor}
-        selectionColor={textInputColor}
-        underlineColorAndroid={textInputColor}
+        style={registerStyles.registerTextField}
+        underlineColorAndroid="transparent"
       />
       <TextInput
-        style={styles.textInput}
-        underlineColorAndroid="transparent"
         placeholder="Last Name"
-        placeholderTextColor={textInputColor}
-        selectionColor={textInputColor}
-        underlineColorAndroid={textInputColor}
+        style={registerStyles.registerTextField}
+        underlineColorAndroid="transparent"
       />
       <TextInput
-        style={styles.textInput}
-        underlineColorAndroid="transparent"
         placeholder="Age"
-        placeholderTextColor={textInputColor}
-        selectionColor={textInputColor}
-        underlineColorAndroid={textInputColor}
+        style={registerStyles.registerTextField}
+        underlineColorAndroid="transparent"
       />
       <TextInput
-        style={styles.textInput}
-        underlineColorAndroid="transparent"
         placeholder="Occupation"
-        placeholderTextColor={textInputColor}
-        selectionColor={textInputColor}
-        underlineColorAndroid={textInputColor}
+        style={registerStyles.registerTextField}
+        underlineColorAndroid="transparent"
       />
     </View>
-    <View style={styles.submit}>
-      <TouchableHighlight
+    <View style={registerStyles.submitArea}>
+      <Button
         onPress={() => navigation.navigate("RegisterSummary")}
-        style={styles.button}
+        style={registerStyles.button}
       >
-        <Text style={styles.buttonText}>SUMMARY</Text>
-      </TouchableHighlight>
+        <Text style={registerStyles.buttonText}>SUMMARY</Text>
+      </Button>
     </View>
-  </Image>;
+  </BackgroundImage>;
 
 RegisterStep2.navigationOptions = {
   title: "Register step 2"

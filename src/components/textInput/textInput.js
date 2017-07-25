@@ -4,11 +4,12 @@ import { TextInput } from "react-native";
 const CustomTextInput = ({
   placeholder,
   color = "gray",
-  secureTextEntry = false
+  secureTextEntry = false,
+  style
 }) =>
   <TextInput
     placeholder={placeholder}
-    style={{ color }}
+    style={[{ color }, style]}
     placeholderTextColor={color}
     selectionColor={color}
     underlineColorAndroid={color}

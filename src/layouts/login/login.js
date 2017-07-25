@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { View, Image, TouchableHighlight, Modal, Alert } from "react-native";
 
+import BackgroundImage from "../../components/backgroundImage";
 import Icon from "../../components/icon";
 import TextInput from "../../components/textInput";
 import Button from "../../components/button";
-import LoginText from "./loginText";
+import LoginText from "./components/loginText";
 
 import images from "../../config/images";
 import styles from "./styles";
@@ -36,7 +37,7 @@ class Login extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <Image source={images.city} style={styles.backgroundImage} blurRadius={2}>
+      <BackgroundImage source={images.city}>
         <View style={styles.container}>
           <View style={styles.title}>
             <LoginText style={styles.titleText}>Mircle</LoginText>
@@ -104,11 +105,7 @@ class Login extends Component {
           visible={this.state.forgottenPasswordModalVisible}
           onRequestClose={() => this.setModalVisible(false)}
         >
-          <Image
-            source={images.city}
-            style={styles.backgroundImage}
-            blurRadius={2}
-          >
+          <BackgroundImage source={images.city}>
             <View style={styles.title}>
               <LoginText style={styles.titleText}>Forgotten Password</LoginText>
               <LoginText style={styles.forgottenPasswordDescription}>
@@ -129,9 +126,9 @@ class Login extends Component {
                 </View>
               </Button>
             </View>
-          </Image>
+          </BackgroundImage>
         </Modal>
-      </Image>
+      </BackgroundImage>
     );
   }
 }

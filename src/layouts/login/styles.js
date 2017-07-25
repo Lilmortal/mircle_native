@@ -5,14 +5,8 @@ import colors from "../../config/color-palette";
 const windowWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    width: null,
-    height: null,
-    resizeMode: "cover",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column"
+  container: {
+    flex: 1
   },
   title: {
     flex: 2,
@@ -68,9 +62,7 @@ const styles = StyleSheet.create({
   },
   forgottenPassword: {
     flex: 3,
-    width: windowWidth,
-    paddingLeft: 20,
-    paddingRight: 20
+    width: windowWidth * 0.9
   }
 });
 
