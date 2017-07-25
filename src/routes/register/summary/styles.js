@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  summaryBody: {
+  summaries: {
     flex: 3,
     flexDirection: "column"
   },
@@ -9,23 +9,23 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center"
   },
-  summaries: {
+  biographies: {
     flex: 2,
-    flexDirection: "row"
+    flexDirection: "row",
+    flexWrap: "wrap"
   },
-  summary: {
+  biography: {
     padding: 10,
     margin: 10,
     borderWidth: 1,
     borderColor: "gray",
-    borderRadius: 5,
-    flexWrap: "wrap"
+    borderRadius: 5
   },
-  summaryDescription: {
+  biographyText: {
     color: "white",
     fontSize: 20
   },
-  summaryTitle: {
+  biographyTitle: {
     fontSize: 10,
     color: "white",
     textAlign: "center"

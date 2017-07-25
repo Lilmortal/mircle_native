@@ -15,26 +15,34 @@ const RegisterSummary = ({ navigation }) =>
     <View style={registerStyles.title}>
       <Text style={registerStyles.titleText}>Is this you?</Text>
     </View>
-    <View style={styles.summaryBody}>
+    <View style={styles.summaries}>
       <View style={styles.profilePicture}>
         <ProfilePicture source={images.anonymous} />
       </View>
-      <View style={styles.summaries}>
-        <View style={styles.summary}>
-          <Text style={styles.summaryDescription}>Will Smith</Text>
-          <Text style={styles.summaryTitle}>Name</Text>
+      <View style={styles.biographies}>
+        <View style={styles.biography}>
+          <Text style={styles.biographyText}>Will Smith</Text>
+          <Text style={styles.biographyTitle}>Name</Text>
         </View>
-        <View style={styles.summary}>
-          <Text style={styles.summaryDescription}>willsmith@gmail.com</Text>
-          <Text style={styles.summaryTitle}>Email</Text>
+        <View style={styles.biography}>
+          <Text style={styles.biographyText}>willsmith@gmail.com</Text>
+          <Text style={styles.biographyTitle}>Email</Text>
         </View>
-        {/*<SummaryText>Email: willsmith@gmail.com</SummaryText>
-        <SummaryText>Age: 45</SummaryText>
-        <SummaryText>Occupation: Actor</SummaryText>*/}
+        <View style={styles.biography}>
+          <Text style={styles.biographyText}>45</Text>
+          <Text style={styles.biographyTitle}>Age</Text>
+        </View>
+        <View style={styles.biography}>
+          <Text style={styles.biographyText}>Actor</Text>
+          <Text style={styles.biographyTitle}>Occupation</Text>
+        </View>
       </View>
     </View>
     <View style={registerStyles.submitArea}>
-      <Button onPress={() => navigation.navigate("RegisterEmailConfirmation")}>
+      <Button
+        onPress={() => navigation.navigate("RegisterEmailConfirmation")}
+        style={registerStyles.button}
+      >
         <Text style={registerStyles.buttonText}>YES</Text>
       </Button>
     </View>
