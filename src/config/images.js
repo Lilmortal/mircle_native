@@ -1,6 +1,7 @@
 import anonymous from "../assets/images/anonymous.gif";
 import camera from "../assets/images/camera.png";
 import city from "../assets/images/city.jpg";
+import drawerNavigation from "../assets/images/drawerNavigationBackground.jpeg";
 import emailIcon from "../assets/images/emailIcon.png";
 import facebookLogo from "../assets/images/facebookLogo.jpg";
 import feedsIcon from "../assets/images/feedsIcon.png";
@@ -17,6 +18,7 @@ const images = {
   anonymous,
   camera,
   city,
+  drawerNavigation,
   emailIcon,
   facebookLogo,
   feedsIcon,

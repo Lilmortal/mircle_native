@@ -13,6 +13,9 @@ import {
 
 import { withOptions } from "./routeLibs";
 
+import BackgroundImage from "../../components/backgroundImage";
+import ProfilePicture from "../../components/profilePicture";
+
 //import BaseLayout from "../../layouts/baseLayout";
 import LoginScreen from "../../layouts/login";
 import RegisterStep1Screen from "../../routes/register/step1";
@@ -34,11 +37,41 @@ import SettingsScreen from "../../routes/settings";
 
 //const FriendsScreenWithLayout = withLayout(BaseLayout)(FriendsScreen);
 
+const styles = {
+  drawerNavigation: {
+    width: null,
+    height: null,
+    resizeMode: "cover"
+  },
+  header: {
+    height: 200,
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 2
+  },
+  name: {
+    fontWeight: "bold",
+    fontSize: 25,
+    color: "white"
+  },
+  email: {
+    fontSize: 10,
+    color: "white"
+  }
+};
 const contentComponent = props =>
   <View>
-    <View style={{ backgroundColor: "blue" }}>
-      <Text>Test</Text>
-    </View>
+    <Image
+      source={images.drawerNavigation}
+      style={styles.drawerNavigation}
+      blurRadius={1}
+    >
+      <View style={styles.header}>
+        <ProfilePicture source={images.anonymous} />
+        <Text style={styles.name}>Will Smith</Text>
+        <Text style={styles.email}>willsmith@gmail.com</Text>
+      </View>
+    </Image>
     <DrawerItems {...props} />
   </View>;
 
@@ -46,10 +79,6 @@ const mainOptions = ({ navigation }) => ({
   headerLeft: <Hamburger onPress={() => navigation.navigate("DrawerOpen")} />,
   headerRight: (
     <View style={{ flexDirection: "row" }}>
-      <Image
-        source={images.profile}
-        style={{ marginRight: 20, width: 50, height: 50 }}
-      />
       <Image
         source={images.camera}
         style={{ width: 50, height: 50, marginRight: 10 }}
@@ -61,10 +90,6 @@ const mainOptions = ({ navigation }) => ({
 const childOptions = () => ({
   headerRight: (
     <View style={{ flexDirection: "row" }}>
-      <Image
-        source={images.profile}
-        style={{ marginRight: 20, width: 50, height: 50 }}
-      />
       <Image
         source={images.camera}
         style={{ width: 50, height: 50, marginRight: 10 }}
@@ -118,7 +143,7 @@ const drawerNav = DrawerNavigator(
   },
   {
     initialRouteName: "Login",
-    drawerWidth: 200,
+    drawerWidth: 300,
     contentComponent
   }
 );
