@@ -7,7 +7,8 @@ import images from "../images";
 import {
   StackNavigator,
   DrawerNavigator,
-  TabNavigator
+  TabNavigator,
+  DrawerItems
 } from "react-navigation";
 
 import { withOptions } from "./routeLibs";
@@ -33,15 +34,13 @@ import SettingsScreen from "../../routes/settings";
 
 //const FriendsScreenWithLayout = withLayout(BaseLayout)(FriendsScreen);
 
-/*const contentComponent = props => {
-  console.log(props);
-
-  return (
-    <View>
+const contentComponent = props =>
+  <View>
+    <View style={{ backgroundColor: "blue" }}>
       <Text>Test</Text>
     </View>
-  );
-};*/
+    <DrawerItems {...props} />
+  </View>;
 
 const mainOptions = ({ navigation }) => ({
   headerLeft: <Hamburger onPress={() => navigation.navigate("DrawerOpen")} />,
@@ -119,8 +118,8 @@ const drawerNav = DrawerNavigator(
   },
   {
     initialRouteName: "Login",
-    drawerWidth: 200
-    //contentComponent
+    drawerWidth: 200,
+    contentComponent
   }
 );
 
