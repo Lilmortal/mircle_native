@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text } from "react-native";
 import QRCode from "react-native-qrcode";
 
+import Icon from "../../components/icon";
+import images from "../../config/images";
 import styles from "./styles";
 
 const QrCodeScreen = () =>
@@ -18,7 +20,8 @@ const QrCodeScreen = () =>
   </View>;
 
 QrCodeScreen.navigationOptions = {
-  title: "QR Code"
+  title: "QR Code",
+  drawerIcon: () => <Icon source={images.qrCodeIcon} />
 };
 
 export default QrCodeScreen;

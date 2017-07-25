@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Text, Image } from "react-native";
 import Hamburger from "../../components/hamburger";
 
 import images from "../images";
@@ -32,6 +32,16 @@ import RequestProfileScreen from "../../routes/friends/request/profile";
 import SettingsScreen from "../../routes/settings";
 
 //const FriendsScreenWithLayout = withLayout(BaseLayout)(FriendsScreen);
+
+/*const contentComponent = props => {
+  console.log(props);
+
+  return (
+    <View>
+      <Text>Test</Text>
+    </View>
+  );
+};*/
 
 const mainOptions = ({ navigation }) => ({
   headerLeft: <Hamburger onPress={() => navigation.navigate("DrawerOpen")} />,
@@ -110,6 +120,7 @@ const drawerNav = DrawerNavigator(
   {
     initialRouteName: "Login",
     drawerWidth: 200
+    //contentComponent
   }
 );
 

@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { View, Text, Image, ListView, TouchableHighlight } from "react-native";
 
+import Icon from "../../../components/icon";
+
 import images from "../../../config/images";
 import styles from "./styles";
 
 export default class BlockedFriends extends Component {
   static navigationOptions = {
-    title: "Blocked"
+    title: "Blocked",
+    drawerIcon: () => <Icon source={images.friendsIcon} />
   };
 
   state: {

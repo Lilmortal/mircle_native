@@ -11,6 +11,13 @@ import images from "../../config/images";
 import styles from "./styles";
 
 class Login extends Component {
+  static navigationOptions = {
+    title: "Logout",
+    tabBarVisible: false,
+    header: false,
+    drawerIcon: () => <Icon source={images.logoutIcon} />
+  };
+
   constructor(props) {
     super(props);
 
@@ -118,8 +125,8 @@ class Login extends Component {
                 if you want to reset your password.
               </LoginText>
             </View>
-            <View style={styles.forgottenPassword}>
-              <TextInput placeholder="Email address" color="white" />
+            <TextInput placeholder="Email address" color="white" />
+            <View style={styles.forgottenPasswordSubmitArea}>
               <Button onPress={this.sendEmail}>
                 <View>
                   <LoginText>Send email</LoginText>
@@ -137,11 +144,5 @@ class Login extends Component {
     );
   }
 }
-
-Login.navigationOptions = {
-  title: "Logout",
-  tabBarVisible: false,
-  header: false
-};
 
 export default Login;

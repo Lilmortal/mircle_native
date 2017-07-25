@@ -3,11 +3,14 @@
 import React, { Component } from "react";
 import { View, Text, TextInput, Button, Slider, Switch } from "react-native";
 
+import Icon from "../../components/icon";
+import images from "../../config/images";
 import styles from "./styles";
 
 export default class Settings extends Component {
   static navigationOptions = {
-    title: "Settings"
+    title: "Settings",
+    drawerIcon: () => <Icon source={images.settingsIcon} />
   };
 
   state: {

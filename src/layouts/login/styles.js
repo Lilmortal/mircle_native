@@ -58,8 +58,9 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     textAlign: "center"
   },
-  forgottenPassword: {
-    flex: 3
+  forgottenPasswordSubmitArea: {
+    flex: 3,
+    justifyContent: "center"
   }
 });
 

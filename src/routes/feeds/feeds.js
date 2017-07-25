@@ -3,12 +3,13 @@
 import React, { Component } from "react";
 import { View, Text, Image, ListView } from "react-native";
 
+import Icon from "../../components/icon";
 import images from "../../config/images";
 import styles from "./styles";
 
 export default class Feeds extends Component {
   static navigationOptions = {
-    drawerLabel: "Feeds",
+    drawerIcon: () => <Icon source={images.feedsIcon} />,
     title: "Feeds"
   };
 
