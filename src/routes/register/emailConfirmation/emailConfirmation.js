@@ -4,6 +4,7 @@ import { View, Text, TextInput, TouchableHighlight, Image } from "react-native";
 import BackgroundImage from "../../../components/backgroundImage";
 import Button from "../../../components/button";
 
+import colors from "../../../config/color-palette";
 import images from "../../../config/images";
 import registerStyles from "../styles";
 import styles from "./styles";
@@ -32,7 +33,11 @@ const RegisterSummary = ({ navigation }) =>
 
 RegisterSummary.navigationOptions = {
   title: "Email Confirmation",
-  headerLeft: null
+  headerLeft: null,
+  headerTintColor: "white",
+  headerStyle: {
+    backgroundColor: colors.red
+  }
 };
 
 export default RegisterSummary;

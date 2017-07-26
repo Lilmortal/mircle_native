@@ -5,6 +5,7 @@ import Button from "../../../components/button";
 import TextInput from "../components/registerTextInput";
 import BackgroundImage from "../../../components/backgroundImage";
 
+import colors from "../../../config/color-palette";
 import images from "../../../config/images";
 import registerStyles from "../styles";
 
@@ -32,7 +33,11 @@ const RegisterStep2 = ({ navigation }) =>
   </BackgroundImage>;
 
 RegisterStep2.navigationOptions = {
-  title: "Register step 2"
+  title: "Register step 2",
+  headerTintColor: "white",
+  headerStyle: {
+    backgroundColor: colors.red
+  }
 };
 
 export default RegisterStep2;

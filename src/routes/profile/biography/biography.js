@@ -5,6 +5,7 @@ import ProfilePicture from "../../../components/profilePicture";
 import Icon from "../../../components/icon";
 import Button from "../../../components/button";
 import images from "../../../config/images";
+import colors from "../../../config/color-palette";
 import styles from "./styles";
 
 const Biography = () =>
@@ -35,6 +36,11 @@ const Biography = () =>
   </View>;
 
 Biography.navigationOptions = {
+  title: "Profile",
+  headerTintColor: "white",
+  headerStyle: {
+    backgroundColor: colors.lightPurple
+  },
   drawerIcon: () => <Icon source={images.profileIcon} />
 };
 export default Biography;

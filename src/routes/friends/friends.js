@@ -1,14 +1,20 @@
 import React, { Component } from "react";
 import { View, Text, Image, ListView, TouchableHighlight } from "react-native";
 
-import ProfilePicture from "../../../components/profilePicture";
-import Icon from "../../../components/icon";
-import images from "../../../config/images";
+import ProfilePicture from "../../components/profilePicture";
+import Icon from "../../components/icon";
+
+import colors from "../../config/color-palette";
+import images from "../../config/images";
 import styles from "./styles";
 
-export default class PendingFriends extends Component {
+export default class Friends extends Component {
   static navigationOptions = {
-    title: "Pending",
+    title: "Friends",
+    headerTintColor: "white",
+    headerStyle: {
+      backgroundColor: colors.lightPurple
+    },
     drawerIcon: () => <Icon source={images.friendsIcon} />
   };
 
@@ -76,7 +82,7 @@ export default class PendingFriends extends Component {
           dataSource={this.state.dataSource}
           renderRow={rowData =>
             <TouchableHighlight
-              onPress={() => this.props.navigation.navigate("PendingProfile")}
+              onPress={() => this.props.navigation.navigate("FriendsProfile")}
             >
               <View style={styles.friends}>
                 <ProfilePicture source={rowData.profilePicture} />

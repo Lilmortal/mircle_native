@@ -5,6 +5,7 @@ import BackgroundImage from "../../../components/backgroundImage";
 import ProfilePicture from "../../../components/profilePicture";
 import Button from "../../../components/button";
 
+import colors from "../../../config/color-palette";
 import SummaryText from "./summaryText";
 import images from "../../../config/images";
 import registerStyles from "../styles";
@@ -49,7 +50,11 @@ const RegisterSummary = ({ navigation }) =>
   </BackgroundImage>;
 
 RegisterSummary.navigationOptions = {
-  title: "Summary"
+  title: "Summary",
+  headerTintColor: "white",
+  headerStyle: {
+    backgroundColor: colors.red
+  }
 };
 
 export default RegisterSummary;

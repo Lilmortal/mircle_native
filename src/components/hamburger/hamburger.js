@@ -19,7 +19,7 @@ const Hamburger = ({ onPress }) =>
           marginLeft: 0,
           width: 25,
           marginBottom: 0,
-          backgroundColor: "black"
+          backgroundColor: "white"
         }}
       />
       <View
@@ -27,7 +27,7 @@ const Hamburger = ({ onPress }) =>
           height: 3,
           width: 25,
           opacity: 1,
-          backgroundColor: "black",
+          backgroundColor: "white",
           marginTop: 4
         }}
       />
@@ -36,7 +36,7 @@ const Hamburger = ({ onPress }) =>
           height: 3,
           marginLeft: 0,
           width: 25,
-          backgroundColor: "black",
+          backgroundColor: "white",
           marginTop: 4
         }}
       />

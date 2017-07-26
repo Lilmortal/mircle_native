@@ -27,14 +27,7 @@ import RegisterEmailConfirmationScreen from "../../routes/register/emailConfirma
 
 import QrCodeScreen from "../../routes/qrCode";
 import FeedsScreen from "../../routes/feeds";
-import BlockedFriendsScreen from "../../routes/friends/blocked";
-import FriendsScreen from "../../routes/friends/friends";
-import PendingFriendsScreen from "../../routes/friends/pending";
-import RequestFriendsScreen from "../../routes/friends/request";
-import BlockedProfileScreen from "../../routes/friends/blocked/profile";
-import FriendsProfileScreen from "../../routes/friends/friends/profile";
-import PendingProfileScreen from "../../routes/friends/pending/profile";
-import RequestProfileScreen from "../../routes/friends/request/profile";
+import FriendsScreen from "../../routes/friends";
 import BiographyScreen from "../../routes/profile/biography";
 import SettingsScreen from "../../routes/settings";
 
@@ -157,19 +150,9 @@ const feedsStack = StackNavigator({
   Feeds: withOptions(FeedsScreen)(mainOptions)
 });
 
-const friendsTab = TabNavigator({
-  Friends: { screen: FriendsScreen },
-  Pending: { screen: PendingFriendsScreen },
-  Request: { screen: RequestFriendsScreen },
-  Blocked: { screen: BlockedFriendsScreen }
-});
-
 const friendsStack = StackNavigator({
-  Friends: withOptions(friendsTab)(mainOptions),
-  BlockedProfile: withOptions(BiographyScreen)(childOptions),
-  FriendsProfile: withOptions(BiographyScreen)(childOptions),
-  PendingProfile: withOptions(BiographyScreen)(childOptions),
-  RequestProfile: withOptions(BiographyScreen)(childOptions)
+  Friends: withOptions(FriendsScreen)(mainOptions),
+  FriendsProfile: withOptions(BiographyScreen)(childOptions)
 });
 
 const settingsStack = StackNavigator({

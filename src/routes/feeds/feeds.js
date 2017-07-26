@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { View, Text, Image, ListView } from "react-native";
 
 import ProfilePicture from "../../components/profilePicture";
+import colors from "../../config/color-palette";
 import Icon from "../../components/icon";
 import images from "../../config/images";
 import styles from "./styles";
@@ -11,7 +12,11 @@ import styles from "./styles";
 export default class Feeds extends Component {
   static navigationOptions = {
     drawerIcon: () => <Icon source={images.feedsIcon} />,
-    title: "Feeds"
+    title: "Feeds",
+    headerTintColor: "white",
+    headerStyle: {
+      backgroundColor: colors.lightPurple
+    }
   };
 
   state: {
