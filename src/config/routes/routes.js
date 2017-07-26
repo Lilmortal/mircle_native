@@ -146,7 +146,7 @@ const profileTabs = TabNavigator(
 );
 
 const profileStack = StackNavigator({
-  Profile: withOptions(profileTabs)(mainOptions)
+  Profile: withOptions(BiographyScreen)(mainOptions)
 });
 
 const qrCodeStack = StackNavigator({
@@ -166,10 +166,10 @@ const friendsTab = TabNavigator({
 
 const friendsStack = StackNavigator({
   Friends: withOptions(friendsTab)(mainOptions),
-  BlockedProfile: withOptions(BlockedProfileScreen)(childOptions),
-  FriendsProfile: withOptions(FriendsProfileScreen)(childOptions),
-  PendingProfile: withOptions(PendingProfileScreen)(childOptions),
-  RequestProfile: withOptions(RequestProfileScreen)(childOptions)
+  BlockedProfile: withOptions(BiographyScreen)(childOptions),
+  FriendsProfile: withOptions(BiographyScreen)(childOptions),
+  PendingProfile: withOptions(BiographyScreen)(childOptions),
+  RequestProfile: withOptions(BiographyScreen)(childOptions)
 });
 
 const settingsStack = StackNavigator({
