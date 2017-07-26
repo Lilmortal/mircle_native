@@ -8,10 +8,8 @@ import BackgroundImage from "../../../components/backgroundImage";
 import images from "../../../config/images";
 import registerStyles from "../styles";
 
-const textInputColor = "white";
-
 const RegisterStep1 = ({ navigation }) =>
-  <BackgroundImage source={images.register}>
+  <BackgroundImage source={images.register1}>
     <View style={registerStyles.title}>
       <Text style={registerStyles.titleText}>CREATE ACCOUNT</Text>
     </View>
@@ -30,7 +28,8 @@ const RegisterStep1 = ({ navigation }) =>
   </BackgroundImage>;
 
 RegisterStep1.navigationOptions = {
-  title: "Register step 1"
+  headerTitle: "Register step 1",
+  headerBackTitle: "Login page"
 };
 
 export default RegisterStep1;

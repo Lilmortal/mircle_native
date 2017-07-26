@@ -4,7 +4,7 @@ import { Image } from "react-native";
 import styles from "./styles";
 
 const BackgroundImage = ({ source, children }) =>
-  <Image source={source} style={styles.backgroundImage} blurRadius={2}>
+  <Image source={source} style={styles.backgroundImage}>
     {children}
   </Image>;
 

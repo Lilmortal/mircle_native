@@ -27,11 +27,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around"
   },
-  profilePicture: {
-    width: 50,
-    height: 100,
-    flex: 1
-  },
   profileContainer: {
     flex: 2,
     flexDirection: "column",

@@ -9,7 +9,7 @@ import images from "../../../config/images";
 import registerStyles from "../styles";
 
 const RegisterStep2 = ({ navigation }) =>
-  <BackgroundImage source={images.register}>
+  <BackgroundImage source={images.register1}>
     <View style={registerStyles.title}>
       <Text style={registerStyles.titleText}>
         We like to know more about you...

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, Image, ListView, TouchableHighlight } from "react-native";
 
+import ProfilePicture from "../../../components/profilePicture";
 import Icon from "../../../components/icon";
 import images from "../../../config/images";
 import styles from "./styles";
@@ -78,10 +79,7 @@ export default class RequestingFriends extends Component {
               onPress={() => this.props.navigation.navigate("RequestProfile")}
             >
               <View style={styles.friends}>
-                <Image
-                  source={rowData.profilePicture}
-                  style={styles.profilePicture}
-                />
+                <ProfilePicture source={rowData.profilePicture} />
                 <View style={styles.profileContainer}>
                   <Text style={styles.profileName}>
                     {rowData.profileName}

@@ -4,8 +4,8 @@ import fonts from "../../../../config/fonts";
 
 const styles = {
   loginFont: {
-    color: "white",
-    fontFamily: fonts.loginTitleFont
+    color: "white"
+    //fontFamily: fonts.loginTitleFont
   }
 };
 

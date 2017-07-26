@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableHighlight } from "react-native";
 import Hamburger from "../../components/hamburger";
 
 import images from "../images";
@@ -33,6 +33,7 @@ import BlockedProfileScreen from "../../routes/friends/blocked/profile";
 import FriendsProfileScreen from "../../routes/friends/friends/profile";
 import PendingProfileScreen from "../../routes/friends/pending/profile";
 import RequestProfileScreen from "../../routes/friends/request/profile";
+import ProfileScreen from "../../routes/profile";
 import SettingsScreen from "../../routes/settings";
 
 //const FriendsScreenWithLayout = withLayout(BaseLayout)(FriendsScreen);
@@ -59,19 +60,22 @@ const styles = {
     color: "white"
   }
 };
+
 const contentComponent = props =>
   <View>
-    <Image
-      source={images.drawerNavigation}
-      style={styles.drawerNavigation}
-      blurRadius={1}
-    >
-      <View style={styles.header}>
-        <ProfilePicture source={images.anonymous} />
-        <Text style={styles.name}>Will Smith</Text>
-        <Text style={styles.email}>willsmith@gmail.com</Text>
-      </View>
-    </Image>
+    <TouchableHighlight onPress={() => props.navigation.navigate("Profile")}>
+      <Image
+        source={images.drawerNavigation}
+        style={styles.drawerNavigation}
+        blurRadius={1}
+      >
+        <View style={styles.header}>
+          <ProfilePicture source={images.anonymous} />
+          <Text style={styles.name}>Will Smith</Text>
+          <Text style={styles.email}>willsmith@gmail.com</Text>
+        </View>
+      </Image>
+    </TouchableHighlight>
     <DrawerItems {...props} />
   </View>;
 
@@ -111,6 +115,10 @@ const friendsTab = TabNavigator({
   Pending: { screen: PendingFriendsScreen },
   Request: { screen: RequestFriendsScreen },
   Blocked: { screen: BlockedFriendsScreen }
+});
+
+const profileStack = StackNavigator({
+  Profile: withOptions(ProfileScreen)(mainOptions)
 });
 
 const friendsStack = StackNavigator({

@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import { View, Text, Image, ListView } from "react-native";
 
+import ProfilePicture from "../../components/profilePicture";
 import Icon from "../../components/icon";
 import images from "../../config/images";
 import styles from "./styles";
@@ -77,10 +78,7 @@ export default class Feeds extends Component {
           dataSource={this.state.dataSource}
           renderRow={rowData =>
             <View style={styles.feed}>
-              <Image
-                source={rowData.profilePicture}
-                style={styles.profilePicture}
-              />
+              <ProfilePicture source={rowData.profilePicture} />
               <View style={styles.profileContainer}>
                 <Text style={styles.profileName}>
                   {rowData.profileName}

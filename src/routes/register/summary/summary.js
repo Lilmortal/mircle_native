@@ -11,7 +11,7 @@ import registerStyles from "../styles";
 import styles from "./styles";
 
 const RegisterSummary = ({ navigation }) =>
-  <BackgroundImage source={images.register}>
+  <BackgroundImage source={images.register1}>
     <View style={registerStyles.title}>
       <Text style={registerStyles.titleText}>Is this you?</Text>
     </View>

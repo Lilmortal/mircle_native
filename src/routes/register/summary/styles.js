@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     borderWidth: 1,
-    borderColor: "gray",
+    borderColor: "white",
     borderRadius: 5
   },
   biographyText: {

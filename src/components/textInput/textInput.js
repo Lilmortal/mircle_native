@@ -14,16 +14,16 @@ const CustomTextInput = ({
   hideUnderlineColor = false
 }) => {
   return (
-    <View style={styles.textInputContainer}>
-      <View style={styles.icon}>
-        <Icon source={icon} />
-      </View>
+    <View
+      style={[styles.textInputContainer, hideUnderlineColor && styles.noBorder]}
+    >
+      <Icon source={icon} />
       <TextInput
         placeholder={placeholder}
         style={[{ color }, styles.textInput, style]}
         placeholderTextColor={color}
         selectionColor={color}
-        underlineColorAndroid={hideUnderlineColor ? "transparent" : color}
+        underlineColorAndroid="transparent"
         secureTextEntry={secureTextEntry}
       />
     </View>

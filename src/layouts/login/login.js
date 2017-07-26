@@ -44,7 +44,7 @@ class Login extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <BackgroundImage source={images.city}>
+      <BackgroundImage source={images.city1}>
         <View style={styles.container}>
           <View style={styles.title}>
             <LoginText style={styles.titleText}>Mircle</LoginText>
@@ -55,7 +55,11 @@ class Login extends Component {
 
           <View style={styles.loginFields}>
             <View style={styles.loginForm}>
-              <TextInput placeholder="Email address" color="white" />
+              <TextInput
+                icon={images.emailIcon}
+                placeholder="Email address"
+                color="white"
+              />
               <TextInput
                 icon={images.passwordIcon}
                 placeholder="Password"
@@ -117,7 +121,7 @@ class Login extends Component {
           visible={this.state.forgottenPasswordModalVisible}
           onRequestClose={() => this.setModalVisible(false)}
         >
-          <BackgroundImage source={images.city}>
+          <BackgroundImage source={images.city1}>
             <View style={styles.title}>
               <LoginText style={styles.titleText}>Forgotten Password</LoginText>
               <LoginText style={styles.forgottenPasswordDescription}>

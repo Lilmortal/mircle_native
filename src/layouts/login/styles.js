@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+import fonts from "../../config/fonts";
 import colors from "../../config/color-palette";
 
 const styles = StyleSheet.create({
@@ -13,8 +14,8 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 40,
-    fontWeight: "bold",
-    alignItems: "center"
+    alignItems: "center",
+    fontFamily: fonts.loginTitleFont
   },
   titleDescription: {
     fontSize: 20
