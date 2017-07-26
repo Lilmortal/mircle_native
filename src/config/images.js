@@ -10,6 +10,8 @@ import friendsIcon from "../assets/images/friendsIcon.png";
 import logoutIcon from "../assets/images/logoutIcon.jpg";
 import passwordIcon from "../assets/images/passwordIcon.png";
 import profile from "../assets/images/profile.png";
+import profileBackground from "../assets/images/profileBackground.jpg";
+import profileIcon from "../assets/images/profileIcon.jpg";
 import qrCodeIcon from "../assets/images/qrcodeIcon.png";
 import register from "../assets/images/register.jpg";
 import register1 from "../assets/images/register1.jpg";
@@ -29,6 +31,8 @@ const images = {
   logoutIcon,
   passwordIcon,
   profile,
+  profileBackground,
+  profileIcon,
   qrCodeIcon,
   register,
   register1,

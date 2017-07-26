@@ -3294,6 +3294,12 @@ react-native-hamburger@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/react-native-hamburger/-/react-native-hamburger-0.0.2.tgz#c1ebcb8cb091287e1dcfc1364a97f3b73d20a9b5"
 
+react-native-progress@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-progress/-/react-native-progress-3.3.0.tgz#da7a6942f44c42aed507576525d9e15cee1a7c2f"
+  dependencies:
+    prop-types "^15.5.8"
+
 react-native-qrcode@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/react-native-qrcode/-/react-native-qrcode-0.2.3.tgz#cce06c5a8509c1f55a18d79053ace6fa0cedb376"

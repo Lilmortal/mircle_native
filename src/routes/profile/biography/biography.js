@@ -1,21 +1,22 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
 
-import ProfilePicture from "../../components/profilePicture";
-import Icon from "../../components/icon";
-import Button from "../../components/button";
-import images from "../../config/images";
+import ProfilePicture from "../../../components/profilePicture";
+import Icon from "../../../components/icon";
+import Button from "../../../components/button";
+import images from "../../../config/images";
 import styles from "./styles";
 
-const Profile = () =>
+const Biography = () =>
   <View style={styles.profile}>
     <Image source={images.profileBackground} style={styles.profilePicture}>
       <ProfilePicture source={images.anonymous} size={250} />
+
+      <View style={styles.profileName}>
+        <Text style={styles.profileNameText}>Will Smith</Text>
+        <Text style={styles.email}>willsmith@gmail.com</Text>
+      </View>
     </Image>
-    <View style={styles.profileName}>
-      <Text style={styles.profileNameText}>Will Smith</Text>
-      <Text style={styles.email}>willsmith@gmail.com</Text>
-    </View>
 
     <View style={styles.biography}>
       <View style={styles.biographyList}>
@@ -33,4 +34,7 @@ const Profile = () =>
     </View>
   </View>;
 
-export default Profile;
+Biography.navigationOptions = {
+  drawerIcon: () => <Icon source={images.profileIcon} />
+};
+export default Biography;

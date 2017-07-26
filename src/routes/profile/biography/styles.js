@@ -9,7 +9,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    width: null,
+    height: null,
+    resizeMode: "cover"
   },
   profileName: {
     marginBottom: 10
@@ -17,11 +20,13 @@ const styles = StyleSheet.create({
   profileNameText: {
     fontWeight: "500",
     fontSize: 35,
-    textAlign: "center"
+    textAlign: "center",
+    color: "white"
   },
   email: {
     fontSize: 15,
-    textAlign: "center"
+    textAlign: "center",
+    color: "white"
   },
   biography: {
     flex: 1,

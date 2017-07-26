@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 40,
     alignItems: "center",
-    fontFamily: fonts.loginTitleFont
+    fontFamily: fonts.loginTitleFont,
+    textAlign: "center"
   },
   titleDescription: {
     fontSize: 20

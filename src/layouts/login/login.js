@@ -129,7 +129,11 @@ class Login extends Component {
                 if you want to reset your password.
               </LoginText>
             </View>
-            <TextInput placeholder="Email address" color="white" />
+            <TextInput
+              icon={images.emailIcon}
+              placeholder="Email address"
+              color="white"
+            />
             <View style={styles.forgottenPasswordSubmitArea}>
               <Button onPress={this.sendEmail}>
                 <View>
