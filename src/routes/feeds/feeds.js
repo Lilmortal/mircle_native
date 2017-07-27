@@ -4,9 +4,8 @@ import React, { Component } from "react";
 import { View, Text, Image, ListView } from "react-native";
 
 import ProfilePicture from "../../components/profilePicture";
-import colors from "../../config/color-palette";
 import Icon from "../../components/icon";
-import images from "../../config/images";
+import { colors, images } from "../../config";
 import styles from "./styles";
 
 export default class Feeds extends Component {
@@ -15,7 +14,7 @@ export default class Feeds extends Component {
     title: "Feeds",
     headerTintColor: "white",
     headerStyle: {
-      backgroundColor: colors.lightPurple
+      backgroundColor: colors.navigationHeader
     }
   };
 

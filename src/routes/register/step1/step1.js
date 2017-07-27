@@ -1,12 +1,11 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
 
-import colors from "../../../config/color-palette";
 import Button from "../../../components/button";
 import TextInput from "../components/registerTextInput";
 import BackgroundImage from "../../../components/backgroundImage";
 
-import images from "../../../config/images";
+import { colors, images } from "../../../config";
 import registerStyles from "../styles";
 
 const RegisterStep1 = ({ navigation }) =>
@@ -33,7 +32,7 @@ RegisterStep1.navigationOptions = {
   headerBackTitle: "Login page",
   headerTintColor: "white",
   headerStyle: {
-    backgroundColor: colors.red
+    backgroundColor: colors.settings
   }
 };
 

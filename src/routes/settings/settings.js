@@ -4,8 +4,7 @@ import React, { Component } from "react";
 import { View, Text, TextInput, Button, Slider, Switch } from "react-native";
 
 import Icon from "../../components/icon";
-import colors from "../../config/color-palette";
-import images from "../../config/images";
+import { colors, images } from "../../config";
 import styles from "./styles";
 
 export default class Settings extends Component {
@@ -14,7 +13,7 @@ export default class Settings extends Component {
     drawerIcon: () => <Icon source={images.settingsIcon} />,
     headerTintColor: "white",
     headerStyle: {
-      backgroundColor: colors.red
+      backgroundColor: colors.settings
     }
   };
 

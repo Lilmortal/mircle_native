@@ -4,8 +4,7 @@ import { View, Text, Image, ListView, TouchableHighlight } from "react-native";
 import ProfilePicture from "../../components/profilePicture";
 import Icon from "../../components/icon";
 
-import colors from "../../config/color-palette";
-import images from "../../config/images";
+import { colors, images } from "../../config";
 import styles from "./styles";
 
 export default class Friends extends Component {
@@ -13,7 +12,7 @@ export default class Friends extends Component {
     title: "Friends",
     headerTintColor: "white",
     headerStyle: {
-      backgroundColor: colors.lightPurple
+      backgroundColor: colors.navigationHeader
     },
     drawerIcon: () => <Icon source={images.friendsIcon} />
   };

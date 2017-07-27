@@ -7,7 +7,7 @@ import TextInput from "../../components/textInput";
 import Button from "../../components/button";
 import LoginText from "./components/loginText";
 
-import images from "../../config/images";
+import { images } from "../../config";
 import styles from "./styles";
 
 class Login extends Component {

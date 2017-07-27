@@ -5,9 +5,8 @@ import BackgroundImage from "../../../components/backgroundImage";
 import ProfilePicture from "../../../components/profilePicture";
 import Button from "../../../components/button";
 
-import colors from "../../../config/color-palette";
+import { colors, images } from "../../../config";
 import SummaryText from "./summaryText";
-import images from "../../../config/images";
 import registerStyles from "../styles";
 import styles from "./styles";
 
@@ -53,7 +52,7 @@ RegisterSummary.navigationOptions = {
   title: "Summary",
   headerTintColor: "white",
   headerStyle: {
-    backgroundColor: colors.red
+    backgroundColor: colors.settings
   }
 };
 

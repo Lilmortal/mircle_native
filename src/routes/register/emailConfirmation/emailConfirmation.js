@@ -4,8 +4,7 @@ import { View, Text, TextInput, TouchableHighlight, Image } from "react-native";
 import BackgroundImage from "../../../components/backgroundImage";
 import Button from "../../../components/button";
 
-import colors from "../../../config/color-palette";
-import images from "../../../config/images";
+import { colors, images } from "../../../config";
 import registerStyles from "../styles";
 import styles from "./styles";
 
@@ -36,7 +35,7 @@ RegisterSummary.navigationOptions = {
   headerLeft: null,
   headerTintColor: "white",
   headerStyle: {
-    backgroundColor: colors.red
+    backgroundColor: colors.settings
   }
 };
 

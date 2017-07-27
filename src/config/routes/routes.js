@@ -28,7 +28,7 @@ import RegisterEmailConfirmationScreen from "../../routes/register/emailConfirma
 import QrCodeScreen from "../../routes/qrCode";
 import FeedsScreen from "../../routes/feeds";
 import FriendsScreen from "../../routes/friends";
-import BiographyScreen from "../../routes/profile/biography";
+import ProfileScreen from "../../routes/profile";
 import SettingsScreen from "../../routes/settings";
 
 //const FriendsScreenWithLayout = withLayout(BaseLayout)(FriendsScreen);
@@ -131,7 +131,7 @@ const register4Options = ({ navigation }) => ({
 
 const profileTabs = TabNavigator(
   {
-    Biography: { screen: BiographyScreen }
+    Biography: { screen: ProfileScreen }
   },
   {
     tabBarPosition: "bottom"
@@ -139,7 +139,7 @@ const profileTabs = TabNavigator(
 );
 
 const profileStack = StackNavigator({
-  Profile: withOptions(BiographyScreen)(mainOptions)
+  Profile: withOptions(ProfileScreen)(mainOptions)
 });
 
 const qrCodeStack = StackNavigator({
@@ -152,7 +152,7 @@ const feedsStack = StackNavigator({
 
 const friendsStack = StackNavigator({
   Friends: withOptions(FriendsScreen)(mainOptions),
-  FriendsProfile: withOptions(BiographyScreen)(childOptions)
+  FriendsProfile: withOptions(ProfileScreen)(childOptions)
 });
 
 const settingsStack = StackNavigator({
