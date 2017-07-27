@@ -1,10 +1,42 @@
 import React from "react";
+import { View, Image } from "react-native";
 import { StackNavigator } from "react-navigation";
+import * as Progress from "react-native-progress";
 
-export const withOptions = screen => navigationOptions => {
+import Hamburger from "../../components/hamburger";
+import { images } from "../../config";
+
+export const withOptions = screen => options => {
   return {
     screen,
-    navigationOptions
+    navigationOptions: ({ navigation }) => {
+      const opt = {};
+      if (options.hasHamburgerMenu) {
+        opt.headerLeft = (
+          <Hamburger onPress={() => navigation.navigate("DrawerOpen")} />
+        );
+      }
+
+      opt.headerRight = (
+        <View
+          style={{
+            flexDirection: "row",
+            paddingRight: 20,
+            alignItems: "center"
+          }}
+        >
+          {options.hasCamera &&
+            <Image
+              source={images.camera}
+              style={{ width: 50, height: 50, marginRight: 10 }}
+            />}
+          {options.hasProgressPie &&
+            <Progress.Pie progress={options.progress} showsText />}
+        </View>
+      );
+
+      return opt;
+    }
   };
 };
 
