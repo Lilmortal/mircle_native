@@ -21,7 +21,6 @@ export const withOptions = screen => options => {
         <View
           style={{
             flexDirection: "row",
-            paddingRight: 20,
             alignItems: "center"
           }}
         >
@@ -31,7 +30,11 @@ export const withOptions = screen => options => {
               style={{ width: 50, height: 50, marginRight: 10 }}
             />}
           {options.hasProgressPie &&
-            <Progress.Pie progress={options.progress} showsText />}
+            <Progress.Pie
+              progress={options.progress}
+              showsText
+              style={{ marginRight: 10 }}
+            />}
         </View>
       );
 
