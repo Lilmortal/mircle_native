@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  drawerNavigation: {
+  drawerPanel: {
     width: null,
     height: null,
     resizeMode: "cover"

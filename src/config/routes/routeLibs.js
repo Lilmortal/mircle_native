@@ -1,12 +1,18 @@
 import React from "react";
-import { View, Image } from "react-native";
-import { StackNavigator } from "react-navigation";
+import { View, Text, Image } from "react-native";
 import * as Progress from "react-native-progress";
 
 import Hamburger from "../../components/hamburger";
 import { images } from "../../config";
 
-export const withOptions = screen => options => {
+export const withOptions = BaseLayout => Component => options => {
+  const screen = ({ navigation }) =>
+    <BaseLayout>
+      <Component navigation={navigation} />
+    </BaseLayout>;
+
+  screen.navigationOptions = Component.navigationOptions;
+
   return {
     screen,
     navigationOptions: ({ navigation }) => {
@@ -42,8 +48,3 @@ export const withOptions = screen => options => {
     }
   };
 };
-
-export const withLayout = Layout => Container =>
-  <Layout>
-    {Container}
-  </Layout>;

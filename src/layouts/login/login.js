@@ -45,7 +45,7 @@ class Login extends Component {
     const { navigate } = this.props.navigation;
     return (
       <BackgroundImage source={images.city1}>
-        <View style={styles.container}>
+        <View style={styles.loginContainer}>
           <View style={styles.title}>
             <LoginText style={styles.titleText}>Mircle</LoginText>
             <LoginText style={styles.titleDescription}>
@@ -53,8 +53,8 @@ class Login extends Component {
             </LoginText>
           </View>
 
-          <View style={styles.loginFields}>
-            <View style={styles.loginForm}>
+          <View style={styles.loginForm}>
+            <View>
               <TextInput
                 icon={images.emailIcon}
                 placeholder="Email address"
@@ -70,7 +70,7 @@ class Login extends Component {
 
             <Button onPress={() => navigate("QrCode")}>
               <View>
-                <LoginText style={[styles.loginText]}>
+                <LoginText style={styles.loginText}>
                   Login to my account >
                 </LoginText>
               </View>

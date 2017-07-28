@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { colors, fonts } from "../../config";
 
 const styles = StyleSheet.create({
-  container: {
+  loginContainer: {
     flex: 1
   },
   title: {
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   titleDescription: {
     fontSize: 20
   },
-  loginFields: {
+  loginForm: {
     flex: 2,
     justifyContent: "center"
   },

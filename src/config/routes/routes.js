@@ -10,7 +10,7 @@ import {
 import DrawerPanel from "./drawerPanel";
 import { withOptions } from "./routeLibs";
 
-//import BaseLayout from "../../layouts/baseLayout";
+import BaseLayout from "../../layouts/baseLayout";
 import LoginScreen from "../../layouts/login";
 import RegisterStep1Screen from "../../routes/register/step1";
 import RegisterStep2Screen from "../../routes/register/step2";
@@ -26,62 +26,70 @@ import SettingsScreen from "../../routes/settings";
 //const FriendsScreenWithLayout = withLayout(BaseLayout)(FriendsScreen);
 
 const profileStack = StackNavigator({
-  Profile: withOptions(ProfileScreen)({
+  Profile: withOptions(BaseLayout)(ProfileScreen)({
     hasHamburgerMenu: true,
     hasCamera: true
   })
 });
 
 const qrCodeStack = StackNavigator({
-  QrCode: withOptions(QrCodeScreen)({ hasHamburgerMenu: true, hasCamera: true })
+  QrCode: withOptions(BaseLayout)(QrCodeScreen)({
+    hasHamburgerMenu: true,
+    hasCamera: true
+  })
 });
 
 const feedsStack = StackNavigator({
-  Feeds: withOptions(FeedsScreen)({ hasHamburgerMenu: true, hasCamera: true })
+  Feeds: withOptions(BaseLayout)(FeedsScreen)({
+    hasHamburgerMenu: true,
+    hasCamera: true
+  })
 });
 
 const friendsStack = StackNavigator({
-  Friends: withOptions(FriendsScreen)({
+  Friends: withOptions(BaseLayout)(FriendsScreen)({
     hasHamburgerMenu: true,
     hasCamera: true
   }),
-  FriendsProfile: withOptions(ProfileScreen)({
+  FriendsProfile: withOptions(BaseLayout)(ProfileScreen)({
     hasHamburgerMenu: false,
     hasCamera: true
   })
 });
 
 const settingsStack = StackNavigator({
-  Settings: withOptions(SettingsScreen)({
+  Settings: withOptions(BaseLayout)(SettingsScreen)({
     hasHamburgerMenu: true,
     hasCamera: true
   })
 });
 
 const loginStack = StackNavigator({
-  Login: withOptions(LoginScreen)({
+  Login: withOptions(BaseLayout)(LoginScreen)({
     hasHamburgerMenu: false,
     hasCamera: false
   }),
-  RegisterStep1: withOptions(RegisterStep1Screen)({
+  RegisterStep1: withOptions(BaseLayout)(RegisterStep1Screen)({
     hasHamburgerMenu: false,
     hasCamera: false,
     hasProgressPie: true,
     progress: 0.25
   }),
-  RegisterStep2: withOptions(RegisterStep2Screen)({
+  RegisterStep2: withOptions(BaseLayout)(RegisterStep2Screen)({
     hasHamburgerMenu: false,
     hasCamera: false,
     hasProgressPie: true,
     progress: 0.5
   }),
-  RegisterSummary: withOptions(RegisterSummaryScreen)({
+  RegisterSummary: withOptions(BaseLayout)(RegisterSummaryScreen)({
     hasHamburgerMenu: false,
     hasCamera: false,
     hasProgressPie: true,
     progress: 0.75
   }),
-  RegisterEmailConfirmation: withOptions(RegisterEmailConfirmationScreen)({
+  RegisterEmailConfirmation: withOptions(BaseLayout)(
+    RegisterEmailConfirmationScreen
+  )({
     hasHamburgerMenu: false,
     hasCamera: false,
     hasProgressPie: true,
