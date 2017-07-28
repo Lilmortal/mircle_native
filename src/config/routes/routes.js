@@ -11,19 +11,19 @@ import DrawerPanel from "./drawerPanel";
 import { withOptions } from "./routeLibs";
 
 import BaseLayout from "../../layouts/baseLayout";
-import LoginScreen from "../../layouts/login";
+import LoginLayout from "../../layouts/login";
+
+import ForgotPasswordScreen from "../../routes/forgotPassword";
+import LoginScreen from "../../routes/login";
 import RegisterStep1Screen from "../../routes/register/step1";
 import RegisterStep2Screen from "../../routes/register/step2";
 import RegisterSummaryScreen from "../../routes/register/summary";
 import RegisterEmailConfirmationScreen from "../../routes/register/emailConfirmation";
-
 import QrCodeScreen from "../../routes/qrCode";
 import FeedsScreen from "../../routes/feeds";
 import FriendsScreen from "../../routes/friends";
 import ProfileScreen from "../../routes/profile";
 import SettingsScreen from "../../routes/settings";
-
-//const FriendsScreenWithLayout = withLayout(BaseLayout)(FriendsScreen);
 
 const profileStack = StackNavigator({
   Profile: withOptions(BaseLayout)(ProfileScreen)({
@@ -65,7 +65,11 @@ const settingsStack = StackNavigator({
 });
 
 const loginStack = StackNavigator({
-  Login: withOptions(BaseLayout)(LoginScreen)({
+  Login: withOptions(LoginLayout)(LoginScreen)({
+    hasHamburgerMenu: false,
+    hasCamera: false
+  }),
+  ForgotPassword: withOptions(LoginLayout)(ForgotPasswordScreen)({
     hasHamburgerMenu: false,
     hasCamera: false
   }),
