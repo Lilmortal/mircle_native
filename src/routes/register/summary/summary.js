@@ -1,7 +1,6 @@
 import React from "react";
-import { View, Text, TextInput, Image } from "react-native";
+import { View, Text, TextInput } from "react-native";
 
-import BackgroundImage from "../../../components/backgroundImage";
 import ProfilePicture from "../../../components/profilePicture";
 import Button from "../../../components/button";
 
@@ -11,7 +10,7 @@ import registerStyles from "../styles";
 import styles from "./styles";
 
 const RegisterSummary = ({ navigation }) =>
-  <BackgroundImage source={images.register1}>
+  <View style={registerStyles.register}>
     <View style={registerStyles.title}>
       <Text style={registerStyles.titleText}>Is this you?</Text>
     </View>
@@ -46,7 +45,7 @@ const RegisterSummary = ({ navigation }) =>
         <Text style={registerStyles.buttonText}>YES</Text>
       </Button>
     </View>
-  </BackgroundImage>;
+  </View>;
 
 RegisterSummary.navigationOptions = {
   title: "Summary",

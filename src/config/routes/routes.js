@@ -12,6 +12,7 @@ import { withOptions } from "./routeLibs";
 
 import BaseLayout from "../../layouts/baseLayout";
 import LoginLayout from "../../layouts/login";
+import RegisterLayout from "../../layouts/register";
 
 import ForgotPasswordScreen from "../../routes/forgotPassword";
 import LoginScreen from "../../routes/login";
@@ -73,25 +74,25 @@ const loginStack = StackNavigator({
     hasHamburgerMenu: false,
     hasCamera: false
   }),
-  RegisterStep1: withOptions(BaseLayout)(RegisterStep1Screen)({
+  RegisterStep1: withOptions(RegisterLayout)(RegisterStep1Screen)({
     hasHamburgerMenu: false,
     hasCamera: false,
     hasProgressPie: true,
     progress: 0.25
   }),
-  RegisterStep2: withOptions(BaseLayout)(RegisterStep2Screen)({
+  RegisterStep2: withOptions(RegisterLayout)(RegisterStep2Screen)({
     hasHamburgerMenu: false,
     hasCamera: false,
     hasProgressPie: true,
     progress: 0.5
   }),
-  RegisterSummary: withOptions(BaseLayout)(RegisterSummaryScreen)({
+  RegisterSummary: withOptions(RegisterLayout)(RegisterSummaryScreen)({
     hasHamburgerMenu: false,
     hasCamera: false,
     hasProgressPie: true,
     progress: 0.75
   }),
-  RegisterEmailConfirmation: withOptions(BaseLayout)(
+  RegisterEmailConfirmation: withOptions(RegisterLayout)(
     RegisterEmailConfirmationScreen
   )({
     hasHamburgerMenu: false,

@@ -1,15 +1,14 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text } from "react-native";
 
 import Button from "../../../components/button";
 import TextInput from "../components/registerTextInput";
-import BackgroundImage from "../../../components/backgroundImage";
 
-import { colors, images } from "../../../config";
+import { colors } from "../../../config";
 import registerStyles from "../styles";
 
 const RegisterStep2 = ({ navigation }) =>
-  <BackgroundImage source={images.register1}>
+  <View style={registerStyles.register}>
     <View style={registerStyles.title}>
       <Text style={registerStyles.titleText}>
         We like to know more about you...
@@ -29,7 +28,7 @@ const RegisterStep2 = ({ navigation }) =>
         <Text style={registerStyles.buttonText}>SUMMARY</Text>
       </Button>
     </View>
-  </BackgroundImage>;
+  </View>;
 
 RegisterStep2.navigationOptions = {
   title: "Register step 2",

@@ -52,16 +52,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center"
-  },
-  forgottenPasswordDescription: {
-    color: "white",
-    paddingLeft: 20,
-    paddingRight: 20,
-    textAlign: "center"
-  },
-  forgottenPasswordSubmitArea: {
-    flex: 3,
-    justifyContent: "center"
   }
 });
 

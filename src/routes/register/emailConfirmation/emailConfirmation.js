@@ -1,15 +1,14 @@
 import React from "react";
-import { View, Text, TextInput, TouchableHighlight, Image } from "react-native";
+import { View, Text } from "react-native";
 
-import BackgroundImage from "../../../components/backgroundImage";
 import Button from "../../../components/button";
 
-import { colors, images } from "../../../config";
+import { colors } from "../../../config";
 import registerStyles from "../styles";
 import styles from "./styles";
 
 const RegisterSummary = ({ navigation }) =>
-  <BackgroundImage source={images.register1}>
+  <View style={registerStyles.register}>
     <View style={registerStyles.title}>
       <Text style={registerStyles.titleText}>
         Email confirmation has been sent.
@@ -28,7 +27,7 @@ const RegisterSummary = ({ navigation }) =>
         <Text style={registerStyles.buttonText}>Back to login page</Text>
       </Button>
     </View>
-  </BackgroundImage>;
+  </View>;
 
 RegisterSummary.navigationOptions = {
   title: "Email Confirmation",
