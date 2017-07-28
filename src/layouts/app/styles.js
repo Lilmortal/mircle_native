@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 const styles = {
-  baseLayout: {
+  appLayout: {
     flex: 1,
     flexDirection: "column"
   }

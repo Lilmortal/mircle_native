@@ -7,9 +7,7 @@ import styles from "./styles";
 
 const LoginLayout = ({ children }) =>
   <BackgroundImage source={images.city1}>
-    <View style={styles.loginLayout}>
-      {children}
-    </View>
+    {children}
   </BackgroundImage>;
 
 export default LoginLayout;

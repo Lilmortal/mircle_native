@@ -3,9 +3,9 @@ import { View } from "react-native";
 
 import styles from "./styles";
 
-const BaseLayout = ({ children }) =>
-  <View style={styles.baseLayout}>
+const AppLayout = ({ children }) =>
+  <View style={styles.appLayout}>
     {children}
   </View>;
 
-export default BaseLayout;
+export default AppLayout;

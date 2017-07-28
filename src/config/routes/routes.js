@@ -1,16 +1,11 @@
 import React from "react";
 import { View } from "react-native";
-import {
-  StackNavigator,
-  DrawerNavigator,
-  TabNavigator,
-  DrawerItems
-} from "react-navigation";
+import { StackNavigator, DrawerNavigator, DrawerItems } from "react-navigation";
 
 import DrawerPanel from "./drawerPanel";
 import { withOptions } from "./routeLibs";
 
-import BaseLayout from "../../layouts/baseLayout";
+import AppLayout from "../../layouts/app";
 import LoginLayout from "../../layouts/login";
 import RegisterLayout from "../../layouts/register";
 
@@ -27,39 +22,39 @@ import ProfileScreen from "../../routes/profile";
 import SettingsScreen from "../../routes/settings";
 
 const profileStack = StackNavigator({
-  Profile: withOptions(BaseLayout)(ProfileScreen)({
+  Profile: withOptions(AppLayout)(ProfileScreen)({
     hasHamburgerMenu: true,
     hasCamera: true
   })
 });
 
 const qrCodeStack = StackNavigator({
-  QrCode: withOptions(BaseLayout)(QrCodeScreen)({
+  QrCode: withOptions(AppLayout)(QrCodeScreen)({
     hasHamburgerMenu: true,
     hasCamera: true
   })
 });
 
 const feedsStack = StackNavigator({
-  Feeds: withOptions(BaseLayout)(FeedsScreen)({
+  Feeds: withOptions(AppLayout)(FeedsScreen)({
     hasHamburgerMenu: true,
     hasCamera: true
   })
 });
 
 const friendsStack = StackNavigator({
-  Friends: withOptions(BaseLayout)(FriendsScreen)({
+  Friends: withOptions(AppLayout)(FriendsScreen)({
     hasHamburgerMenu: true,
     hasCamera: true
   }),
-  FriendsProfile: withOptions(BaseLayout)(ProfileScreen)({
+  FriendsProfile: withOptions(AppLayout)(ProfileScreen)({
     hasHamburgerMenu: false,
     hasCamera: true
   })
 });
 
 const settingsStack = StackNavigator({
-  Settings: withOptions(BaseLayout)(SettingsScreen)({
+  Settings: withOptions(AppLayout)(SettingsScreen)({
     hasHamburgerMenu: true,
     hasCamera: true
   })
