@@ -56,7 +56,7 @@ const Login = ({ navigation }) =>
     </Button>
 
     <Button
-      onPress={() => navigation.emailIconnavigate("QrCode")}
+      onPress={() => navigation.navigate("QrCode")}
       style={styles.twitterButton}
     >
       <View style={styles.buttonContainer}>
