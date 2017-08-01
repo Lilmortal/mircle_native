@@ -8,8 +8,18 @@ const styles = {
   camera: {
     flex: 1,
     backgroundColor: "blue",
-    zIndex: 1,
+    zIndex: 1
     //position: "absolute",
+  },
+  qrCode: {
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1
+  },
+  qrCodeText: {
+    fontSize: 40,
+    fontWeight: "bold",
+    color: "red"
   }
 };
 
