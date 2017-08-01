@@ -19,9 +19,14 @@
     "react-native": "0.46.2",
     "react-native-camera": "https://github.com/lwansbrough/react-native-camera.git",
     "react-native-hamburger": "^0.0.2",
+    "react-native-maps": "^0.15.3",
     "react-native-progress": "^3.3.0",
     "react-native-qrcode": "^0.2.3",
-    "react-navigation": "^1.0.0-beta.11"
+    "react-navigation": "^1.0.0-beta.11",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

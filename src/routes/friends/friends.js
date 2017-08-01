@@ -81,7 +81,10 @@ export default class Friends extends Component {
           dataSource={this.state.dataSource}
           renderRow={rowData =>
             <TouchableHighlight
-              onPress={() => this.props.navigation.navigate("FriendsProfile")}
+              onPress={() =>
+                this.props.navigation.navigate("FriendsProfile", {
+                  isAFriend: true
+                })}
             >
               <View style={styles.friends}>
                 <ProfilePicture source={rowData.profilePicture} />

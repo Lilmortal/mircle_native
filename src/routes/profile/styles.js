@@ -30,8 +30,6 @@ const styles = StyleSheet.create({
   },
   biography: {
     flex: 1,
-    borderBottomWidth: 1,
-    borderColor: "gray",
     flexDirection: "row",
     flexWrap: "wrap",
     paddingLeft: 20,
@@ -46,6 +44,15 @@ const styles = StyleSheet.create({
   biographyDescription: {
     fontSize: 10,
     textAlign: "center"
+  },
+  map: {
+    flex: 1,
+    flexDirection: "column",
+    marginLeft: 10,
+    marginRight: 10
+  },
+  buttonMap: {
+    borderColor: "black"
   }
 });
 

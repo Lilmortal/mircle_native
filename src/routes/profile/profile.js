@@ -1,13 +1,13 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
 
+import Button from "../../components/button";
 import ProfilePicture from "../../components/profilePicture";
 import Icon from "../../components/icon";
-import Button from "../../components/button";
 import { colors, images } from "../../config";
 import styles from "./styles";
 
-const Biography = () =>
+const Biography = ({ navigation, isAFriend = true }) =>
   <View style={styles.profile}>
     <Image source={images.profileBackground} style={styles.profilePicture}>
       <ProfilePicture source={images.anonymous} size={250} />
@@ -32,6 +32,16 @@ const Biography = () =>
         <Text style={styles.biographyDescription}>company</Text>
       </View>
     </View>
+
+    {isAFriend &&
+      <View style={styles.map}>
+        <Button
+          onPress={() => navigation.navigate("FriendsMap")}
+          style={styles.buttonMap}
+        >
+          <Text>Where have you two meet before?</Text>
+        </Button>
+      </View>}
   </View>;
 
 Biography.navigationOptions = {

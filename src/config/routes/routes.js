@@ -18,6 +18,7 @@ import RegisterEmailConfirmationScreen from "../../routes/register/emailConfirma
 import QrCodeScreen from "../../routes/qrCode";
 import FeedsScreen from "../../routes/feeds";
 import FriendsScreen from "../../routes/friends";
+import MapScreen from "../../routes/map";
 import ProfileScreen from "../../routes/profile";
 import SettingsScreen from "../../routes/settings";
 
@@ -48,6 +49,10 @@ const friendsStack = StackNavigator({
     hasCamera: true
   }),
   FriendsProfile: withOptions(AppLayout)(ProfileScreen)({
+    hasHamburgerMenu: false,
+    hasCamera: true
+  }),
+  FriendsMap: withOptions(AppLayout)(MapScreen)({
     hasHamburgerMenu: false,
     hasCamera: true
   })

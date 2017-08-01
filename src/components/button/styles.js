@@ -4,6 +4,8 @@ const styles = {
   button: {
     marginTop: 10,
     marginBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
     borderColor: "white",
     backgroundColor: "transparent",
     height: 50,
