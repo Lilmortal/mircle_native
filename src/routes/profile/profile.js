@@ -7,7 +7,7 @@ import Icon from "../../components/icon";
 import { colors, images } from "../../config";
 import styles from "./styles";
 
-const Biography = ({ navigation, isAFriend = true }) =>
+const Biography = ({ navigation }) =>
   <View style={styles.profile}>
     <Image source={images.profileBackground} style={styles.profilePicture}>
       <ProfilePicture source={images.anonymous} size={250} />
@@ -33,7 +33,8 @@ const Biography = ({ navigation, isAFriend = true }) =>
       </View>
     </View>
 
-    {isAFriend &&
+    {navigation.state.params &&
+      navigation.state.params.isAFriend &&
       <View style={styles.map}>
         <Button
           onPress={() => navigation.navigate("FriendsMap")}

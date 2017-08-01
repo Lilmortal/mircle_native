@@ -75,6 +75,8 @@ export default class Friends extends Component {
   }
 
   render() {
+    const { navigation } = this.props;
+
     return (
       <View style={styles.container}>
         <ListView
@@ -82,7 +84,7 @@ export default class Friends extends Component {
           renderRow={rowData =>
             <TouchableHighlight
               onPress={() =>
-                this.props.navigation.navigate("FriendsProfile", {
+                navigation.navigate("FriendsProfile", {
                   isAFriend: true
                 })}
             >

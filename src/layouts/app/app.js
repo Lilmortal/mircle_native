@@ -15,7 +15,6 @@ class AppLayout extends Component {
   }
 
   readQRCode = qrCode => {
-    console.log(qrCode);
     if (qrCode.type === "QR_CODE") this.setState({ qrCode: qrCode.data });
   };
 
