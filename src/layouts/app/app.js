@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
-
 import Camera from "react-native-camera";
+
 import styles from "./styles";
 
 const readQRCode = data => {};

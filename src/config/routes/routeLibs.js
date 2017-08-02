@@ -27,7 +27,13 @@ export const withOptions = BaseLayout => Component => options => {
       <Component navigation={navigation} />
     </BaseLayout>;
 
-  screen.navigationOptions = Component.navigationOptions;
+  options.navigationOptions = {
+    ...options.navigationOptions,
+    drawerIcon: options.drawerIcon,
+    title: options.title,
+    headerLeft: options.headerLeft
+  };
+  screen.navigationOptions = options.navigationOptions;
 
   return {
     screen,

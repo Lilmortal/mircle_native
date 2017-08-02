@@ -2,20 +2,9 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import MapView from "react-native-maps";
 
-import { colors, images } from "../../config";
-import Icon from "../../components/icon";
 import styles from "./styles";
 
 export default class Map extends Component {
-  static navigationOptions = {
-    title: "Where you two meet each other",
-    headerTintColor: "white",
-    headerStyle: {
-      backgroundColor: colors.navigationHeader
-    },
-    drawerIcon: () => <Icon source={images.profileIcon} />
-  };
-
   render() {
     return (
       <View style={styles.container}>

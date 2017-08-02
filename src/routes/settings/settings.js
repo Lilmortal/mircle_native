@@ -3,20 +3,9 @@
 import React, { Component } from "react";
 import { View, Text, TextInput, Button, Slider, Switch } from "react-native";
 
-import Icon from "../../components/icon";
-import { colors, images } from "../../config";
 import styles from "./styles";
 
 export default class Settings extends Component {
-  static navigationOptions = {
-    title: "Settings",
-    drawerIcon: () => <Icon source={images.settingsIcon} />,
-    headerTintColor: "white",
-    headerStyle: {
-      backgroundColor: colors.settings
-    }
-  };
-
   state: {
     passwordModalVisible: boolean
   };

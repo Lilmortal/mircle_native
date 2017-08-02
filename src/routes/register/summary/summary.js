@@ -4,7 +4,7 @@ import { View, Text, TextInput } from "react-native";
 import ProfilePicture from "../../../components/profilePicture";
 import Button from "../../../components/button";
 
-import { colors, images } from "../../../config";
+import { images } from "../../../config";
 import SummaryText from "./summaryText";
 import registerStyles from "../styles";
 import styles from "./styles";
@@ -46,13 +46,5 @@ const RegisterSummary = ({ navigation }) =>
       </Button>
     </View>
   </View>;
-
-RegisterSummary.navigationOptions = {
-  title: "Summary",
-  headerTintColor: "white",
-  headerStyle: {
-    backgroundColor: colors.settings
-  }
-};
 
 export default RegisterSummary;

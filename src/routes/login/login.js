@@ -79,11 +79,4 @@ const Login = ({ navigation }) =>
     </View>
   </View>;
 
-Login.navigationOptions = {
-  title: "Logout",
-  tabBarVisible: false,
-  header: false,
-  drawerIcon: () => <Icon source={images.logoutIcon} />
-};
-
 export default Login;

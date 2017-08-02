@@ -3,8 +3,7 @@ import { View, Text, Image } from "react-native";
 
 import Button from "../../components/button";
 import ProfilePicture from "../../components/profilePicture";
-import Icon from "../../components/icon";
-import { colors, images } from "../../config";
+import { images } from "../../config";
 import styles from "./styles";
 
 const Biography = ({ navigation }) =>
@@ -45,12 +44,4 @@ const Biography = ({ navigation }) =>
       </View>}
   </View>;
 
-Biography.navigationOptions = {
-  title: "Profile",
-  headerTintColor: "white",
-  headerStyle: {
-    backgroundColor: colors.navigationHeader
-  },
-  drawerIcon: () => <Icon source={images.profileIcon} />
-};
 export default Biography;

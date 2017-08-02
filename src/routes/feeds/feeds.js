@@ -4,20 +4,10 @@ import React, { Component } from "react";
 import { View, Text, Image, ListView } from "react-native";
 
 import ProfilePicture from "../../components/profilePicture";
-import Icon from "../../components/icon";
-import { colors, images } from "../../config";
+import { images } from "../../config";
 import styles from "./styles";
 
 export default class Feeds extends Component {
-  static navigationOptions = {
-    drawerIcon: () => <Icon source={images.feedsIcon} />,
-    title: "Feeds",
-    headerTintColor: "white",
-    headerStyle: {
-      backgroundColor: colors.navigationHeader
-    }
-  };
-
   state: {
     dataSource: Object
   };

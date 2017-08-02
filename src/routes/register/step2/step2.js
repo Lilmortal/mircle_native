@@ -4,7 +4,6 @@ import { View, Text } from "react-native";
 import Button from "../../../components/button";
 import TextInput from "../components/registerTextInput";
 
-import { colors } from "../../../config";
 import registerStyles from "../styles";
 
 const RegisterStep2 = ({ navigation }) =>
@@ -29,13 +28,5 @@ const RegisterStep2 = ({ navigation }) =>
       </Button>
     </View>
   </View>;
-
-RegisterStep2.navigationOptions = {
-  title: "Register step 2",
-  headerTintColor: "white",
-  headerStyle: {
-    backgroundColor: colors.settings
-  }
-};
 
 export default RegisterStep2;

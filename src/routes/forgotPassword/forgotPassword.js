@@ -4,7 +4,7 @@ import { View, Alert } from "react-native";
 import TextInput from "../../components/textInput";
 import Button from "../../components/button";
 import LoginText from "./components/loginText";
-import { images, colors } from "../../config";
+import { images } from "../../config";
 import styles from "./styles";
 
 const ForgotPassword = ({ navigation }) => {
@@ -43,14 +43,6 @@ const ForgotPassword = ({ navigation }) => {
       </View>
     </View>
   );
-};
-
-ForgotPassword.navigationOptions = {
-  title: "Forgot password",
-  headerTintColor: "white",
-  headerStyle: {
-    backgroundColor: colors.navigationHeader
-  }
 };
 
 export default ForgotPassword;
