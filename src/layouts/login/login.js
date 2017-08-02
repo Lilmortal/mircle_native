@@ -6,7 +6,7 @@ import { images } from "../../config";
 import styles from "./styles";
 
 const LoginLayout = ({ children }) =>
-  <BackgroundImage source={images.city1}>
+  <BackgroundImage source={images.city}>
     {children}
   </BackgroundImage>;
 
