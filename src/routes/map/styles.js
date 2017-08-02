@@ -1,11 +1,16 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  container: {
+    ...StyleSheet.absoluteFillObject,
+    height: 400,
+    width: 400,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
   map: {
-    flex: 1,
-    flexDirection: "column",
-    backgroundColor: "green"
-  }
+    ...StyleSheet.absoluteFillObject,
+  },
 });
 
 export default styles;

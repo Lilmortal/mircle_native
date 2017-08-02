@@ -1,13 +1,25 @@
 import React from "react";
 import { View, Text, Image, TouchableHighlight } from "react-native";
 import * as Progress from "react-native-progress";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import store from "../../store";
+import Camera from "../../components/camera";
 import Hamburger from "../../components/hamburger";
 import { images } from "../../config";
 import cameraState from "../../states/camera";
 
 const { SET_CAMERA_ACTIVE } = cameraState.actions;
+const { getCameraActive } = cameraState.selectors;
+
+const mapStateToProps = () => {
+  return createStructuredSelector({
+    isCameraActive: getCameraActive
+  });
+};
+
+const CameraContainer = connect(mapStateToProps)(Camera);
 
 export const withOptions = BaseLayout => Component => options => {
   const screen = ({ navigation }) =>
@@ -35,14 +47,10 @@ export const withOptions = BaseLayout => Component => options => {
           }}
         >
           {options.hasCamera &&
-            <TouchableHighlight
+            <CameraContainer
               onPress={() => store.dispatch(SET_CAMERA_ACTIVE(true))}
-            >
-              <Image
-                source={images.camera}
-                style={{ width: 50, height: 50, marginRight: 10 }}
-              />
-            </TouchableHighlight>}
+              onPressOut={() => store.dispatch(SET_CAMERA_ACTIVE(false))}
+            />}
           {options.hasProgressPie &&
             <Progress.Pie
               progress={options.progress}

@@ -25,12 +25,9 @@ class AppLayout extends Component {
       <View style={styles.appLayout}>
         {cameraActive &&
           <Camera
-            ref={cam => {
-              this.camera = cam;
-            }}
             style={styles.camera}
             onBarCodeRead={qrCode => this.readQRCode(qrCode)}
-            //aspect={Camera.constants.Aspect.fill}
+            barCodeTypes={["qr"]}
           >
             <View style={styles.qrCode}>
               <Text style={styles.qrCodeText}>

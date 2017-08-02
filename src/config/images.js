@@ -1,5 +1,5 @@
 import anonymous from "../assets/images/anonymous.gif";
-import camera from "../assets/images/camera.png";
+//import camera from "../assets/images/camera.png";
 import city from "../assets/images/city.jpg";
 import city1 from "../assets/images/city1.jpg";
 import drawerNavigation from "../assets/images/drawerNavigationBackground.jpeg";
@@ -20,7 +20,7 @@ import twitterLogo from "../assets/images/twitterLogo.png";
 
 const images = {
   anonymous,
-  camera,
+  //camera,
   city,
   city1,
   drawerNavigation,
