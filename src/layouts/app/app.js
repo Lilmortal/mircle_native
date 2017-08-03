@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Vibration } from "react-native";
 import Camera from "react-native-camera";
 
+import PushNotification from "../../libs/pushNotification";
 import styles from "./styles";
 
 const readQRCode = data => {};
@@ -15,7 +16,14 @@ class AppLayout extends Component {
   }
 
   readQRCode = qrCode => {
-    if (qrCode.type === "QR_CODE") this.setState({ qrCode: qrCode.data });
+    if (qrCode.type === "QR_CODE") {
+      this.setState({ qrCode: qrCode.data });
+      PushNotification.localNotification({
+        title: "Will Smith just added you!",
+        message: "You two met at Botany Down Centre."
+      });
+      //Vibration.vibrate(1000);
+    }
   };
 
   render() {
