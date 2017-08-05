@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import { View, Image, TouchableHighlight, Modal, Alert } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import BackgroundImage from "../../components/backgroundImage";
-import Icon from "../../components/icon";
 import TextInput from "../../components/textInput";
 import Button from "../../components/button";
 import LoginText from "./components/loginText";
 
 import { images } from "../../config";
 import styles from "./styles";
+
+const emailIcon = <Icon name="envelope" color="white" />;
+const passwordIcon = <Icon name="lock" color="white" />;
 
 const Login = ({ navigation }) =>
   <View style={styles.login}>
@@ -21,13 +24,9 @@ const Login = ({ navigation }) =>
 
     <View style={styles.loginForm}>
       <View>
+        <TextInput Icon={emailIcon} placeholder="Email address" color="white" />
         <TextInput
-          icon={images.emailIcon}
-          placeholder="Email address"
-          color="white"
-        />
-        <TextInput
-          icon={images.passwordIcon}
+          Icon={passwordIcon}
           placeholder="Password"
           color="white"
           secureTextEntry
@@ -45,25 +44,23 @@ const Login = ({ navigation }) =>
       <LoginText>OR</LoginText>
     </View>
 
-    <Button
-      onPress={() => navigation.navigate("QrCode")}
-      style={styles.facebookButton}
-    >
-      <View style={styles.buttonContainer}>
-        <Icon source={images.facebookLogo} style={styles.icon} />
-        <LoginText>Sign in with Facebook</LoginText>
-      </View>
-    </Button>
+    <View style={styles.socialMediaLogin}>
+      <Icon.Button
+        name="facebook"
+        backgroundColor="#3b5998"
+        onPress={() => navigation.navigate("QrCode")}
+      >
+        Login with Facebook
+      </Icon.Button>
 
-    <Button
-      onPress={() => navigation.navigate("QrCode")}
-      style={styles.twitterButton}
-    >
-      <View style={styles.buttonContainer}>
-        <Icon source={images.twitterLogo} style={styles.icon} />
-        <LoginText>Sign in with Twitter</LoginText>
-      </View>
-    </Button>
+      <Icon.Button
+        name="twitter"
+        backgroundColor="#00aced"
+        onPress={() => navigation.navigate("QrCode")}
+      >
+        Login with twitter
+      </Icon.Button>
+    </View>
 
     <View style={styles.help}>
       <TouchableHighlight onPress={() => navigation.navigate("RegisterStep1")}>

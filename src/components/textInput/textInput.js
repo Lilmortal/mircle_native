@@ -1,13 +1,11 @@
 import React from "react";
 import { View, TextInput } from "react-native";
 
-import Icon from "../icon";
-
 import styles from "./styles";
 
 const CustomTextInput = ({
   placeholder,
-  icon,
+  Icon,
   color = "gray",
   secureTextEntry = false,
   style,
@@ -17,7 +15,9 @@ const CustomTextInput = ({
     <View
       style={[styles.textInputContainer, hideUnderlineColor && styles.noBorder]}
     >
-      <Icon source={icon} />
+      <View style={styles.icon}>
+        {Icon}
+      </View>
       <TextInput
         placeholder={placeholder}
         style={[{ color }, styles.textInput, style]}

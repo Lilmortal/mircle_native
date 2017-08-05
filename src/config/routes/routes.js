@@ -1,11 +1,10 @@
 import React from "react";
 import { View } from "react-native";
 import { StackNavigator, DrawerNavigator, DrawerItems } from "react-navigation";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import DrawerPanel from "./drawerPanel";
 import { withOptions } from "./routeLibs";
-
-import Icon from "../../components/icon";
 import images from "../images";
 
 import {
@@ -37,7 +36,7 @@ const profileStack = StackNavigator({
     hasCamera: true,
     navigationOptions: appNavigationOptions,
     title: "Profile",
-    drawerIcon: () => <Icon source={images.profileIcon} />
+    drawerIcon: () => <Icon name="user" color="black" />
   })
 });
 
@@ -47,7 +46,7 @@ const qrCodeStack = StackNavigator({
     hasCamera: true,
     navigationOptions: appNavigationOptions,
     title: "QR code",
-    drawerIcon: () => <Icon source={images.qrCodeIcon} />
+    drawerIcon: () => <Icon name="qrcode" color="black" />
   })
 });
 
@@ -57,7 +56,7 @@ const feedsStack = StackNavigator({
     hasCamera: true,
     navigationOptions: appNavigationOptions,
     title: "Feeds",
-    drawerIcon: () => <Icon source={images.feedsIcon} />
+    drawerIcon: () => <Icon name="newspaper-o" color="black" />
   })
 });
 
@@ -67,14 +66,14 @@ const friendsStack = StackNavigator({
     hasCamera: true,
     navigationOptions: appNavigationOptions,
     title: "Friends",
-    drawerIcon: () => <Icon source={images.friendsIcon} />
+    drawerIcon: () => <Icon name="users" color="black" />
   }),
   FriendsProfile: withOptions(AppLayout)(ProfileScreen)({
     hasHamburgerMenu: false,
     hasCamera: true,
     navigationOptions: appNavigationOptions,
     title: "Will Smith",
-    drawerIcon: () => <Icon source={images.friendsIcon} />
+    drawerIcon: () => <Icon name="user" color="black" />
   }),
   FriendsMap: withOptions(AppLayout)(MapScreen)({
     hasHamburgerMenu: false,
@@ -82,7 +81,7 @@ const friendsStack = StackNavigator({
     navigationOptions: appNavigationOptions,
     title: "Where you two meet",
     // map icon
-    drawerIcon: () => <Icon source={images.friendsIcon} />
+    drawerIcon: () => <Icon name="map-marker" color="black" />
   })
 });
 
@@ -92,7 +91,7 @@ const settingsStack = StackNavigator({
     hasCamera: true,
     navigationOptions: settingsNavigationOptions,
     title: "Settings",
-    drawerIcon: () => <Icon source={images.settingsIcon} />
+    drawerIcon: () => <Icon name="cog" color="black" />
   })
 });
 
@@ -102,7 +101,7 @@ const loginStack = StackNavigator({
     hasCamera: false,
     navigationOptions: loginNavigationOptions,
     title: "Logout",
-    drawerIcon: () => <Icon source={images.logoutIcon} />
+    drawerIcon: () => <Icon name="sign-out" color="black" />
   }),
   ForgotPassword: withOptions(LoginLayout)(ForgotPasswordScreen)({
     hasHamburgerMenu: false,

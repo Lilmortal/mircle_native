@@ -3,9 +3,9 @@ import { View, Text, Image, TouchableHighlight } from "react-native";
 import * as Progress from "react-native-progress";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import store from "../../store";
-import Camera from "../../components/camera";
 import Hamburger from "../../components/hamburger";
 import { images } from "../../config";
 import cameraState from "../../states/camera";
@@ -18,6 +18,38 @@ const mapStateToProps = () => {
     isCameraActive: getCameraActive
   });
 };
+
+const Camera = ({ isCameraActive, onPress, onPressOut }) =>
+  <View>
+    {isCameraActive &&
+      <TouchableHighlight onPress={onPressOut}>
+        <Icon
+          name="times"
+          color="black"
+          size={45}
+          style={{
+            width: 50,
+            height: 50,
+            marginTop: 10,
+            marginRight: 10
+          }}
+        />
+      </TouchableHighlight>}
+    {!isCameraActive &&
+      <TouchableHighlight onPress={onPress}>
+        <Icon
+          name="camera"
+          color="black"
+          size={45}
+          style={{
+            width: 50,
+            height: 50,
+            marginTop: 10,
+            marginRight: 10
+          }}
+        />
+      </TouchableHighlight>}
+  </View>;
 
 const CameraContainer = connect(mapStateToProps)(Camera);
 

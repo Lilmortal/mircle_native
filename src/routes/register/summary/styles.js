@@ -18,16 +18,16 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     borderWidth: 1,
-    borderColor: "white",
+    borderColor: "black",
     borderRadius: 5
   },
   biographyText: {
-    color: "white",
+    color: "black",
     fontSize: 20
   },
   biographyTitle: {
     fontSize: 10,
-    color: "white",
+    color: "black",
     textAlign: "center"
   }
 });

@@ -4,7 +4,7 @@ import BackgroundImage from "../../components/backgroundImage";
 import { images } from "../../config";
 
 const RegisterLayout = ({ children }) =>
-  <BackgroundImage source={images.register}>
+  <BackgroundImage source={images.registerBackground}>
     {children}
   </BackgroundImage>;
 

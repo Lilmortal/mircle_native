@@ -8,7 +8,7 @@ import styles from "./styles";
 const DrawerPanel = ({ navigation }) =>
   <TouchableHighlight onPress={() => navigation.navigate("Profile")}>
     <Image
-      source={images.drawerNavigation}
+      source={images.drawerNavigationBackground}
       style={styles.drawerPanel}
       blurRadius={1}
     >

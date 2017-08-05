@@ -36,16 +36,9 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row"
   },
-  facebookButton: {
-    backgroundColor: "#3b5998",
-    borderColor: "#3b5998"
-  },
-  twitterButton: {
-    backgroundColor: "#00aced",
-    borderColor: "#00aced"
-  },
-  icon: {
-    marginRight: 20
+  socialMediaLogin: {
+    flex: 1,
+    justifyContent: "space-around"
   },
   help: {
     flex: 1,

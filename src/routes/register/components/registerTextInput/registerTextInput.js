@@ -6,7 +6,7 @@ import styles from "./styles";
 
 const RegisterTextInput = ({
   placeholder,
-  color = "white",
+  color = "black",
   secureTextEntry = false
 }) =>
   <TextInput

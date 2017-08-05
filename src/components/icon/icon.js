@@ -1,9 +1,9 @@
 import React from "react";
-import { Image } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import styles from "./styles";
 
-const Icon = ({ style, source }) =>
-  <Image source={source} style={[styles.icon, style]} />;
+const CustomizedIcon = ({ style, name, color }) =>
+  <Icon name={name} color={color} style={[styles.icon, style]} />;
 
-export default Icon;
+export default CustomizedIcon;

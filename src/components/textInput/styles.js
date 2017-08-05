@@ -10,7 +10,9 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 5
   },
-  icon: {},
+  icon: {
+    paddingLeft: 5
+  },
   textInput: {
     flex: 1,
     height: 40

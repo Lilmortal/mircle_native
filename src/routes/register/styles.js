@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 40,
     fontWeight: "500",
-    color: "white"
+    color: "black"
   },
   registerForm: {
     flex: 3,
