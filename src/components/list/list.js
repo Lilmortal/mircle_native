@@ -9,16 +9,16 @@ const List = ({
   hasSlider = false,
   hasSwitch = false,
   lastChild = false,
+  onPress,
   style
 }) =>
-  <View style={[styles.list, lastChild && styles.listLastChild, style]}>
+  <TouchableHighlight
+    onPress={onPress}
+    style={[styles.list, lastChild && styles.listLastChild, style]}
+  >
     <View style={styles.listContainer}>
       <View style={[styles.listChildren, hasSlider && { flex: 1 }]}>
-        {isSelectable
-          ? <TouchableHighlight>
-              {children}
-            </TouchableHighlight>
-          : children}
+        {children}
       </View>
       {hasSlider && <Slider style={styles.selectable} />}
       {hasSwitch && <Switch style={styles.selectable} />}
@@ -27,6 +27,6 @@ const List = ({
           <Text>></Text>
         </View>}
     </View>
-  </View>;
+  </TouchableHighlight>;
 
 export default List;
