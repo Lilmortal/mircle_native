@@ -1,24 +1,19 @@
 import React, { Component } from "react";
-import { View, Text, Image, ListView, TouchableHighlight } from "react-native";
+import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
 
+import Feed from "../../components/feed";
 import ProfilePicture from "../../components/profilePicture";
 
 import { images } from "../../config";
 import styles from "./styles";
 
 export default class Friends extends Component {
-  state: {
-    dataSource: Object
-  };
-
-  constructor(props: {}) {
+  constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    });
     this.state = {
-      dataSource: ds.cloneWithRows([
+      dataSource: [
         {
+          id: 0,
           profilePicture: images.anonymous,
           profileName: "Will Smith",
           occupation: "actor",
@@ -26,6 +21,7 @@ export default class Friends extends Component {
           addedTime: "9 June, 2017"
         },
         {
+          id: 1,
           profilePicture: images.anonymous,
           profileName: "Eren Jaegur",
           occupation: "student",
@@ -33,6 +29,7 @@ export default class Friends extends Component {
           addedTime: "6 June, 2017"
         },
         {
+          id: 2,
           profilePicture: images.anonymous,
           profileName: "Will Smith",
           occupation: "actor",
@@ -40,6 +37,7 @@ export default class Friends extends Component {
           addedTime: "9 June, 2017"
         },
         {
+          id: 3,
           profilePicture: images.anonymous,
           profileName: "Eren Jaegur",
           occupation: "student",
@@ -47,6 +45,7 @@ export default class Friends extends Component {
           addedTime: "6 June, 2017"
         },
         {
+          id: 4,
           profilePicture: images.anonymous,
           profileName: "Will Smith",
           occupation: "actor",
@@ -54,13 +53,14 @@ export default class Friends extends Component {
           addedTime: "9 June, 2017"
         },
         {
+          id: 5,
           profilePicture: images.anonymous,
           profileName: "Eren Jaegur",
           occupation: "student",
           company: "botany downs secondary college",
           addedTime: "6 June, 2017"
         }
-      ])
+      ]
     };
   }
 
@@ -69,30 +69,33 @@ export default class Friends extends Component {
 
     return (
       <View style={styles.container}>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={rowData =>
+        <FlatList
+          data={this.state.dataSource}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) =>
             <TouchableHighlight
               onPress={() =>
                 navigation.navigate("FriendsProfile", {
                   isAFriend: true
                 })}
             >
-              <View style={styles.friends}>
-                <ProfilePicture source={rowData.profilePicture} />
-                <View style={styles.profileContainer}>
-                  <Text style={styles.profileName}>
-                    {rowData.profileName}
-                  </Text>
-                  <View style={styles.profileDescription}>
-                    <Text>
-                      Worked as a {rowData.occupation} at {rowData.company}
+              <View>
+                <Feed key={item.id}>
+                  <ProfilePicture source={item.profilePicture} />
+                  <View style={styles.profileContainer}>
+                    <Text style={styles.profileName}>
+                      {item.profileName}
                     </Text>
-                    <Text>
-                      Added each other on {rowData.addedTime}
-                    </Text>
+                    <View style={styles.profileDescription}>
+                      <Text>
+                        Worked as a {item.occupation} at {item.company}
+                      </Text>
+                      <Text>
+                        Added each other on {item.addedTime}
+                      </Text>
+                    </View>
                   </View>
-                </View>
+                </Feed>
               </View>
             </TouchableHighlight>}
         />

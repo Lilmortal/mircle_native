@@ -10,15 +10,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  feed: {
-    borderBottomWidth: 1,
-    borderColor: "gray",
-    paddingTop: 20,
-    paddingLeft: 20,
-    paddingBottom: 20,
-    flexDirection: "row",
-    justifyContent: "space-around"
-  },
   profileContainer: {
     flex: 2,
     flexDirection: "column",

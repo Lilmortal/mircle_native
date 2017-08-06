@@ -5,12 +5,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column"
   },
-  feed: {
-    borderBottomWidth: 2,
-    paddingTop: 20,
-    paddingLeft: 20,
-    paddingBottom: 20
-  },
   noFriendsMessage: {
     flex: 1,
     justifyContent: "center",
