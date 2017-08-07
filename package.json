@@ -17,6 +17,7 @@
     "@expo/react-native-responsive-image": "^1.2.1",
     "react": "16.0.0-alpha.12",
     "react-native": "0.46.2",
+    "react-native-animatable": "^1.2.3",
     "react-native-camera": "https://github.com/lwansbrough/react-native-camera.git",
     "react-native-maps": "^0.15.3",
     "react-native-progress": "^3.3.0",

@@ -1,7 +1,9 @@
 import { StyleSheet } from "react-native";
 
-import { colors, fonts } from "../../config";
-
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  login: {
+    flex: 1
+  }
+});
 
 export default styles;

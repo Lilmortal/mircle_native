@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, Vibration } from "react-native";
 import Camera from "react-native-camera";
+import * as Animatable from "react-native-animatable";
 
 import PushNotification from "../../libs/pushNotification";
 import styles from "./styles";
@@ -30,7 +31,7 @@ class AppLayout extends Component {
     const { cameraActive, children } = this.props;
 
     return (
-      <View style={styles.appLayout}>
+      <Animatable.View animation="fadeIn" style={styles.appLayout}>
         {cameraActive &&
           <Camera
             style={styles.camera}
@@ -44,7 +45,7 @@ class AppLayout extends Component {
             </View>
           </Camera>}
         {!cameraActive && children}
-      </View>
+      </Animatable.View>
     );
   }
 }
