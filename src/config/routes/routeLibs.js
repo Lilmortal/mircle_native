@@ -89,8 +89,8 @@ export const withOptions = BaseLayout => Component => options => {
               onPress={() => store.dispatch(SET_CAMERA_ACTIVE(true))}
               onPressOut={() => store.dispatch(SET_CAMERA_ACTIVE(false))}
             />}
-          {options.hasProgressPie &&
-            <Progress.Pie
+          {options.hasProgressBar &&
+            <Progress.Bar
               progress={options.progress}
               showsText
               style={{ marginRight: 10 }}

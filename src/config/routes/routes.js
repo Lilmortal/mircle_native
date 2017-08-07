@@ -115,7 +115,7 @@ const loginStack = StackNavigator({
   )({
     hasHamburgerMenu: false,
     hasCamera: false,
-    hasProgressPie: true,
+    hasProgressBar: true,
     progress: 0.25,
     navigationOptions: settingsNavigationOptions,
     title: "Step 1"
@@ -125,7 +125,7 @@ const loginStack = StackNavigator({
   )({
     hasHamburgerMenu: false,
     hasCamera: false,
-    hasProgressPie: true,
+    hasProgressBar: true,
     progress: 0.5,
     navigationOptions: settingsNavigationOptions,
     title: "Step 2"
@@ -135,7 +135,7 @@ const loginStack = StackNavigator({
   )({
     hasHamburgerMenu: false,
     hasCamera: false,
-    hasProgressPie: true,
+    hasProgressBar: true,
     progress: 0.75,
     navigationOptions: settingsNavigationOptions,
     title: "Summary"
@@ -145,7 +145,7 @@ const loginStack = StackNavigator({
   )({
     hasHamburgerMenu: false,
     hasCamera: false,
-    hasProgressPie: true,
+    hasProgressBar: true,
     progress: 1,
     navigationOptions: settingsNavigationOptions,
     headerLeft: null,

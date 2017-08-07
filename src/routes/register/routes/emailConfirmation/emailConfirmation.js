@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 
 import { routeKeys } from "../../../../config";
 import RegisterLayout from "../../layout/registerLayout";
+import styles from "./styles";
 
 const RegisterEmailConfirmation = ({ navigation }) =>
   <RegisterLayout
@@ -10,7 +11,7 @@ const RegisterEmailConfirmation = ({ navigation }) =>
     onPress={() => navigation.navigate(routeKeys.Login)}
     lastPage
   >
-    <Text>
+    <Text style={styles.emailConfirmationText}>
       Please look at your willsmith@gmail.com to activate your account.
     </Text>
   </RegisterLayout>;

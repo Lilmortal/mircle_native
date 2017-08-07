@@ -7,7 +7,7 @@ import { images } from "../../config";
 import styles from "./styles";
 
 const RegisterLayout = ({ children }) =>
-  <BackgroundImage source={images.registerBackground}>
+  <BackgroundImage source={images.registerBackground} blur={2}>
     <Animatable.View animation="fadeIn" style={styles.register}>
       {children}
     </Animatable.View>
