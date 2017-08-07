@@ -1,1 +1,1 @@
-export const SET_CAMERA_ACTIVE = "camera/SET_CAMERA_ACTIVE";
+export const UPDATE_CAMERA_ACTIVE = "camera/UPDATE_CAMERA_ACTIVE";

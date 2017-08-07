@@ -10,7 +10,7 @@ import Hamburger from "../../components/hamburger";
 import { images } from "../../config";
 import cameraState from "../../states/camera";
 
-const { SET_CAMERA_ACTIVE } = cameraState.actions;
+const { UPDATE_CAMERA_ACTIVE } = cameraState.actions;
 const { getCameraActive } = cameraState.selectors;
 
 const mapStateToProps = () => {
@@ -86,8 +86,8 @@ export const withOptions = BaseLayout => Component => options => {
         >
           {options.hasCamera &&
             <CameraContainer
-              onPress={() => store.dispatch(SET_CAMERA_ACTIVE(true))}
-              onPressOut={() => store.dispatch(SET_CAMERA_ACTIVE(false))}
+              onPress={() => store.dispatch(UPDATE_CAMERA_ACTIVE(true))}
+              onPressOut={() => store.dispatch(UPDATE_CAMERA_ACTIVE(false))}
             />}
           {options.hasProgressBar &&
             <Progress.Bar

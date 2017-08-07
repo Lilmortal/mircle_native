@@ -6,7 +6,7 @@ const initialState = {
 
 const reducer = (state = initialState, payload) => {
   switch (payload.type) {
-    case actionTypes.SET_CAMERA_ACTIVE: {
+    case actionTypes.UPDATE_CAMERA_ACTIVE: {
       console.log(payload);
       return {
         ...state,
