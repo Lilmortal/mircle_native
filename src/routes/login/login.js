@@ -63,7 +63,9 @@ const Login = ({ navigation }) =>
     </View>
 
     <View style={styles.help}>
-      <TouchableHighlight onPress={() => navigation.navigate("RegisterStep1")}>
+      <TouchableHighlight
+        onPress={() => navigation.navigate("RegisterAccountCreation")}
+      >
         <View>
           <LoginText style={styles.helpText}>Register</LoginText>
         </View>

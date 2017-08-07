@@ -19,9 +19,11 @@ const CustomTextInput = ({
         hideUnderlineColor && { borderBottomWidth: 0 }
       ]}
     >
-      <View style={styles.icon}>
-        {Icon}
-      </View>
+      {Icon &&
+        <View style={styles.icon}>
+          {Icon}
+        </View>}
+
       <TextInput
         placeholder={placeholder}
         style={[{ color }, styles.textInput, style]}

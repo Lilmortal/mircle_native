@@ -14,21 +14,8 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: "black"
   },
-  registerForm: {
-    flex: 3,
-    justifyContent: "center"
-  },
   submitArea: {
     flex: 1
-  },
-  button: {
-    borderColor: "purple",
-    backgroundColor: "purple"
-  },
-  buttonText: {
-    color: "white",
-    fontWeight: "500",
-    fontSize: 25
   }
 });
 

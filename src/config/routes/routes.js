@@ -19,10 +19,10 @@ import RegisterLayout from "../../layouts/register";
 
 import ForgotPasswordScreen from "../../routes/forgotPassword";
 import LoginScreen from "../../routes/login";
-import RegisterStep1Screen from "../../routes/register/step1";
-import RegisterStep2Screen from "../../routes/register/step2";
-import RegisterSummaryScreen from "../../routes/register/summary";
-import RegisterEmailConfirmationScreen from "../../routes/register/emailConfirmation";
+import RegisterAccountCreationScreen from "../../routes/register/routes/accountCreation";
+import RegisterAdditionalDetailsScreen from "../../routes/register/routes/additionalDetails";
+import RegisterAccountSummaryScreen from "../../routes/register/routes/accountSummary";
+import RegisterEmailConfirmationScreen from "../../routes/register/routes/emailConfirmation";
 import QrCodeScreen from "../../routes/qrCode";
 import FeedsScreen from "../../routes/feeds";
 import FriendsScreen from "../../routes/friends";
@@ -109,7 +109,9 @@ const loginStack = StackNavigator({
     navigationOptions: appNavigationOptions,
     title: "Back to home page"
   }),
-  RegisterStep1: withOptions(RegisterLayout)(RegisterStep1Screen)({
+  RegisterAccountCreation: withOptions(RegisterLayout)(
+    RegisterAccountCreationScreen
+  )({
     hasHamburgerMenu: false,
     hasCamera: false,
     hasProgressPie: true,
@@ -117,7 +119,9 @@ const loginStack = StackNavigator({
     navigationOptions: settingsNavigationOptions,
     title: "Step 1"
   }),
-  RegisterStep2: withOptions(RegisterLayout)(RegisterStep2Screen)({
+  RegisterAdditionalDetails: withOptions(RegisterLayout)(
+    RegisterAdditionalDetailsScreen
+  )({
     hasHamburgerMenu: false,
     hasCamera: false,
     hasProgressPie: true,
@@ -125,7 +129,9 @@ const loginStack = StackNavigator({
     navigationOptions: settingsNavigationOptions,
     title: "Step 2"
   }),
-  RegisterSummary: withOptions(RegisterLayout)(RegisterSummaryScreen)({
+  RegisterAccountSummary: withOptions(RegisterLayout)(
+    RegisterAccountSummaryScreen
+  )({
     hasHamburgerMenu: false,
     hasCamera: false,
     hasProgressPie: true,
