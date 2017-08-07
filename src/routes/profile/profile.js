@@ -3,7 +3,7 @@ import { View, Text, Image } from "react-native";
 
 import Button from "../../components/button";
 import ProfilePicture from "../../components/profilePicture";
-import { images } from "../../config";
+import { images, routeKeys } from "../../config";
 import styles from "./styles";
 
 const Biography = ({ navigation }) =>
@@ -36,7 +36,7 @@ const Biography = ({ navigation }) =>
       navigation.state.params.isAFriend &&
       <View style={styles.map}>
         <Button
-          onPress={() => navigation.navigate("FriendsMap")}
+          onPress={() => navigation.navigate(routeKeys.FriendsMap)}
           style={styles.buttonMap}
         >
           <Text>Where have you two meet before?</Text>

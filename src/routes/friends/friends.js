@@ -4,7 +4,7 @@ import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
 import Feed from "../../components/feed";
 import ProfilePicture from "../../components/profilePicture";
 
-import { images } from "../../config";
+import { images, routeKeys } from "../../config";
 import styles from "./styles";
 
 export default class Friends extends Component {
@@ -75,7 +75,7 @@ export default class Friends extends Component {
           renderItem={({ item }) =>
             <TouchableHighlight
               onPress={() =>
-                navigation.navigate("FriendsProfile", {
+                navigation.navigate(routeKeys.FriendsProfile, {
                   isAFriend: true
                 })}
             >

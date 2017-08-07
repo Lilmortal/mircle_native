@@ -5,7 +5,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import TextInput from "../../components/textInput";
 import Button from "../../components/button";
 import LoginText from "./components/loginText";
-import { images } from "../../config";
+import { images, routeKeys } from "../../config";
 import styles from "./styles";
 
 const emailIcon = <Icon name="envelope" color="white" />;
@@ -34,7 +34,7 @@ const ForgotPassword = ({ navigation }) => {
             <LoginText>Send email</LoginText>
           </View>
         </Button>
-        <Button onPress={() => navigation.navigate("Login")}>
+        <Button onPress={() => navigation.navigate(routeKeys.Login)}>
           <View>
             <LoginText>Cancel</LoginText>
           </View>

@@ -3,14 +3,14 @@ import { View, Text, TextInput } from "react-native";
 
 import ProfilePicture from "../../../../components/profilePicture";
 
-import { images } from "../../../../config";
+import { images, routeKeys } from "../../../../config";
 import RegisterLayout from "../../layout/registerLayout";
 import styles from "./styles";
 
 const RegisterAccountSummary = ({ navigation }) =>
   <RegisterLayout
     title="Is this you?"
-    onPress={() => navigation.navigate("RegisterEmailConfirmation")}
+    onPress={() => navigation.navigate(routeKeys.RegisterEmailConfirmation)}
   >
     <View style={styles.profilePicture}>
       <ProfilePicture source={images.anonymous} />

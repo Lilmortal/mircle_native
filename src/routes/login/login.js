@@ -7,7 +7,7 @@ import TextInput from "../../components/textInput";
 import Button from "../../components/button";
 import LoginText from "./components/loginText";
 
-import { images } from "../../config";
+import { images, routeKeys } from "../../config";
 import styles from "./styles";
 
 const emailIcon = <Icon name="envelope" color="white" />;
@@ -33,7 +33,7 @@ const Login = ({ navigation }) =>
         />
       </View>
 
-      <Button onPress={() => navigation.navigate("QrCode")}>
+      <Button onPress={() => navigation.navigate(routeKeys.QrCode)}>
         <View>
           <LoginText style={styles.loginText}>Login to my account ></LoginText>
         </View>
@@ -48,7 +48,7 @@ const Login = ({ navigation }) =>
       <Icon.Button
         name="facebook"
         backgroundColor="#3b5998"
-        onPress={() => navigation.navigate("QrCode")}
+        onPress={() => navigation.navigate(routeKeys.QrCode)}
       >
         Login with Facebook
       </Icon.Button>
@@ -56,7 +56,7 @@ const Login = ({ navigation }) =>
       <Icon.Button
         name="twitter"
         backgroundColor="#00aced"
-        onPress={() => navigation.navigate("QrCode")}
+        onPress={() => navigation.navigate(routeKeys.QrCode)}
       >
         Login with twitter
       </Icon.Button>
@@ -64,13 +64,15 @@ const Login = ({ navigation }) =>
 
     <View style={styles.help}>
       <TouchableHighlight
-        onPress={() => navigation.navigate("RegisterAccountCreation")}
+        onPress={() => navigation.navigate(routeKeys.RegisterAccountCreation)}
       >
         <View>
           <LoginText style={styles.helpText}>Register</LoginText>
         </View>
       </TouchableHighlight>
-      <TouchableHighlight onPress={() => navigation.navigate("ForgotPassword")}>
+      <TouchableHighlight
+        onPress={() => navigation.navigate(routeKeys.ForgotPassword)}
+      >
         <View>
           <LoginText style={styles.helpText}>Forgot password?</LoginText>
         </View>

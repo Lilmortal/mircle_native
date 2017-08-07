@@ -6,6 +6,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import DrawerPanel from "./drawerPanel";
 import { withOptions } from "./routeLibs";
 import images from "../images";
+import routeKeys from "../routeKeys";
 
 import {
   appNavigationOptions,
@@ -31,7 +32,7 @@ import ProfileScreen from "../../routes/profile";
 import SettingsScreen from "../../routes/settings";
 
 const profileStack = StackNavigator({
-  Profile: withOptions(AppLayout)(ProfileScreen)({
+  [routeKeys.Profile]: withOptions(AppLayout)(ProfileScreen)({
     hasHamburgerMenu: true,
     hasCamera: true,
     navigationOptions: appNavigationOptions,
@@ -41,7 +42,7 @@ const profileStack = StackNavigator({
 });
 
 const qrCodeStack = StackNavigator({
-  QrCode: withOptions(AppLayout)(QrCodeScreen)({
+  [routeKeys.QrCode]: withOptions(AppLayout)(QrCodeScreen)({
     hasHamburgerMenu: true,
     hasCamera: true,
     navigationOptions: appNavigationOptions,
@@ -51,7 +52,7 @@ const qrCodeStack = StackNavigator({
 });
 
 const feedsStack = StackNavigator({
-  Feeds: withOptions(AppLayout)(FeedsScreen)({
+  [routeKeys.Feeds]: withOptions(AppLayout)(FeedsScreen)({
     hasHamburgerMenu: true,
     hasCamera: true,
     navigationOptions: appNavigationOptions,
@@ -61,21 +62,21 @@ const feedsStack = StackNavigator({
 });
 
 const friendsStack = StackNavigator({
-  Friends: withOptions(AppLayout)(FriendsScreen)({
+  [routeKeys.Friends]: withOptions(AppLayout)(FriendsScreen)({
     hasHamburgerMenu: true,
     hasCamera: true,
     navigationOptions: appNavigationOptions,
     title: "Friends",
     drawerIcon: () => <Icon name="users" color="black" />
   }),
-  FriendsProfile: withOptions(AppLayout)(ProfileScreen)({
+  [routeKeys.FriendsProfile]: withOptions(AppLayout)(ProfileScreen)({
     hasHamburgerMenu: false,
     hasCamera: true,
     navigationOptions: appNavigationOptions,
     title: "Will Smith",
     drawerIcon: () => <Icon name="user" color="black" />
   }),
-  FriendsMap: withOptions(AppLayout)(MapScreen)({
+  [routeKeys.FriendsMap]: withOptions(AppLayout)(MapScreen)({
     hasHamburgerMenu: false,
     hasCamera: true,
     navigationOptions: appNavigationOptions,
@@ -86,7 +87,7 @@ const friendsStack = StackNavigator({
 });
 
 const settingsStack = StackNavigator({
-  Settings: withOptions(AppLayout)(SettingsScreen)({
+  [routeKeys.Settings]: withOptions(AppLayout)(SettingsScreen)({
     hasHamburgerMenu: true,
     hasCamera: true,
     navigationOptions: settingsNavigationOptions,
@@ -96,20 +97,20 @@ const settingsStack = StackNavigator({
 });
 
 const loginStack = StackNavigator({
-  Login: withOptions(LoginLayout)(LoginScreen)({
+  [routeKeys.Login]: withOptions(LoginLayout)(LoginScreen)({
     hasHamburgerMenu: false,
     hasCamera: false,
     navigationOptions: loginNavigationOptions,
     title: "Logout",
     drawerIcon: () => <Icon name="sign-out" color="black" />
   }),
-  ForgotPassword: withOptions(LoginLayout)(ForgotPasswordScreen)({
+  [routeKeys.ForgotPassword]: withOptions(LoginLayout)(ForgotPasswordScreen)({
     hasHamburgerMenu: false,
     hasCamera: false,
     navigationOptions: appNavigationOptions,
     title: "Back to home page"
   }),
-  RegisterAccountCreation: withOptions(RegisterLayout)(
+  [routeKeys.RegisterAccountCreation]: withOptions(RegisterLayout)(
     RegisterAccountCreationScreen
   )({
     hasHamburgerMenu: false,
@@ -119,7 +120,7 @@ const loginStack = StackNavigator({
     navigationOptions: settingsNavigationOptions,
     title: "Step 1"
   }),
-  RegisterAdditionalDetails: withOptions(RegisterLayout)(
+  [routeKeys.RegisterAdditionalDetails]: withOptions(RegisterLayout)(
     RegisterAdditionalDetailsScreen
   )({
     hasHamburgerMenu: false,
@@ -129,7 +130,7 @@ const loginStack = StackNavigator({
     navigationOptions: settingsNavigationOptions,
     title: "Step 2"
   }),
-  RegisterAccountSummary: withOptions(RegisterLayout)(
+  [routeKeys.RegisterAccountSummary]: withOptions(RegisterLayout)(
     RegisterAccountSummaryScreen
   )({
     hasHamburgerMenu: false,
@@ -139,7 +140,7 @@ const loginStack = StackNavigator({
     navigationOptions: settingsNavigationOptions,
     title: "Summary"
   }),
-  RegisterEmailConfirmation: withOptions(RegisterLayout)(
+  [routeKeys.RegisterEmailConfirmation]: withOptions(RegisterLayout)(
     RegisterEmailConfirmationScreen
   )({
     hasHamburgerMenu: false,
