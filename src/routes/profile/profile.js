@@ -6,7 +6,7 @@ import ProfilePicture from "../../components/profilePicture";
 import { images, routeKeys } from "../../config";
 import styles from "./styles";
 
-const Biography = ({ navigation }) =>
+const Profile = ({ navigation }) =>
   <View style={styles.profile}>
     <Image source={images.profileBackground} style={styles.profilePicture}>
       <ProfilePicture source={images.anonymous} size={250} />
@@ -44,4 +44,4 @@ const Biography = ({ navigation }) =>
       </View>}
   </View>;
 
-export default Biography;
+export default Profile;

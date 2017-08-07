@@ -1,11 +1,17 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
 import styles from "./styles";
 
-const Feed = ({ children }) =>
+const Feed = ({ children, isSelectable = false }) =>
   <View style={styles.feed}>
-    {children}
+    <View style={styles.children}>
+      {children}
+    </View>
+    {isSelectable &&
+      <View style={styles.selectable}>
+        <Text>></Text>
+      </View>}
   </View>;
 
 export default Feed;

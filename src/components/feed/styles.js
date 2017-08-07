@@ -9,6 +9,15 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     flexDirection: "row",
     justifyContent: "space-around"
+  },
+  children: {
+    flex: 10,
+    flexDirection: "row"
+  },
+  selectable: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
 

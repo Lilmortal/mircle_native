@@ -68,7 +68,7 @@ export default class Friends extends Component {
     const { navigation } = this.props;
 
     return (
-      <View style={styles.container}>
+      <View>
         <FlatList
           data={this.state.dataSource}
           keyExtractor={item => item.id}
@@ -80,7 +80,7 @@ export default class Friends extends Component {
                 })}
             >
               <View>
-                <Feed key={item.id}>
+                <Feed key={item.id} isSelectable>
                   <ProfilePicture source={item.profilePicture} />
                   <View style={styles.profileContainer}>
                     <Text style={styles.profileName}>

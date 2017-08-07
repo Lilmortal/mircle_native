@@ -65,9 +65,8 @@ export default class Feeds extends Component {
   }
 
   render() {
-    console.log(this.state.dataSource);
     return (
-      <View style={styles.container}>
+      <View>
         <FlatList
           data={this.state.dataSource}
           keyExtractor={item => item.id}
