@@ -13,7 +13,11 @@ const CustomTextInput = ({
 }) => {
   return (
     <View
-      style={[styles.textInputContainer, hideUnderlineColor && styles.noBorder]}
+      style={[
+        styles.textInputContainer,
+        color && { borderColor: color },
+        hideUnderlineColor && { borderBottomWidth: 0 }
+      ]}
     >
       <View style={styles.icon}>
         {Icon}

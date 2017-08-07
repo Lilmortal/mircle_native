@@ -3,8 +3,11 @@ import { TouchableHighlight } from "react-native";
 
 import buttonStyle from "./styles";
 
-const Button = ({ onPress, style, children }) =>
-  <TouchableHighlight onPress={onPress} style={[buttonStyle.button, style]}>
+const Button = ({ onPress, style, color, children }) =>
+  <TouchableHighlight
+    onPress={onPress}
+    style={[buttonStyle.button, color && { borderColor: color }, style]}
+  >
     {children}
   </TouchableHighlight>;
 

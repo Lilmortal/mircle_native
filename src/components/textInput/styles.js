@@ -16,9 +16,6 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     height: 40
-  },
-  noBorder: {
-    borderBottomWidth: 0
   }
 });
 

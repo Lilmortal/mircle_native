@@ -8,13 +8,41 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  modalChildren: {
+  modalContent: {
     width: width * 0.8,
-    backgroundColor: "gray",
+    backgroundColor: "#d3d3d3",
     padding: 15,
     borderWidth: 1,
     borderColor: "gray",
-    borderRadius: 15
+    borderRadius: 5
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  lineOne: {
+    flex: 2,
+    height: 1,
+    backgroundColor: "black"
+  },
+  icon: {
+    flex: 1,
+    alignItems: "center"
+  },
+  lineTwo: {
+    flex: 2,
+    height: 1,
+    backgroundColor: "black"
+  },
+  title: {
+    alignItems: "center"
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: "500"
+  },
+  modalChildren: {
+    marginTop: 10
   }
 });
 

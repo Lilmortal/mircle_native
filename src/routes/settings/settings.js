@@ -9,7 +9,7 @@ import List from "../../components/list";
 import Setting from "./setting";
 import styles from "./styles";
 
-const passwordIcon = <Icon name="lock" color="white" />;
+const passwordIcon = <Icon name="lock" color="black" />;
 
 export default class Settings extends Component {
   constructor(props) {
@@ -86,25 +86,31 @@ export default class Settings extends Component {
           visible={this.state.passwordModalVisible}
           onRequestClose={() => this.setPasswordModalVisible(false)}
           closeOnOutsideClick={false}
+          Icon={<Icon name="lock" size={25} />}
+          title="Change password"
         >
           <View>
-            <Text>Change Password</Text>
-
             <TextInput
               Icon={passwordIcon}
               placeholder="Old password"
-              color="white"
+              color="black"
             />
             <TextInput
               Icon={passwordIcon}
               placeholder="New password"
-              color="white"
+              color="black"
             />
-            <Button onPress={() => this.setPasswordModalVisible(false)}>
+            <Button
+              onPress={() => this.setPasswordModalVisible(false)}
+              color="black"
+            >
               <Text>Save changes</Text>
             </Button>
 
-            <Button onPress={() => this.setPasswordModalVisible(false)}>
+            <Button
+              onPress={() => this.setPasswordModalVisible(false)}
+              color="black"
+            >
               <Text>Cancel</Text>
             </Button>
           </View>
@@ -113,15 +119,19 @@ export default class Settings extends Component {
         <Modal
           visible={this.state.aboutMircleModalVisible}
           onRequestClose={() => this.setAboutMircleModalVisible(false)}
+          Icon={<Icon name="lock" size={25} />}
+          title="About Mircle"
         >
-          <Text>About Mircle</Text>
+          <Text>Long long time ago</Text>
         </Modal>
 
         <Modal
           visible={this.state.aboutCreatorModalVisible}
           onRequestClose={() => this.setAboutCreatorModalVisible(false)}
+          Icon={<Icon name="user" size={25} />}
+          title="About creator"
         >
-          <Text>About creator</Text>
+          <Text>Dont want to add an image on me there</Text>
         </Modal>
       </View>
     );
