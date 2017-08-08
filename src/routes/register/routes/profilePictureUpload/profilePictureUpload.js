@@ -44,10 +44,16 @@ const RegisterAccountCreation = ({
     </View>
 
     <View style={styles.uploadButtons}>
-      <Button onPress={() => openCamera(uploadProfilePicture)}>
+      <Button
+        onPress={() => openCamera(uploadProfilePicture)}
+        style={styles.uploadButton}
+      >
         <Text style={styles.buttonText}>Take a photo of yourself</Text>
       </Button>
-      <Button onPress={() => openGallery(uploadProfilePicture)}>
+      <Button
+        onPress={() => openGallery(uploadProfilePicture)}
+        style={styles.uploadButton}
+      >
         <Text style={styles.buttonText}>Check your gallery</Text>
       </Button>
     </View>

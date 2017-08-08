@@ -1,1 +1,1 @@
-export { default } from "./emailConfirmation";
+export { default } from "./emailConfirmationContainer";

@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     color: "black"
   },
   datePicker: {
-    flex: 1
+    flex: 2
   }
 });
 

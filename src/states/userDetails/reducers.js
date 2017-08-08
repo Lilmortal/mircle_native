@@ -7,7 +7,7 @@ const initialState = {
   surname: "",
   gender: "M",
   phoneNumber: "",
-  birthDate: new Date(),
+  birthDate: "",
   occupation: "",
   profilePicture: {},
   createdOn: "",

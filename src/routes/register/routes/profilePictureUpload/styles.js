@@ -12,8 +12,12 @@ const styles = StyleSheet.create({
   uploadButtons: {
     flex: 1
   },
+  uploadButton: {
+    borderColor: "black"
+  },
   buttonText: {
-    justifyContent: "center"
+    justifyContent: "center",
+    color: "black"
   }
 });
 
