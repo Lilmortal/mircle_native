@@ -3,7 +3,7 @@ import { Image } from "react-native";
 
 import styles from "./styles";
 
-const ProfilePicture = ({ source, size = 100, style }) =>
+const ProfilePicture = ({ source, size = 100, style, ...props }) =>
   <Image
     source={source}
     style={[
@@ -13,6 +13,7 @@ const ProfilePicture = ({ source, size = 100, style }) =>
       { height: size },
       { borderRadius: size / 2 }
     ]}
+    {...props}
   />;
 
 export default ProfilePicture;

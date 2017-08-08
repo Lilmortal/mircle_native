@@ -7,7 +7,8 @@ import styles from "./styles";
 const RegisterTextInput = ({
   placeholder,
   color = "black",
-  secureTextEntry = false
+  secureTextEntry = false,
+  ...props
 }) =>
   <TextInput
     placeholder={placeholder}
@@ -15,6 +16,7 @@ const RegisterTextInput = ({
     style={styles.textInput}
     hideUnderlineColor
     secureTextEntry={secureTextEntry}
+    {...props}
   />;
 
 export default RegisterTextInput;

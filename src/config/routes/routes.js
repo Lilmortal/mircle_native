@@ -22,6 +22,7 @@ import ForgotPasswordScreen from "../../routes/forgotPassword";
 import LoginScreen from "../../routes/login";
 import RegisterAccountCreationScreen from "../../routes/register/routes/accountCreation";
 import RegisterAdditionalDetailsScreen from "../../routes/register/routes/additionalDetails";
+import RegisterProfilePictureUploadScreen from "../../routes/register/routes/profilePictureUpload";
 import RegisterAccountSummaryScreen from "../../routes/register/routes/accountSummary";
 import RegisterEmailConfirmationScreen from "../../routes/register/routes/emailConfirmation";
 import QrCodeScreen from "../../routes/qrCode";
@@ -81,7 +82,6 @@ const friendsStack = StackNavigator({
     hasCamera: true,
     navigationOptions: appNavigationOptions,
     title: "Where you two meet",
-    // map icon
     drawerIcon: () => <Icon name="map-marker" color="black" />
   })
 });
@@ -116,7 +116,7 @@ const loginStack = StackNavigator({
     hasHamburgerMenu: false,
     hasCamera: false,
     hasProgressBar: true,
-    progress: 0.25,
+    progress: 0,
     navigationOptions: settingsNavigationOptions,
     title: "Step 1"
   }),
@@ -126,9 +126,19 @@ const loginStack = StackNavigator({
     hasHamburgerMenu: false,
     hasCamera: false,
     hasProgressBar: true,
-    progress: 0.5,
+    progress: 0.25,
     navigationOptions: settingsNavigationOptions,
     title: "Step 2"
+  }),
+  [routeKeys.RegisterProfilePictureUpload]: withOptions(RegisterLayout)(
+    RegisterProfilePictureUploadScreen
+  )({
+    hasHamburgerMenu: false,
+    hasCamera: false,
+    hasProgressBar: true,
+    progress: 0.5,
+    navigationOptions: settingsNavigationOptions,
+    title: "Photo Upload"
   }),
   [routeKeys.RegisterAccountSummary]: withOptions(RegisterLayout)(
     RegisterAccountSummaryScreen

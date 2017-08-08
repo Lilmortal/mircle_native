@@ -35,6 +35,16 @@ export const UPDATE_BIRTH_DATE = birthDate => ({
   birthDate
 });
 
+export const UPDATE_OCCUPATION = occupation => ({
+  type: actionTypes.UPDATE_OCCUPATION,
+  occupation
+});
+
+export const UPDATE_PROFILE_PICTURE = profilePicture => ({
+  type: actionTypes.UPDATE_PROFILE_PICTURE,
+  profilePicture
+});
+
 export const UPDATE_CREATED_ON = createdOn => ({
   type: actionTypes.UPDATE_CREATED_ON,
   createdOn

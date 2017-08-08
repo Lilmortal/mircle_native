@@ -5,9 +5,11 @@ const initialState = {
   password: "",
   firstName: "",
   surname: "",
-  gender: "",
+  gender: "M",
   phoneNumber: "",
-  birthDate: "",
+  birthDate: new Date(),
+  occupation: "",
+  profilePicture: {},
   createdOn: "",
   lastLoggedIn: ""
 };
@@ -54,6 +56,18 @@ const reducer = (state = initialState, payload) => {
       return {
         ...state,
         birthDate: payload.birthDate
+      };
+    }
+    case actionTypes.UPDATE_OCCUPATION: {
+      return {
+        ...state,
+        occupation: payload.occupation
+      };
+    }
+    case actionTypes.UPDATE_PROFILE_PICTURE: {
+      return {
+        ...state,
+        profilePicture: payload.profilePicture
       };
     }
     case actionTypes.UPDATE_CREATED_ON: {

@@ -10,6 +10,7 @@ const routeKeys = {
   ForgotPassword: "ForgotPassword",
   RegisterAccountCreation: "RegisterAccountCreation",
   RegisterAdditionalDetails: "RegisterAdditionalDetails",
+  RegisterProfilePictureUpload: "RegisterProfilePictureUpload",
   RegisterAccountSummary: "RegisterAccountSummary",
   RegisterEmailConfirmation: "RegisterEmailConfirmation"
 };

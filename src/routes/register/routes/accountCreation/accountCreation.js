@@ -5,13 +5,24 @@ import { routeKeys } from "../../../../config";
 import TextInput from "../../components/registerTextInput";
 import RegisterLayout from "../../layout/registerLayout";
 
-const RegisterAccountCreation = ({ navigation }) =>
+const RegisterAccountCreation = ({
+  navigation,
+  registerEmailAddress,
+  registerPassword
+}) =>
   <RegisterLayout
     title="CREATE ACCOUNT"
     onPress={() => navigation.navigate(routeKeys.RegisterAdditionalDetails)}
   >
-    <TextInput placeholder="Email" />
-    <TextInput placeholder="Password" secureTextEntry />
+    <TextInput
+      placeholder="Email"
+      onChangeText={email => registerEmailAddress(email)}
+    />
+    <TextInput
+      placeholder="Password"
+      secureTextEntry
+      onChangeText={password => registerPassword(password)}
+    />
   </RegisterLayout>;
 
 export default RegisterAccountCreation;

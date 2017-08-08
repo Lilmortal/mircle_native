@@ -9,7 +9,8 @@ const CustomTextInput = ({
   color = "gray",
   secureTextEntry = false,
   style,
-  hideUnderlineColor = false
+  hideUnderlineColor = false,
+  ...props
 }) => {
   return (
     <View
@@ -31,6 +32,7 @@ const CustomTextInput = ({
         selectionColor={color}
         underlineColorAndroid="transparent"
         secureTextEntry={secureTextEntry}
+        {...props}
       />
     </View>
   );

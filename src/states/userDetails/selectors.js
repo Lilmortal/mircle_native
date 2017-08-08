@@ -15,6 +15,10 @@ export const getPhoneNumber = state => state[NAME].phoneNumber;
 
 export const getBirthDate = state => state[NAME].birthDate;
 
+export const getOccupation = state => state[NAME].occupation;
+
+export const getProfilePicture = state => state[NAME].profilePicture;
+
 export const getCreatedOn = state => state[NAME].createdOn;
 
 export const getLastLoggedIn = state => state[NAME].lastLoggedIn;
