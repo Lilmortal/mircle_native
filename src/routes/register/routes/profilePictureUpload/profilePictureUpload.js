@@ -4,7 +4,7 @@ import ImagePicker from "react-native-image-crop-picker";
 
 import { routeKeys } from "../../../../config";
 import Button from "../../../../components/button";
-import TextInput from "../../components/registerTextInput";
+import { TextInput } from "../../components";
 import RegisterLayout from "../../layout/registerLayout";
 import styles from "./styles";
 
@@ -41,9 +41,6 @@ const RegisterAccountCreation = ({
       <Text style={styles.uploadInstructionText}>
         Upload a photo of yourself, or you can do it later.
       </Text>
-      <View>
-        {profilePicture}
-      </View>
     </View>
 
     <View style={styles.uploadButtons}>

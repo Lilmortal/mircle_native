@@ -1,18 +1,23 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  birthDatePickerContainer: {
-    flexDirection: "row"
+  datePickerContainer: {
+    flexDirection: "row",
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: 10,
+    marginTop: 10,
+    marginBottom: 10
   },
-  birthDateTextContainer: {
+  dateTextContainer: {
     flex: 2,
     justifyContent: "center",
     paddingLeft: 7
   },
-  birthDateText: {
+  dateText: {
     color: "black"
   },
-  birthDatePicker: {
+  datePicker: {
     flex: 1
   }
 });

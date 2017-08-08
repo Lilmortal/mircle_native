@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 
 import { routeKeys } from "../../../../config";
-import TextInput from "../../components/registerTextInput";
+import { TextInput } from "../../components";
 import RegisterLayout from "../../layout/registerLayout";
 
 const RegisterAccountCreation = ({

@@ -1,12 +1,10 @@
 import React from "react";
-import { View, Text, Picker } from "react-native";
-import DatePicker from "react-native-datepicker";
+import { View, Text } from "react-native";
 
 import { routeKeys } from "../../../../config";
-import TextInput from "../../components/registerTextInput";
+import { Picker, DatePicker, TextInput } from "../../components";
 import RegisterLayout from "../../layout/registerLayout";
 import userDetailsState from "../../../../states/userDetails";
-import styles from "./styles";
 
 const RegisterAdditionalDetails = ({
   navigation,
@@ -35,26 +33,27 @@ const RegisterAdditionalDetails = ({
     <Picker
       selectedValue={gender}
       onValueChange={gender => registerGender(gender)}
-    >
-      <Picker.Item label="Male" value="M" />
-      <Picker.Item label="Female" value="F" />
-      <Picker.Item label="Unapplicable" value="U" />
-    </Picker>
+      items={[
+        {
+          label: "Male",
+          value: "M"
+        },
+        {
+          label: "Female",
+          value: "F"
+        },
+        {
+          label: "Unapplicable",
+          value: "U"
+        }
+      ]}
+    />
 
-    <View style={styles.birthDatePickerContainer}>
-      <View style={styles.birthDateTextContainer}>
-        <Text style={styles.birthDateText}>Birth Date</Text>
-      </View>
-      <DatePicker
-        style={styles.birthDatePicker}
-        date={birthDate}
-        placeholder="Birth date"
-        format="DD/MM/YYYY"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        onDateChange={date => registerBirthDate(date)}
-      />
-    </View>
+    <DatePicker
+      title="Birth Date"
+      date={birthDate}
+      onDateChange={date => registerBirthDate(date)}
+    />
 
     <TextInput
       placeholder="Phone Number"
