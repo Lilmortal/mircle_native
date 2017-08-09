@@ -16,26 +16,44 @@ class AppLayout extends Component {
     };
   }
 
-  readQRCode = qrCode => {
+  readQRCode = (qrCode, sound, soundVolume, vibration, name) => {
     if (qrCode.type === "QR_CODE") {
       this.setState({ qrCode: qrCode.data });
       PushNotification.localNotification({
-        title: "Will Smith just added you!",
-        message: "You two met at Botany Down Centre."
+        title: `${name} just added you!`,
+        message: "You two met at Botany Down Centre.",
+        playSound: sound,
+        number: soundVolume,
+        vibration
       });
       //Vibration.vibrate(1000);
     }
   };
 
   render() {
-    const { cameraActive, children } = this.props;
+    const {
+      cameraActive,
+      firstName,
+      surname,
+      sound,
+      soundVolume,
+      vibration,
+      children
+    } = this.props;
 
     return (
       <Animatable.View animation="fadeIn" style={styles.appLayout}>
         {cameraActive &&
           <Camera
             style={styles.camera}
-            onBarCodeRead={qrCode => this.readQRCode(qrCode)}
+            onBarCodeRead={qrCode =>
+              this.readQRCode(
+                qrCode,
+                sound,
+                soundVolume,
+                vibration,
+                `${firstName} ${surname}`
+              )}
             barCodeTypes={["qr"]}
           >
             <View style={styles.qrCode}>

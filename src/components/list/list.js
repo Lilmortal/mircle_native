@@ -7,7 +7,11 @@ const List = ({
   children,
   isSelectable = false,
   hasSlider = false,
+  sliderValue,
+  sliderOnRelease,
   hasSwitch = false,
+  switchValue,
+  switchOnPress,
   lastChild = false,
   onPress,
   style
@@ -20,8 +24,20 @@ const List = ({
       <View style={[styles.listChildren, hasSlider && { flex: 1 }]}>
         {children}
       </View>
-      {hasSlider && <Slider style={styles.selectable} />}
-      {hasSwitch && <Switch style={styles.selectable} />}
+      {hasSlider &&
+        <Slider
+          style={styles.selectable}
+          value={sliderValue}
+          onSlidingComplete={sliderOnRelease}
+        />}
+      {hasSwitch &&
+        <Switch
+          style={styles.selectable}
+          minimumValue={0}
+          maximumValue={10}
+          value={switchValue}
+          onValueChange={switchOnPress}
+        />}
       {isSelectable &&
         <View style={styles.selectable}>
           <Text>></Text>

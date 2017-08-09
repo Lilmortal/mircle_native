@@ -40,6 +40,16 @@ export default class Settings extends Component {
   };
 
   render() {
+    const {
+      sound,
+      soundVolume,
+      vibration,
+      updateSound,
+      updateSoundVolume,
+      updateVibration
+    } = this.props;
+
+    console.log(sound, soundVolume, vibration);
     return (
       <View style={styles.settings}>
         <View style={styles.container}>
@@ -54,13 +64,28 @@ export default class Settings extends Component {
           </Setting>
 
           <Setting title="Notifications">
-            <List hasSwitch>
+            <List
+              hasSwitch
+              switchValue={sound}
+              switchOnPress={updatedSound => updateSound(updatedSound)}
+            >
               <Text>Sound</Text>
             </List>
-            <List hasSlider>
+            <List
+              hasSlider
+              sliderValue={soundVolume}
+              sliderOnRelease={updatedSoundVolume =>
+                updateSoundVolume(updatedSoundVolume)}
+            >
               <Text>Volume</Text>
             </List>
-            <List hasSwitch lastChild>
+            <List
+              hasSwitch
+              switchValue={vibration}
+              switchOnPress={updatedVibration =>
+                updateVibration(updatedVibration)}
+              lastChild
+            >
               <Text>Vibration</Text>
             </List>
           </Setting>
