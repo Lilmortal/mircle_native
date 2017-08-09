@@ -6,13 +6,15 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   profilePictureBackground: {
-    justifyContent: "center",
-    alignItems: "center",
     paddingTop: 15,
     paddingBottom: 15,
     width: null,
     height: null,
     resizeMode: "cover"
+  },
+  headerDescription: {
+    justifyContent: "center",
+    alignItems: "center"
   },
   name: {
     fontWeight: "500",
@@ -25,17 +27,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "white"
   },
+  map: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    paddingRight: 15
+  },
   biographies: {
     borderWidth: 1,
-    borderColor: "black"
-  },
-  map: {
-    flex: 1,
-    flexDirection: "column",
-    marginLeft: 10,
-    marginRight: 10
-  },
-  buttonMap: {
     borderColor: "black"
   }
 });

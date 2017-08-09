@@ -84,7 +84,7 @@ export default class Friends extends Component {
             <TouchableHighlight
               onPress={() =>
                 navigation.navigate(routeKeys.FriendsProfile, {
-                  isAFriend: true
+                  friend: true
                 })}
             >
               <View>

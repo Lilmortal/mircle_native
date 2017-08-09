@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, Image, FlatList } from "react-native";
+import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import Button from "../../components/button";
 import ProfilePicture from "../../components/profilePicture";
@@ -55,13 +56,23 @@ const Profile = ({
             source={images.profileBackground}
             style={styles.profilePictureBackground}
           >
-            <ProfilePicture source={images.anonymous} size={250} />
-            <Text style={styles.name}>
-              {firstName} {surname}
-            </Text>
-            <Text style={styles.email}>
-              {emailAddress}
-            </Text>
+            <View style={styles.headerDescription}>
+              <ProfilePicture source={images.anonymous} size={250} />
+              <Text style={styles.name}>
+                {firstName} {surname}
+              </Text>
+              <Text style={styles.email}>
+                {email}
+              </Text>
+            </View>
+            {navigation.state.params &&
+              navigation.state.params.friend &&
+              <TouchableHighlight
+                onPress={() => navigation.navigate(routeKeys.FriendsMap)}
+                style={styles.map}
+              >
+                <Icon name="map" size={25} />
+              </TouchableHighlight>}
           </Image>
         }
         data={data}
@@ -69,21 +80,10 @@ const Profile = ({
         renderItem={({ item }) =>
           <Biography
             label={item.label}
-            value="Software Engineer"
+            value={item.value}
             style={() => checkIfTileIsInEdge(item.id, data)}
           />}
       />
-
-      {navigation.state.params &&
-        navigation.state.params.isAFriend &&
-        <View style={styles.map}>
-          <Button
-            onPress={() => navigation.navigate(routeKeys.FriendsMap)}
-            style={styles.buttonMap}
-          >
-            <Text>Where have you two meet before?</Text>
-          </Button>
-        </View>}
     </View>
   );
 };
