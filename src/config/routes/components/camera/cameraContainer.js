@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import Camera from "./camera";
+import Camera from "../../../../components/camera";
 import cameraState from "../../../../states/camera";
 
 const { UPDATE_CAMERA_ACTIVE } = cameraState.actions;

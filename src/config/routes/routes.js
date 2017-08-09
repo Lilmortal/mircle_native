@@ -177,7 +177,9 @@ const drawerNav = DrawerNavigator(
     drawerWidth: 300,
     contentComponent: props =>
       <View>
-        <DrawerPanel navigation={props.navigation} />
+        <DrawerPanel
+          onPress={() => props.navigation.navigate(routeKeys.Profile)}
+        />
         <DrawerItems {...props} />
       </View>
   }

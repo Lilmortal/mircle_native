@@ -1,1 +1,1 @@
-export { default } from "./drawerPanel";
+export { default } from "./drawerPanelContainer";

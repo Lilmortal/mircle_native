@@ -1,23 +1,29 @@
 import React from "react";
 import { View, Text, Image, TouchableHighlight } from "react-native";
 
+import DrawerPanel from "../../../../components/drawerPanel";
 import ProfilePicture from "../../../../components/profilePicture";
-import { routeKeys, images } from "../../../../config";
+import images from "../../../images";
 import styles from "./styles";
 
-const DrawerPanel = ({ navigation }) =>
-  <TouchableHighlight onPress={() => navigation.navigate(routeKeys.Profile)}>
-    <Image
-      source={images.drawerNavigationBackground}
-      style={styles.drawerPanel}
-      blurRadius={1}
-    >
-      <View style={styles.header}>
-        <ProfilePicture source={images.anonymous} />
-        <Text style={styles.name}>Will Smith</Text>
-        <Text style={styles.email}>willsmith@gmail.com</Text>
-      </View>
-    </Image>
-  </TouchableHighlight>;
+const NavigationDrawerPanel = ({
+  onPress,
+  profilePicture,
+  firstName,
+  surname,
+  emailAddress
+}) =>
+  <DrawerPanel
+    backgroundImage={images.drawerNavigationBackground}
+    onPress={onPress}
+  >
+    <ProfilePicture source={profilePicture} />
+    <Text style={styles.name}>
+      {firstName} {surname}
+    </Text>
+    <Text style={styles.email}>
+      {emailAddress}
+    </Text>
+  </DrawerPanel>;
 
-export default DrawerPanel;
+export default NavigationDrawerPanel;
