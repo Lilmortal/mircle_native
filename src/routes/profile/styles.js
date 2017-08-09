@@ -5,19 +5,16 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column"
   },
-  profilePicture: {
+  profilePictureBackground: {
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: 15,
+    paddingBottom: 15,
     width: null,
     height: null,
     resizeMode: "cover"
   },
-  profileName: {
-    marginBottom: 10
-  },
-  profileNameText: {
+  name: {
     fontWeight: "500",
     fontSize: 35,
     textAlign: "center",
@@ -28,22 +25,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "white"
   },
-  biography: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    paddingLeft: 20,
-    paddingRight: 20
-  },
-  biographyList: {
-    padding: 20
-  },
-  biographyListText: {
-    fontSize: 20
-  },
-  biographyDescription: {
-    fontSize: 10,
-    textAlign: "center"
+  biographies: {
+    borderWidth: 1,
+    borderColor: "black"
   },
   map: {
     flex: 1,

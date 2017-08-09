@@ -70,6 +70,11 @@ export default class Feeds extends Component {
         <FlatList
           data={this.state.dataSource}
           keyExtractor={item => item.id}
+          ListEmptyComponent={
+            <View style={styles.noFeedMessage}>
+              <Text>Start adding new friends to populate your feeds!</Text>
+            </View>
+          }
           renderItem={({ item }) =>
             <Feed key={item.id}>
               <ProfilePicture source={item.profilePicture} />
@@ -86,9 +91,6 @@ export default class Feeds extends Component {
               </View>
             </Feed>}
         />
-        {/* <View style={styles.noFeedMessage}>
-      <Text>Start adding new friends to populate your feeds!</Text>
-    </View>*/}
       </View>
     );
   }

@@ -72,6 +72,14 @@ export default class Friends extends Component {
         <FlatList
           data={this.state.dataSource}
           keyExtractor={item => item.id}
+          ListEmptyComponent={
+            <View style={styles.noFriendsMessage}>
+              <Text>
+                You don&#39;t have any friends on Mircle at the moment, start
+                adding new friends now!
+              </Text>
+            </View>
+          }
           renderItem={({ item }) =>
             <TouchableHighlight
               onPress={() =>
@@ -99,12 +107,6 @@ export default class Friends extends Component {
               </View>
             </TouchableHighlight>}
         />
-        {/* <View style={styles.noFriendsMessage}>
-      <Text>
-        You don&#39;t have any friends on Mircle at the moment, start adding new
-        friends now!
-      </Text>
-    </View>*/}
       </View>
     );
   }
