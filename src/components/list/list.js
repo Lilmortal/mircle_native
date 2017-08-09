@@ -5,6 +5,7 @@ import styles from "./styles";
 
 const List = ({
   children,
+  disabled,
   isSelectable = false,
   hasSlider = false,
   sliderValue,
@@ -28,6 +29,7 @@ const List = ({
         <Slider
           style={styles.selectable}
           value={sliderValue}
+          disabled={disabled}
           onSlidingComplete={sliderOnRelease}
         />}
       {hasSwitch &&
@@ -35,6 +37,7 @@ const List = ({
           style={styles.selectable}
           minimumValue={0}
           maximumValue={10}
+          disabled={disabled}
           value={switchValue}
           onValueChange={switchOnPress}
         />}

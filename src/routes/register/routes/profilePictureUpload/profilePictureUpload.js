@@ -3,6 +3,7 @@ import { View, Text, DeviceEventEmitter, CameraRoll } from "react-native";
 import ImagePicker from "react-native-image-crop-picker";
 
 import { routeKeys } from "../../../../config";
+import ProfilePicture from "../../../../components/profilePicture";
 import Button from "../../../../components/button";
 import { TextInput } from "../../components";
 import RegisterLayout from "../../layout/registerLayout";
@@ -32,31 +33,37 @@ const RegisterAccountCreation = ({
   navigation,
   profilePicture,
   uploadProfilePicture
-}) =>
-  <RegisterLayout
-    title="UPLOAD A PHOTO OF YOURSELF"
-    onPress={() => navigation.navigate(routeKeys.RegisterAccountSummary)}
-  >
-    <View style={styles.uploadInstruction}>
-      <Text style={styles.uploadInstructionText}>
-        Upload a photo of yourself, or you can do it later.
-      </Text>
-    </View>
+}) => {
+  console.log(profilePicture);
+  return (
+    <RegisterLayout
+      title="UPLOAD A PHOTO OF YOURSELF"
+      onPress={() => navigation.navigate(routeKeys.RegisterAccountSummary)}
+    >
+      <View style={styles.uploadInstruction}>
+        {profilePicture
+          ? <ProfilePicture source={profilePicture} />
+          : <Text style={styles.uploadInstructionText}>
+              Upload a photo of yourself, or you can do it later.
+            </Text>}
+      </View>
 
-    <View style={styles.uploadButtons}>
-      <Button
-        onPress={() => openCamera(uploadProfilePicture)}
-        style={styles.uploadButton}
-      >
-        <Text style={styles.buttonText}>Take a photo of yourself</Text>
-      </Button>
-      <Button
-        onPress={() => openGallery(uploadProfilePicture)}
-        style={styles.uploadButton}
-      >
-        <Text style={styles.buttonText}>Check your gallery</Text>
-      </Button>
-    </View>
-  </RegisterLayout>;
+      <View style={styles.uploadButtons}>
+        <Button
+          onPress={() => openCamera(uploadProfilePicture)}
+          style={styles.uploadButton}
+        >
+          <Text style={styles.buttonText}>Take a photo of yourself</Text>
+        </Button>
+        <Button
+          onPress={() => openGallery(uploadProfilePicture)}
+          style={styles.uploadButton}
+        >
+          <Text style={styles.buttonText}>Check your gallery</Text>
+        </Button>
+      </View>
+    </RegisterLayout>
+  );
+};
 
 export default RegisterAccountCreation;

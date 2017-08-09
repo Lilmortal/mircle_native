@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, Vibration } from "react-native";
+import { View, Text } from "react-native";
 import Camera from "react-native-camera";
 import * as Animatable from "react-native-animatable";
 
@@ -24,9 +24,8 @@ class AppLayout extends Component {
         message: "You two met at Botany Down Centre.",
         playSound: sound,
         number: soundVolume,
-        vibration
+        vibrate: vibration
       });
-      //Vibration.vibrate(1000);
     }
   };
 
