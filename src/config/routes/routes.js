@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { StackNavigator, DrawerNavigator, DrawerItems } from "react-navigation";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-import DrawerPanel from "./drawerPanel";
+import { DrawerPanel } from "./components";
 import { withOptions } from "./routeLibs";
 import images from "../images";
 import routeKeys from "../routeKeys";

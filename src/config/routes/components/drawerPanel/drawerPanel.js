@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, Image, TouchableHighlight } from "react-native";
 
-import ProfilePicture from "../../../components/profilePicture";
-import { images } from "../../../config";
+import ProfilePicture from "../../../../components/profilePicture";
+import { routeKeys, images } from "../../../../config";
 import styles from "./styles";
 
 const DrawerPanel = ({ navigation }) =>
-  <TouchableHighlight onPress={() => navigation.navigate("Profile")}>
+  <TouchableHighlight onPress={() => navigation.navigate(routeKeys.Profile)}>
     <Image
       source={images.drawerNavigationBackground}
       style={styles.drawerPanel}

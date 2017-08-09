@@ -12,7 +12,8 @@ const routeKeys = {
   RegisterAdditionalDetails: "RegisterAdditionalDetails",
   RegisterProfilePictureUpload: "RegisterProfilePictureUpload",
   RegisterAccountSummary: "RegisterAccountSummary",
-  RegisterEmailConfirmation: "RegisterEmailConfirmation"
+  RegisterEmailConfirmation: "RegisterEmailConfirmation",
+  DrawerOpen: "DrawerOpen"
 };
 
 export default routeKeys;

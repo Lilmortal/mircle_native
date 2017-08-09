@@ -62,7 +62,7 @@ const Profile = ({
                 {firstName} {surname}
               </Text>
               <Text style={styles.email}>
-                {email}
+                {emailAddress}
               </Text>
             </View>
             {navigation.state.params &&
