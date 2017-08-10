@@ -67,12 +67,13 @@ const Profile = ({
             </View>
             {navigation.state.params &&
               navigation.state.params.friend &&
-              <TouchableHighlight
-                onPress={() => navigation.navigate(routeKeys.FriendsMap)}
-                style={styles.map}
-              >
-                <Icon name="map" size={25} />
-              </TouchableHighlight>}
+              <View style={styles.map}>
+                <TouchableHighlight
+                  onPress={() => navigation.navigate(routeKeys.FriendsMap)}
+                >
+                  <Icon name="map" size={25} />
+                </TouchableHighlight>
+              </View>}
           </Image>
         }
         data={data}

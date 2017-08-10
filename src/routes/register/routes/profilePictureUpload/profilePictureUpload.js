@@ -37,7 +37,7 @@ const RegisterAccountCreation = ({
   console.log(profilePicture);
   return (
     <RegisterLayout
-      title="UPLOAD A PHOTO OF YOURSELF"
+      title="Upload a photo of yourself"
       onPress={() => navigation.navigate(routeKeys.RegisterAccountSummary)}
     >
       <View style={styles.uploadInstruction}>

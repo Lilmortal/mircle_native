@@ -9,7 +9,7 @@ const initialState = {
   phoneNumber: "",
   birthDate: "",
   occupation: "",
-  profilePicture: {},
+  profilePicture: undefined,
   createdOn: "",
   lastLoggedIn: ""
 };

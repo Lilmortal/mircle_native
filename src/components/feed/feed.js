@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import styles from "./styles";
 
@@ -10,7 +11,7 @@ const Feed = ({ children, isSelectable = false }) =>
     </View>
     {isSelectable &&
       <View style={styles.selectable}>
-        <Text>></Text>
+        <Icon name="angle-double-right" />
       </View>}
   </View>;
 

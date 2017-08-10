@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TextInput } from "react-native";
 
 import ProfilePicture from "../../../../components/profilePicture";
-import { images, routeKeys } from "../../../../config";
+import { routeKeys } from "../../../../config";
 import RegisterLayout from "../../layout/registerLayout";
 import Biography from "./biography";
 import styles from "./styles";
@@ -23,12 +23,11 @@ const RegisterAccountSummary = ({
     onPress={() => navigation.navigate(routeKeys.RegisterEmailConfirmation)}
   >
     <View style={styles.profilePicture}>
-      <ProfilePicture source={images.anonymous} size={125} />
+      <ProfilePicture source={profilePicture} size={125} />
     </View>
     <View style={styles.biography}>
       <Biography label="Email address" value={emailAddress} />
-      <Biography label="First Name" value={firstName} />
-      <Biography label="Surname" value={surname} />
+      <Biography label="Name" value={`${firstName} ${surname}`} />
       <Biography label="Gender" value={gender} />
       <Biography label="Phone Number" value={phoneNumber} />
       <Biography label="Birth Date" value={birthDate} />

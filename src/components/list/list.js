@@ -1,11 +1,12 @@
 import React from "react";
-import { View, Text, Slider, Switch, TouchableHighlight } from "react-native";
+import { View, Slider, Switch, TouchableHighlight } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 import styles from "./styles";
 
 const List = ({
   children,
-  disabled,
+  disabled = false,
   isSelectable = false,
   hasSlider = false,
   sliderValue,
@@ -43,7 +44,7 @@ const List = ({
         />}
       {isSelectable &&
         <View style={styles.selectable}>
-          <Text>></Text>
+          <Icon name="angle-double-right" />
         </View>}
     </View>
   </TouchableHighlight>;

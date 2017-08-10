@@ -11,7 +11,7 @@ const RegisterAccountCreation = ({
   registerPassword
 }) =>
   <RegisterLayout
-    title="CREATE ACCOUNT"
+    title="Create account"
     onPress={() => navigation.navigate(routeKeys.RegisterAdditionalDetails)}
   >
     <TextInput

@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   titleText: {
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: "500",
     color: "black"
   },
