@@ -15,7 +15,6 @@ import { TextInput } from "../../components";
 import RegisterLayout from "../../layout/registerLayout";
 import styles from "./styles";
 
-const setProfilePictureToDefault = profilePicture => {};
 const setBase64Image = profilePicture => {
   const base64Image = `data:${profilePicture.mime};base64,${profilePicture.data}`;
 

@@ -4,11 +4,12 @@ import { createStructuredSelector } from "reselect";
 import EmailConfirmation from "./emailConfirmation";
 import userDetailsState from "../../../../states/userDetails";
 
-const { getEmailAddress } = userDetailsState.selectors;
+const { getEmailAddress, getPhoneNumber } = userDetailsState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
-    email: getEmailAddress
+    email: getEmailAddress,
+    phoneNumber: getPhoneNumber
   });
 };
 

@@ -74,7 +74,7 @@ export default class Settings extends Component {
             <List
               disabled={!sound}
               hasSlider
-              sliderValue={soundVolume}
+              sliderValue={!sound ? 0 : soundVolume}
               sliderOnRelease={updatedSoundVolume =>
                 updateSoundVolume(updatedSoundVolume)}
             >
