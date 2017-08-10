@@ -58,6 +58,7 @@ const RegisterAdditionalDetails = ({
     <TextInput
       placeholder="Phone Number"
       onChangeText={phoneNumber => registerPhoneNumber(phoneNumber)}
+      keyboardType={"phone-pad"}
     />
     <TextInput
       placeholder="Occupation"
