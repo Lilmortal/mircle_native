@@ -8,7 +8,7 @@ const QrCodeScreen = () =>
   <View style={styles.container}>
     <View style={styles.title}>
       <Text style={styles.titleText}>
-        Show this QR code to your future friend!
+        Your friend will add you by scanning this QR Code.
       </Text>
     </View>
 

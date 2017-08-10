@@ -1,4 +1,5 @@
 import * as actionTypes from "./actionTypes";
+import { images } from "../../config";
 
 const initialState = {
   emailAddress: "",
@@ -9,7 +10,7 @@ const initialState = {
   phoneNumber: "",
   birthDate: "",
   occupation: "",
-  profilePicture: undefined,
+  profilePicture: { image: images.anonymous, default: true },
   createdOn: "",
   lastLoggedIn: ""
 };

@@ -9,7 +9,9 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingLeft: 20,
+    paddingRight: 20
   },
   titleText: {
     fontSize: 20,

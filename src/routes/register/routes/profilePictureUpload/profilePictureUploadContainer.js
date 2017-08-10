@@ -15,7 +15,7 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    uploadProfilePicture: profilePicture => {
+    updateProfilePicture: profilePicture => {
       dispatch(UPDATE_PROFILE_PICTURE(profilePicture));
     }
   };

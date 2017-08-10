@@ -7,6 +7,19 @@ import RegisterLayout from "../../layout/registerLayout";
 import Biography from "./biography";
 import styles from "./styles";
 
+const mapGenderValueToLabel = gender => {
+  switch (gender) {
+    case "M":
+      return "Male";
+    case "F":
+      return "Female";
+    case "U":
+      return "Unapplicable";
+    default:
+      return "Unknown";
+  }
+};
+
 const RegisterAccountSummary = ({
   navigation,
   emailAddress,
@@ -23,12 +36,12 @@ const RegisterAccountSummary = ({
     onPress={() => navigation.navigate(routeKeys.RegisterEmailConfirmation)}
   >
     <View style={styles.profilePicture}>
-      <ProfilePicture source={profilePicture} size={125} />
+      <ProfilePicture source={profilePicture.image} size={125} />
     </View>
     <View style={styles.biography}>
       <Biography label="Email address" value={emailAddress} />
       <Biography label="Name" value={`${firstName} ${surname}`} />
-      <Biography label="Gender" value={gender} />
+      <Biography label="Gender" value={() => mapGenderValueToLabel(gender)} />
       <Biography label="Phone Number" value={phoneNumber} />
       <Biography label="Birth Date" value={birthDate} />
       <Biography label="Occupation" value={occupation} lastChild />
