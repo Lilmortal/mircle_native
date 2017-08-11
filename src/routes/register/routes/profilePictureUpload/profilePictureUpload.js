@@ -18,6 +18,7 @@ import styles from "./styles";
 const setBase64Image = profilePicture => {
   const base64Image = `data:${profilePicture.mime};base64,${profilePicture.data}`;
 
+  profilePicture.default = false;
   profilePicture.image = { uri: base64Image };
   return profilePicture;
 };
