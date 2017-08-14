@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
+import moment from "moment";
 
 import { routeKeys } from "../../../../config";
 import { Picker, DatePicker, TextInput } from "../../components";
@@ -52,7 +53,10 @@ const RegisterAdditionalDetails = ({
     <DatePicker
       title="Birth Date"
       date={birthDate}
-      onDateChange={date => registerBirthDate(date)}
+      onDateChange={date => {
+        console.log(moment(birthDate, "DD/MM/YYYY"));
+        registerBirthDate(moment(date, "DD/MM/YYYY").toDate());
+      }}
     />
 
     <TextInput

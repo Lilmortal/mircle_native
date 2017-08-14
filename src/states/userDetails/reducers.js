@@ -8,7 +8,7 @@ const initialState = {
   surname: "",
   gender: "M",
   phoneNumber: "",
-  birthDate: "",
+  birthDate: new Date(),
   occupation: "",
   profilePicture: { image: images.anonymous, default: true },
   createdOn: "",

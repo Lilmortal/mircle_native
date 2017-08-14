@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, TextInput } from "react-native";
+import moment from "moment";
 
 import ProfilePicture from "../../../../components/profilePicture";
 import { routeKeys } from "../../../../config";
@@ -47,9 +48,10 @@ const RegisterAccountSummary = ({
     <RegisterLayout
       title="Is this you?"
       onPress={() =>
-        registerUser(user).then(response =>
-          navigation.navigate(routeKeys.RegisterEmailConfirmation)
-        )}
+        registerUser(user).then(response => {
+          console.log(response);
+          navigation.navigate(routeKeys.RegisterEmailConfirmation);
+        })}
     >
       <View style={styles.profilePicture}>
         <ProfilePicture source={profilePicture.image} size={125} />
@@ -57,9 +59,12 @@ const RegisterAccountSummary = ({
       <View style={styles.biography}>
         <Biography label="Email address" value={emailAddress} />
         <Biography label="Name" value={`${firstName} ${surname}`} />
-        <Biography label="Gender" value={() => mapGenderValueToLabel(gender)} />
+        <Biography label="Gender" value={mapGenderValueToLabel(gender)} />
         <Biography label="Phone Number" value={phoneNumber} />
-        <Biography label="Birth Date" value={birthDate} />
+        <Biography
+          label="Birth Date"
+          value={moment(birthDate).format("DD/MM/YYYY")}
+        />
         <Biography label="Occupation" value={occupation} lastChild />
       </View>
     </RegisterLayout>

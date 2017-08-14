@@ -38,6 +38,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(UPDATE_PHONE_NUMBER(phoneNumber));
     },
     registerBirthDate: birthDate => {
+      console.log(birthDate);
       dispatch(UPDATE_BIRTH_DATE(birthDate));
     },
     registerOccupation: occupation => {

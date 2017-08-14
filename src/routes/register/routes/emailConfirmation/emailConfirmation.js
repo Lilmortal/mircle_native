@@ -5,9 +5,9 @@ import { routeKeys } from "../../../../config";
 import RegisterLayout from "../../layout/registerLayout";
 import styles from "./styles";
 
-class RegisterEmailConfirmation extends Component {
+export default class RegisterEmailConfirmation extends Component {
   render() {
-    const { navigation } = this.props;
+    const { email, phoneNumber, navigation } = this.props;
 
     return (
       <RegisterLayout
@@ -24,5 +24,3 @@ class RegisterEmailConfirmation extends Component {
     );
   }
 }
-
-export default RegisterEmailConfirmation;
