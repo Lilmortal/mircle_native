@@ -16,7 +16,7 @@ export const UPDATE_BIRTH_DATE = "userDetails/UPDATE_BIRTH_DATE";
 
 export const UPDATE_OCCUPATION = "userDetails/UPDATE_OCCUPATION";
 
-export const UPDATE_PROFILE_PICTURE = "userDetails/UPDATE_PROFILE_PICTURE";
+export const UPDATE_PROFILE_IMAGE = "userDetails/UPDATE_PROFILE_IMAGE";
 
 export const UPDATE_CREATED_ON = "userDetails/UPDATE_CREATED_ON";
 

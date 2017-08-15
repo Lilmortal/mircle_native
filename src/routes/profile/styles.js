@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column"
   },
-  profilePictureBackground: {
+  profileImageBackground: {
     paddingTop: 15,
     paddingBottom: 15,
     width: null,

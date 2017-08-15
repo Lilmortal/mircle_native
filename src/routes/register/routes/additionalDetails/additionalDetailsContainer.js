@@ -11,7 +11,7 @@ const {
   UPDATE_PHONE_NUMBER,
   UPDATE_BIRTH_DATE,
   UPDATE_OCCUPATION,
-  UPDATE_PROFILE_PICTURE
+  UPDATE_PROFILE_IMAGE
 } = userDetailsState.actions;
 
 const { getBirthDate, getGender } = userDetailsState.selectors;
@@ -38,14 +38,13 @@ const mapDispatchToProps = dispatch => {
       dispatch(UPDATE_PHONE_NUMBER(phoneNumber));
     },
     registerBirthDate: birthDate => {
-      console.log(birthDate);
       dispatch(UPDATE_BIRTH_DATE(birthDate));
     },
     registerOccupation: occupation => {
       dispatch(UPDATE_OCCUPATION(occupation));
     },
-    registerProfilePicture: profilePicture => {
-      dispatch(UPDATE_PROFILE_PICTURE(profilePicture));
+    registerProfileImage: profileImage => {
+      dispatch(UPDATE_PROFILE_IMAGE(profileImage));
     }
   };
 };

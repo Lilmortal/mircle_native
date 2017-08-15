@@ -1,5 +1,4 @@
 import * as actionTypes from "./actionTypes";
-import { images } from "../../config";
 
 const initialState = {
   emailAddress: "",
@@ -10,7 +9,7 @@ const initialState = {
   phoneNumber: "",
   birthDate: new Date(),
   occupation: "",
-  profilePicture: { image: images.anonymous, default: true },
+  profileImage: { default: true },
   createdOn: "",
   lastLoggedIn: ""
 };
@@ -65,10 +64,10 @@ const reducer = (state = initialState, payload) => {
         occupation: payload.occupation
       };
     }
-    case actionTypes.UPDATE_PROFILE_PICTURE: {
+    case actionTypes.UPDATE_PROFILE_IMAGE: {
       return {
         ...state,
-        profilePicture: payload.profilePicture
+        profileImage: payload.profileImage
       };
     }
     case actionTypes.UPDATE_CREATED_ON: {

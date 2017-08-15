@@ -2,8 +2,8 @@ import React from "react";
 import { View, Text, TextInput } from "react-native";
 import moment from "moment";
 
-import ProfilePicture from "../../../../components/profilePicture";
-import { routeKeys } from "../../../../config";
+import ProfileImage from "../../../../components/profileImage";
+import { routeKeys, images } from "../../../../config";
 import RegisterLayout from "../../layout/registerLayout";
 import Biography from "./biography";
 import { registerUser } from "../../../../api";
@@ -31,7 +31,7 @@ const RegisterAccountSummary = ({
   phoneNumber,
   birthDate,
   occupation,
-  profilePicture
+  profileImage
 }) => {
   const user = {
     emailAddress,
@@ -41,7 +41,7 @@ const RegisterAccountSummary = ({
     phoneNumber,
     birthDate,
     occupation,
-    profilePicture
+    profileImage
   };
 
   return (
@@ -53,8 +53,11 @@ const RegisterAccountSummary = ({
           navigation.navigate(routeKeys.RegisterEmailConfirmation);
         })}
     >
-      <View style={styles.profilePicture}>
-        <ProfilePicture source={profilePicture.image} size={125} />
+      <View style={styles.profileImage}>
+        <ProfileImage
+          source={images.default ? images.anonymous : profileImage.image}
+          size={125}
+        />
       </View>
       <View style={styles.biography}>
         <Biography label="Email address" value={emailAddress} />

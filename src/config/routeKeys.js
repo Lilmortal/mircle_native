@@ -1,19 +1,19 @@
 const routeKeys = {
-  Profile: "Profile",
-  QrCode: "QrCode",
-  Feeds: "Feeds",
-  Friends: "Friends",
-  FriendsProfile: "FriendsProfile",
-  FriendsMap: "FriendsMap",
-  Settings: "Settings",
-  Login: "Login",
-  ForgotPassword: "ForgotPassword",
-  RegisterAccountCreation: "RegisterAccountCreation",
-  RegisterAdditionalDetails: "RegisterAdditionalDetails",
-  RegisterProfilePictureUpload: "RegisterProfilePictureUpload",
-  RegisterAccountSummary: "RegisterAccountSummary",
-  RegisterEmailConfirmation: "RegisterEmailConfirmation",
-  DrawerOpen: "DrawerOpen"
+  Profile: Symbol("Profile"),
+  QrCode: Symbol("QrCode"),
+  Feeds: Symbol("Feeds"),
+  Friends: Symbol("Friends"),
+  FriendsProfile: Symbol("FriendsProfile"),
+  FriendsMap: Symbol("FriendsMap"),
+  Settings: Symbol("Settings"),
+  Login: Symbol("Login"),
+  ForgotPassword: Symbol("ForgotPassword"),
+  RegisterAccountCreation: Symbol("RegisterAccountCreation"),
+  RegisterAdditionalDetails: Symbol("RegisterAdditionalDetails"),
+  RegisterProfileImageUpload: Symbol("RegisterProfileImageUpload"),
+  RegisterAccountSummary: Symbol("RegisterAccountSummary"),
+  RegisterEmailConfirmation: Symbol("RegisterEmailConfirmation"),
+  DrawerOpen: Symbol("DrawerOpen")
 };
 
 export default routeKeys;

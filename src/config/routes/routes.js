@@ -22,7 +22,7 @@ import ForgotPasswordScreen from "../../routes/forgotPassword";
 import LoginScreen from "../../routes/login";
 import RegisterAccountCreationScreen from "../../routes/register/routes/accountCreation";
 import RegisterAdditionalDetailsScreen from "../../routes/register/routes/additionalDetails";
-import RegisterProfilePictureUploadScreen from "../../routes/register/routes/profilePictureUpload";
+import RegisterProfileImageUploadScreen from "../../routes/register/routes/profileImageUpload";
 import RegisterAccountSummaryScreen from "../../routes/register/routes/accountSummary";
 import RegisterEmailConfirmationScreen from "../../routes/register/routes/emailConfirmation";
 import QrCodeScreen from "../../routes/qrCode";
@@ -130,8 +130,8 @@ const loginStack = StackNavigator({
     navigationOptions: settingsNavigationOptions,
     title: "Step 2"
   }),
-  [routeKeys.RegisterProfilePictureUpload]: withOptions(RegisterLayout)(
-    RegisterProfilePictureUploadScreen
+  [routeKeys.RegisterProfileImageUpload]: withOptions(RegisterLayout)(
+    RegisterProfileImageUploadScreen
   )({
     hasHamburgerMenu: false,
     hasCamera: false,

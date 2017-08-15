@@ -5,7 +5,7 @@ import DrawerPanel from "./drawerPanel";
 import userDetailsState from "../../../../states/userDetails";
 
 const {
-  getProfilePicture,
+  getProfileImage,
   getFirstName,
   getSurname,
   getEmailAddress
@@ -13,7 +13,7 @@ const {
 
 const mapStateToProps = () => {
   return createStructuredSelector({
-    profilePicture: getProfilePicture,
+    profileImage: getProfileImage,
     firstName: getFirstName,
     surname: getSurname,
     emailAddress: getEmailAddress

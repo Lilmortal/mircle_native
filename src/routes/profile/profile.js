@@ -3,7 +3,7 @@ import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import Button from "../../components/button";
-import ProfilePicture from "../../components/profilePicture";
+import ProfileImage from "../../components/profileImage";
 import { images, routeKeys } from "../../config";
 import Biography from "./biography";
 import styles from "./styles";
@@ -29,7 +29,7 @@ const Profile = ({
   phoneNumber,
   birthDate,
   occupation,
-  profilePicture,
+  profileImage,
   createdOn,
   lastLoggedIn
 }) => {
@@ -54,10 +54,10 @@ const Profile = ({
         ListHeaderComponent={
           <Image
             source={images.profileBackground}
-            style={styles.profilePictureBackground}
+            style={styles.profileImageBackground}
           >
             <View style={styles.headerDescription}>
-              <ProfilePicture source={images.anonymous} size={250} />
+              <ProfileImage source={images.anonymous} size={250} />
               <Text style={styles.name}>
                 {firstName} {surname}
               </Text>

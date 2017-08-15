@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
 
 import Feed from "../../components/feed";
-import ProfilePicture from "../../components/profilePicture";
+import ProfileImage from "../../components/profileImage";
 
 import { images, routeKeys } from "../../config";
 import styles from "./styles";
@@ -14,7 +14,7 @@ export default class Friends extends Component {
       dataSource: [
         {
           id: 0,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Will Smith",
           occupation: "actor",
           company: "hollywood",
@@ -22,7 +22,7 @@ export default class Friends extends Component {
         },
         {
           id: 1,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Eren Jaegur",
           occupation: "student",
           company: "botany downs",
@@ -30,7 +30,7 @@ export default class Friends extends Component {
         },
         {
           id: 2,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Will Smith",
           occupation: "actor",
           company: "hollywood",
@@ -38,7 +38,7 @@ export default class Friends extends Component {
         },
         {
           id: 3,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Eren Jaegur",
           occupation: "student",
           company: "botany downs",
@@ -46,7 +46,7 @@ export default class Friends extends Component {
         },
         {
           id: 4,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Will Smith",
           occupation: "actor",
           company: "hollywood",
@@ -54,7 +54,7 @@ export default class Friends extends Component {
         },
         {
           id: 5,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Eren Jaegur",
           occupation: "student",
           company: "botany downs secondary college",
@@ -89,7 +89,7 @@ export default class Friends extends Component {
             >
               <View>
                 <Feed key={item.id} isSelectable>
-                  <ProfilePicture source={item.profilePicture} />
+                  <ProfileImage source={item.profileImage} />
                   <View style={styles.profileContainer}>
                     <Text style={styles.profileName}>
                       {item.profileName}

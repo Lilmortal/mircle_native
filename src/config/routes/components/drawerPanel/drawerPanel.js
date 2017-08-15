@@ -2,13 +2,13 @@ import React from "react";
 import { View, Text, Image, TouchableHighlight } from "react-native";
 
 import DrawerPanel from "../../../../components/drawerPanel";
-import ProfilePicture from "../../../../components/profilePicture";
+import ProfileImage from "../../../../components/profileImage";
 import images from "../../../images";
 import styles from "./styles";
 
 const NavigationDrawerPanel = ({
   onPress,
-  profilePicture,
+  profileImage,
   firstName,
   surname,
   emailAddress
@@ -17,7 +17,7 @@ const NavigationDrawerPanel = ({
     backgroundImage={images.drawerNavigationBackground}
     onPress={onPress}
   >
-    <ProfilePicture source={profilePicture} />
+    <ProfileImage source={profileImage} />
     <Text style={styles.name}>
       {firstName} {surname}
     </Text>

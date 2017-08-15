@@ -12,7 +12,7 @@ const {
   getPhoneNumber,
   getBirthDate,
   getOccupation,
-  getProfilePicture
+  getProfileImage
 } = userDetailsState.selectors;
 
 const mapStateToProps = () => {
@@ -24,7 +24,7 @@ const mapStateToProps = () => {
     phoneNumber: getPhoneNumber,
     birthDate: getBirthDate,
     occupation: getOccupation,
-    profilePicture: getProfilePicture
+    profileImage: getProfileImage
   });
 };
 

@@ -17,11 +17,11 @@ const RegisterAdditionalDetails = ({
   registerBirthDate,
   registerPhoneNumber,
   registerOccupation,
-  registerProfilePicture
+  registerProfileImage
 }) =>
   <RegisterLayout
     title="We like to know more about you..."
-    onPress={() => navigation.navigate(routeKeys.RegisterProfilePictureUpload)}
+    onPress={() => navigation.navigate(routeKeys.RegisterProfileImageUpload)}
   >
     <TextInput
       placeholder="First Name"
@@ -53,10 +53,8 @@ const RegisterAdditionalDetails = ({
     <DatePicker
       title="Birth Date"
       date={birthDate}
-      onDateChange={date => {
-        console.log(moment(birthDate, "DD/MM/YYYY"));
-        registerBirthDate(moment(date, "DD/MM/YYYY").toDate());
-      }}
+      onDateChange={date =>
+        registerBirthDate(moment(date, "DD/MM/YYYY").toDate())}
     />
 
     <TextInput

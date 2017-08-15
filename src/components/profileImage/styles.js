@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  profilePicture: {
+  profileImage: {
     borderWidth: 1
   }
 });

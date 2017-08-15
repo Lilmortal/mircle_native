@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, Image, FlatList } from "react-native";
 
 import Feed from "../../components/feed";
-import ProfilePicture from "../../components/profilePicture";
+import ProfileImage from "../../components/profileImage";
 import { images } from "../../config";
 import styles from "./styles";
 
@@ -13,49 +13,49 @@ export default class Feeds extends Component {
       dataSource: [
         {
           id: 0,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Will Smith",
           date: "9 June, 2017",
           profileDescription: "Is now connected to you!"
         },
         {
           id: 1,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Eren Jaegur",
           date: "7 June, 2017",
           profileDescription: "Changed his facebook link to facebook.com/fish"
         },
         {
           id: 2,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Eren Jaegur",
           date: "7 June, 2017",
           profileDescription: "Changed his facebook link to facebook.com/fish"
         },
         {
           id: 3,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Eren Jaegur",
           date: "7 June, 2017",
           profileDescription: "Changed his facebook link to facebook.com/fish"
         },
         {
           id: 4,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Eren Jaegur",
           date: "7 June, 2017",
           profileDescription: "Changed his facebook link to facebook.com/fish"
         },
         {
           id: 5,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Eren Jaegur",
           date: "7 June, 2017",
           profileDescription: "Changed his facebook link to facebook.com/fish"
         },
         {
           id: 6,
-          profilePicture: images.anonymous,
+          profileImage: images.anonymous,
           profileName: "Eren Jaegur",
           date: "7 June, 2017",
           profileDescription: "Changed his facebook link to facebook.com/fish"
@@ -77,7 +77,7 @@ export default class Feeds extends Component {
           }
           renderItem={({ item }) =>
             <Feed key={item.id}>
-              <ProfilePicture source={item.profilePicture} />
+              <ProfileImage source={item.profileImage} />
               <View style={styles.profileContainer}>
                 <Text style={styles.profileName}>
                   {item.profileName}

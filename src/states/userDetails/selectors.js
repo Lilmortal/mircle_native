@@ -17,7 +17,7 @@ export const getBirthDate = state => state[NAME].birthDate;
 
 export const getOccupation = state => state[NAME].occupation;
 
-export const getProfilePicture = state => state[NAME].profilePicture;
+export const getProfileImage = state => state[NAME].profileImage;
 
 export const getCreatedOn = state => state[NAME].createdOn;
 

@@ -40,9 +40,9 @@ export const UPDATE_OCCUPATION = occupation => ({
   occupation
 });
 
-export const UPDATE_PROFILE_PICTURE = profilePicture => ({
-  type: actionTypes.UPDATE_PROFILE_PICTURE,
-  profilePicture
+export const UPDATE_PROFILE_IMAGE = profileImage => ({
+  type: actionTypes.UPDATE_PROFILE_IMAGE,
+  profileImage
 });
 
 export const UPDATE_CREATED_ON = createdOn => ({
