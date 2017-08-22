@@ -2,7 +2,6 @@ import { NAME } from "./constants";
 
 export const getEmailAddress = state => state[NAME].emailAddress;
 
-// Good idea?
 export const getPassword = state => state[NAME].password;
 
 export const getFirstName = state => state[NAME].firstName;

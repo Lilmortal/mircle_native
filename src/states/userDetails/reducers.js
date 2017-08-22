@@ -9,7 +9,10 @@ const initialState = {
   phoneNumber: "",
   birthDate: new Date(),
   occupation: "",
-  profileImage: { default: true },
+  profileImage: {
+    uri: "",
+    isDefault: true
+  },
   createdOn: "",
   lastLoggedIn: ""
 };
