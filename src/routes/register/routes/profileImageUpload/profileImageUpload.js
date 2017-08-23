@@ -15,46 +15,43 @@ import { TextInput } from "../../components";
 import RegisterLayout from "../../layout/registerLayout";
 import styles from "./styles";
 
-const openCamera = () => {
-  return ImagePicker.openCamera({
-    width: 300,
-    height: 400,
-    cropping: true
-  })
-    .then(response => {
-      const image = {
-        uri: response.path,
-        type: response.mime,
-        name: response.path.substring(response.path.lastIndexOf("/") + 1),
-        isDefault: false
-      };
-      return Promise.resolve(image);
-    })
-    .catch(err => {
-      Alert.alert("There seems to be an error uploading your profile picture.");
-      console.error(err);
-    });
+const CAMERA_WIDTH = 300;
+const CAMERA_HEIGHT = 400;
+
+const createProfileImage = image => {
+  const profileImage = {
+    uri: image.path,
+    type: image.mime,
+    name: image.path.substring(image.path.lastIndexOf("/") + 1),
+    isDefault: false
+  };
+  return Promise.resolve(profileImage);
 };
 
-const openGallery = () => {
-  return ImagePicker.openPicker({
-    width: 300,
-    height: 400,
-    cropping: true
-  })
-    .then(response => {
-      const image = {
-        uri: response.path,
-        type: response.mime,
-        name: response.path.substring(response.path.lastIndexOf("/") + 1),
-        isDefault: false
-      };
-      return Promise.resolve(image);
-    })
-    .catch(err => {
-      Alert.alert("There seems to be an error uploading your profile picture.");
-      console.error(err);
+const getImage = async medium => {
+  let image;
+  if (medium === "camera") {
+    image = await ImagePicker.openCamera({
+      width: CAMERA_WIDTH,
+      height: CAMERA_HEIGHT,
+      cropping: true
     });
+  } else if (medium === "gallery") {
+    image = await ImagePicker.openPicker({
+      width: CAMERA_WIDTH,
+      height: CAMERA_HEIGHT,
+      cropping: true
+    });
+  } else {
+    throw new Error("Invalid medium.");
+  }
+  return image;
+};
+
+const getProfileImage = async medium => {
+  const image = await getImage(medium);
+  const profileImage = await createProfileImage(image);
+  return profileImage;
 };
 
 const ProfileImageUpload = ({ navigation, profileImage, updateProfileImage }) =>
@@ -67,18 +64,42 @@ const ProfileImageUpload = ({ navigation, profileImage, updateProfileImage }) =>
         ? <Text style={styles.uploadInstructionText}>
             Upload a photo of yourself, or you can do it later.
           </Text>
-        : <ProfileImage source={profileImage.image} size={200} />}
+        : <ProfileImage source={profileImage} size={200} />}
     </View>
 
     <View style={styles.uploadButtons}>
       <Button
-        onPress={() => openCamera().then(image => updateProfileImage(image))}
+        onPress={() => {
+          try {
+            getProfileImage("camera").then(profileImage =>
+              updateProfileImage(profileImage)
+            );
+          } catch (err) {
+            Alert.alert(
+              "There seems to be an error uploading your profile picture from camera.\n" +
+                err
+            );
+            console.error(err);
+          }
+        }}
         style={styles.uploadButton}
       >
         <Text style={styles.buttonText}>Take a photo of yourself</Text>
       </Button>
       <Button
-        onPress={() => openGallery().then(image => updateProfileImage(image))}
+        onPress={() => {
+          try {
+            getProfileImage("gallery").then(profileImage =>
+              updateProfileImage(profileImage)
+            );
+          } catch (err) {
+            Alert.alert(
+              "There seems to be an error uploading your profile picture from gallery.\n" +
+                err
+            );
+            console.error(err);
+          }
+        }}
         style={styles.uploadButton}
       >
         <Text style={styles.buttonText}>Check your gallery</Text>

@@ -6,8 +6,15 @@ import ProfileImage from "../../../../components/profileImage";
 import { routeKeys, images } from "../../../../config";
 import RegisterLayout from "../../layout/registerLayout";
 import Biography from "./biography";
-import { uploadProfileImage, registerUser } from "../../../../api";
+import * as api from "../../../../api";
 import styles from "./styles";
+
+const {
+  uploadProfileImage,
+  registerUser,
+  setDefaultProfileImage,
+  setProfileImageUri
+} = api;
 
 const mapGenderValueToLabel = gender => {
   switch (gender) {
@@ -22,14 +29,15 @@ const mapGenderValueToLabel = gender => {
   }
 };
 
-const submit = user => {
-  return registerUser(user)
-    .then(id => {
-      //if (!user.profileImage.isDefault) {
-      return uploadProfileImage(user.profileImage, "1");
-      //}
-    })
-    .catch(err => Promise.reject(err));
+const submitUser = async user => {
+  const id = await registerUser(user);
+  if (user.profileImage.isDefault) {
+    await setDefaultProfileImage(id);
+  } else {
+    const uri = await uploadProfileImage(user.profileImage, id);
+    await setProfileImageUri(id, uri);
+  }
+  return id;
 };
 
 const RegisterAccountSummary = ({
@@ -56,13 +64,13 @@ const RegisterAccountSummary = ({
     profileImage
   };
 
-  const registerAccount = () => {
-    submit(user)
-      .then(response => {
-        console.log(response);
-        navigation.navigate(routeKeys.RegisterEmailConfirmation);
-      })
-      .catch(err => console.error(err));
+  const registerAccount = async () => {
+    try {
+      const id = await submitUser(user);
+      navigation.navigate(routeKeys.RegisterEmailConfirmation);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
