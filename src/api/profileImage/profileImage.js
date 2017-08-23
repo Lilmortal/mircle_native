@@ -14,15 +14,13 @@ export const getDefaultProfileImage = async () => {
 };
 
 export const setDefaultProfileImage = async id => {
-  const response = await fetch(`${URL}/profileimage/default/set`, {
+  const response = await fetch(`${URL}/profileimage/default/set?id=${id}`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json"
-    },
-    body: JSON.stringify(id)
+    }
   });
-  console.log(response);
   await checkApiStatus(response);
   return response.json();
 };
@@ -41,15 +39,13 @@ export const uploadProfileImage = async (profileImage, id) => {
 };
 
 export const setProfileImageUri = async (id, uri) => {
-  const response = await fetch(`${URL}/profileimage/set`, {
+  const response = await fetch(`${URL}/profileimage/set?id=${id}&uri=${uri}`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ id, uri })
+    }
   });
-  console.log(JSON.stringify({ id, uri }), response);
   await checkApiStatus(response);
   return response.json();
 };
