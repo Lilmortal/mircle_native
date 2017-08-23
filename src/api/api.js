@@ -7,7 +7,7 @@ export const getDefaultProfileImage = () => {
       Accept: "application/json",
       "Content-Type": "application/json"
     }
-  });
+  }).then(response => Promise.resolve(response.json()));
 };
 
 export const uploadProfileImage = (profileImage, id) => {
@@ -18,7 +18,7 @@ export const uploadProfileImage = (profileImage, id) => {
   return fetch(`${URL}/profileimage/upload`, {
     method: "POST",
     body: formData
-  });
+  }).then(response => Promise.resolve(response.json()));
 };
 
 export const registerUser = user => {
@@ -29,5 +29,5 @@ export const registerUser = user => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(user)
-  });
+  }).then(response => Promise.resolve(response.json()));
 };
