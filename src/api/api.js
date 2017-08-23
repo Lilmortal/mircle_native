@@ -1,4 +1,4 @@
-const URL = "http://192.168.1.115:8080";
+const URL = "http://10.214.12.66:8080";
 
 export const getDefaultProfileImage = () => {
   return fetch(`${URL}/profileimage/default`, {
