@@ -1,16 +1,18 @@
 import * as actionTypes from "./actionTypes";
 
 const initialState = {
-  emailAddress: "",
-  password: "",
-  firstName: "",
-  surname: "",
+  emailAddress: "ss",
+  password: "ss",
+  firstName: "ss",
+  surname: "ss",
   gender: "M",
-  phoneNumber: "",
+  phoneNumber: "22",
   birthDate: new Date(),
-  occupation: "",
+  occupation: "ss",
   profileImage: {
     uri: "",
+    type: "",
+    name: "",
     isDefault: true
   },
   createdOn: "",

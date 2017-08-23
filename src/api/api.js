@@ -11,22 +11,17 @@ export const getDefaultProfileImage = () => {
 };
 
 export const uploadProfileImage = (profileImage, id) => {
-  console.log(profileImage, id);
+  const formData = new FormData();
+  formData.append("file", profileImage);
+
+  console.log(formData);
   return fetch(`${URL}/profileimage/upload`, {
     method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    },
-    body: {
-      profileImage: JSON.stringify(profileImage),
-      id
-    }
+    body: formData
   });
 };
 
 export const registerUser = user => {
-  console.log(JSON.stringify(user));
   return fetch(`${URL}/user`, {
     method: "POST",
     headers: {

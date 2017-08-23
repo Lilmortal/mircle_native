@@ -24,6 +24,8 @@ const openCamera = () => {
     .then(response => {
       const image = {
         uri: response.path,
+        type: response.mime,
+        name: response.path.substring(response.path.lastIndexOf("/") + 1),
         isDefault: false
       };
       return Promise.resolve(image);
@@ -43,6 +45,8 @@ const openGallery = () => {
     .then(response => {
       const image = {
         uri: response.path,
+        type: response.mime,
+        name: response.path.substring(response.path.lastIndexOf("/") + 1),
         isDefault: false
       };
       return Promise.resolve(image);
@@ -63,7 +67,7 @@ const ProfileImageUpload = ({ navigation, profileImage, updateProfileImage }) =>
         ? <Text style={styles.uploadInstructionText}>
             Upload a photo of yourself, or you can do it later.
           </Text>
-        : <ProfileImage source={profileImage} size={200} />}
+        : <ProfileImage source={profileImage.image} size={200} />}
     </View>
 
     <View style={styles.uploadButtons}>

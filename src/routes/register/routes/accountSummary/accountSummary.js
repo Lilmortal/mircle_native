@@ -23,14 +23,13 @@ const mapGenderValueToLabel = gender => {
 };
 
 const submit = user => {
-  console.log(user);
-  return registerUser(user).then(id => {
-    console.log(id, user.profileImage);
-    if (!user.profileImage.isDefault) {
-      uploadProfileImage(user.profileImage, id);
-    }
-    return Promise.resolve(id);
-  });
+  return registerUser(user)
+    .then(id => {
+      //if (!user.profileImage.isDefault) {
+      return uploadProfileImage(user.profileImage, "1");
+      //}
+    })
+    .catch(err => Promise.reject(err));
 };
 
 const RegisterAccountSummary = ({
@@ -57,15 +56,17 @@ const RegisterAccountSummary = ({
     profileImage
   };
 
+  const registerAccount = () => {
+    submit(user)
+      .then(response => {
+        console.log(response);
+        navigation.navigate(routeKeys.RegisterEmailConfirmation);
+      })
+      .catch(err => console.error(err));
+  };
+
   return (
-    <RegisterLayout
-      title="Is this you?"
-      onPress={() =>
-        submit(user).then(response => {
-          console.log(response);
-          navigation.navigate(routeKeys.RegisterEmailConfirmation);
-        })}
-    >
+    <RegisterLayout title="Is this you?" onPress={registerAccount}>
       <View style={styles.profileImage}>
         {profileImage.isDefault
           ? <View>
