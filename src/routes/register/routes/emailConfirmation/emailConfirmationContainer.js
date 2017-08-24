@@ -3,9 +3,9 @@ import { createStructuredSelector } from "reselect";
 
 import { routeKeys } from "../../../../config";
 import EmailConfirmation from "./emailConfirmation";
-import { registerDetailsState } from "../../../../states";
+import { registrationState } from "../../../../states";
 
-const { getEmailAddress, getPhoneNumber } = registerDetailsState.selectors;
+const { getEmailAddress, getPhoneNumber } = registrationState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
@@ -16,8 +16,7 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    goNextPage: navigation =>
-      navigation.navigate(routeKeys.Login)
+    goNextPage: navigation => navigation.navigate(routeKeys.Login)
   };
 };
 export default connect(mapStateToProps)(EmailConfirmation);

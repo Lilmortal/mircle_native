@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import Profile from "./profile";
-import { userDetailsState } from "../../states";
+import { userState } from "../../states";
 
 const {
   getEmailAddress,
@@ -15,7 +15,7 @@ const {
   getProfileImage,
   getCreatedOn,
   getLastLoggedIn
-} = userDetailsState.selectors;
+} = userState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({

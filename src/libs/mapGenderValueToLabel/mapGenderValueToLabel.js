@@ -1,4 +1,4 @@
-export default const mapGenderValueToLabel = gender => {
+const mapGenderValueToLabel = gender => {
   switch (gender) {
     case "M":
       return "Male";
@@ -10,3 +10,5 @@ export default const mapGenderValueToLabel = gender => {
       return "Unknown";
   }
 };
+
+export default mapGenderValueToLabel;

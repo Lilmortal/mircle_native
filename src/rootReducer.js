@@ -1,14 +1,14 @@
 import { combineReducers } from "redux";
 import {
   cameraState,
-  registerDetailsState,
-  userDetailsState,
+  registrationState,
+  userState,
   settingsState
 } from "./states";
 
 export default combineReducers({
   [cameraState.constants.NAME]: cameraState.reducers,
-  [registerDetailsState.constants.NAME]: registerDetailsState.reducers,
-  [userDetailsState.constants.NAME]: userDetailsState.reducers,
+  [registrationState.constants.NAME]: registrationState.reducers,
+  [userState.constants.NAME]: userState.reducers,
   [settingsState.constants.NAME]: settingsState.reducers
 });

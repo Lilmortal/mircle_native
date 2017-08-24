@@ -1,6 +1,6 @@
 import * as cameraState from "./camera";
-import * as registerDetailsState from "./registerDetails";
+import * as registrationState from "./registration";
 import * as settingsState from "./settings";
-import * as userDetailsState from "./userDetails";
+import * as userState from "./user";
 
-export { cameraState, registerDetailsState, settingsState, userDetailsState };
+export { cameraState, registrationState, settingsState, userState };

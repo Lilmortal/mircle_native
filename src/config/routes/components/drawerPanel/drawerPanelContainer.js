@@ -2,14 +2,14 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import DrawerPanel from "./drawerPanel";
-import { userDetailsState } from "../../../../states";
+import { userState } from "../../../../states";
 
 const {
   getProfileImage,
   getFirstName,
   getSurname,
   getEmailAddress
-} = userDetailsState.selectors;
+} = userState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({

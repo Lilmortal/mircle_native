@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 
 import AccountCreation from "./accountCreation";
-import { registerDetailsState } from "../../../../states";
+import { registrationState } from "../../../../states";
 import { routeKeys } from "../../../../config";
 
-const { UPDATE_EMAIL_ADDRESS, UPDATE_PASSWORD } = registerDetailsState.actions;
+const { UPDATE_EMAIL_ADDRESS, UPDATE_PASSWORD } = registrationState.actions;
 
 const mapDispatchToProps = dispatch => {
   return {

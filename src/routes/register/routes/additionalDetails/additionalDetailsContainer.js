@@ -3,7 +3,7 @@ import { createStructuredSelector } from "reselect";
 
 import { routeKeys } from "../../../../config";
 import AdditionalDetails from "./additionalDetails";
-import { registerDetailsState } from "../../../../states";
+import { registrationState } from "../../../../states";
 
 const {
   UPDATE_FIRST_NAME,
@@ -13,9 +13,9 @@ const {
   UPDATE_BIRTH_DATE,
   UPDATE_OCCUPATION,
   UPDATE_PROFILE_IMAGE
-} = registerDetailsState.actions;
+} = registrationState.actions;
 
-const { getBirthDate, getGender } = registerDetailsState.selectors;
+const { getBirthDate, getGender } = registrationState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({

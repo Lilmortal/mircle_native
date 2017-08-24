@@ -2,10 +2,10 @@ import App from "./app";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { cameraState, userDetailsState, settingsState } from "../../states";
+import { cameraState, userState, settingsState } from "../../states";
 
 const { getCameraActive } = cameraState.selectors;
-const { getFirstName, getSurname } = userDetailsState.selectors;
+const { getFirstName, getSurname } = userState.selectors;
 const { getSound, getSoundVolume, getVibration } = settingsState.selectors;
 
 const mapStateToProps = () => {

@@ -54,3 +54,8 @@ export const UPDATE_LAST_LOGGED_IN = lastLoggedIn => ({
   type: actionTypes.UPDATE_LAST_LOGGED_IN,
   lastLoggedIn
 });
+
+export const UPDATE_IS_LOGGED_IN = isLoggedIn => ({
+  type: actionTypes.UPDATE_IS_LOGGED_IN,
+  isLoggedIn
+});

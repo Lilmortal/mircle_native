@@ -4,10 +4,10 @@ import ImagePicker from "react-native-image-crop-picker";
 
 import { routeKeys } from "../../../../config";
 import ProfileImageUpload from "./profileImageUpload";
-import { registerDetailsState } from "../../../../states";
+import { registrationState } from "../../../../states";
 
-const { UPDATE_PROFILE_IMAGE } = registerDetailsState.actions;
-const { getProfileImage } = registerDetailsState.selectors;
+const { UPDATE_PROFILE_IMAGE } = registrationState.actions;
+const { getProfileImage } = registrationState.selectors;
 
 const CAMERA_WIDTH = 300;
 const CAMERA_HEIGHT = 400;

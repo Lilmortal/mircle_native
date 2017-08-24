@@ -21,3 +21,5 @@ export const getProfileImage = state => state[NAME].profileImage;
 export const getCreatedOn = state => state[NAME].createdOn;
 
 export const getLastLoggedIn = state => state[NAME].lastLoggedIn;
+
+export const isLoggedIn = state => state[NAME].isLoggedIn;

@@ -16,7 +16,8 @@ const initialState = {
     isDefault: true
   },
   createdOn: "",
-  lastLoggedIn: ""
+  lastLoggedIn: "",
+  isLoggedIn: false
 };
 
 const reducer = (state = initialState, payload) => {
@@ -85,6 +86,12 @@ const reducer = (state = initialState, payload) => {
       return {
         ...state,
         lastLoggedIn: payload.lastLoggedIn
+      };
+    }
+    case actionTypes.UPDATE_IS_LOGGED_IN: {
+      return {
+        ...state,
+        isLoggedIn: payload.isLoggedIn
       };
     }
     default:

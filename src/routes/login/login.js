@@ -7,7 +7,6 @@ import TextInput from "../../components/textInput";
 import Button from "../../components/button";
 import LoginText from "./components/loginText";
 
-import { images, routeKeys } from "../../config";
 import styles from "./styles";
 
 const emailIcon = <Icon name="envelope" color="white" />;
@@ -23,6 +22,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
+    // register pages redirect to login page no matter what, this resets its state.
     this.props.resetRegisterDetails();
   }
 
@@ -34,12 +34,13 @@ class Login extends Component {
     this.setState({ password });
   }
 
-  validateUser = () => {
-    const emailAddress = this.state.emailAddress;
-    const password = this.state.password;
-  };
   render() {
-    const { navigation } = this.props;
+    const {
+      navigation,
+      getUserByEmailAddress,
+      goToRegistrationPage,
+      goToForgottenPasswordPage
+    } = this.props;
 
     return (
       <View style={styles.login}>
@@ -67,7 +68,14 @@ class Login extends Component {
             />
           </View>
 
-          <Button onPress={() => navigation.navigate(routeKeys.QrCode)}>
+          <Button
+            onPress={() =>
+              getUserByEmailAddress(
+                this.state.emailAddress,
+                this.state.password,
+                navigation
+              )}
+          >
             <View>
               <LoginText style={styles.loginText}>
                 Login to my account >
@@ -81,34 +89,23 @@ class Login extends Component {
         </View>
 
         <View style={styles.socialMediaLogin}>
-          <Icon.Button
-            name="facebook"
-            backgroundColor="#3b5998"
-            onPress={() => navigation.navigate(routeKeys.QrCode)}
-          >
+          <Icon.Button name="facebook" backgroundColor="#3b5998">
             Login with Facebook
           </Icon.Button>
 
-          <Icon.Button
-            name="twitter"
-            backgroundColor="#00aced"
-            onPress={() => navigation.navigate(routeKeys.QrCode)}
-          >
+          <Icon.Button name="twitter" backgroundColor="#00aced">
             Login with twitter
           </Icon.Button>
         </View>
 
         <View style={styles.help}>
-          <TouchableHighlight
-            onPress={() =>
-              navigation.navigate(routeKeys.RegisterAccountCreation)}
-          >
+          <TouchableHighlight onPress={() => goToRegistrationPage(navigation)}>
             <View>
               <LoginText style={styles.helpText}>Register</LoginText>
             </View>
           </TouchableHighlight>
           <TouchableHighlight
-            onPress={() => navigation.navigate(routeKeys.ForgotPassword)}
+            onPress={() => goToForgottenPasswordPage(navigation)}
           >
             <View>
               <LoginText style={styles.helpText}>Forgot password?</LoginText>

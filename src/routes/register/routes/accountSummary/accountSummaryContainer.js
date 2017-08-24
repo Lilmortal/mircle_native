@@ -4,7 +4,7 @@ import { createStructuredSelector } from "reselect";
 import * as api from "../../../../api";
 import { routeKeys } from "../../../../config";
 import AccountSummary from "./accountSummary";
-import { registerDetailsState } from "../../../../states";
+import { registrationState } from "../../../../states";
 
 const {
   uploadProfileImageToS3,
@@ -23,7 +23,7 @@ const {
   getBirthDate,
   getOccupation,
   getProfileImage
-} = registerDetailsState.selectors;
+} = registrationState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
@@ -61,4 +61,4 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
-export default connect(mapStateToProps)(AccountSummary);
+export default connect(mapStateToProps, mapDispatchToProps)(AccountSummary);
