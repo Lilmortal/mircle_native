@@ -19,4 +19,4 @@ const mapDispatchToProps = dispatch => {
     goNextPage: navigation => navigation.navigate(routeKeys.Login)
   };
 };
-export default connect(mapStateToProps)(EmailConfirmation);
+export default connect(mapStateToProps, mapDispatchToProps)(EmailConfirmation);
