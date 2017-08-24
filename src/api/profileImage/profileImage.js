@@ -25,12 +25,12 @@ export const setDefaultProfileImage = async id => {
   return response.json();
 };
 
-export const uploadProfileImage = async (profileImage, id) => {
+export const uploadProfileImageToS3 = async (profileImage, id) => {
   const formData = new FormData();
   formData.append("profileImage", profileImage);
   formData.append("id", id);
 
-  const response = await fetch(`${URL}/profileimage/upload`, {
+  const response = await fetch(`${URL}/profileimage/s3upload`, {
     method: "POST",
     body: formData
   });

@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import Settings from "./settings";
-import settingsState from "../../states/settings";
+import { settingsState } from "../../states";
 
 const {
   UPDATE_SOUND,

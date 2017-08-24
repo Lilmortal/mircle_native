@@ -2,13 +2,12 @@ import React from "react";
 import { View, Text } from "react-native";
 import moment from "moment";
 
-import { routeKeys } from "../../../../config";
 import { Picker, DatePicker, TextInput } from "../../components";
 import RegisterLayout from "../../layout/registerLayout";
-import userDetailsState from "../../../../states/userDetails";
 
 const RegisterAdditionalDetails = ({
   navigation,
+  goNextPage,
   birthDate,
   gender,
   registerFirstName,
@@ -21,7 +20,7 @@ const RegisterAdditionalDetails = ({
 }) =>
   <RegisterLayout
     title="We like to know more about you..."
-    onPress={() => navigation.navigate(routeKeys.RegisterProfileImageUpload)}
+    onPress={() => goNextPage(navigation)}
   >
     <TextInput
       placeholder="First Name"

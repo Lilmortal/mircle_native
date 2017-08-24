@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import DrawerPanel from "./drawerPanel";
-import userDetailsState from "../../../../states/userDetails";
+import { userDetailsState } from "../../../../states";
 
 const {
   getProfileImage,

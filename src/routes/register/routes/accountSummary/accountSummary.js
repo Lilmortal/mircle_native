@@ -2,46 +2,15 @@ import React from "react";
 import { View, Text } from "react-native";
 import moment from "moment";
 
+import { mapGenderValueToLabel } from "../../../../libs";
 import ProfileImage from "../../../../components/profileImage";
-import { routeKeys, images } from "../../../../config";
 import RegisterLayout from "../../layout/registerLayout";
 import Biography from "./biography";
-import * as api from "../../../../api";
 import styles from "./styles";
-
-const {
-  uploadProfileImage,
-  registerUser,
-  setDefaultProfileImage,
-  setProfileImageUri
-} = api;
-
-const mapGenderValueToLabel = gender => {
-  switch (gender) {
-    case "M":
-      return "Male";
-    case "F":
-      return "Female";
-    case "U":
-      return "Unapplicable";
-    default:
-      return "Unknown";
-  }
-};
-
-const submitUser = async user => {
-  const id = await registerUser(user);
-  if (user.profileImage.isDefault) {
-    await setDefaultProfileImage(id);
-  } else {
-    const uri = await uploadProfileImage(user.profileImage, id);
-    await setProfileImageUri(id, uri);
-  }
-  return id;
-};
 
 const RegisterAccountSummary = ({
   navigation,
+  registerAccount,
   emailAddress,
   firstName,
   surname,
@@ -64,17 +33,12 @@ const RegisterAccountSummary = ({
     profileImage
   };
 
-  const registerAccount = async () => {
-    try {
-      const id = await submitUser(user);
-      navigation.navigate(routeKeys.RegisterEmailConfirmation);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   return (
-    <RegisterLayout title="Is this you?" onPress={registerAccount}>
+    <RegisterLayout
+      title="Is this you?"
+      onPress={() => registerAccount(user, navigation)}
+      buttonMessage="SUBMIT"
+    >
       <View style={styles.profileImage}>
         {profileImage.isDefault
           ? <View>

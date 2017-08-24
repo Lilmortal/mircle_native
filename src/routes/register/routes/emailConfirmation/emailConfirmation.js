@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 
-import { routeKeys } from "../../../../config";
 import RegisterLayout from "../../layout/registerLayout";
 import styles from "./styles";
 
 export default class RegisterEmailConfirmation extends Component {
   render() {
-    const { email, phoneNumber, navigation } = this.props;
+    const { email, phoneNumber, navigation, goNextPage } = this.props;
 
     return (
       <RegisterLayout
         title="Email confirmation has been sent."
-        onPress={() => navigation.navigate(routeKeys.Login)}
-        lastPage
+        onPress={() => goNextPage(navigation)}
+        buttonMessage="BACK TO LOGIN PAGE"
       >
         <Text style={styles.emailConfirmationText}>
           An email has been sent to{" "}

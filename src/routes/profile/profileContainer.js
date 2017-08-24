@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import Profile from "./profile";
-import userDetailsState from "../../states/userDetails";
+import { userDetailsState } from "../../states";
 
 const {
   getEmailAddress,

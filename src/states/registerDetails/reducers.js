@@ -14,9 +14,7 @@ const initialState = {
     type: "",
     name: "",
     isDefault: true
-  },
-  createdOn: "",
-  lastLoggedIn: ""
+  }
 };
 
 const reducer = (state = initialState, payload) => {
@@ -75,17 +73,8 @@ const reducer = (state = initialState, payload) => {
         profileImage: payload.profileImage
       };
     }
-    case actionTypes.UPDATE_CREATED_ON: {
-      return {
-        ...state,
-        createdOn: payload.createdOn
-      };
-    }
-    case actionTypes.UPDATE_LAST_LOGGED_IN: {
-      return {
-        ...state,
-        lastLoggedIn: payload.lastLoggedIn
-      };
+    case actionTypes.RESET_REGISTER_DETAILS: {
+      return initialState;
     }
     default:
       return state;

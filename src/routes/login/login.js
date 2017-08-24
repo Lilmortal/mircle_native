@@ -13,71 +13,111 @@ import styles from "./styles";
 const emailIcon = <Icon name="envelope" color="white" />;
 const passwordIcon = <Icon name="lock" color="white" />;
 
-const Login = ({ navigation }) =>
-  <View style={styles.login}>
-    <View style={styles.title}>
-      <LoginText style={styles.titleText}>Mircle</LoginText>
-      <LoginText style={styles.titleDescription}>
-        connect to each other stress free
-      </LoginText>
-    </View>
+class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      emailAddress: "",
+      password: ""
+    };
+  }
 
-    <View style={styles.loginForm}>
-      <View>
-        <TextInput Icon={emailIcon} placeholder="Email address" color="white" />
-        <TextInput
-          Icon={passwordIcon}
-          placeholder="Password"
-          color="white"
-          secureTextEntry
-        />
+  componentDidMount() {
+    this.props.resetRegisterDetails();
+  }
+
+  setEmailAddress(emailAddress) {
+    this.setState({ emailAddress });
+  }
+
+  setPassword(password) {
+    this.setState({ password });
+  }
+
+  validateUser = () => {
+    const emailAddress = this.state.emailAddress;
+    const password = this.state.password;
+  };
+  render() {
+    const { navigation } = this.props;
+
+    return (
+      <View style={styles.login}>
+        <View style={styles.title}>
+          <LoginText style={styles.titleText}>Mircle</LoginText>
+          <LoginText style={styles.titleDescription}>
+            connect to each other stress free
+          </LoginText>
+        </View>
+
+        <View style={styles.loginForm}>
+          <View>
+            <TextInput
+              Icon={emailIcon}
+              placeholder="Email address"
+              color="white"
+              onChangeText={emailAddress => this.setEmailAddress(emailAddress)}
+            />
+            <TextInput
+              Icon={passwordIcon}
+              placeholder="Password"
+              color="white"
+              secureTextEntry
+              onChangeText={password => this.setPassword(password)}
+            />
+          </View>
+
+          <Button onPress={() => navigation.navigate(routeKeys.QrCode)}>
+            <View>
+              <LoginText style={styles.loginText}>
+                Login to my account >
+              </LoginText>
+            </View>
+          </Button>
+        </View>
+
+        <View style={styles.seperator}>
+          <LoginText>OR</LoginText>
+        </View>
+
+        <View style={styles.socialMediaLogin}>
+          <Icon.Button
+            name="facebook"
+            backgroundColor="#3b5998"
+            onPress={() => navigation.navigate(routeKeys.QrCode)}
+          >
+            Login with Facebook
+          </Icon.Button>
+
+          <Icon.Button
+            name="twitter"
+            backgroundColor="#00aced"
+            onPress={() => navigation.navigate(routeKeys.QrCode)}
+          >
+            Login with twitter
+          </Icon.Button>
+        </View>
+
+        <View style={styles.help}>
+          <TouchableHighlight
+            onPress={() =>
+              navigation.navigate(routeKeys.RegisterAccountCreation)}
+          >
+            <View>
+              <LoginText style={styles.helpText}>Register</LoginText>
+            </View>
+          </TouchableHighlight>
+          <TouchableHighlight
+            onPress={() => navigation.navigate(routeKeys.ForgotPassword)}
+          >
+            <View>
+              <LoginText style={styles.helpText}>Forgot password?</LoginText>
+            </View>
+          </TouchableHighlight>
+        </View>
       </View>
-
-      <Button onPress={() => navigation.navigate(routeKeys.QrCode)}>
-        <View>
-          <LoginText style={styles.loginText}>Login to my account ></LoginText>
-        </View>
-      </Button>
-    </View>
-
-    <View style={styles.seperator}>
-      <LoginText>OR</LoginText>
-    </View>
-
-    <View style={styles.socialMediaLogin}>
-      <Icon.Button
-        name="facebook"
-        backgroundColor="#3b5998"
-        onPress={() => navigation.navigate(routeKeys.QrCode)}
-      >
-        Login with Facebook
-      </Icon.Button>
-
-      <Icon.Button
-        name="twitter"
-        backgroundColor="#00aced"
-        onPress={() => navigation.navigate(routeKeys.QrCode)}
-      >
-        Login with twitter
-      </Icon.Button>
-    </View>
-
-    <View style={styles.help}>
-      <TouchableHighlight
-        onPress={() => navigation.navigate(routeKeys.RegisterAccountCreation)}
-      >
-        <View>
-          <LoginText style={styles.helpText}>Register</LoginText>
-        </View>
-      </TouchableHighlight>
-      <TouchableHighlight
-        onPress={() => navigation.navigate(routeKeys.ForgotPassword)}
-      >
-        <View>
-          <LoginText style={styles.helpText}>Forgot password?</LoginText>
-        </View>
-      </TouchableHighlight>
-    </View>
-  </View>;
+    );
+  }
+}
 
 export default Login;

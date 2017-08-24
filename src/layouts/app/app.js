@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import Camera from "react-native-camera";
 import * as Animatable from "react-native-animatable";
 
-import PushNotification from "../../libs/pushNotification";
+import { pushNotification } from "../../libs";
 import styles from "./styles";
 
 const readQRCode = data => {};
@@ -19,7 +19,7 @@ class AppLayout extends Component {
   readQRCode = (qrCode, sound, soundVolume, vibration, name) => {
     if (qrCode.type === "QR_CODE") {
       this.setState({ qrCode: qrCode.data });
-      PushNotification.localNotification({
+      pushNotification.localNotification({
         title: `${name} just added you!`,
         message: "You two met at Botany Down Centre.",
         playSound: sound,

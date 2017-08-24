@@ -1,8 +1,9 @@
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
+import { routeKeys } from "../../../../config";
 import AdditionalDetails from "./additionalDetails";
-import userDetailsState from "../../../../states/userDetails";
+import { registerDetailsState } from "../../../../states";
 
 const {
   UPDATE_FIRST_NAME,
@@ -12,9 +13,9 @@ const {
   UPDATE_BIRTH_DATE,
   UPDATE_OCCUPATION,
   UPDATE_PROFILE_IMAGE
-} = userDetailsState.actions;
+} = registerDetailsState.actions;
 
-const { getBirthDate, getGender } = userDetailsState.selectors;
+const { getBirthDate, getGender } = registerDetailsState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
@@ -45,7 +46,9 @@ const mapDispatchToProps = dispatch => {
     },
     registerProfileImage: profileImage => {
       dispatch(UPDATE_PROFILE_IMAGE(profileImage));
-    }
+    },
+    goNextPage: navigation =>
+      navigation.navigate(routeKeys.RegisterProfileImageUpload)
   };
 };
 

@@ -1,19 +1,16 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-import { routeKeys } from "../../../../config";
 import { TextInput } from "../../components";
 import RegisterLayout from "../../layout/registerLayout";
 
 const RegisterAccountCreation = ({
   navigation,
+  goNextPage,
   registerEmailAddress,
   registerPassword
 }) =>
-  <RegisterLayout
-    title="Create account"
-    onPress={() => navigation.navigate(routeKeys.RegisterAdditionalDetails)}
-  >
+  <RegisterLayout title="Create account" onPress={() => goNextPage(navigation)}>
     <TextInput
       placeholder="Email"
       onChangeText={email => registerEmailAddress(email)}

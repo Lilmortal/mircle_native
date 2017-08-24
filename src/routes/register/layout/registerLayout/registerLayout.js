@@ -9,7 +9,8 @@ const RegisterLayout = ({
   title,
   lastPage = false,
   children,
-  style
+  style,
+  buttonMessage = "NEXT"
 }) =>
   <View style={styles.register}>
     <View style={styles.title}>
@@ -22,7 +23,7 @@ const RegisterLayout = ({
     </View>
     <Button onPress={onPress} style={styles.submitButton}>
       <Text style={styles.buttonText}>
-        {lastPage ? "SUBMIT" : "NEXT"}
+        {buttonMessage}
       </Text>
     </Button>
   </View>;

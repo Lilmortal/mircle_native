@@ -1,11 +1,52 @@
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import ImagePicker from "react-native-image-crop-picker";
 
+import { routeKeys } from "../../../../config";
 import ProfileImageUpload from "./profileImageUpload";
-import userDetailsState from "../../../../states/userDetails";
+import { registerDetailsState } from "../../../../states";
 
-const { UPDATE_PROFILE_IMAGE } = userDetailsState.actions;
-const { getProfileImage } = userDetailsState.selectors;
+const { UPDATE_PROFILE_IMAGE } = registerDetailsState.actions;
+const { getProfileImage } = registerDetailsState.selectors;
+
+const CAMERA_WIDTH = 300;
+const CAMERA_HEIGHT = 400;
+
+const createProfileImage = image => {
+  const profileImage = {
+    uri: image.path,
+    type: image.mime,
+    name: image.path.substring(image.path.lastIndexOf("/") + 1),
+    isDefault: false
+  };
+  return Promise.resolve(profileImage);
+};
+
+const getImageFromMedium = async medium => {
+  let image;
+  if (medium === "camera") {
+    image = await ImagePicker.openCamera({
+      width: CAMERA_WIDTH,
+      height: CAMERA_HEIGHT,
+      cropping: true
+    });
+  } else if (medium === "gallery") {
+    image = await ImagePicker.openPicker({
+      width: CAMERA_WIDTH,
+      height: CAMERA_HEIGHT,
+      cropping: true
+    });
+  } else {
+    throw new Error("Invalid medium.");
+  }
+  return image;
+};
+
+const getProfileImageFromMedium = async medium => {
+  const image = await getImageFromMedium(medium);
+  const profileImage = await createProfileImage(image);
+  return profileImage;
+};
 
 const mapStateToProps = () => {
   return createStructuredSelector({
@@ -15,8 +56,31 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateProfileImage: profileImage => {
-      dispatch(UPDATE_PROFILE_IMAGE(profileImage));
+    goNextPage: navigation =>
+      navigation.navigate(routeKeys.RegisterAccountSummary),
+    getProfileImageFromCamera: async () => {
+      try {
+        const profileImage = await getProfileImageFromMedium("camera");
+        dispatch(UPDATE_PROFILE_IMAGE(profileImage));
+      } catch (err) {
+        Alert.alert(
+          "There seems to be an error uploading your profile picture from camera.\n" +
+            err
+        );
+        console.error(err);
+      }
+    },
+    getProfileImageFromGallery: async () => {
+      try {
+        const profileImage = await getProfileImageFromMedium("gallery");
+        dispatch(UPDATE_PROFILE_IMAGE(profileImage));
+      } catch (err) {
+        Alert.alert(
+          "There seems to be an error uploading your profile picture from gallery.\n" +
+            err
+        );
+        console.error(err);
+      }
     }
   };
 };
