@@ -10,7 +10,7 @@ const initialState = {
   birthDate: new Date(),
   occupation: "",
   profileImage: {
-    uri: "default",
+    uri: "",
     type: "",
     name: "",
     isDefault: true

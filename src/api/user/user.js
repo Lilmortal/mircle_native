@@ -27,16 +27,14 @@ export const getUserById = async (id, password) => {
 };
 
 export const getUserByEmailAddress = async (emailAddress, password) => {
-  const response = await fetch(
-    `${URL}/user?emailAddress=${emailAddress}&password=${password}`,
-    {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    }
-  );
+  const response = await fetch(`${URL}/login`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ emailAddress, password })
+  });
   await checkApiStatus(response);
   return response.json();
 };
