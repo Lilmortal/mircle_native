@@ -1,1 +1,1 @@
-export { default } from "./qrCode";
+export { default } from "./qrCodeContainer";

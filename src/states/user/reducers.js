@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes";
 
 const initialState = {
+  id: 0,
   emailAddress: "",
   password: "",
   firstName: "",
@@ -22,6 +23,12 @@ const initialState = {
 
 const reducer = (state = initialState, payload) => {
   switch (payload.type) {
+    case actionTypes.UPDATE_ID: {
+      return {
+        ...state,
+        id: payload.id
+      };
+    }
     case actionTypes.UPDATE_EMAIL_ADDRESS: {
       return {
         ...state,

@@ -1,5 +1,7 @@
 import * as actionTypes from "./actionTypes";
 
+export const UPDATE_ID = "user/UPDATE_ID";
+
 export const UPDATE_EMAIL_ADDRESS = "user/UPDATE_EMAIL_ADDRESS";
 
 export const UPDATE_PASSWORD = "user/UPDATE_PASSWORD";

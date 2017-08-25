@@ -4,7 +4,7 @@ import QRCode from "react-native-qrcode";
 
 import styles from "./styles";
 
-const QrCodeScreen = () =>
+const QrCodeScreen = ({ id }) =>
   <View style={styles.container}>
     <View style={styles.title}>
       <Text style={styles.titleText}>
@@ -13,7 +13,7 @@ const QrCodeScreen = () =>
     </View>
 
     <View style={styles.qrCode}>
-      <QRCode value="Test" size={200} />
+      <QRCode value={id} size={200} />
     </View>
   </View>;
 

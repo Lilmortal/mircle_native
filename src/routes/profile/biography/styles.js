@@ -1,6 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
-
-const windowWidth = Dimensions.get("window").width;
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   biography: {
@@ -8,7 +6,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: "black",
     flexDirection: "column",
-    width: windowWidth / 3,
     padding: 10
   },
   value: {

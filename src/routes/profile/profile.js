@@ -2,19 +2,22 @@ import React from "react";
 import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
+import { mapGenderValueToLabel } from "../../libs";
 import Button from "../../components/button";
 import ProfileImage from "../../components/profileImage";
 import { images, routeKeys } from "../../config";
 import Biography from "./biography";
 import styles from "./styles";
 
+export const NUM_OF_COLUMNS = 2;
+
 const checkIfTileIsInEdge = (id, size) => {
   const style = {};
 
-  if (id % 3 === 0) {
+  if (id % NUM_OF_COLUMNS === 0) {
     style.borderRightWidth = 0;
   }
-  if (size.length - id < 3) {
+  if (size.length - id < NUM_OF_COLUMNS) {
     style.borderBottomWidth = 0;
   }
   return style;
@@ -34,23 +37,18 @@ const Profile = ({
   lastLoggedIn
 }) => {
   const data = [
-    { id: 1, label: "Email address", value: emailAddress },
-    { id: 2, label: "Email address", value: emailAddress },
-    { id: 3, label: "Email address", value: emailAddress },
-    { id: 4, label: "Email address", value: emailAddress },
-    { id: 5, label: "Email address", value: emailAddress },
-    { id: 6, label: "Email address", value: emailAddress },
-    { id: 7, label: "Email address", value: emailAddress },
-    { id: 8, label: "Email address", value: emailAddress },
-    { id: 9, label: "Email address", value: emailAddress },
-    { id: 10, label: "Email address", value: emailAddress },
-    { id: 11, label: "Email address", value: emailAddress }
+    { id: 1, label: "Gender", value: mapGenderValueToLabel(gender) },
+    { id: 2, label: "Phone Number", value: phoneNumber },
+    { id: 3, label: "Birth Date", value: birthDate.toLocaleString() },
+    { id: 4, label: "Occupation", value: occupation },
+    { id: 5, label: "Created On", value: createdOn.toLocaleString() },
+    { id: 6, label: "Last Logged In", value: lastLoggedIn.toLocaleString() }
   ];
   return (
     <View style={styles.profile}>
       <FlatList
         style={styles.biographies}
-        numColumns={3}
+        numColumns={NUM_OF_COLUMNS}
         ListHeaderComponent={
           <Image
             source={images.profileBackground}

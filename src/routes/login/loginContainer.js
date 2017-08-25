@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import moment from "moment";
 
 import { routeKeys } from "../../config";
 import Login from "./login";
@@ -35,17 +36,22 @@ const mapDispatchToProps = dispatch => {
     getUserByEmailAddress: async (emailAddress, password, navigation) => {
       try {
         const user = await getUserByEmailAddress(emailAddress, password);
-        console.log(user);
+        console.log(
+          moment.utc(user.createdOn),
+          user.createdOn,
+          moment.utc(user.createdOn).toDate(),
+          moment.utc(user.createdOn).isValid()
+        );
         dispatch(UPDATE_EMAIL_ADDRESS(user.emailAddress));
         dispatch(UPDATE_FIRST_NAME(user.firstName));
         dispatch(UPDATE_SURNAME(user.surname));
         dispatch(UPDATE_GENDER(user.gender));
         dispatch(UPDATE_PHONE_NUMBER(user.phoneNumber));
-        dispatch(UPDATE_BIRTH_DATE(user.birthDate));
+        dispatch(UPDATE_BIRTH_DATE(moment.utc(user.birthDate).toDate()));
         dispatch(UPDATE_OCCUPATION(user.occupation));
         dispatch(UPDATE_PROFILE_IMAGE(user.profileImage));
-        dispatch(UPDATE_CREATED_ON(user.createdOn));
-        dispatch(UPDATE_LAST_LOGGED_IN(user.lastLoggedIn));
+        dispatch(UPDATE_CREATED_ON(moment.utc(user.createdOn).toDate()));
+        dispatch(UPDATE_LAST_LOGGED_IN(moment.utc(user.lastLoggedIn).toDate()));
         dispatch(UPDATE_IS_LOGGED_IN(true));
         navigation.navigate(routeKeys.QrCode);
       } catch (err) {

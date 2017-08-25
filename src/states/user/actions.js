@@ -1,5 +1,10 @@
 import * as actionTypes from "./actionTypes";
 
+export const UPDATE_ID = id => ({
+  type: actionTypes.UPDATE_ID,
+  id
+});
+
 export const UPDATE_EMAIL_ADDRESS = emailAddress => ({
   type: actionTypes.UPDATE_EMAIL_ADDRESS,
   emailAddress
