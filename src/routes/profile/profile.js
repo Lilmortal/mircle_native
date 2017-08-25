@@ -2,10 +2,10 @@ import React from "react";
 import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
+import { images } from "../../config";
 import { mapGenderValueToLabel } from "../../libs";
 import Button from "../../components/button";
 import ProfileImage from "../../components/profileImage";
-import { images, routeKeys } from "../../config";
 import Biography from "./biography";
 import styles from "./styles";
 
@@ -34,7 +34,8 @@ const Profile = ({
   occupation,
   profileImage,
   createdOn,
-  lastLoggedIn
+  lastLoggedIn,
+  goToMap
 }) => {
   const data = [
     { id: 1, label: "Gender", value: mapGenderValueToLabel(gender) },
@@ -55,7 +56,7 @@ const Profile = ({
             style={styles.profileImageBackground}
           >
             <View style={styles.headerDescription}>
-              <ProfileImage source={images.anonymous} size={250} />
+              <ProfileImage source={profileImage} size={250} />
               <Text style={styles.name}>
                 {firstName} {surname}
               </Text>
@@ -66,9 +67,7 @@ const Profile = ({
             {navigation.state.params &&
               navigation.state.params.friend &&
               <View style={styles.map}>
-                <TouchableHighlight
-                  onPress={() => navigation.navigate(routeKeys.FriendsMap)}
-                >
+                <TouchableHighlight onPress={goToMap}>
                   <Icon name="map" size={25} />
                 </TouchableHighlight>
               </View>}

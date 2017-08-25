@@ -17,8 +17,7 @@ const ProfileImageUpload = ({
   navigation,
   goNextPage,
   profileImage,
-  getProfileImageFromCamera,
-  getProfileImageFromGallery
+  getProfileImageFromMedium
 }) =>
   <RegisterLayout
     title="Upload a photo of yourself"
@@ -33,10 +32,16 @@ const ProfileImageUpload = ({
     </View>
 
     <View style={styles.uploadButtons}>
-      <Button onPress={getProfileImageFromCamera} style={styles.uploadButton}>
+      <Button
+        onPress={() => getProfileImageFromMedium("camera")}
+        style={styles.uploadButton}
+      >
         <Text style={styles.buttonText}>Take a photo of yourself</Text>
       </Button>
-      <Button onPress={getProfileImageFromGallery} style={styles.uploadButton}>
+      <Button
+        onPress={() => getProfileImageFromMedium("gallery")}
+        style={styles.uploadButton}
+      >
         <Text style={styles.buttonText}>Check your gallery</Text>
       </Button>
     </View>

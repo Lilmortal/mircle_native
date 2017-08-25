@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
+import { routeKeys } from "../../config";
 import Profile from "./profile";
 import { userState } from "../../states";
 
@@ -32,4 +33,11 @@ const mapStateToProps = () => {
   });
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    goToMap: navigation => {
+      navigation.navigate(routeKeys.FriendsMap);
+    }
+  };
+};
 export default connect(mapStateToProps)(Profile);

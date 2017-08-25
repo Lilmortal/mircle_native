@@ -1,3 +1,4 @@
+import { Alert } from "react-native";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import ImagePicker from "react-native-image-crop-picker";
@@ -58,27 +59,12 @@ const mapDispatchToProps = dispatch => {
   return {
     goNextPage: navigation =>
       navigation.navigate(routeKeys.RegisterAccountSummary),
-    getProfileImageFromCamera: async () => {
+    getProfileImageFromMedium: async medium => {
       try {
-        const profileImage = await getProfileImageFromMedium("camera");
+        const profileImage = await getProfileImageFromMedium(medium);
         dispatch(UPDATE_PROFILE_IMAGE(profileImage));
       } catch (err) {
-        Alert.alert(
-          "There seems to be an error uploading your profile picture from camera.\n" +
-            err
-        );
-        console.error(err);
-      }
-    },
-    getProfileImageFromGallery: async () => {
-      try {
-        const profileImage = await getProfileImageFromMedium("gallery");
-        dispatch(UPDATE_PROFILE_IMAGE(profileImage));
-      } catch (err) {
-        Alert.alert(
-          "There seems to be an error uploading your profile picture from gallery.\n" +
-            err
-        );
+        Alert.alert(err);
         console.error(err);
       }
     }
