@@ -36,12 +36,7 @@ const mapDispatchToProps = dispatch => {
     getUserByEmailAddress: async (emailAddress, password, navigation) => {
       try {
         const user = await getUserByEmailAddress(emailAddress, password);
-        console.log(
-          moment.utc(user.createdOn),
-          user.createdOn,
-          moment.utc(user.createdOn).toDate(),
-          moment.utc(user.createdOn).isValid()
-        );
+        console.log(user.profileImage);
         dispatch(UPDATE_EMAIL_ADDRESS(user.emailAddress));
         dispatch(UPDATE_FIRST_NAME(user.firstName));
         dispatch(UPDATE_SURNAME(user.surname));

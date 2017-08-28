@@ -37,6 +37,7 @@ const Profile = ({
   lastLoggedIn,
   goToMap
 }) => {
+  console.log(profileImage);
   const data = [
     { id: 1, label: "Gender", value: mapGenderValueToLabel(gender) },
     { id: 2, label: "Phone Number", value: phoneNumber },
