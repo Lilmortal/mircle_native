@@ -6,7 +6,6 @@ import { Picker, DatePicker, TextInput } from "../../components";
 import RegisterLayout from "../../layout/registerLayout";
 
 const RegisterAdditionalDetails = ({
-  navigation,
   goNextPage,
   birthDate,
   gender,
@@ -20,7 +19,7 @@ const RegisterAdditionalDetails = ({
 }) =>
   <RegisterLayout
     title="We like to know more about you..."
-    onPress={() => goNextPage(navigation)}
+    onPress={goNextPage}
   >
     <TextInput
       placeholder="First Name"

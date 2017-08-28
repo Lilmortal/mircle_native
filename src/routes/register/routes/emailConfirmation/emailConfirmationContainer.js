@@ -14,9 +14,13 @@ const mapStateToProps = () => {
   });
 };
 
-const mapDispatchToProps = dispatch => {
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { navigation } = ownProps;
   return {
-    goNextPage: navigation => navigation.navigate(routeKeys.Login)
+    ...stateProps,
+    ...ownProps,
+    goNextPage: () => navigation.navigate(routeKeys.Login)
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(EmailConfirmation);
+
+export default connect(mapStateToProps, null, mergeProps)(EmailConfirmation);

@@ -55,10 +55,12 @@ const mapStateToProps = () => {
   });
 };
 
-const mapDispatchToProps = dispatch => {
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { dispatch } = dispatchProps;
+  const { navigation } = ownProps;
   return {
-    goNextPage: navigation =>
-      navigation.navigate(routeKeys.RegisterAccountSummary),
+    ...stateProps,
+    ...ownProps,
     getProfileImageFromMedium: async medium => {
       try {
         const profileImage = await getProfileImageFromMedium(medium);
@@ -67,8 +69,9 @@ const mapDispatchToProps = dispatch => {
         Alert.alert(err);
         console.error(err);
       }
-    }
+    },
+    goNextPage: () => navigation.navigate(routeKeys.RegisterAccountSummary)
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileImageUpload);
+export default connect(mapStateToProps, null, mergeProps)(ProfileImageUpload);

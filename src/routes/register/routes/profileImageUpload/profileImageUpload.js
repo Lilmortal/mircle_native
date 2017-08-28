@@ -14,15 +14,11 @@ import RegisterLayout from "../../layout/registerLayout";
 import styles from "./styles";
 
 const ProfileImageUpload = ({
-  navigation,
   goNextPage,
   profileImage,
   getProfileImageFromMedium
 }) =>
-  <RegisterLayout
-    title="Upload a photo of yourself"
-    onPress={() => goNextPage(navigation)}
-  >
+  <RegisterLayout title="Upload a photo of yourself" onPress={goNextPage}>
     <View style={styles.uploadInstruction}>
       {profileImage.isDefault
         ? <Text style={styles.uploadInstructionText}>

@@ -14,9 +14,9 @@ export const registerUser = async user => {
   return response.json();
 };
 
-export const getUserById = async (id, password) => {
-  const response = await fetch(`${URL}/user?id=${id}&password=${password}`, {
-    method: "POST",
+export const getUserById = async id => {
+  const response = await fetch(`${URL}/user/${id}`, {
+    method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json"
@@ -36,5 +36,41 @@ export const getUserByEmailAddress = async (emailAddress, password) => {
     body: JSON.stringify({ emailAddress, password })
   });
   await checkApiStatus(response);
+  return response.json();
+};
+
+export const addFriend = async (id, friendId) => {
+  const response = await fetch(`${URL}/user/${id}/friend/${friendId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  });
+  await checkApiStatus(response);
+  return response.json();
+};
+
+export const getListOfFriends = async id => {
+  const response = await fetch(`${URL}/user/${id}/friends`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  });
+  await checkApiStatus(respones);
+  return response.json();
+};
+
+export const deleteFriend = async (id, friendId) => {
+  const response = await fetch(`${URL}/user/${id}/friend/${friendId}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  });
+  await checkApiStatus(respones);
   return response.json();
 };

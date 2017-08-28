@@ -9,7 +9,7 @@ import { registrationState } from "../../../../states";
 const {
   uploadProfileImageToS3,
   registerUser,
-  setDefaultProfileImage,
+  setProfileImageToDefault,
   setProfileImageUri
 } = api;
 
@@ -25,6 +25,16 @@ const {
   getProfileImage
 } = registrationState.selectors;
 
+const registerAccount = async (user, navigation) => {
+  const id = await registerUser(user);
+  if (user.profileImage.isDefault) {
+    await setProfileImageToDefault(id);
+  } else {
+    const uri = await uploadProfileImageToS3(user.profileImage, id);
+    await setProfileImageUri(id, uri);
+  }
+};
+
 const mapStateToProps = () => {
   return createStructuredSelector({
     emailAddress: getEmailAddress,
@@ -39,26 +49,20 @@ const mapStateToProps = () => {
   });
 };
 
-const registerAccount = async (user, navigation) => {
-  const id = await registerUser(user);
-  if (user.profileImage.isDefault) {
-    await setDefaultProfileImage(id);
-  } else {
-    const uri = await uploadProfileImageToS3(user.profileImage, id);
-    await setProfileImageUri(id, uri);
-  }
-  navigation.navigate(routeKeys.RegisterEmailConfirmation);
-};
-
-const mapDispatchToProps = dispatch => {
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { navigation } = ownProps;
   return {
-    registerAccount: async (user, navigation) => {
+    ...stateProps,
+    ...ownProps,
+    registerAccount: async user => {
       try {
         await registerAccount(user, navigation);
+        navigation.navigate(routeKeys.RegisterEmailConfirmation);
       } catch (err) {
         console.error(err);
       }
     }
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(AccountSummary);
+
+export default connect(mapStateToProps, null, mergeProps)(AccountSummary);

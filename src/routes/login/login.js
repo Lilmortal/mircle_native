@@ -36,7 +36,6 @@ class Login extends Component {
 
   render() {
     const {
-      navigation,
       getUserByEmailAddress,
       goToRegistrationPage,
       goToForgottenPasswordPage
@@ -72,8 +71,7 @@ class Login extends Component {
             onPress={() =>
               getUserByEmailAddress(
                 this.state.emailAddress,
-                this.state.password,
-                navigation
+                this.state.password
               )}
           >
             <View>
@@ -99,14 +97,12 @@ class Login extends Component {
         </View>
 
         <View style={styles.help}>
-          <TouchableHighlight onPress={() => goToRegistrationPage(navigation)}>
+          <TouchableHighlight onPress={goToRegistrationPage}>
             <View>
               <LoginText style={styles.helpText}>Register</LoginText>
             </View>
           </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => goToForgottenPasswordPage(navigation)}
-          >
+          <TouchableHighlight onPress={goToForgottenPasswordPage}>
             <View>
               <LoginText style={styles.helpText}>Forgot password?</LoginText>
             </View>

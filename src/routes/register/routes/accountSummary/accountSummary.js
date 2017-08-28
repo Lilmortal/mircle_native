@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Alert } from "react-native";
 import moment from "moment";
 
 import { mapGenderValueToLabel } from "../../../../libs";
@@ -9,7 +9,6 @@ import Biography from "./biography";
 import styles from "./styles";
 
 const RegisterAccountSummary = ({
-  navigation,
   registerAccount,
   emailAddress,
   firstName,
@@ -36,7 +35,13 @@ const RegisterAccountSummary = ({
   return (
     <RegisterLayout
       title="Is this you?"
-      onPress={() => registerAccount(user, navigation)}
+      onPress={() => {
+        try {
+          registerAccount(user);
+        } catch (err) {
+          Alert.alert(err);
+        }
+      }}
       buttonMessage="SUBMIT"
     >
       <View style={styles.profileImage}>

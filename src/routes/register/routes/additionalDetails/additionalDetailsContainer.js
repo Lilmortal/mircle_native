@@ -24,8 +24,13 @@ const mapStateToProps = () => {
   });
 };
 
-const mapDispatchToProps = dispatch => {
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { dispatch } = dispatchProps;
+  const { navigation } = ownProps;
+
   return {
+    ...stateProps,
+    ...ownProps,
     registerFirstName: firstName => {
       dispatch(UPDATE_FIRST_NAME(firstName));
     },
@@ -47,9 +52,8 @@ const mapDispatchToProps = dispatch => {
     registerProfileImage: profileImage => {
       dispatch(UPDATE_PROFILE_IMAGE(profileImage));
     },
-    goNextPage: navigation =>
-      navigation.navigate(routeKeys.RegisterProfileImageUpload)
+    goNextPage: () => navigation.navigate(routeKeys.RegisterProfileImageUpload)
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdditionalDetails);
+export default connect(mapStateToProps, null, mergeProps)(AdditionalDetails);

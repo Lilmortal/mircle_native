@@ -6,12 +6,12 @@ import styles from "./styles";
 
 export default class RegisterEmailConfirmation extends Component {
   render() {
-    const { email, phoneNumber, navigation, goNextPage } = this.props;
+    const { email, phoneNumber, goNextPage } = this.props;
 
     return (
       <RegisterLayout
         title="Email confirmation has been sent."
-        onPress={() => goNextPage(navigation)}
+        onPress={goNextPage}
         buttonMessage="BACK TO LOGIN PAGE"
       >
         <Text style={styles.emailConfirmationText}>

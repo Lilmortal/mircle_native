@@ -13,7 +13,7 @@ export const getDefaultProfileImage = async () => {
   return response.json();
 };
 
-export const setDefaultProfileImage = async id => {
+export const setProfileImageToDefault = async id => {
   const response = await fetch(`${URL}/profileimage/default/set?id=${id}`, {
     method: "POST",
     headers: {

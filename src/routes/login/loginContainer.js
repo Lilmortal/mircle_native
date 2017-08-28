@@ -22,21 +22,24 @@ const {
   UPDATE_IS_LOGGED_IN
 } = userState.actions;
 
-const mapDispatchToProps = dispatch => {
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { dispatch } = dispatchProps;
+  const { navigation } = ownProps;
+
   return {
+    ...ownProps,
     resetRegisterDetails: () => {
       dispatch(RESET_REGISTER_DETAILS());
     },
-    goToRegistrationPage: navigation => {
+    goToRegistrationPage: () => {
       navigation.navigate(routeKeys.RegisterAccountCreation);
     },
-    goToForgottenPasswordPage: navigation => {
+    goToForgottenPasswordPage: () => {
       navigation.navigate(routeKeys.ForgotPassword);
     },
-    getUserByEmailAddress: async (emailAddress, password, navigation) => {
+    getUserByEmailAddress: async (emailAddress, password) => {
       try {
         const user = await getUserByEmailAddress(emailAddress, password);
-        console.log(user.profileImage);
         dispatch(UPDATE_EMAIL_ADDRESS(user.emailAddress));
         dispatch(UPDATE_FIRST_NAME(user.firstName));
         dispatch(UPDATE_SURNAME(user.surname));
@@ -56,4 +59,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(null, null, mergeProps)(Login);

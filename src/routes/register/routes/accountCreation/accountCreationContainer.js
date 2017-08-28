@@ -6,17 +6,19 @@ import { routeKeys } from "../../../../config";
 
 const { UPDATE_EMAIL_ADDRESS, UPDATE_PASSWORD } = registrationState.actions;
 
-const mapDispatchToProps = dispatch => {
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { dispatch } = dispatchProps;
+  const { navigation } = ownProps;
   return {
+    ...ownProps,
     registerEmailAddress: emailAddress => {
       dispatch(UPDATE_EMAIL_ADDRESS(emailAddress));
     },
     registerPassword: password => {
       dispatch(UPDATE_PASSWORD(password));
     },
-    goNextPage: navigation =>
-      navigation.navigate(routeKeys.RegisterAdditionalDetails)
+    goNextPage: () => navigation.navigate(routeKeys.RegisterAdditionalDetails)
   };
 };
 
-export default connect(null, mapDispatchToProps)(AccountCreation);
+export default connect(null, null, mergeProps)(AccountCreation);

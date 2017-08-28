@@ -10,14 +10,7 @@ import styles from "./styles";
 
 const emailIcon = <Icon name="envelope" color="white" />;
 
-const sendEmail = navigation => {
-  Alert.alert(
-    "willsmith@gmail.com has been sent an email, have a look at it to reset your password."
-  );
-  navigation.navigate("Login");
-};
-
-const ForgotPassword = ({ navigation }) =>
+const ForgotPassword = ({ goToLoginPage, cancelPage }) =>
   <View style={styles.forgotPassword}>
     <View style={styles.title}>
       <LoginText style={styles.titleText}>Forgotten Password</LoginText>
@@ -28,12 +21,12 @@ const ForgotPassword = ({ navigation }) =>
     </View>
     <TextInput Icon={emailIcon} placeholder="Email address" color="white" />
     <View style={styles.forgottenPasswordSubmitArea}>
-      <Button onPress={() => sendEmail(navigation)}>
+      <Button onPress={goToLoginPage}>
         <View>
           <LoginText>Send email</LoginText>
         </View>
       </Button>
-      <Button onPress={() => navigation.navigate(routeKeys.Login)}>
+      <Button onPress={cancelPage}>
         <View>
           <LoginText>Cancel</LoginText>
         </View>

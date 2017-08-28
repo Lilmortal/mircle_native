@@ -11,61 +11,17 @@ export default class Friends extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: [
-        {
-          id: 0,
-          profileImage: images.anonymous,
-          profileName: "Will Smith",
-          occupation: "actor",
-          company: "hollywood",
-          addedTime: "9 June, 2017"
-        },
-        {
-          id: 1,
-          profileImage: images.anonymous,
-          profileName: "Eren Jaegur",
-          occupation: "student",
-          company: "botany downs",
-          addedTime: "6 June, 2017"
-        },
-        {
-          id: 2,
-          profileImage: images.anonymous,
-          profileName: "Will Smith",
-          occupation: "actor",
-          company: "hollywood",
-          addedTime: "9 June, 2017"
-        },
-        {
-          id: 3,
-          profileImage: images.anonymous,
-          profileName: "Eren Jaegur",
-          occupation: "student",
-          company: "botany downs",
-          addedTime: "6 June, 2017"
-        },
-        {
-          id: 4,
-          profileImage: images.anonymous,
-          profileName: "Will Smith",
-          occupation: "actor",
-          company: "hollywood",
-          addedTime: "9 June, 2017"
-        },
-        {
-          id: 5,
-          profileImage: images.anonymous,
-          profileName: "Eren Jaegur",
-          occupation: "student",
-          company: "botany downs secondary college",
-          addedTime: "6 June, 2017"
-        }
-      ]
+      dataSource: []
     };
   }
 
+  componentDidMount() {
+    const { friends } = this.props;
+    this.setState({ dataSource: friends });
+  }
+
   render() {
-    const { navigation } = this.props;
+    const { goToFriendProfilePage } = this.props;
 
     return (
       <View>
@@ -81,12 +37,7 @@ export default class Friends extends Component {
             </View>
           }
           renderItem={({ item }) =>
-            <TouchableHighlight
-              onPress={() =>
-                navigation.navigate(routeKeys.FriendsProfile, {
-                  friend: true
-                })}
-            >
+            <TouchableHighlight onPress={() => goToFriendProfilePage(item.id)}>
               <View>
                 <Feed key={item.id} isSelectable>
                   <ProfileImage source={item.profileImage} />

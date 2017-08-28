@@ -24,7 +24,6 @@ const checkIfTileIsInEdge = (id, size) => {
 };
 
 const Profile = ({
-  navigation,
   emailAddress,
   firstName,
   surname,
@@ -35,7 +34,9 @@ const Profile = ({
   profileImage,
   createdOn,
   lastLoggedIn,
-  goToMap
+  goToMap,
+  isAFriend,
+  friendId
 }) => {
   console.log(profileImage);
   const data = [
@@ -65,8 +66,7 @@ const Profile = ({
                 {emailAddress}
               </Text>
             </View>
-            {navigation.state.params &&
-              navigation.state.params.friend &&
+            {isAFriend &&
               <View style={styles.map}>
                 <TouchableHighlight onPress={goToMap}>
                   <Icon name="map" size={25} />

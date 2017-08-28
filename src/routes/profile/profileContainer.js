@@ -33,11 +33,22 @@ const mapStateToProps = () => {
   });
 };
 
-const mapDispatchToProps = dispatch => {
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { navigation } = ownProps;
+
+  const isAFriend =
+    navigation.state.params && navigation.state.params.isAFriend;
+
+  const friendId = navigation.state.params && navigation.state.params.friendId;
   return {
-    goToMap: navigation => {
+    ...stateProps,
+    ...ownProps,
+    goToMap: () => {
       navigation.navigate(routeKeys.FriendsMap);
-    }
+    },
+    isAFriend,
+    friendId
   };
 };
-export default connect(mapStateToProps)(Profile);
+
+export default connect(mapStateToProps, null, mergeProps)(Profile);
