@@ -3,7 +3,6 @@ import * as actionTypes from "./actionTypes";
 const initialState = {
   id: 0,
   emailAddress: "",
-  password: "",
   firstName: "",
   surname: "",
   gender: "M",
@@ -23,14 +22,13 @@ const initialState = {
 
 const reducer = (state = initialState, payload) => {
   switch (payload.type) {
-    case actionTypes.POPULATE_USER_STATE: {
+    case actionTypes.POPULATE_FRIEND_STATE: {
       return {
         ...state,
-        ...payload.user,
-        birthDate: moment.utc(payload.user.birthDate).toDate(),
-        createdOn: moment.utc(payload.user.createdOn).toDate(),
-        lastLoggedIn: moment.utc(payload.user.lastLoggedIn).toDate(),
-        isLoggedIn: true
+        ...payload.friend,
+        birthDate: moment.utc(payload.friend.birthDate).toDate(),
+        createdOn: moment.utc(payload.friend.createdOn).toDate(),
+        lastLoggedIn: moment.utc(payload.friend.lastLoggedIn).toDate()
       };
     }
     case actionTypes.UPDATE_ID: {
@@ -43,12 +41,6 @@ const reducer = (state = initialState, payload) => {
       return {
         ...state,
         emailAddress: payload.emailAddress
-      };
-    }
-    case actionTypes.UPDATE_PASSWORD: {
-      return {
-        ...state,
-        password: payload.password
       };
     }
     case actionTypes.UPDATE_FIRST_NAME: {

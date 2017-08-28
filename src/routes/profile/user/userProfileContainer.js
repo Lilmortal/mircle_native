@@ -1,9 +1,8 @@
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { routeKeys } from "../../config";
-import Profile from "./profile";
-import { userState } from "../../states";
+import Profile from "../profile";
+import { userState } from "../../../states";
 
 const {
   getEmailAddress,
@@ -33,22 +32,4 @@ const mapStateToProps = () => {
   });
 };
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { navigation } = ownProps;
-
-  const isAFriend =
-    navigation.state.params && navigation.state.params.isAFriend;
-
-  const friendId = navigation.state.params && navigation.state.params.friendId;
-  return {
-    ...stateProps,
-    ...ownProps,
-    goToMap: () => {
-      navigation.navigate(routeKeys.FriendsMap);
-    },
-    isAFriend,
-    friendId
-  };
-};
-
-export default connect(mapStateToProps, null, mergeProps)(Profile);
+export default connect(mapStateToProps)(Profile);

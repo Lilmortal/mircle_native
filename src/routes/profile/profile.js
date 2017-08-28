@@ -2,14 +2,13 @@ import React from "react";
 import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
+import { NUM_OF_COLUMNS } from "./constants";
 import { images } from "../../config";
 import { mapGenderValueToLabel } from "../../libs";
 import Button from "../../components/button";
 import ProfileImage from "../../components/profileImage";
-import Biography from "./biography";
+import Biography from "./components/biography";
 import styles from "./styles";
-
-export const NUM_OF_COLUMNS = 2;
 
 const checkIfTileIsInEdge = (id, size) => {
   const style = {};

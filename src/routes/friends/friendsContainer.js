@@ -3,9 +3,10 @@ import { createStructuredSelector } from "reselect";
 
 import { routeKeys } from "../../config";
 import Friends from "./friends";
-import { getListOfFriends } from "../../api";
-import { userState } from "../../states";
+import { getListOfFriends, getUserById } from "../../api";
+import { userState, friendState } from "../../states";
 
+const { POPULATE_FRIEND_STATE } = friendState.actions;
 const { getId } = userState.selectors;
 
 const getUserFriends = async id => {
@@ -33,11 +34,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   return {
     ...stateProps,
     ...ownProps,
-    goToFriendProfilePage: friendId => {
-      navigation.navigate(routeKeys.FriendsProfile, {
-        isAFriend: true,
-        friendId
-      });
+    goToFriendProfilePage: async friendId => {
+      const friend = await getUserById(friendId);
+      dispatch(POPULATE_FRIEND_STATE(friend));
+      navigation.navigate(routeKeys.FriendsProfile);
     },
     friends
   };

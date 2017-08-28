@@ -29,11 +29,12 @@ import QrCodeScreen from "../../routes/qrCode";
 import FeedsScreen from "../../routes/feeds";
 import FriendsScreen from "../../routes/friends";
 import MapScreen from "../../routes/map";
-import ProfileScreen from "../../routes/profile";
+import UserProfileScreen from "../../routes/profile/user";
+import FriendProfileScreen from "../../routes/profile/friend";
 import SettingsScreen from "../../routes/settings";
 
 const profileStack = StackNavigator({
-  [routeKeys.Profile]: withOptions(AppLayout)(ProfileScreen)({
+  [routeKeys.UserProfile]: withOptions(AppLayout)(UserProfileScreen)({
     hasHamburgerMenu: true,
     hasCamera: true,
     navigationOptions: appNavigationOptions,
@@ -70,7 +71,7 @@ const friendsStack = StackNavigator({
     title: "Friends",
     drawerIcon: () => <Icon name="users" color="black" />
   }),
-  [routeKeys.FriendsProfile]: withOptions(AppLayout)(ProfileScreen)({
+  [routeKeys.FriendsProfile]: withOptions(AppLayout)(FriendProfileScreen)({
     hasHamburgerMenu: false,
     hasCamera: true,
     navigationOptions: appNavigationOptions,
@@ -178,7 +179,7 @@ const drawerNav = DrawerNavigator(
     contentComponent: props =>
       <View>
         <DrawerPanel
-          onPress={() => props.navigation.navigate(routeKeys.Profile)}
+          onPress={() => props.navigation.navigate(routeKeys.UserProfile)}
         />
         <DrawerItems {...props} />
       </View>

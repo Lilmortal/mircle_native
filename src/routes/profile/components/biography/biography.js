@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Dimensions } from "react-native";
 
-import { NUM_OF_COLUMNS } from "../profile";
+import { NUM_OF_COLUMNS } from "../../constants";
 import styles from "./styles";
 
 const windowWidth = Dimensions.get("window").width;

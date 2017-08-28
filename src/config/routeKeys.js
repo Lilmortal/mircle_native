@@ -1,5 +1,5 @@
 const routeKeys = {
-  Profile: "Profile",
+  UserProfile: "UserProfile",
   QrCode: "QrCode",
   Feeds: "Feeds",
   Friends: "Friends",

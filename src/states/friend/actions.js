@@ -1,8 +1,8 @@
 import * as actionTypes from "./actionTypes";
 
-export const POPULATE_USER_STATE = user => ({
-  type: actionTypes.POPULATE_USER_STATE,
-  user
+export const POPULATE_FRIEND_STATE = friend => ({
+  type: actionTypes.POPULATE_FRIEND_STATE,
+  friend
 });
 
 export const UPDATE_ID = id => ({
@@ -13,11 +13,6 @@ export const UPDATE_ID = id => ({
 export const UPDATE_EMAIL_ADDRESS = emailAddress => ({
   type: actionTypes.UPDATE_EMAIL_ADDRESS,
   emailAddress
-});
-
-export const UPDATE_PASSWORD = password => ({
-  type: actionTypes.UPDATE_PASSWORD,
-  password
 });
 
 export const UPDATE_FIRST_NAME = firstName => ({
