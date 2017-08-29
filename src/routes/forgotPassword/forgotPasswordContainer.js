@@ -10,9 +10,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 
   return {
     ...ownProps,
-    goToLoginPage: () => {
+    sendEmail: emailAddress => {
       Alert.alert(
-        "willsmith@gmail.com has been sent an email, have a look at it to reset your password."
+        `We sent ${emailAddress} an email`,
+        "Go have a look at it to reset your password."
       );
       navigation.navigate(routeKeys.Login);
     },

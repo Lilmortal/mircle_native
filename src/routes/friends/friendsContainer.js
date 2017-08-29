@@ -1,3 +1,4 @@
+import { Alert } from "react-native";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -9,35 +10,41 @@ import { userState, friendState } from "../../states";
 const { POPULATE_FRIEND_STATE } = friendState.actions;
 const { getId } = userState.selectors;
 
-const getUserFriends = async id => {
-  return await getListOfFriends(id);
-};
-
 const mapStateToProps = () => {
   return createStructuredSelector({
     id: getId
   });
 };
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
+const mergeProps = async (stateProps, dispatchProps, ownProps) => {
   const { id } = stateProps;
   const { dispatch } = dispatchProps;
   const { navigation } = ownProps;
 
   let friends;
   try {
-    friends = getUserFriends(id);
+    friends = await getUserFriends(id);
   } catch (err) {
-    console.error(err);
+    Alert.alert(
+      "Attempting to get your list of friends failed.",
+      err.toString()
+    );
   }
 
   return {
     ...stateProps,
     ...ownProps,
     goToFriendProfilePage: async friendId => {
-      const friend = await getUserById(friendId);
-      dispatch(POPULATE_FRIEND_STATE(friend));
-      navigation.navigate(routeKeys.FriendsProfile);
+      try {
+        const friend = await getUserById(friendId);
+        dispatch(POPULATE_FRIEND_STATE(friend));
+        navigation.navigate(routeKeys.FriendsProfile);
+      } catch (err) {
+        Alert.alert(
+          "Attempting to populate friends profile failed.",
+          err.toString()
+        );
+      }
     },
     friends
   };

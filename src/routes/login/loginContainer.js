@@ -1,3 +1,4 @@
+import { Alert } from "react-native";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -30,7 +31,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         dispatch(POPULATE_USER_STATE(user));
         navigation.navigate(routeKeys.QrCode);
       } catch (err) {
-        console.error(err);
+        Alert.alert("Attempting to login failed.", err.toString());
       }
     }
   };

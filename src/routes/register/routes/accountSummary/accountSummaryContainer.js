@@ -1,3 +1,4 @@
+import { Alert } from "react-native";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -26,12 +27,16 @@ const {
 } = registrationState.selectors;
 
 const registerAccount = async (user, navigation) => {
-  const id = await registerUser(user);
-  if (user.profileImage.isDefault) {
-    await setProfileImageToDefault(id);
-  } else {
-    const uri = await uploadProfileImageToS3(user.profileImage, id);
-    await setProfileImageUri(id, uri);
+  try {
+    const id = await registerUser(user);
+    if (user.profileImage.isDefault) {
+      await setProfileImageToDefault(id);
+    } else {
+      const uri = await uploadProfileImageToS3(user.profileImage, id);
+      await setProfileImageUri(id, uri);
+    }
+  } catch (err) {
+    return err;
   }
 };
 
@@ -59,7 +64,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         await registerAccount(user, navigation);
         navigation.navigate(routeKeys.RegisterEmailConfirmation);
       } catch (err) {
-        console.error(err);
+        Alert.alert("Account is not created due to an error", err.toString());
       }
     }
   };

@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { getUserById } from "../../../api";
 import { routeKeys } from "../../../config";
 import Profile from "../profile";
 import { friendState } from "../../../states";

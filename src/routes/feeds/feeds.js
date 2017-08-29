@@ -33,15 +33,15 @@ export default class Feeds extends Component {
           renderItem={({ item }) =>
             <Feed key={item.id}>
               <ProfileImage source={item.profileImage} />
-              <View style={styles.profileContainer}>
-                <Text style={styles.profileName}>
+              <View style={styles.feedContainer}>
+                <Text style={styles.feedName}>
                   {item.name}
                 </Text>
-                <Text style={styles.date}>
+                <Text style={styles.feedDate}>
                   {item.date}
                 </Text>
-                <Text style={styles.profileDescription}>
-                  {item.feedMessage}
+                <Text style={styles.feedMessage}>
+                  {item.message}
                 </Text>
               </View>
             </Feed>}

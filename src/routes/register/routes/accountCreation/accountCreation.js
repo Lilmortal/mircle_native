@@ -14,6 +14,7 @@ const RegisterAccountCreation = ({
     <TextInput
       placeholder="Email"
       onChangeText={email => registerEmailAddress(email)}
+      keyboardType="email-address"
     />
     <TextInput
       placeholder="Password"

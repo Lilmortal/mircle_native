@@ -21,7 +21,7 @@ const initialState = {
   createdOn: "",
   lastLoggedIn: "",
   isLoggedIn: false,
-  feeds: {}
+  feeds: []
 };
 
 const reducer = (state = initialState, payload) => {

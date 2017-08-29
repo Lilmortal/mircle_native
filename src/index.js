@@ -13,6 +13,8 @@ global.fetch = function(uri, options, ...args) {
   });
 };
 
+console.disableYellowBox = true;
+
 const RouteProvider = () =>
   <Provider store={store}>
     <Routes />

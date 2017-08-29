@@ -1,23 +1,25 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const windowHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   noFeedMessage: {
-    flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    height: windowHeight
   },
-  profileContainer: {
+  feedContainer: {
     flex: 2,
     flexDirection: "column",
     marginLeft: 20
   },
-  profileName: {
+  feedName: {
     fontWeight: "500"
   },
   date: {
     fontWeight: "400"
   },
-  profileDescription: {
+  feedMessage: {
     marginTop: 20
   }
 });

@@ -1,8 +1,10 @@
-import App from "./app";
+import { Alert } from "react-native";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { addFriend, getUserById } from "../../api";
+import App from "./app";
+
+import { addFriend, getUserById, addFeed } from "../../api";
 import { cameraState, userState, settingsState } from "../../states";
 
 const { getCameraActive } = cameraState.selectors;
@@ -34,10 +36,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           const feedMessage = `You and ${friend.firstName} ${friend.surname} are now friends!`;
           const feed = {
             profileImage: friends.profileImage,
-            name: `${friend.firstName} ${friend.surname}`,
-            date: Date.now(),
-            feedMessage
+            firstName: friend.firstName,
+            surname: friend.surname,
+            feedDate: Date.now(),
+            message
           };
+          await addFeed(feed);
           dispatch(UPDATE_FEEDS(feed));
           pushNotification.localNotification({
             title: `You just added ${friend.firstName} ${friend.surname}`,
@@ -47,7 +51,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             vibrate: vibration
           });
         } catch (err) {
-          console.error(err);
+          Alert.alert("Attempting to add a friend failed.", err.toString());
         }
       }
     }

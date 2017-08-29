@@ -1,10 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const windowHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   noFriendsMessage: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    height: windowHeight,
     paddingLeft: 20,
     paddingRight: 20
   },
