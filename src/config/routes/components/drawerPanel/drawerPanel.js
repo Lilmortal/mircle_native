@@ -12,22 +12,18 @@ const NavigationDrawerPanel = ({
   firstName,
   surname,
   emailAddress
-}) => {
-  console.log("Drawer panel ", profileImage);
-  return (
-    <DrawerPanel
-      backgroundImage={images.drawerNavigationBackground}
-      onPress={onPress}
-    >
-      <ProfileImage source={profileImage} />
-      <Text style={styles.name}>
-        {firstName} {surname}
-      </Text>
-      <Text style={styles.email}>
-        {emailAddress}
-      </Text>
-    </DrawerPanel>
-  );
-};
+}) =>
+  <DrawerPanel
+    backgroundImage={images.drawerNavigationBackground}
+    onPress={onPress}
+  >
+    <ProfileImage source={profileImage} />
+    <Text style={styles.name}>
+      {firstName} {surname}
+    </Text>
+    <Text style={styles.email}>
+      {emailAddress}
+    </Text>
+  </DrawerPanel>;
 
 export default NavigationDrawerPanel;

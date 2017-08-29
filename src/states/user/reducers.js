@@ -1,3 +1,5 @@
+import moment from "moment";
+
 import * as actionTypes from "./actionTypes";
 
 const initialState = {
@@ -18,7 +20,8 @@ const initialState = {
   },
   createdOn: "",
   lastLoggedIn: "",
-  isLoggedIn: false
+  isLoggedIn: false,
+  feeds: {}
 };
 
 const reducer = (state = initialState, payload) => {
@@ -109,6 +112,12 @@ const reducer = (state = initialState, payload) => {
       return {
         ...state,
         isLoggedIn: payload.isLoggedIn
+      };
+    }
+    case actionTypes.UPDATE_FEEDS: {
+      return {
+        ...state,
+        feeds: [...state.feeds, payload.feed]
       };
     }
     default:

@@ -2,18 +2,18 @@ import App from "./app";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { addFriend } from "../../api";
+import { addFriend, getUserById } from "../../api";
 import { cameraState, userState, settingsState } from "../../states";
 
 const { getCameraActive } = cameraState.selectors;
-const { getFirstName, getSurname } = userState.selectors;
+const { UPDATE_FEEDS } = userState.actions;
+const { getFeeds } = userState.selectors;
 const { getSound, getSoundVolume, getVibration } = settingsState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
     cameraActive: getCameraActive,
-    firstName: getFirstName,
-    surname: getSurname,
+    feeds: getFeeds,
     sound: getSound,
     soundVolume: getSoundVolume,
     vibration: getVibration
@@ -21,7 +21,7 @@ const mapStateToProps = () => {
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { sound, soundVolume, vibration } = stateProps;
+  const { feeds, sound, soundVolume, vibration } = stateProps;
   const { dispatch } = dispatchProps;
 
   return {
@@ -30,8 +30,17 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       if (qrCode.type === "QR_CODE") {
         try {
           await addFriend(qrCode.data);
+          const friend = await getUserById(qrCode.data);
+          const feedMessage = `You and ${friend.firstName} ${friend.surname} are now friends!`;
+          const feed = {
+            profileImage: friends.profileImage,
+            name: `${friend.firstName} ${friend.surname}`,
+            date: Date.now(),
+            feedMessage
+          };
+          dispatch(UPDATE_FEEDS(feed));
           pushNotification.localNotification({
-            title: `You just added user with id ${qrCode.data}`,
+            title: `You just added ${friend.firstName} ${friend.surname}`,
             message: "You two met at Botany Down Centre.",
             playSound: sound,
             number: soundVolume,

@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import moment from "moment";
 
 import { routeKeys } from "../../config";
 import Login from "./login";

@@ -10,58 +10,13 @@ export default class Feeds extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: [
-        {
-          id: 0,
-          profileImage: images.anonymous,
-          profileName: "Will Smith",
-          date: "9 June, 2017",
-          profileDescription: "Is now connected to you!"
-        },
-        {
-          id: 1,
-          profileImage: images.anonymous,
-          profileName: "Eren Jaegur",
-          date: "7 June, 2017",
-          profileDescription: "Changed his facebook link to facebook.com/fish"
-        },
-        {
-          id: 2,
-          profileImage: images.anonymous,
-          profileName: "Eren Jaegur",
-          date: "7 June, 2017",
-          profileDescription: "Changed his facebook link to facebook.com/fish"
-        },
-        {
-          id: 3,
-          profileImage: images.anonymous,
-          profileName: "Eren Jaegur",
-          date: "7 June, 2017",
-          profileDescription: "Changed his facebook link to facebook.com/fish"
-        },
-        {
-          id: 4,
-          profileImage: images.anonymous,
-          profileName: "Eren Jaegur",
-          date: "7 June, 2017",
-          profileDescription: "Changed his facebook link to facebook.com/fish"
-        },
-        {
-          id: 5,
-          profileImage: images.anonymous,
-          profileName: "Eren Jaegur",
-          date: "7 June, 2017",
-          profileDescription: "Changed his facebook link to facebook.com/fish"
-        },
-        {
-          id: 6,
-          profileImage: images.anonymous,
-          profileName: "Eren Jaegur",
-          date: "7 June, 2017",
-          profileDescription: "Changed his facebook link to facebook.com/fish"
-        }
-      ]
+      dataSource: []
     };
+  }
+
+  componentDidMount() {
+    const { feeds } = this.props;
+    this.setState({ dataSource: feeds });
   }
 
   render() {
@@ -80,13 +35,13 @@ export default class Feeds extends Component {
               <ProfileImage source={item.profileImage} />
               <View style={styles.profileContainer}>
                 <Text style={styles.profileName}>
-                  {item.profileName}
+                  {item.name}
                 </Text>
                 <Text style={styles.date}>
                   {item.date}
                 </Text>
                 <Text style={styles.profileDescription}>
-                  {item.profileDescription}
+                  {item.feedMessage}
                 </Text>
               </View>
             </Feed>}
