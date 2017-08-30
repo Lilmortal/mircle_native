@@ -4,7 +4,7 @@ import { checkApiStatus } from "../checkApiStatus";
 export const getDefaultProfileImage = async () => {
   let response;
   try {
-    response = await fetch(`${URL}/profileimage/default/get`, {
+    response = await fetch(`${URL}/profileimage/default`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -18,11 +18,11 @@ export const getDefaultProfileImage = async () => {
   return response.json();
 };
 
-export const setProfileImageToDefault = async id => {
+export const removeProfileImage = async id => {
   let response;
   try {
-    response = await fetch(`${URL}/profileimage/default/set?id=${id}`, {
-      method: "POST",
+    response = await fetch(`${URL}/user/${id}/profileimage`, {
+      method: "DELETE",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
@@ -32,7 +32,6 @@ export const setProfileImageToDefault = async id => {
   } catch (err) {
     return err;
   }
-  return response.json();
 };
 
 export const uploadProfileImageToS3 = async (profileImage, id) => {
@@ -50,7 +49,6 @@ export const uploadProfileImageToS3 = async (profileImage, id) => {
   } catch (err) {
     return err;
   }
-  return response.json();
 };
 
 export const setProfileImageUri = async (id, uri) => {
@@ -67,5 +65,4 @@ export const setProfileImageUri = async (id, uri) => {
   } catch (err) {
     return err;
   }
-  return response.json();
 };

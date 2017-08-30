@@ -1,1 +1,1 @@
-export * from "./profileImage";
+export * from "./profileImageApi";

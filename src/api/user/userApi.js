@@ -1,6 +1,23 @@
 import { URL } from "../constants";
 import { checkApiStatus } from "../checkApiStatus";
 
+export const setUserImage = async (emailAddress, profileImage = null) => {
+  let response;
+  try {
+    const formData = new FormData();
+    formData.append("profileImage", profileImage);
+    formData.append("emailAddress", emailAddress);
+
+    response = await fetch(`${URL}/user/profileimage`, {
+      method: "POST",
+      body: formData
+    });
+    await checkApiStatus(response);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
+
 export const registerUser = async user => {
   try {
     const response = await fetch(`${URL}/user`, {

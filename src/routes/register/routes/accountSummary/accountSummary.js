@@ -25,7 +25,7 @@ class RegisterAccountSummary extends Component {
 
   render() {
     const {
-      registerAccount,
+      registerUser,
       emailAddress,
       firstName,
       surname,
@@ -46,7 +46,6 @@ class RegisterAccountSummary extends Component {
       phoneNumber,
       birthDate,
       occupation,
-      profileImage
     };
 
     return (
@@ -54,7 +53,7 @@ class RegisterAccountSummary extends Component {
         title="Is this you?"
         onPress={() => {
           this.setIsLoading(true);
-          //registerAccount(user);
+          registerUser(user, profileImage);
         }}
         buttonMessage="SUBMIT"
       >
