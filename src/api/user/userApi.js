@@ -53,19 +53,15 @@ export const getUserById = async id => {
 
 export const getUserByEmailAddress = async (emailAddress, password) => {
   let response;
-  try {
-    response = await fetch(`${URL}/login`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ emailAddress, password })
-    });
-    await checkApiStatus(response);
-  } catch (err) {
-    return err;
-  }
+  response = await fetch(`${URL}/login`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ emailAddress, password })
+  });
+  await checkApiStatus(response);
   return response.json();
 };
 

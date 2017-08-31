@@ -1,11 +1,17 @@
 export const checkApiStatus = async response => {
-  if (response.status >= 400 && response.status < 600) {
-    const responseError = await response.json();
+  if (!response.ok) {
+    let caller;
+    if (checkApiStatus.caller) {
+      caller = `This function is called by ${checkApiStatus.caller}.`;
+    } else {
+      caller = `Could not find this function caller.`;
+    }
+    const json = await response.json();
+    console.log(response, json);
     return Promise.reject(
-      `HTTP ${responseError.status} ${responseError.error}.\n 
-      ${responseError.exception}.\n 
-      ${responseError.message}.\n 
-      This function is called by ${checkApiStatus.caller}`
+      `HTTP ${response.status}.
+      ${json.errorMessage}
+      ${caller}`
     );
   }
   return response;
