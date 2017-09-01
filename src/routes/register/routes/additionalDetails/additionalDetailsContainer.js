@@ -1,3 +1,4 @@
+import { Alert } from "react-native";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
@@ -15,12 +16,23 @@ const {
   UPDATE_PROFILE_IMAGE
 } = registrationState.actions;
 
-const { getBirthDate, getGender } = registrationState.selectors;
+const {
+  getFirstName,
+  getSurname,
+  getBirthDate,
+  getGender,
+  getPhoneNumber,
+  getOccupation
+} = registrationState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
+    firstName: getFirstName,
+    surname: getSurname,
     birthDate: getBirthDate,
-    gender: getGender
+    gender: getGender,
+    phoneNumber: getPhoneNumber,
+    occupation: getOccupation
   });
 };
 
@@ -52,7 +64,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     registerProfileImage: profileImage => {
       dispatch(UPDATE_PROFILE_IMAGE(profileImage));
     },
-    goNextPage: () => navigation.navigate(routeKeys.RegisterProfileImageUpload)
+    goToNextPage: validateForm =>
+      validateForm
+        ? navigation.navigate(routeKeys.RegisterProfileImageUpload)
+        : Alert.alert("Please enter the correct details.")
   };
 };
 

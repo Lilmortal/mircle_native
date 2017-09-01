@@ -7,12 +7,7 @@ import { routeKeys } from "../../../../config";
 import AccountSummary from "./accountSummary";
 import { registrationState } from "../../../../states";
 
-const {
-  uploadProfileImageToS3,
-  registerUser,
-  setProfileImageToDefault,
-  setProfileImageUri
-} = api;
+const { registerUser, setUserImage } = api;
 
 const {
   getEmailAddress,
@@ -25,20 +20,6 @@ const {
   getOccupation,
   getProfileImage
 } = registrationState.selectors;
-
-const registerAccount = async (user, navigation) => {
-  try {
-    const id = await registerUser(user);
-    if (user.profileImage.isDefault) {
-      await setProfileImageToDefault(id);
-    } else {
-      const uri = await uploadProfileImageToS3(user.profileImage, id);
-      await setProfileImageUri(id, uri);
-    }
-  } catch (err) {
-    return err;
-  }
-};
 
 const mapStateToProps = () => {
   return createStructuredSelector({
@@ -59,11 +40,17 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   return {
     ...stateProps,
     ...ownProps,
-    registerAccount: async user => {
+    registerUser: async (user, profileImage) => {
       try {
-        await registerAccount(user, navigation);
+        await registerUser(user);
+        if (profileImage.isDefault) {
+          await setUserImage(user.emailAddress);
+        } else {
+          await setUserImage(user.emailAddress, profileImage);
+        }
         navigation.navigate(routeKeys.RegisterEmailConfirmation);
       } catch (err) {
+        console.log(err);
         Alert.alert("Account is not created due to an error", err.toString());
       }
     }

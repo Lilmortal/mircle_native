@@ -1,39 +1,48 @@
 import React from "react";
-import { View, TextInput } from "react-native";
+import { View, TextInput, Text } from "react-native";
 
 import styles from "./styles";
 
 const CustomTextInput = ({
   placeholder,
   Icon,
-  color = "gray",
+  placeholderColor = "gray",
+  color = "black",
   secureTextEntry = false,
   style,
   hideUnderlineColor = false,
+  error,
+  compulsory = false,
   ...props
 }) => {
   return (
-    <View
-      style={[
-        styles.textInputContainer,
-        color && { borderColor: color },
-        hideUnderlineColor && { borderBottomWidth: 0 }
-      ]}
-    >
-      {Icon &&
-        <View style={styles.icon}>
-          {Icon}
-        </View>}
+    <View>
+      <View
+        style={[
+          styles.textInputContainer,
+          color && { borderColor: color },
+          hideUnderlineColor && { borderBottomWidth: 0 }
+        ]}
+      >
+        {Icon &&
+          <View style={styles.icon}>
+            {Icon}
+          </View>}
 
-      <TextInput
-        placeholder={placeholder}
-        style={[{ color }, styles.textInput, style]}
-        placeholderTextColor={color}
-        selectionColor={color}
-        underlineColorAndroid="transparent"
-        secureTextEntry={secureTextEntry}
-        {...props}
-      />
+        <TextInput
+          placeholder={placeholder}
+          style={[{ color }, styles.textInput, style]}
+          placeholderTextColor={placeholderColor}
+          selectionColor={color}
+          underlineColorAndroid="transparent"
+          secureTextEntry={secureTextEntry}
+          {...props}
+        />
+        {compulsory && <Text style={styles.compulsory}>*</Text>}
+      </View>
+      <Text style={styles.error}>
+        {error}
+      </Text>
     </View>
   );
 };

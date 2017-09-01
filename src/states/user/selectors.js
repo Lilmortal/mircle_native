@@ -1,5 +1,7 @@
 import { NAME } from "./constants";
 
+export const getUser = state => state[NAME];
+
 export const getId = state => state[NAME].id;
 
 export const getEmailAddress = state => state[NAME].emailAddress;

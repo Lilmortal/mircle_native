@@ -4,7 +4,6 @@ import { Image } from "react-native";
 import styles from "./styles";
 
 const ProfileImage = ({ source, size = 100, style, ...props }) => {
-  console.log(source);
   return (
     <Image
       source={source}
