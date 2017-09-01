@@ -7,7 +7,6 @@ export const checkApiStatus = async response => {
       caller = `Could not find this function caller.`;
     }
     const json = await response.json();
-    console.log(response, json);
     return Promise.reject(
       `HTTP ${response.status}.
       ${json.errorMessage}
