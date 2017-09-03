@@ -4,7 +4,7 @@ import { createStructuredSelector } from "reselect";
 
 import { routeKeys } from "../../config";
 import Login from "./login";
-import { getUserByEmailAddress } from "../../api";
+import { login, getToken } from "../../api";
 import { registrationState, userState } from "../../states";
 
 const { RESET_REGISTER_DETAILS } = registrationState.actions;
@@ -25,10 +25,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     goToForgottenPasswordPage: () => {
       navigation.navigate(routeKeys.ForgotPassword);
     },
-    getUserByEmailAddress: async (emailAddress, password) => {
+    login: async (emailAddress, password) => {
       try {
-        const user = await getUserByEmailAddress(emailAddress, password);
-        dispatch(POPULATE_USER_STATE(user));
+        const test = await getToken();
+        console.log(test);
+        //const user = await login(emailAddress, password);
+        //dispatch(POPULATE_USER_STATE(user));
         navigation.navigate(routeKeys.QrCode);
       } catch (err) {
         Alert.alert("Attempting to login failed.", err.toString());

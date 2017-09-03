@@ -4,7 +4,6 @@ import { createStructuredSelector } from "reselect";
 import Camera from "../../../../components/camera";
 import { cameraState } from "../../../../states";
 
-console.log(cameraState);
 const { UPDATE_CAMERA_ACTIVE } = cameraState.actions;
 const { getCameraActive } = cameraState.selectors;
 

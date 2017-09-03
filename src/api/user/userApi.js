@@ -51,20 +51,6 @@ export const getUserById = async id => {
   return response.json();
 };
 
-export const getUserByEmailAddress = async (emailAddress, password) => {
-  let response;
-  response = await fetch(`${URL}/login`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ emailAddress, password })
-  });
-  await checkApiStatus(response);
-  return response.json();
-};
-
 export const addFriend = async (id, friendId) => {
   try {
     const response = await fetch(`${URL}/user/${id}/friend/${friendId}`, {

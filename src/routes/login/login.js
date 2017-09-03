@@ -36,7 +36,7 @@ class Login extends Component {
 
   render() {
     const {
-      getUserByEmailAddress,
+      login,
       goToRegistrationPage,
       goToForgottenPasswordPage
     } = this.props;
@@ -68,11 +68,7 @@ class Login extends Component {
           </View>
 
           <Button
-            onPress={() =>
-              getUserByEmailAddress(
-                this.state.emailAddress,
-                this.state.password
-              )}
+            onPress={() => login(this.state.emailAddress, this.state.password)}
           >
             <View>
               <LoginText style={styles.loginText}>
