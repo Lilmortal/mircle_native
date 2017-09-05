@@ -4,7 +4,8 @@ import {
   friendState,
   registrationState,
   userState,
-  settingsState
+  settingsState,
+  tokenState
 } from "./states";
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
   [friendState.constants.NAME]: friendState.reducers,
   [registrationState.constants.NAME]: registrationState.reducers,
   [userState.constants.NAME]: userState.reducers,
-  [settingsState.constants.NAME]: settingsState.reducers
+  [settingsState.constants.NAME]: settingsState.reducers,
+  [tokenState.constants.NAME]: tokenState.reducers
 });

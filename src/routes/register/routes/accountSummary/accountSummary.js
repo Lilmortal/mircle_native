@@ -25,7 +25,7 @@ class RegisterAccountSummary extends Component {
 
   render() {
     const {
-      registerUser,
+      register,
       emailAddress,
       firstName,
       surname,
@@ -53,7 +53,7 @@ class RegisterAccountSummary extends Component {
         title="Is this you?"
         onPress={() => {
           this.setIsLoading(true);
-          registerUser(user, profileImage);
+          register(user, profileImage);
         }}
         buttonMessage="SUBMIT"
       >

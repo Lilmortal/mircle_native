@@ -7,7 +7,7 @@ import { routeKeys } from "../../../../config";
 import AccountSummary from "./accountSummary";
 import { registrationState } from "../../../../states";
 
-const { registerUser, setUserImage } = api;
+const { register, registerProfileImage } = api;
 
 const {
   getEmailAddress,
@@ -40,17 +40,16 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   return {
     ...stateProps,
     ...ownProps,
-    registerUser: async (user, profileImage) => {
+    register: async (user, profileImage) => {
       try {
-        await registerUser(user);
+        await register(user);
         if (profileImage.isDefault) {
-          await setUserImage(user.emailAddress);
+          await registerProfileImage(user.emailAddress);
         } else {
-          await setUserImage(user.emailAddress, profileImage);
+          await registerProfileImage(user.emailAddress, profileImage);
         }
         navigation.navigate(routeKeys.RegisterEmailConfirmation);
       } catch (err) {
-        console.log(err);
         Alert.alert("Account is not created due to an error", err.toString());
       }
     }

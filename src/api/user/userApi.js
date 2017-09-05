@@ -1,4 +1,4 @@
-import { URL } from "../constants";
+import { URL, GET_TOKEN } from "../constants";
 import { checkApiStatus } from "../checkApiStatus";
 
 export const setUserImage = async (emailAddress, profileImage = null) => {
@@ -6,31 +6,14 @@ export const setUserImage = async (emailAddress, profileImage = null) => {
   try {
     const formData = new FormData();
     formData.append("profileImage", profileImage);
-    formData.append("emailAddress", emailAddress);
 
-    response = await fetch(`${URL}/user/profileimage`, {
+    response = await fetch(`${URL}/email/${emailAddress}`, {
       method: "POST",
       body: formData
     });
     await checkApiStatus(response);
   } catch (err) {
     return Promise.reject(err);
-  }
-};
-
-export const registerUser = async user => {
-  try {
-    const response = await fetch(`${URL}/user`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(user)
-    });
-    await checkApiStatus(response);
-  } catch (err) {
-    return err;
   }
 };
 
@@ -44,6 +27,30 @@ export const getUserById = async id => {
         "Content-Type": "application/json"
       }
     });
+    await checkApiStatus(response);
+  } catch (err) {
+    return err;
+  }
+  return response.json();
+};
+
+export const getUserByEmailAddress = async emailAddress => {
+  const token = await GET_TOKEN();
+  let response;
+  try {
+    response = await fetch(
+      `${URL}/user/email/${encodeURIComponent(emailAddress)}`,
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: token
+        }
+      }
+    );
+    console.log(encodeURIComponent(emailAddress), token);
+    //console.log(response);
     await checkApiStatus(response);
   } catch (err) {
     return err;
