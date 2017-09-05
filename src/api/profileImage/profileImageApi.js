@@ -34,17 +34,19 @@ export const removeProfileImage = async id => {
   }
 };
 
-export const uploadProfileImageToS3 = async (profileImage, id) => {
+export const uploadProfileImageToS3 = async (profileImage, emailAddress) => {
   let response;
   try {
     const formData = new FormData();
     formData.append("profileImage", profileImage);
-    formData.append("id", id);
 
-    response = await fetch(`${URL}/profileimage/s3upload`, {
-      method: "POST",
-      body: formData
-    });
+    response = await fetch(
+      `${URL}/profileimage/email/${emailAddress}/upload/s3`,
+      {
+        method: "POST",
+        body: formData
+      }
+    );
     await checkApiStatus(response);
   } catch (err) {
     return err;
