@@ -1,14 +1,15 @@
-import { Alert } from "react-native";
+import { Alert, AsyncStorage } from "react-native";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import { routeKeys } from "../../config";
 import Login from "./login";
-import { login, getToken } from "../../api";
-import { registrationState, userState } from "../../states";
+import { login, getUserByEmailAddress } from "../../api";
+import { registrationState, userState, tokenState } from "../../states";
 
 const { RESET_REGISTER_DETAILS } = registrationState.actions;
 const { POPULATE_USER_STATE } = userState.actions;
+const { UPDATE_AUTHORIZATION_TOKEN } = tokenState.actions;
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { dispatch } = dispatchProps;
@@ -27,10 +28,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     },
     login: async (emailAddress, password) => {
       try {
-        const test = await getToken();
-        console.log(test);
-        //const user = await login(emailAddress, password);
-        //dispatch(POPULATE_USER_STATE(user));
+        const token = await login(emailAddress, password);
+        //dispatch(UPDATE_AUTHORIZATION_TOKEN(token));
+        await AsyncStorage.setItem("token", token);
+        const user = await getUserByEmailAddress(emailAddress);
+        dispatch(POPULATE_USER_STATE(user));
+
         navigation.navigate(routeKeys.QrCode);
       } catch (err) {
         Alert.alert("Attempting to login failed.", err.toString());
