@@ -56,9 +56,7 @@ const Profile = ({
             style={styles.profileImageBackground}
           >
             <View style={styles.headerDescription}>
-              <TouchableHighlight>
-                <ProfileImage source={profileImage} size={250} />
-              </TouchableHighlight>
+              <ProfileImage source={profileImage} size={250} />
               <Text style={styles.name}>
                 {firstName} {surname}
               </Text>
