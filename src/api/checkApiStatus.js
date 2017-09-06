@@ -12,6 +12,6 @@ export const checkApiStatus = async response => {
     //   ${json.errorMessage}
     //   ${caller}`
     // );
-    return Promise.reject(`HTTP ${response.status}`);
+    throw new Error(`HTTP ${response.status}`);
   }
 };

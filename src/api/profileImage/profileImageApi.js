@@ -1,4 +1,4 @@
-import { URL } from "../constants";
+import { URL, populateQueryParam } from "../constants";
 import { checkApiStatus } from "../checkApiStatus";
 
 export const getDefaultProfileImage = async () => {
@@ -18,50 +18,16 @@ export const getDefaultProfileImage = async () => {
   return response.json();
 };
 
-export const removeProfileImage = async id => {
-  let response;
-  try {
-    response = await fetch(`${URL}/user/${id}/profileimage`, {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    });
-    await checkApiStatus(response);
-  } catch (err) {
-    return err;
-  }
-};
-
-export const uploadProfileImageToS3 = async (profileImage, emailAddress) => {
+export const uploadProfileImageToS3 = async (id, profileImage) => {
   let response;
   try {
     const formData = new FormData();
     formData.append("profileImage", profileImage);
+    const query = populateQueryParam(id);
 
-    response = await fetch(
-      `${URL}/profileimage/email/${emailAddress}/upload/s3`,
-      {
-        method: "POST",
-        body: formData
-      }
-    );
-    await checkApiStatus(response);
-  } catch (err) {
-    return err;
-  }
-};
-
-export const setProfileImageUri = async (id, uri) => {
-  let response;
-  try {
-    response = await fetch(`${URL}/profileimage/set?id=${id}&uri=${uri}`, {
+    response = await fetch(`${URL}/profileimage/upload/s3${query}`, {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
+      body: formData
     });
     await checkApiStatus(response);
   } catch (err) {

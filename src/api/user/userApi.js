@@ -1,21 +1,5 @@
-import { URL, GET_TOKEN } from "../constants";
+import { URL, getToken, populateQueryParam } from "../constants";
 import { checkApiStatus } from "../checkApiStatus";
-
-export const setUserImage = async (emailAddress, profileImage = null) => {
-  let response;
-  try {
-    const formData = new FormData();
-    formData.append("profileImage", profileImage);
-
-    response = await fetch(`${URL}/email/${emailAddress}`, {
-      method: "POST",
-      body: formData
-    });
-    await checkApiStatus(response);
-  } catch (err) {
-    return Promise.reject(err);
-  }
-};
 
 export const getUserById = async id => {
   let response;
@@ -35,27 +19,57 @@ export const getUserById = async id => {
 };
 
 export const getUserByEmailAddress = async emailAddress => {
-  const token = await GET_TOKEN();
+  const token = await getToken();
   let response;
   try {
-    response = await fetch(
-      `${URL}/user/email/${encodeURIComponent(emailAddress)}`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: token
-        }
+    response = await fetch(`${URL}/user/email/${emailAddress}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: token
       }
-    );
+    });
     console.log(encodeURIComponent(emailAddress), token);
-    //console.log(response);
     await checkApiStatus(response);
   } catch (err) {
     return err;
   }
   return response.json();
+};
+
+export const setUserProfileImage = async (id, profileImage = undefined) => {
+  let response;
+  try {
+    const formData = new FormData();
+    formData.append("profileImage", profileImage);
+    const query = populateQueryParam(id);
+
+    response = await fetch(`${URL}/user/profileimage${query}`, {
+      method: "PATCH",
+      body: formData
+    });
+    await checkApiStatus(response);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
+
+export const removeProfileImage = async id => {
+  let response;
+  const query = populateQueryParam(id);
+  try {
+    response = await fetch(`${URL}/user/profileimage${query}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    await checkApiStatus(response);
+  } catch (err) {
+    return err;
+  }
 };
 
 export const addFriend = async (id, friendId) => {

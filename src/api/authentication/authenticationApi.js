@@ -1,4 +1,4 @@
-import { URL } from "../constants";
+import { URL, populateQueryParam } from "../constants";
 import { checkApiStatus } from "../checkApiStatus";
 
 export const register = async user => {
@@ -17,22 +17,17 @@ export const register = async user => {
   }
 };
 
-export const registerProfileImage = async (
-  emailAddress,
-  profileImage = null
-) => {
+export const registerProfileImage = async (id, profileImage = null) => {
   let response;
   try {
     const formData = new FormData();
     formData.append("profileImage", profileImage);
+    const query = populateQueryParam(id);
 
-    response = await fetch(
-      `${URL}/register/email/${emailAddress}/profileimage`,
-      {
-        method: "POST",
-        body: formData
-      }
-    );
+    response = await fetch(`${URL}/register/profileimage${query}`, {
+      method: "PATCH",
+      body: formData
+    });
     await checkApiStatus(response);
   } catch (err) {
     return Promise.reject(err);
