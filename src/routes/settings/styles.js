@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
   container: {
     width: width * 0.9,
     marginTop: 10
+  },
+  modalButton: {
+    justifyContent: "center"
   }
 });
 

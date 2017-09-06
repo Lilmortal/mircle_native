@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
+import { validate } from "../../libs";
 import TextInput from "../../components/textInput";
 import Button from "../../components/button";
 import Modal from "../../components/modal";
@@ -15,6 +16,12 @@ export default class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      oldPassword: "",
+      oldPasswordValid: false,
+      oldPasswordErrorMessage: "",
+      newPassword: "",
+      newPasswordValid: false,
+      newPasswordErrorMessage: "",
       passwordModalVisible: false,
       aboutMircleModalVisible: false,
       aboutCreatorModalVisible: false
@@ -39,6 +46,34 @@ export default class Settings extends Component {
     });
   };
 
+  setOldPasswordState = oldPassword => {
+    this.setState({
+      oldPassword
+    });
+  };
+
+  setNewPasswordState = newPassword => {
+    this.setState({
+      newPassword
+    });
+  };
+
+  validateForm = () => {
+    const oldPasswordValidation = validate(this.state.oldPassword, "password");
+    const newPasswordValidation = validate(this.state.newPassword, "password");
+
+    this.setState({
+      oldPasswordValid: oldPasswordValidation.isValid,
+      oldPasswordErrorMessage: oldPasswordValidation.errorMessage
+    });
+    this.setState({
+      newPasswordValid: newPasswordValidation.isValid,
+      newPasswordErrorMessage: newPasswordValidation.errorMessage
+    });
+
+    return oldPasswordValidation.isValid && newPasswordValidation.isValid;
+  };
+
   render() {
     const {
       sound,
@@ -46,10 +81,10 @@ export default class Settings extends Component {
       vibration,
       updateSound,
       updateSoundVolume,
-      updateVibration
+      updateVibration,
+      updateUserPassword
     } = this.props;
 
-    console.log(sound, soundVolume, vibration);
     return (
       <View style={styles.settings}>
         <View style={styles.container}>
@@ -120,14 +155,46 @@ export default class Settings extends Component {
               Icon={passwordIcon}
               placeholder="Old password"
               color="black"
+              secureTextEntry
+              onChangeText={password => this.setOldPasswordState(password)}
+              onEndEditing={e => {
+                const validation = validate(e.nativeEvent.text, "password");
+                this.setState({
+                  oldPasswordValid: validation.isValid,
+                  oldPasswordErrorMessage: validation.errorMessage
+                });
+              }}
+              value={this.state.oldPassword}
+              error={this.state.oldPasswordErrorMessage}
+              compulsory
             />
             <TextInput
               Icon={passwordIcon}
               placeholder="New password"
               color="black"
+              secureTextEntry
+              onChangeText={password => this.setNewPasswordState(password)}
+              onEndEditing={e => {
+                const validation = validate(e.nativeEvent.text, "password");
+                this.setState({
+                  newPasswordValid: validation.isValid,
+                  newPasswordErrorMessage: validation.errorMessage
+                });
+              }}
+              value={this.state.newPassword}
+              error={this.state.newPasswordErrorMessage}
+              compulsory
             />
             <Button
-              onPress={() => this.setPasswordModalVisible(false)}
+              onPress={() => {
+                if (this.validateForm()) {
+                  updateUserPassword(
+                    this.state.oldPassword,
+                    this.state.newPassword
+                  );
+                  this.setPasswordModalVisible(false);
+                }
+              }}
               color="black"
             >
               <Text>Save changes</Text>

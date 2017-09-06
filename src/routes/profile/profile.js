@@ -37,7 +37,6 @@ const Profile = ({
   isAFriend,
   friendId
 }) => {
-  console.log(profileImage);
   const data = [
     { id: 1, label: "Gender", value: mapGenderValueToLabel(gender) },
     { id: 2, label: "Phone Number", value: phoneNumber },
@@ -57,7 +56,9 @@ const Profile = ({
             style={styles.profileImageBackground}
           >
             <View style={styles.headerDescription}>
-              <ProfileImage source={profileImage} size={250} />
+              <TouchableHighlight>
+                <ProfileImage source={profileImage} size={250} />
+              </TouchableHighlight>
               <Text style={styles.name}>
                 {firstName} {surname}
               </Text>

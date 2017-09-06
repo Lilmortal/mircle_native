@@ -30,12 +30,32 @@ export const getUserByEmailAddress = async emailAddress => {
         Authorization: token
       }
     });
-    console.log(encodeURIComponent(emailAddress), token);
     await checkApiStatus(response);
   } catch (err) {
     return err;
   }
   return response.json();
+};
+
+export const updateUserPassword = async (id, oldPassword, newPassword) => {
+  const token = await getToken();
+  let response;
+  try {
+    let query = populateQueryParam(id);
+    query += `&oldPassword=${oldPassword}&newPassword=${newPassword}`;
+
+    response = await fetch(`${URL}/user/password${query}`, {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: token
+      }
+    });
+    await checkApiStatus(response);
+  } catch (err) {
+    return Promise.reject(err);
+  }
 };
 
 export const setUserProfileImage = async (id, profileImage = undefined) => {

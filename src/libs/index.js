@@ -1,4 +1,5 @@
 import mapGenderValueToLabel from "./mapGenderValueToLabel";
 import pushNotification from "./pushNotification";
+import validate from "./validate";
 
-export { mapGenderValueToLabel, pushNotification };
+export { mapGenderValueToLabel, pushNotification, validate };
