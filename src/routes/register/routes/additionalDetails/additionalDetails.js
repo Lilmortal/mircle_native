@@ -3,7 +3,8 @@ import { View, Text } from "react-native";
 import moment from "moment";
 
 import TextInput from "../../../../components/textInput";
-import { Picker, DatePicker } from "../../components";
+import Picker from "../../../../components/picker";
+import DatePicker from "../../../../components/datePicker";
 import RegisterLayout from "../../layout/registerLayout";
 import validate from "../../../../libs/validate";
 
@@ -122,7 +123,7 @@ class RegisterAdditionalDetails extends Component {
 
         <DatePicker
           title="Birth Date"
-          date={birthDate}
+          value={birthDate}
           onDateChange={date =>
             registerBirthDate(moment(date, "DD/MM/YYYY").toDate())}
         />

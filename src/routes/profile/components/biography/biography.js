@@ -22,38 +22,41 @@ class Biography extends Component {
   };
 
   render() {
-    const { label, value, style } = this.props;
+    const {
+      label,
+      value,
+      InputComponent,
+      validate,
+      disabled,
+      style
+    } = this.props;
 
     const selectedStyle = this.state.isSelected
       ? { backgroundColor: "red" }
       : {};
 
     const Display = () =>
-      <View>
-        <Text style={styles.value}>
-          {value}
-        </Text>
-        <Text style={styles.label}>
-          {label}
-        </Text>
-      </View>;
+      <Text style={styles.value}>
+        {value}
+      </Text>;
 
-    const ValueInput = () =>
-      <View>
-        <TextInput value={value} />
-      </View>;
+    const ValueInput = () => <InputComponent value={value} />;
 
     return (
-      <TouchableOpacity onPress={this.toggleIsSelected}>
+      <TouchableOpacity onPress={!disabled && this.toggleIsSelected}>
         <View
           style={[
             styles.biography,
             { width: windowWidth / NUM_OF_COLUMNS },
             selectedStyle,
+            disabled && { backgroundColor: "gray" },
             style
           ]}
         >
           {this.state.isSelected ? <ValueInput /> : <Display />}
+          <Text style={styles.label}>
+            {label}
+          </Text>
         </View>
       </TouchableOpacity>
     );

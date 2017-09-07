@@ -4,7 +4,7 @@ import DatePicker from "react-native-datepicker";
 
 import styles from "./styles";
 
-const RegisterDatePicker = ({ title, date, onDateChange }) =>
+const CustomizedDatePicker = ({ title, value, onDateChange, placeholder }) =>
   <View style={styles.datePickerContainer}>
     <View style={styles.dateTextContainer}>
       <Text style={styles.dateText}>
@@ -13,8 +13,14 @@ const RegisterDatePicker = ({ title, date, onDateChange }) =>
     </View>
     <DatePicker
       style={styles.datePicker}
-      date={date}
-      placeholder="Birth date"
+      customStyles={{
+        dateIcon: {},
+        dateInput: {
+          borderWidth: 0
+        }
+      }}
+      date={value}
+      placeholder={placeholder}
       format="DD/MM/YYYY"
       confirmBtnText="Confirm"
       cancelBtnText="Cancel"
@@ -22,4 +28,4 @@ const RegisterDatePicker = ({ title, date, onDateChange }) =>
     />
   </View>;
 
-export default RegisterDatePicker;
+export default CustomizedDatePicker;

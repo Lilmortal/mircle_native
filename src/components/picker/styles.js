@@ -1,17 +1,11 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  textInput: {
+  picker: {
     borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingLeft: 10,
+    borderBottomWidth: 1,
     marginTop: 10,
     marginBottom: 10
-  },
-  errorMessageContainer: {},
-  errorMessage: {
-    color: "red"
   }
 });
 

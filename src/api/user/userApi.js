@@ -37,6 +37,25 @@ export const getUserByEmailAddress = async emailAddress => {
   return response.json();
 };
 
+export const updateUser = async user => {
+  const token = await getToken();
+  let response;
+  try {
+    response = await fetch(`${URL}/user`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: token
+      },
+      body: JSON.stringify(user)
+    });
+    await checkApiStatus(response);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
+
 export const updateUserPassword = async (id, oldPassword, newPassword) => {
   const token = await getToken();
   let response;

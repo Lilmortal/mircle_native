@@ -3,7 +3,7 @@ import { View, Picker } from "react-native";
 
 import styles from "./styles";
 
-const RegisterPicker = ({ selectedValue, onValueChange, items }) =>
+const CustomizedPicker = ({ selectedValue, onValueChange, items }) =>
   <View style={styles.picker}>
     <Picker selectedValue={selectedValue} onValueChange={onValueChange}>
       {items.map((item, key) => {
@@ -12,4 +12,4 @@ const RegisterPicker = ({ selectedValue, onValueChange, items }) =>
     </Picker>
   </View>;
 
-export default RegisterPicker;
+export default CustomizedPicker;

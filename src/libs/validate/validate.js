@@ -1,5 +1,6 @@
 const EMAIL_REGEX = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const PASSWORD_REGEX = /^.{6,}$/;
+const PHONE_NUMBER_REGEX = /^[0-9]+$/;
 
 const validateEmail = (inputName = "email address", email) => {
   if (email.length === 0) {
@@ -22,6 +23,17 @@ const validatePassword = (inputName = "password", password) => {
   return "";
 };
 
+const validatePhoneNumber = (inputName = "phone number", phoneNumber) => {
+  if (phoneNumber.length === 0) {
+    return `${inputName} cannot be empty.`;
+  }
+
+  if (!PHONE_NUMBER_REGEX.test(phoneNumber)) {
+    return `${inputName} must only have numbers.`;
+  }
+  return "";
+};
+
 const validateGenericInput = (inputName = "input", input) => {
   if (input.length === 0) {
     return `${inputName} cannot be empty.`;
@@ -40,6 +52,13 @@ const validate = (input, medium, inputName) => {
     }
     case "password": {
       const errorMessage = validatePassword(inputName, input);
+      return {
+        isValid: !errorMessage,
+        errorMessage
+      };
+    }
+    case "phoneNumber": {
+      const errorMessage = validatePhoneNumber(inputName, input);
       return {
         isValid: !errorMessage,
         errorMessage

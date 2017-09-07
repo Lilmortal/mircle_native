@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 
 import TextInput from "../../../../components/textInput";
 import RegisterLayout from "../../layout/registerLayout";
-import validate from "../../../../libs/validate";
+import { validate } from "../../../../libs";
 
 class RegisterAccountCreation extends Component {
   constructor(props) {

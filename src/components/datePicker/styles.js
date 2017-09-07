@@ -4,8 +4,7 @@ const styles = StyleSheet.create({
   datePickerContainer: {
     flexDirection: "row",
     borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 10,
+    borderBottomWidth: 1,
     marginTop: 10,
     marginBottom: 10
   },
