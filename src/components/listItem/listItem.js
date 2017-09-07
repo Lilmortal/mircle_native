@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Slider, Switch, TouchableHighlight } from "react-native";
+import { View, Slider, Switch, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import styles from "./styles";
@@ -18,7 +18,7 @@ const List = ({
   onPress,
   style
 }) =>
-  <TouchableHighlight
+  <TouchableOpacity
     onPress={onPress}
     style={[styles.list, lastChild && styles.listLastChild, style]}
   >
@@ -47,6 +47,6 @@ const List = ({
           <Icon name="angle-double-right" />
         </View>}
     </View>
-  </TouchableHighlight>;
+  </TouchableOpacity>;
 
 export default List;

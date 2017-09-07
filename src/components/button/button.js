@@ -1,14 +1,14 @@
 import React from "react";
-import { TouchableHighlight } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 import buttonStyle from "./styles";
 
 const Button = ({ onPress, style, color, children }) =>
-  <TouchableHighlight
+  <TouchableOpacity
     onPress={onPress}
     style={[buttonStyle.button, color && { borderColor: color }, style]}
   >
     {children}
-  </TouchableHighlight>;
+  </TouchableOpacity>;
 
 export default Button;

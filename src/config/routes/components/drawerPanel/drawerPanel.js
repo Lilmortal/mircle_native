@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TouchableHighlight } from "react-native";
+import { View, Text, Image } from "react-native";
 
 import DrawerPanel from "../../../../components/drawerPanel";
 import ProfileImage from "../../../../components/profileImage";

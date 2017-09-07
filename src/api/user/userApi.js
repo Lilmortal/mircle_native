@@ -38,7 +38,6 @@ export const getUserByEmailAddress = async emailAddress => {
 };
 
 export const updateUser = async (emailAddress, key, value) => {
-  console.log(key, value);
   const token = await getToken();
   let response;
   try {
@@ -47,8 +46,8 @@ export const updateUser = async (emailAddress, key, value) => {
       {
         method: "PATCH",
         headers: {
-          Accept: "application/json",
-          Authorization: token
+          Accept: "application/json"
+          //Authorization: token
         }
       }
     );
