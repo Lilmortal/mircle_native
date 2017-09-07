@@ -5,7 +5,6 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { validate } from "../../libs";
 import { NUM_OF_COLUMNS } from "./constants";
 import { images } from "../../config";
-import { mapGenderValueToLabel } from "../../libs";
 import Picker from "../../components/picker";
 import DatePicker from "../../components/datePicker";
 import TextInput from "../../components/textInput";
@@ -39,48 +38,9 @@ const Profile = ({
   lastLoggedIn,
   goToMap,
   isAFriend,
-  friendId
+  friendId,
+  data
 }) => {
-  const data = [
-    {
-      id: 1,
-      label: "Gender",
-      value: mapGenderValueToLabel(gender),
-      InputComponent: Picker
-    },
-    {
-      id: 2,
-      label: "Phone Number",
-      value: phoneNumber,
-      InputComponent: TextInput
-    },
-    {
-      id: 3,
-      label: "Birth Date",
-      value: birthDate.toLocaleString(),
-      InputComponent: DatePicker
-    },
-    {
-      id: 4,
-      label: "Occupation",
-      value: occupation,
-      InputComponent: TextInput
-    },
-    {
-      id: 5,
-      label: "Created On",
-      value: createdOn.toLocaleString(),
-      InputComponent: TextInput,
-      disabled: true
-    },
-    {
-      id: 6,
-      label: "Last Logged In",
-      value: lastLoggedIn.toLocaleString(),
-      InputComponent: TextInput,
-      disabled: true
-    }
-  ];
   return (
     <View style={styles.profile}>
       <FlatList
@@ -115,7 +75,6 @@ const Profile = ({
             label={item.label}
             value={item.value}
             InputComponent={item.InputComponent}
-            validate={item.validate}
             disabled={item.disabled}
             style={() => checkIfTileIsInEdge(item.id, data)}
           />}
