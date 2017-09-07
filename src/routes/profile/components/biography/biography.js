@@ -34,7 +34,7 @@ class Biography extends Component {
       </Text>;
 
     return (
-      <TouchableOpacity onPress={!disabled && this.toggleIsSelected}>
+      <TouchableOpacity onPress={() => !disabled && this.toggleIsSelected}>
         <View
           style={[
             styles.biography,

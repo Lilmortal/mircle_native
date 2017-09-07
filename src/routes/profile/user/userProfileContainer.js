@@ -4,13 +4,15 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import moment from "moment";
 
-import { mapGenderValueToLabel } from "../../../libs";
+import { mapGenderValueToLabel, camera } from "../../../libs";
 import Picker from "../../../components/picker";
 import DatePicker from "../../../components/datePicker";
 import TextInput from "../../../components/textInput";
-import { updateUser } from "../../../api";
+import { updateUser, setUserProfileImage } from "../../../api";
 import Profile from "../profile";
 import { userState } from "../../../states";
+
+const { getProfileImageFromMedium } = camera;
 
 const {
   UPDATE_GENDER,
@@ -166,6 +168,18 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   return {
     ...ownProps,
     ...stateProps,
+    getProfileImageFromMedium: async medium => {
+      try {
+        const profileImage = await getProfileImageFromMedium(medium);
+        await setUserProfileImage(emailAddress, profileImage);
+        dispatch(UPDATE_PROFILE_IMAGE(profileImage));
+      } catch (err) {
+        Alert.alert(
+          "There is an error attempting to update your profile image",
+          err
+        );
+      }
+    },
     data
   };
 };

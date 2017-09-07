@@ -34,14 +34,49 @@ const mapStateToProps = () => {
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { gender, phoneNumber, birthDate, occupation } = stateProps;
+
   const { navigation } = ownProps;
 
+  const data = [
+    {
+      id: 1,
+      label: "Gender",
+      value: mapGenderValueToLabel(gender)
+    },
+    {
+      id: 2,
+      label: "Phone Number",
+      value: phoneNumber
+    },
+    {
+      id: 3,
+      label: "Birth Date",
+      value: birthDate.toLocaleString()
+    },
+    {
+      id: 4,
+      label: "Occupation",
+      value: occupation
+    },
+    {
+      id: 5,
+      label: "Created On",
+      value: createdOn.toLocaleString()
+    },
+    {
+      id: 6,
+      label: "Last Logged In",
+      value: lastLoggedIn.toLocaleString()
+    }
+  ];
   return {
     ...stateProps,
     ...ownProps,
     goToMap: () => {
       navigation.navigate(routeKeys.FriendsMap);
     },
+    data,
     isAFriend: true
   };
 };
