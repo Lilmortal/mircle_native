@@ -6,11 +6,12 @@ import styles from "./styles";
 
 const CustomizedDatePicker = ({ title, value, onDateChange, placeholder }) =>
   <View style={styles.datePickerContainer}>
-    <View style={styles.dateTextContainer}>
-      <Text style={styles.dateText}>
-        {title}
-      </Text>
-    </View>
+    {title &&
+      <View style={styles.dateTextContainer}>
+        <Text style={styles.dateText}>
+          {title}
+        </Text>
+      </View>}
     <DatePicker
       style={styles.datePicker}
       customStyles={{

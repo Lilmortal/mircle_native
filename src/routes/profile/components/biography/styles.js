@@ -6,7 +6,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: "black",
     flexDirection: "column",
-    padding: 10
+    padding: 10,
+    height: 100,
+    justifyContent: "center"
   },
   value: {
     textAlign: "center",
