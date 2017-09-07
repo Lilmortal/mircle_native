@@ -22,14 +22,7 @@ class Biography extends Component {
   };
 
   render() {
-    const {
-      label,
-      value,
-      InputComponent,
-      validate,
-      disabled,
-      style
-    } = this.props;
+    const { label, value, InputComponent, disabled, style } = this.props;
 
     const selectedStyle = this.state.isSelected
       ? { backgroundColor: "red" }
@@ -39,8 +32,6 @@ class Biography extends Component {
       <Text style={styles.value}>
         {value}
       </Text>;
-
-    const ValueInput = () => <InputComponent value={value} />;
 
     return (
       <TouchableOpacity onPress={!disabled && this.toggleIsSelected}>
@@ -53,7 +44,7 @@ class Biography extends Component {
             style
           ]}
         >
-          {this.state.isSelected ? <ValueInput /> : <Display />}
+          {this.state.isSelected ? <InputComponent /> : <Display />}
           <Text style={styles.label}>
             {label}
           </Text>

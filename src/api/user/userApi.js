@@ -37,19 +37,21 @@ export const getUserByEmailAddress = async emailAddress => {
   return response.json();
 };
 
-export const updateUser = async user => {
+export const updateUser = async (emailAddress, key, value) => {
+  console.log(key, value);
   const token = await getToken();
   let response;
   try {
-    response = await fetch(`${URL}/user`, {
-      method: "PUT",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: token
-      },
-      body: JSON.stringify(user)
-    });
+    response = await fetch(
+      `${URL}/user?emailAddress=${emailAddress}&${key}=${value}`,
+      {
+        method: "PATCH",
+        headers: {
+          Accept: "application/json",
+          Authorization: token
+        }
+      }
+    );
     await checkApiStatus(response);
   } catch (err) {
     return Promise.reject(err);
