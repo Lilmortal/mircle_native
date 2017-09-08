@@ -1,19 +1,37 @@
-import { URL, populateQueryParam } from "../constants";
-import { checkApiStatus } from "../checkApiStatus";
+import { URL } from "../constants";
+import { checkApiStatus, populateQueryParam } from "../libs";
+
+export const validateUserExist = async emailAddress => {
+  try {
+    const response = await fetch(
+      `${URL}/register/user/validate?emailAddress=${emailAddress}`,
+      {
+        method: "GET",
+        headers: {
+          Accept: "text/plain",
+          "Content-Type": "application/json"
+        }
+      }
+    );
+    await checkApiStatus(response);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
 
 export const register = async user => {
   try {
     const response = await fetch(`${URL}/register`, {
       method: "POST",
       headers: {
-        Accept: "application/json",
+        Accept: "text/plain",
         "Content-Type": "application/json"
       },
       body: JSON.stringify(user)
     });
     await checkApiStatus(response);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
 };
 

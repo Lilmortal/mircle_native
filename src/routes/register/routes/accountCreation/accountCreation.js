@@ -44,7 +44,7 @@ class RegisterAccountCreation extends Component {
     return (
       <RegisterLayout
         title="Create account"
-        onPress={() => goToNextPage(this.validateForm())}
+        onPress={() => goToNextPage(this.validateForm(), emailAddress)}
       >
         <TextInput
           placeholder="Email"

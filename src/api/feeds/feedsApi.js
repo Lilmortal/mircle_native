@@ -1,5 +1,5 @@
 import { URL } from "../constants";
-import { checkApiStatus } from "../checkApiStatus";
+import { checkApiStatus } from "../libs";
 
 export const addFeed = async feed => {
   let response;
@@ -7,7 +7,7 @@ export const addFeed = async feed => {
     response = await fetch(`${URL}/feeds`, {
       method: "POST",
       headers: {
-        Accept: "application/json",
+        Accept: "text/plain",
         "Content-Type": "application/json"
       },
       body: JSON.stringify(feed)
@@ -25,7 +25,7 @@ export const getFeeds = async id => {
     response = await fetch(`${URL}/feeds/${id}`, {
       method: "GET",
       headers: {
-        Accept: "application/json",
+        Accept: "text/plain",
         "Content-Type": "application/json"
       }
     });

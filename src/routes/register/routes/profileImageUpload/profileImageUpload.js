@@ -9,7 +9,6 @@ import {
 
 import ProfileImage from "../../../../components/profileImage";
 import Button from "../../../../components/button";
-import { TextInput } from "../../components";
 import RegisterLayout from "../../layout/registerLayout";
 import styles from "./styles";
 

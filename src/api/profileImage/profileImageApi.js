@@ -1,5 +1,5 @@
-import { URL, getToken, populateQueryParam } from "../constants";
-import { checkApiStatus } from "../checkApiStatus";
+import { URL } from "../constants";
+import { checkApiStatus, getToken, populateQueryParam } from "../libs";
 
 export const getDefaultProfileImage = async () => {
   const token = await getToken();
@@ -8,14 +8,14 @@ export const getDefaultProfileImage = async () => {
     response = await fetch(`${URL}/profileimage/default`, {
       method: "GET",
       headers: {
-        Accept: "application/json",
+        Accept: "text/plain",
         "Content-Type": "application/json",
         Authorization: token
       }
     });
     await checkApiStatus(response);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
   return response.json();
 };
@@ -35,6 +35,6 @@ export const uploadProfileImageToS3 = async (id, profileImage) => {
     });
     await checkApiStatus(response);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
 };

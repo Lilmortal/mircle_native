@@ -1,5 +1,5 @@
-import { URL, getToken, populateQueryParam } from "../constants";
-import { checkApiStatus } from "../checkApiStatus";
+import { URL } from "../constants";
+import { checkApiStatus, getToken, populateQueryParam } from "../libs";
 
 export const getUserById = async id => {
   let response;
@@ -7,13 +7,13 @@ export const getUserById = async id => {
     response = await fetch(`${URL}/user/${id}`, {
       method: "GET",
       headers: {
-        Accept: "application/json",
+        Accept: "text/plain",
         "Content-Type": "application/json"
       }
     });
     await checkApiStatus(response);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
   return response.json();
 };
@@ -24,13 +24,13 @@ export const getUserByEmailAddress = async emailAddress => {
     response = await fetch(`${URL}/user/email/${emailAddress}`, {
       method: "GET",
       headers: {
-        Accept: "application/json",
+        Accept: "text/plain",
         "Content-Type": "application/json"
       }
     });
     await checkApiStatus(response);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
   return response.json();
 };
@@ -44,7 +44,7 @@ export const updateUser = async (emailAddress, key, value) => {
       {
         method: "PATCH",
         headers: {
-          Accept: "application/json",
+          Accept: "text/plain",
           Authorization: token
         }
       }
@@ -65,7 +65,7 @@ export const updateUserPassword = async (id, oldPassword, newPassword) => {
     response = await fetch(`${URL}/user/password${query}`, {
       method: "PATCH",
       headers: {
-        Accept: "application/json",
+        Accept: "text/plain",
         "Content-Type": "application/json",
         Authorization: token
       }
@@ -100,13 +100,13 @@ export const addFriend = async (id, friendId) => {
     const response = await fetch(`${URL}/user/${id}/friend/${friendId}`, {
       method: "POST",
       headers: {
-        Accept: "application/json",
+        Accept: "text/plain",
         "Content-Type": "application/json"
       }
     });
     await checkApiStatus(response);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
 };
 
@@ -116,13 +116,13 @@ export const getListOfFriends = async id => {
     response = await fetch(`${URL}/user/${id}/friends`, {
       method: "GET",
       headers: {
-        Accept: "application/json",
+        Accept: "text/plain",
         "Content-Type": "application/json"
       }
     });
     await checkApiStatus(respones);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
   return response.json();
 };
@@ -132,12 +132,12 @@ export const deleteFriend = async (id, friendId) => {
     const response = await fetch(`${URL}/user/${id}/friend/${friendId}`, {
       method: "DELETE",
       headers: {
-        Accept: "application/json",
+        Accept: "text/plain",
         "Content-Type": "application/json"
       }
     });
     await checkApiStatus(respones);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
 };
