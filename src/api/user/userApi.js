@@ -19,15 +19,13 @@ export const getUserById = async id => {
 };
 
 export const getUserByEmailAddress = async emailAddress => {
-  const token = await getToken();
   let response;
   try {
     response = await fetch(`${URL}/user/email/${emailAddress}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: token
+        "Content-Type": "application/json"
       }
     });
     await checkApiStatus(response);
@@ -46,8 +44,8 @@ export const updateUser = async (emailAddress, key, value) => {
       {
         method: "PATCH",
         headers: {
-          Accept: "application/json"
-          //Authorization: token
+          Accept: "application/json",
+          Authorization: token
         }
       }
     );
@@ -79,6 +77,7 @@ export const updateUserPassword = async (id, oldPassword, newPassword) => {
 };
 
 export const setUserProfileImage = async (id, profileImage = undefined) => {
+  const token = await getToken();
   let response;
   try {
     const formData = new FormData();
@@ -87,28 +86,12 @@ export const setUserProfileImage = async (id, profileImage = undefined) => {
 
     response = await fetch(`${URL}/user/profileimage${query}`, {
       method: "PATCH",
-      body: formData
+      body: formData,
+      Authorization: token
     });
     await checkApiStatus(response);
   } catch (err) {
     return Promise.reject(err);
-  }
-};
-
-export const removeProfileImage = async id => {
-  let response;
-  const query = populateQueryParam(id);
-  try {
-    response = await fetch(`${URL}/user/profileimage${query}`, {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    });
-    await checkApiStatus(response);
-  } catch (err) {
-    return err;
   }
 };
 
