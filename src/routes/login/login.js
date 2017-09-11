@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Image, TouchableHighlight, Modal, Alert } from "react-native";
+import { View, Image, TouchableOpacity, Modal, Alert } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import BackgroundImage from "../../components/backgroundImage";
@@ -93,16 +93,16 @@ class Login extends Component {
         </View>
 
         <View style={styles.help}>
-          <TouchableHighlight onPress={goToRegistrationPage}>
+          <TouchableOpacity onPress={goToRegistrationPage}>
             <View>
               <LoginText style={styles.helpText}>Register</LoginText>
             </View>
-          </TouchableHighlight>
-          <TouchableHighlight onPress={goToForgottenPasswordPage}>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={goToForgottenPasswordPage}>
             <View>
               <LoginText style={styles.helpText}>Forgot password?</LoginText>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
       </View>
     );

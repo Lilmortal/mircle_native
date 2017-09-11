@@ -1,10 +1,10 @@
 import React from "react";
-import { View, Text, Image, TouchableHighlight } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 
 import styles from "./styles";
 
 const DrawerPanel = ({ backgroundImage, onPress, blur = 1, children }) =>
-  <TouchableHighlight onPress={onPress}>
+  <TouchableOpacity onPress={onPress}>
     <Image
       source={backgroundImage}
       style={styles.drawerPanel}
@@ -14,6 +14,6 @@ const DrawerPanel = ({ backgroundImage, onPress, blur = 1, children }) =>
         {children}
       </View>
     </Image>
-  </TouchableHighlight>;
+  </TouchableOpacity>;
 
 export default DrawerPanel;

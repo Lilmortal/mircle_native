@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, Image, FlatList, TouchableHighlight } from "react-native";
+import { View, Text, Image, FlatList, TouchableOpacity } from "react-native";
 
 import Feed from "../../components/feed";
 import ProfileImage from "../../components/profileImage";
@@ -37,7 +37,7 @@ export default class Friends extends Component {
             </View>
           }
           renderItem={({ item }) =>
-            <TouchableHighlight onPress={() => goToFriendProfilePage(item.id)}>
+            <TouchableOpacity onPress={() => goToFriendProfilePage(item.id)}>
               <View>
                 <Feed key={item.id} isSelectable>
                   <ProfileImage source={item.profileImage} />
@@ -56,7 +56,7 @@ export default class Friends extends Component {
                   </View>
                 </Feed>
               </View>
-            </TouchableHighlight>}
+            </TouchableOpacity>}
         />
       </View>
     );
