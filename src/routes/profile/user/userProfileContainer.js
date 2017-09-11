@@ -124,7 +124,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           onDateChange={async value => {
             try {
               await updateUser(emailAddress, "birthDate", value);
-              dispatch(UPDATE_BIRTH_DATE(moment(value, "DD/MM/YYYY").toDate()));
+              dispatch(UPDATE_BIRTH_DATE(value));
             } catch (err) {
               Alert.alert("There is an error updating birth date.", err);
             }
@@ -153,14 +153,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       id: 5,
       label: "Created On",
       value: createdOn.toLocaleString(),
-      InputComponent: () => <TextInput />,
       disabled: true
     },
     {
       id: 6,
       label: "Last Logged In",
       value: lastLoggedIn.toLocaleString(),
-      InputComponent: () => <TextInput />,
       disabled: true
     }
   ];

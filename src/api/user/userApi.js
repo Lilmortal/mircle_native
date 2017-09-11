@@ -1,19 +1,21 @@
-import { URL, getToken, populateQueryParam } from "../constants";
-import { checkApiStatus } from "../checkApiStatus";
+import { URL } from "../constants";
+import { checkApiStatus, getToken, populateQueryParam } from "../libs";
 
 export const getUserById = async id => {
+  const token = await getToken();
   let response;
   try {
     response = await fetch(`${URL}/user/${id}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: token
       }
     });
     await checkApiStatus(response);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
   return response.json();
 };
@@ -32,13 +34,12 @@ export const getUserByEmailAddress = async emailAddress => {
     });
     await checkApiStatus(response);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
   return response.json();
 };
 
 export const updateUser = async (emailAddress, key, value) => {
-  console.log(key, value);
   const token = await getToken();
   let response;
   try {
@@ -80,6 +81,7 @@ export const updateUserPassword = async (id, oldPassword, newPassword) => {
 };
 
 export const setUserProfileImage = async (id, profileImage = undefined) => {
+  const token = await getToken();
   let response;
   try {
     const formData = new FormData();
@@ -87,8 +89,11 @@ export const setUserProfileImage = async (id, profileImage = undefined) => {
     const query = populateQueryParam(id);
 
     response = await fetch(`${URL}/user/profileimage${query}`, {
-      method: "PATCH",
-      body: formData
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization: token
+      }
     });
     await checkApiStatus(response);
   } catch (err) {
@@ -96,66 +101,55 @@ export const setUserProfileImage = async (id, profileImage = undefined) => {
   }
 };
 
-export const removeProfileImage = async id => {
-  let response;
-  const query = populateQueryParam(id);
-  try {
-    response = await fetch(`${URL}/user/profileimage${query}`, {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    });
-    await checkApiStatus(response);
-  } catch (err) {
-    return err;
-  }
-};
-
 export const addFriend = async (id, friendId) => {
+  const token = await getToken();
   try {
     const response = await fetch(`${URL}/user/${id}/friend/${friendId}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: token
       }
     });
     await checkApiStatus(response);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
 };
 
 export const getListOfFriends = async id => {
+  const token = await getToken();
   let response;
   try {
     response = await fetch(`${URL}/user/${id}/friends`, {
       method: "GET",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: token
       }
     });
     await checkApiStatus(respones);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
   return response.json();
 };
 
 export const deleteFriend = async (id, friendId) => {
+  const token = await getToken();
   try {
     const response = await fetch(`${URL}/user/${id}/friend/${friendId}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: token
       }
     });
     await checkApiStatus(respones);
   } catch (err) {
-    return err;
+    return Promise.reject(err);
   }
 };

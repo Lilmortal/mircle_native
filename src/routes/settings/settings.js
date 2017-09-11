@@ -6,7 +6,7 @@ import { validate } from "../../libs";
 import TextInput from "../../components/textInput";
 import Button from "../../components/button";
 import Modal from "../../components/modal";
-import List from "../../components/list";
+import ListItem from "../../components/listItem";
 import Setting from "./setting";
 import styles from "./styles";
 
@@ -89,24 +89,24 @@ export default class Settings extends Component {
       <View style={styles.settings}>
         <View style={styles.container}>
           <Setting title="Account">
-            <List
+            <ListItem
               isSelectable
               lastChild
               onPress={() => this.setPasswordModalVisible(true)}
             >
               <Text>Change Password</Text>
-            </List>
+            </ListItem>
           </Setting>
 
           <Setting title="Notifications">
-            <List
+            <ListItem
               hasSwitch
               switchValue={sound}
               switchOnPress={updatedSound => updateSound(updatedSound)}
             >
               <Text>Sound</Text>
-            </List>
-            <List
+            </ListItem>
+            <ListItem
               disabled={!sound}
               hasSlider
               sliderValue={!sound ? 0 : soundVolume}
@@ -114,8 +114,8 @@ export default class Settings extends Component {
                 updateSoundVolume(updatedSoundVolume)}
             >
               <Text>Volume</Text>
-            </List>
-            <List
+            </ListItem>
+            <ListItem
               hasSwitch
               switchValue={vibration}
               switchOnPress={updatedVibration =>
@@ -123,23 +123,23 @@ export default class Settings extends Component {
               lastChild
             >
               <Text>Vibration</Text>
-            </List>
+            </ListItem>
           </Setting>
 
           <Setting title="Extras">
-            <List
+            <ListItem
               isSelectable
               onPress={() => this.setAboutMircleModalVisible(true)}
             >
               <Text>About Mircle</Text>
-            </List>
-            <List
+            </ListItem>
+            <ListItem
               isSelectable
               onPress={() => this.setAboutCreatorModalVisible(true)}
               lastChild
             >
               <Text>About the creator of this app</Text>
-            </List>
+            </ListItem>
           </Setting>
         </View>
 

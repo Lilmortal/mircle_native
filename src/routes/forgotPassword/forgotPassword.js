@@ -19,7 +19,6 @@ export default class ForgotPassword extends Component {
   }
 
   setEmailAddress = emailAddress => {
-    console.log(emailAddress);
     this.setState({ emailAddress });
   };
 
