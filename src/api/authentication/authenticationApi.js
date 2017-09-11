@@ -24,7 +24,7 @@ export const register = async user => {
     const response = await fetch(`${URL}/register`, {
       method: "POST",
       headers: {
-        Accept: "text/plain",
+        Accept: "application/json",
         "Content-Type": "application/json"
       },
       body: JSON.stringify(user)
@@ -43,7 +43,7 @@ export const registerProfileImage = async (id, profileImage = null) => {
     const query = populateQueryParam(id);
 
     response = await fetch(`${URL}/register/profileimage${query}`, {
-      method: "PATCH",
+      method: "POST",
       body: formData
     });
     await checkApiStatus(response);

@@ -8,7 +8,7 @@ export const getDefaultProfileImage = async () => {
     response = await fetch(`${URL}/profileimage/default`, {
       method: "GET",
       headers: {
-        Accept: "text/plain",
+        Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: token
       }

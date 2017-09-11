@@ -2,13 +2,15 @@ import { URL } from "../constants";
 import { checkApiStatus, getToken, populateQueryParam } from "../libs";
 
 export const getUserById = async id => {
+  const token = await getToken();
   let response;
   try {
     response = await fetch(`${URL}/user/${id}`, {
       method: "GET",
       headers: {
-        Accept: "text/plain",
-        "Content-Type": "application/json"
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: token
       }
     });
     await checkApiStatus(response);
@@ -19,13 +21,15 @@ export const getUserById = async id => {
 };
 
 export const getUserByEmailAddress = async emailAddress => {
+  const token = await getToken();
   let response;
   try {
     response = await fetch(`${URL}/user/email/${emailAddress}`, {
       method: "GET",
       headers: {
-        Accept: "text/plain",
-        "Content-Type": "application/json"
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: token
       }
     });
     await checkApiStatus(response);
@@ -44,7 +48,7 @@ export const updateUser = async (emailAddress, key, value) => {
       {
         method: "PATCH",
         headers: {
-          Accept: "text/plain",
+          Accept: "application/json",
           Authorization: token
         }
       }
@@ -65,7 +69,7 @@ export const updateUserPassword = async (id, oldPassword, newPassword) => {
     response = await fetch(`${URL}/user/password${query}`, {
       method: "PATCH",
       headers: {
-        Accept: "text/plain",
+        Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: token
       }
@@ -85,9 +89,11 @@ export const setUserProfileImage = async (id, profileImage = undefined) => {
     const query = populateQueryParam(id);
 
     response = await fetch(`${URL}/user/profileimage${query}`, {
-      method: "PATCH",
+      method: "POST",
       body: formData,
-      Authorization: token
+      headers: {
+        Authorization: token
+      }
     });
     await checkApiStatus(response);
   } catch (err) {
@@ -96,12 +102,14 @@ export const setUserProfileImage = async (id, profileImage = undefined) => {
 };
 
 export const addFriend = async (id, friendId) => {
+  const token = await getToken();
   try {
     const response = await fetch(`${URL}/user/${id}/friend/${friendId}`, {
       method: "POST",
       headers: {
-        Accept: "text/plain",
-        "Content-Type": "application/json"
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: token
       }
     });
     await checkApiStatus(response);
@@ -111,13 +119,15 @@ export const addFriend = async (id, friendId) => {
 };
 
 export const getListOfFriends = async id => {
+  const token = await getToken();
   let response;
   try {
     response = await fetch(`${URL}/user/${id}/friends`, {
       method: "GET",
       headers: {
-        Accept: "text/plain",
-        "Content-Type": "application/json"
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: token
       }
     });
     await checkApiStatus(respones);
@@ -128,12 +138,14 @@ export const getListOfFriends = async id => {
 };
 
 export const deleteFriend = async (id, friendId) => {
+  const token = await getToken();
   try {
     const response = await fetch(`${URL}/user/${id}/friend/${friendId}`, {
       method: "DELETE",
       headers: {
-        Accept: "text/plain",
-        "Content-Type": "application/json"
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: token
       }
     });
     await checkApiStatus(respones);
