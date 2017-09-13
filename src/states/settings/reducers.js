@@ -1,9 +1,9 @@
 import * as actionTypes from "./actionTypes";
 
 const initialState = {
-  sound: true,
+  hasSound: true,
   soundVolume: 10,
-  vibration: true
+  hasVibration: true
 };
 
 const reducer = (state = initialState, payload) => {
@@ -11,7 +11,7 @@ const reducer = (state = initialState, payload) => {
     case actionTypes.UPDATE_SOUND: {
       return {
         ...state,
-        sound: payload.sound
+        hasSound: payload.hasSound
       };
     }
     case actionTypes.UPDATE_SOUND_VOLUME: {
@@ -23,7 +23,7 @@ const reducer = (state = initialState, payload) => {
     case actionTypes.UPDATE_VIBRATION: {
       return {
         ...state,
-        vibration: payload.vibration
+        hasVibration: payload.hasVibration
       };
     }
     default:

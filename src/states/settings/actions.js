@@ -1,8 +1,8 @@
 import * as actionTypes from "./actionTypes";
 
-export const UPDATE_SOUND = sound => ({
+export const UPDATE_SOUND = hasSound => ({
   type: actionTypes.UPDATE_SOUND,
-  sound
+  hasSound
 });
 
 export const UPDATE_SOUND_VOLUME = soundVolume => ({
@@ -10,7 +10,7 @@ export const UPDATE_SOUND_VOLUME = soundVolume => ({
   soundVolume
 });
 
-export const UPDATE_VIBRATION = vibration => ({
+export const UPDATE_VIBRATION = hasVibration => ({
   type: actionTypes.UPDATE_VIBRATION,
-  vibration
+  hasVibration
 });

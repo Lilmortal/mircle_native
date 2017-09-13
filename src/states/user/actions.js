@@ -69,8 +69,3 @@ export const UPDATE_IS_LOGGED_IN = isLoggedIn => ({
   type: actionTypes.UPDATE_IS_LOGGED_IN,
   isLoggedIn
 });
-
-export const UPDATE_FEEDS = feed => ({
-  type: actionTypes.UPDATE_FEEDS,
-  feed
-});
