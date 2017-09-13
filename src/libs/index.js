@@ -1,5 +1,5 @@
 import * as camera from "./camera";
-import mapGenderValueToLabel from "./mapGenderValueToLabel";
+import mapGenderValueToLabel from "./mapping";
 import pushNotification from "./pushNotification";
 import validate from "./validate";
 

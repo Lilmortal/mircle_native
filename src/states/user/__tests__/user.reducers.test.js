@@ -47,6 +47,7 @@ describe("User reducer", () => {
     );
     const expectedState = {
       ...initialState,
+      birthDate: userReducer.birthDate,
       emailAddress
     };
     expect(userReducer).toEqual(expectedState);

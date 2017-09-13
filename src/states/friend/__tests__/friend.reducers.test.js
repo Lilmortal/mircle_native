@@ -8,10 +8,6 @@ describe("Friend reducer", () => {
     MockDate.set("6/19/2017");
   });
 
-  afterEach(function() {
-    MockDate.reset();
-  });
-
   const initialState = {
     id: 0,
     emailAddress: "",
@@ -63,10 +59,7 @@ describe("Friend reducer", () => {
       undefined,
       actions.POPULATE_FRIEND_STATE(friend)
     );
-    const expectedState = {
-      ...initialState,
-      friend
-    };
+    const expectedState = friend;
     expect(friendReducer).toEqual(expectedState);
   });
 

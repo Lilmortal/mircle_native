@@ -8,10 +8,6 @@ describe("Friend actions", () => {
     MockDate.set("6/19/2017");
   });
 
-  afterEach(function() {
-    MockDate.reset();
-  });
-
   it("should create a POPULATE_FRIEND_STATE action", () => {
     const friend = {
       id: 0,

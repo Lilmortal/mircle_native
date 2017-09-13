@@ -5,11 +5,10 @@ import { createStructuredSelector } from "reselect";
 import { routeKeys } from "../../config";
 import Login from "./login";
 import { login, getUserByEmailAddress } from "../../api";
-import { registrationState, userState, tokenState } from "../../states";
+import { registrationState, userState } from "../../states";
 
 const { RESET_REGISTER_DETAILS } = registrationState.actions;
 const { POPULATE_USER_STATE } = userState.actions;
-const { UPDATE_AUTHORIZATION_TOKEN } = tokenState.actions;
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { dispatch } = dispatchProps;
@@ -29,7 +28,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     login: async (emailAddress, password) => {
       try {
         const token = await login(emailAddress, password);
-        //dispatch(UPDATE_AUTHORIZATION_TOKEN(token));
         await AsyncStorage.setItem("token", token);
         const user = await getUserByEmailAddress(emailAddress);
         dispatch(POPULATE_USER_STATE(user));

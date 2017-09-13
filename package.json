@@ -11,7 +11,8 @@
     "flow:coverage": "flow coverage",
     "run:ios": "react-native run-ios",
     "run:android": "react-native run-android",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@expo/react-native-responsive-image": "^1.2.1",
@@ -42,6 +43,7 @@
     "babel-jest": "20.0.3",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react-native": "2.1.0",
+    "fetch-mock": "^5.12.2",
     "flow-bin": "^0.42.0",
     "jest": "20.0.4",
     "jest-serializer-enzyme": "^1.0.0",
