@@ -68,7 +68,6 @@ export const login = async (emailAddress, password) => {
       },
       body: JSON.stringify({ username: emailAddress, password })
     });
-    console.log(response.headers._headers);
     await checkApiStatus(response);
     return response.headers.map.authorization[0];
   } catch (err) {

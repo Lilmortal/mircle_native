@@ -11,7 +11,6 @@ export const withOptions = BaseLayout => Component => options => {
     <BaseLayout>
       <Component navigation={navigation} />
     </BaseLayout>;
-
   options.navigationOptions = {
     ...options.navigationOptions,
     drawerIcon: options.drawerIcon,

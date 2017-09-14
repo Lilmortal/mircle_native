@@ -15,7 +15,7 @@ const { getSound, getSoundVolume, getVibration } = settingsState.selectors;
 const mapStateToProps = () => {
   return createStructuredSelector({
     cameraActive: getCameraActive,
-    feeds: getFeeds,
+    //feeds: getFeeds,
     sound: getSound,
     soundVolume: getSoundVolume,
     vibration: getVibration
