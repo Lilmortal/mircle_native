@@ -29,8 +29,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         const profileImage = await getProfileImageFromMedium(medium);
         dispatch(UPDATE_PROFILE_IMAGE(profileImage));
       } catch (err) {
-        Alert.alert(err);
-        console.error(err);
+        console.log(err, err.name);
+        if (err.name !== "UserCancelledError") {
+          Alert.alert(err);
+        }
       }
     },
     goNextPage: () => navigation.navigate(routeKeys.RegisterAccountSummary)

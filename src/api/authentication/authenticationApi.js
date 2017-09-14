@@ -60,7 +60,7 @@ export const registerProfileImage = async (id, profileImage = null) => {
 export const login = async (emailAddress, password) => {
   let response;
   try {
-    const response = await fetch(`${URL}/login`, {
+    response = await fetch(`${URL}/login`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -71,6 +71,11 @@ export const login = async (emailAddress, password) => {
     await checkApiStatus(response);
     return response.headers.map.authorization[0];
   } catch (err) {
+    // a hack for now, find out why login on the backend return 401 when it has bad credentials
+    if (response.status === 401) {
+      err = "Incorrect username or password.";
+    }
     return Promise.reject(err);
   }
+  return response;
 };

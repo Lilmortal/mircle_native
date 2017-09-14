@@ -87,11 +87,10 @@ describe("Authentication API test", () => {
     const formData = new FormData();
     formData.append("profileImage", JSON.stringify(profileImage));
     const options = {
-      method: "POST",
       body: formData
     };
 
-    fetchMock.mock(`${URL}/register/profileimage?id=${id}`, response, options);
+    fetchMock.post(`${URL}/register/profileimage?id=${id}`, response, options);
 
     const result = await AuthenticationApi.registerProfileImage(
       id,

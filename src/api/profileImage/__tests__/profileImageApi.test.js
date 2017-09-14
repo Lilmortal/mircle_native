@@ -49,12 +49,11 @@ describe("Profile image API test", async () => {
     formData.append("profileImage", JSON.stringify(profileImage));
 
     const options = {
-      method: "POST",
       body: formData,
       Authorization: TOKEN
     };
 
-    fetchMock.mock(`${URL}/profileimage/upload/s3?id=${id}`, options);
+    fetchMock.post(`${URL}/profileimage/upload/s3?id=${id}`, options);
 
     const result = await profileImageApi.uploadProfileImageToS3(
       id,
@@ -64,3 +63,5 @@ describe("Profile image API test", async () => {
     expect(result.status).toEqual(HTTP_OK);
   });
 });
+
+require("../profileImageApi");
