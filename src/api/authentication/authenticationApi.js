@@ -2,8 +2,9 @@ import { URL } from "../constants";
 import { checkApiStatus, populateQueryParam } from "../libs";
 
 export const validateUserExist = async emailAddress => {
+  let response;
   try {
-    const response = await fetch(
+    response = await fetch(
       `${URL}/register/user/validate?emailAddress=${emailAddress}`,
       {
         method: "GET",
@@ -17,11 +18,13 @@ export const validateUserExist = async emailAddress => {
   } catch (err) {
     return Promise.reject(err);
   }
+  return response;
 };
 
 export const register = async user => {
+  let response;
   try {
-    const response = await fetch(`${URL}/register`, {
+    response = await fetch(`${URL}/register`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -33,13 +36,14 @@ export const register = async user => {
   } catch (err) {
     return Promise.reject(err);
   }
+  return response;
 };
 
 export const registerProfileImage = async (id, profileImage = null) => {
   let response;
   try {
     const formData = new FormData();
-    formData.append("profileImage", profileImage);
+    formData.append("profileImage", JSON.stringify(profileImage));
     const query = populateQueryParam(id);
 
     response = await fetch(`${URL}/register/profileimage${query}`, {
@@ -50,6 +54,7 @@ export const registerProfileImage = async (id, profileImage = null) => {
   } catch (err) {
     return Promise.reject(err);
   }
+  return response;
 };
 
 export const login = async (emailAddress, password) => {
@@ -63,6 +68,7 @@ export const login = async (emailAddress, password) => {
       },
       body: JSON.stringify({ username: emailAddress, password })
     });
+    console.log(response.headers._headers);
     await checkApiStatus(response);
     return response.headers.map.authorization[0];
   } catch (err) {

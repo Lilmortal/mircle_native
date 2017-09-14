@@ -57,6 +57,7 @@ export const updateUser = async (emailAddress, key, value) => {
   } catch (err) {
     return Promise.reject(err);
   }
+  return response;
 };
 
 export const updateUserPassword = async (id, oldPassword, newPassword) => {
@@ -78,6 +79,7 @@ export const updateUserPassword = async (id, oldPassword, newPassword) => {
   } catch (err) {
     return Promise.reject(err);
   }
+  return response;
 };
 
 export const setUserProfileImage = async (id, profileImage = undefined) => {
@@ -85,7 +87,7 @@ export const setUserProfileImage = async (id, profileImage = undefined) => {
   let response;
   try {
     const formData = new FormData();
-    formData.append("profileImage", profileImage);
+    formData.append("profileImage", JSON.stringify(profileImage));
     const query = populateQueryParam(id);
 
     response = await fetch(`${URL}/user/profileimage${query}`, {
@@ -99,6 +101,7 @@ export const setUserProfileImage = async (id, profileImage = undefined) => {
   } catch (err) {
     return Promise.reject(err);
   }
+  return response;
 };
 
 export const addFriend = async (id, friendId) => {
