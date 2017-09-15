@@ -29,9 +29,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         const profileImage = await getProfileImageFromMedium(medium);
         dispatch(UPDATE_PROFILE_IMAGE(profileImage));
       } catch (err) {
-        console.log(err, err.name);
         if (err.name !== "UserCancelledError") {
-          Alert.alert(err);
+          Alert.alert(
+            "There is an error attempting to update your profile image",
+            err
+          );
         }
       }
     },

@@ -30,9 +30,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         const token = await login(emailAddress, password);
         await AsyncStorage.setItem("token", token);
         const user = await getUserByEmailAddress(emailAddress);
-        console.log(user);
         dispatch(POPULATE_USER_STATE(user));
-        console.log("here");
         navigation.navigate(routeKeys.QrCode);
       } catch (err) {
         Alert.alert("Attempting to login failed.", err.toString());

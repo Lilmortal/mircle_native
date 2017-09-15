@@ -87,7 +87,7 @@ export const setUserProfileImage = async (id, profileImage = undefined) => {
   let response;
   try {
     const formData = new FormData();
-    formData.append("profileImage", JSON.stringify(profileImage));
+    formData.append("profileImage", profileImage);
     const query = populateQueryParam(id);
 
     response = await fetch(`${URL}/user/profileimage${query}`, {

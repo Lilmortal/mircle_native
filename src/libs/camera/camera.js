@@ -34,11 +34,11 @@ const getImageFromMedium = async medium => {
 };
 
 export const getProfileImageFromMedium = async medium => {
+  let profileImage;
   try {
     const image = await getImageFromMedium(medium);
-    const profileImage = await createProfileImage(image);
+    profileImage = await createProfileImage(image);
   } catch (err) {
-    console.log(err.message);
     if (err.message === "User cancelled image selection") {
       err.name = "UserCancelledError";
     }
