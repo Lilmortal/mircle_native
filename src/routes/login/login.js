@@ -56,6 +56,7 @@ class Login extends Component {
               Icon={emailIcon}
               placeholder="Email address"
               color="white"
+              keyboardType="email-address"
               onChangeText={emailAddress => this.setEmailAddress(emailAddress)}
             />
             <TextInput

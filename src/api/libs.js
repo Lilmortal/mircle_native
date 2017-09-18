@@ -11,6 +11,7 @@ export const populateQueryParam = id => {
 };
 
 export const checkApiStatus = async response => {
+  console.log(response);
   if (!response.ok) {
     let data;
     const responseText = await response.text();

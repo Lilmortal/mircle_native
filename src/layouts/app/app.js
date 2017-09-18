@@ -14,11 +14,11 @@ const AppLayout = ({ cameraActive, readQRCode, children }) =>
         onBarCodeRead={qrCode => readQRCode(qrCode)}
         barCodeTypes={["qr"]}
       >
-        <View style={styles.qrCode}>
-          <Text style={styles.qrCodeText}>
-            {this.state.qrCode}
-          </Text>
-        </View>
+        {/*<View style={styles.qrCode}>
+            <Text style={styles.qrCodeText}>
+              {id}
+            </Text>
+          </View>*/}
       </Camera>}
     {!cameraActive && children}
   </Animatable.View>;

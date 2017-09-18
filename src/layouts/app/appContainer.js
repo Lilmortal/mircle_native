@@ -4,18 +4,21 @@ import { createStructuredSelector } from "reselect";
 
 import App from "./app";
 
+import { pushNotification } from "../../libs";
 import { addFriend, getUserById, addFeed } from "../../api";
 import { cameraState, userState, settingsState } from "../../states";
 
+const { UPDATE_CAMERA_ACTIVE } = cameraState.actions;
 const { getCameraActive } = cameraState.selectors;
 const { UPDATE_FEEDS } = userState.actions;
-const { getFeeds } = userState.selectors;
+const { getId, getFeeds } = userState.selectors;
 const { getSound, getSoundVolume, getVibration } = settingsState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
+    id: getId,
     cameraActive: getCameraActive,
-    //feeds: getFeeds,
+    feeds: getFeeds,
     sound: getSound,
     soundVolume: getSoundVolume,
     vibration: getVibration
@@ -23,26 +26,29 @@ const mapStateToProps = () => {
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { feeds, sound, soundVolume, vibration } = stateProps;
+  const { id, feeds, sound, soundVolume, vibration } = stateProps;
   const { dispatch } = dispatchProps;
 
   return {
     ...ownProps,
+    ...stateProps,
     readQRCode: async qrCode => {
       if (qrCode.type === "QR_CODE") {
         try {
-          await addFriend(qrCode.data);
+          dispatch(UPDATE_CAMERA_ACTIVE(false));
+          await addFriend(id, qrCode.data);
           const friend = await getUserById(qrCode.data);
           const feedMessage = `You and ${friend.firstName} ${friend.surname} are now friends!`;
           const feed = {
-            profileImage: friends.profileImage,
+            profileImage: friend.profileImage,
             firstName: friend.firstName,
             surname: friend.surname,
             feedDate: Date.now(),
-            message
+            message: feedMessage
           };
           await addFeed(feed);
-          dispatch(UPDATE_FEEDS(feed));
+          const updatedFeeds = feeds.concat(feed);
+          dispatch(UPDATE_FEEDS(updatedFeeds));
           pushNotification.localNotification({
             title: `You just added ${friend.firstName} ${friend.surname}`,
             message: "You two met at Botany Down Centre.",
@@ -50,6 +56,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             number: soundVolume,
             vibrate: vibration
           });
+          Alert.alert(
+            "You added a friend!",
+            `${friend.firstName} ${friend.surname} is now on your friend list.`
+          );
         } catch (err) {
           Alert.alert("Attempting to add a friend failed.", err.toString());
         }

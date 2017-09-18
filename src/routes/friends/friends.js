@@ -15,8 +15,10 @@ export default class Friends extends Component {
     };
   }
 
-  componentDidMount() {
-    const { friends } = this.props;
+  async componentDidMount() {
+    const { getListOfFriends } = this.props;
+    const friends = await getListOfFriends();
+    console.log(friends);
     this.setState({ dataSource: friends });
   }
 

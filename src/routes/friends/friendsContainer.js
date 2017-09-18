@@ -21,16 +21,6 @@ const mergeProps = async (stateProps, dispatchProps, ownProps) => {
   const { dispatch } = dispatchProps;
   const { navigation } = ownProps;
 
-  let friends;
-  try {
-    friends = await getUserFriends(id);
-  } catch (err) {
-    Alert.alert(
-      "Attempting to get your list of friends failed.",
-      err.toString()
-    );
-  }
-
   return {
     ...stateProps,
     ...ownProps,
@@ -46,7 +36,18 @@ const mergeProps = async (stateProps, dispatchProps, ownProps) => {
         );
       }
     },
-    friends
+    getListOfFriends: async () => {
+      let friends;
+      try {
+        friends = await getListOfFriends(id);
+      } catch (err) {
+        Alert.alert(
+          "Attempting to get your list of friends failed.",
+          err.toString()
+        );
+      }
+      return friends;
+    }
   };
 };
 
