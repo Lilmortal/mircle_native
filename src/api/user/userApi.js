@@ -133,7 +133,7 @@ export const getListOfFriends = async id => {
         Authorization: token
       }
     });
-    await checkApiStatus(respones);
+    await checkApiStatus(response);
   } catch (err) {
     return Promise.reject(err);
   }

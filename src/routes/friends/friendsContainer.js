@@ -16,7 +16,7 @@ const mapStateToProps = () => {
   });
 };
 
-const mergeProps = async (stateProps, dispatchProps, ownProps) => {
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { id } = stateProps;
   const { dispatch } = dispatchProps;
   const { navigation } = ownProps;

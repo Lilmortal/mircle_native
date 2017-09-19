@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
+import { mapGenderValueToLabel } from "../../../libs";
 import { routeKeys } from "../../../config";
 import Profile from "../profile";
 import { friendState } from "../../../states";
@@ -34,7 +35,14 @@ const mapStateToProps = () => {
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { gender, phoneNumber, birthDate, occupation } = stateProps;
+  const {
+    gender,
+    phoneNumber,
+    birthDate,
+    occupation,
+    createdOn,
+    lastLoggedIn
+  } = stateProps;
 
   const { navigation } = ownProps;
 

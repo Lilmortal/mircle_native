@@ -43,10 +43,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             profileImage: friend.profileImage,
             firstName: friend.firstName,
             surname: friend.surname,
-            feedDate: Date.now(),
+            feedDate: new Date(),
             message: feedMessage
           };
-          await addFeed(feed);
+          await addFeed(id, feed);
           const updatedFeeds = feeds.concat(feed);
           dispatch(UPDATE_FEEDS(updatedFeeds));
           pushNotification.localNotification({

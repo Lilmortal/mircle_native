@@ -45,11 +45,11 @@ export default class Friends extends Component {
                   <ProfileImage source={item.profileImage} />
                   <View style={styles.profileContainer}>
                     <Text style={styles.profileName}>
-                      {item.profileName}
+                      {item.firstName + " " + item.surname}
                     </Text>
                     <View style={styles.profileDescription}>
                       <Text>
-                        Worked as a {item.occupation} at {item.company}
+                        {item.occupation && `Worked as a {item.occupation}`}
                       </Text>
                       <Text>
                         Added each other on {item.addedTime}

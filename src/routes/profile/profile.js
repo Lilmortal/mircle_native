@@ -93,6 +93,7 @@ class Profile extends Component {
               value={item.value}
               InputComponent={item.InputComponent}
               disabled={item.disabled}
+              selectable={!isAFriend}
               style={() => this.checkIfTileIsInEdge(item.id, data)}
             />}
         />

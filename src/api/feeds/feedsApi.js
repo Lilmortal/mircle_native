@@ -1,14 +1,16 @@
 import { URL } from "../constants";
-import { checkApiStatus } from "../libs";
+import { checkApiStatus, getToken } from "../libs";
 
-export const addFeed = async feed => {
+export const addFeed = async (id, feed) => {
+  const token = await getToken();
   let response;
   try {
-    response = await fetch(`${URL}/feeds`, {
+    response = await fetch(`${URL}/user/${id}/feed`, {
       method: "POST",
       headers: {
-        Accept: "text/plain",
-        "Content-Type": "application/json"
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: token
       },
       body: JSON.stringify(feed)
     });
@@ -20,13 +22,15 @@ export const addFeed = async feed => {
 };
 
 export const getFeeds = async id => {
+  const token = await getToken();
   let response;
   try {
-    response = await fetch(`${URL}/feeds/${id}`, {
+    response = await fetch(`${URL}/user/${id}/feeds`, {
       method: "GET",
       headers: {
-        Accept: "text/plain",
-        "Content-Type": "application/json"
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: token
       }
     });
     await checkApiStatus(response);

@@ -10,7 +10,7 @@ const createProfileImage = image => {
     name: image.path.substring(image.path.lastIndexOf("/") + 1),
     isDefault: false
   };
-  return Promise.resolve(profileImage);
+  return profileImage;
 };
 
 const getImageFromMedium = async medium => {
@@ -37,12 +37,12 @@ export const getProfileImageFromMedium = async medium => {
   let profileImage;
   try {
     const image = await getImageFromMedium(medium);
-    profileImage = await createProfileImage(image);
+    profileImage = createProfileImage(image);
   } catch (err) {
     if (err.message === "User cancelled image selection") {
       err.name = "UserCancelledError";
     }
     return Promise.reject(err);
   }
-  return profileImage;
+  return Promise.resolve(profileImage);
 };
