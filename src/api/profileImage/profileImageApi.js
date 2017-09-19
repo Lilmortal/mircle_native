@@ -25,10 +25,9 @@ export const uploadProfileImageToS3 = async (id, profileImage) => {
   let response;
   try {
     const formData = new FormData();
-    formData.append("profileImage", JSON.stringify(profileImage));
-    const query = populateQueryParam(id);
+    formData.append("profileimage", profileImage);
 
-    response = await fetch(`${URL}/profileimage/upload/s3${query}`, {
+    response = await fetch(`${URL}/profileimage/${id}/upload/s3`, {
       method: "POST",
       body: formData,
       Authorization: token

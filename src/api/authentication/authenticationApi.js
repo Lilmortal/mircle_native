@@ -5,7 +5,7 @@ export const validateUserExist = async emailAddress => {
   let response;
   try {
     response = await fetch(
-      `${URL}/register/user/validate?emailAddress=${emailAddress}`,
+      `${URL}/register/user/validate?emailaddress=${emailAddress}`,
       {
         method: "GET",
         headers: {
@@ -43,10 +43,9 @@ export const registerProfileImage = async (id, profileImage = null) => {
   let response;
   try {
     const formData = new FormData();
-    formData.append("profileImage", JSON.stringify(profileImage));
-    const query = populateQueryParam(id);
+    formData.append("profileimage", profileImage);
 
-    response = await fetch(`${URL}/register/profileimage${query}`, {
+    response = await fetch(`${URL}/register/${id}/profileimage`, {
       method: "POST",
       body: formData
     });

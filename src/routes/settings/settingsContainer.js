@@ -17,7 +17,7 @@ const { getSound, getSoundVolume, getVibration } = settingsState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
-    emailAddress: getEmailAddress,
+    id: getId,
     sound: getSound,
     soundVolume: getSoundVolume,
     vibration: getVibration
@@ -25,7 +25,7 @@ const mapStateToProps = () => {
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { emailAddress } = stateProps;
+  const { id } = stateProps;
   const { dispatch } = dispatchProps;
 
   return {
@@ -42,7 +42,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     },
     updateUserPassword: async (oldPassword, newPassword) => {
       try {
-        await updateUserPassword(emailAddress, oldPassword, newPassword);
+        await updateUserPassword(id, oldPassword, newPassword);
         Alert.alert("Your password has been updated.");
       } catch (err) {
         Alert.alert(

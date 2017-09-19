@@ -42,11 +42,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     ...ownProps,
     register: async (user, profileImage) => {
       try {
-        await register(user);
+        const id = await register(user);
         if (profileImage.isDefault) {
-          await registerProfileImage(user.emailAddress);
+          await registerProfileImage(id);
         } else {
-          await registerProfileImage(user.emailAddress, profileImage);
+          await registerProfileImage(id, profileImage);
         }
         navigation.navigate(routeKeys.RegisterEmailConfirmation);
       } catch (err) {

@@ -23,6 +23,7 @@ const {
 } = userState.actions;
 
 const {
+  getId,
   getEmailAddress,
   getFirstName,
   getSurname,
@@ -37,6 +38,7 @@ const {
 
 const mapStateToProps = () => {
   return createStructuredSelector({
+    id: getId,
     emailAddress: getEmailAddress,
     firstName: getFirstName,
     surname: getSurname,
@@ -52,6 +54,7 @@ const mapStateToProps = () => {
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const {
+    id,
     emailAddress,
     gender,
     phoneNumber,
@@ -87,7 +90,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           ]}
           onValueChange={async value => {
             try {
-              await updateUser(emailAddress, "gender", value);
+              await updateUser(id, "gender", value);
               dispatch(UPDATE_GENDER(value));
             } catch (err) {
               Alert.alert("There is an error updating gender.", err);
@@ -104,7 +107,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           onEndEditing={async value => {
             const text = value.nativeEvent.text;
             try {
-              await updateUser(emailAddress, "phoneNumber", text);
+              await updateUser(id, "phonenumber", text);
               dispatch(UPDATE_PHONE_NUMBER(text));
             } catch (err) {
               Alert.alert("There is an error updating phone number.", err);
@@ -123,7 +126,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           value={birthDate}
           onDateChange={async value => {
             try {
-              await updateUser(emailAddress, "birthDate", value);
+              await updateUser(id, "birthdate", value);
               dispatch(UPDATE_BIRTH_DATE(value));
             } catch (err) {
               Alert.alert("There is an error updating birth date.", err);
@@ -140,7 +143,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           onEndEditing={async value => {
             const text = value.nativeEvent.text;
             try {
-              await updateUser(emailAddress, "occupation", text);
+              await updateUser(id, "occupation", text);
               dispatch(UPDATE_OCCUPATION(text));
             } catch (err) {
               Alert.alert("There is an error updating occupation.", err);
@@ -169,11 +172,9 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     getProfileImageFromMedium: async medium => {
       try {
         const profileImage = await getProfileImageFromMedium(medium);
-        console.log(profileImage);
-        await setUserProfileImage(emailAddress, profileImage);
+        await setUserProfileImage(id, profileImage);
         dispatch(UPDATE_PROFILE_IMAGE(profileImage));
       } catch (err) {
-        console.log(err);
         if (err.name !== "UserCancelledError") {
           Alert.alert(
             "There is an error attempting to update your profile image",
