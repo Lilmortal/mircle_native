@@ -9,7 +9,6 @@ export const validateUserExist = async emailAddress => {
       {
         method: "GET",
         headers: {
-          Accept: "text/plain",
           "Content-Type": "application/json"
         }
       }
@@ -36,7 +35,7 @@ export const register = async user => {
   } catch (err) {
     return Promise.reject(err);
   }
-  return response;
+  return response.json();
 };
 
 export const registerProfileImage = async (id, profileImage = null) => {

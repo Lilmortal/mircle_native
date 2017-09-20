@@ -14,8 +14,10 @@ export default class Feeds extends Component {
     };
   }
 
-  componentDidMount() {
-    const { feeds } = this.props;
+  async componentDidMount() {
+    const { getFeeds } = this.props;
+    const feeds = await getFeeds();
+    console.log(feeds);
     this.setState({ dataSource: feeds });
   }
 

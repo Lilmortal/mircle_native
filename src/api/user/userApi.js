@@ -170,10 +170,11 @@ export const addFeed = async (id, feed) => {
   } catch (err) {
     return err;
   }
-  return response.json();
+  return response;
 };
 
 export const getFeeds = async id => {
+  console.log(id);
   const token = await getToken();
   let response;
   try {

@@ -10,15 +10,13 @@ import { cameraState, userState, settingsState } from "../../states";
 
 const { UPDATE_CAMERA_ACTIVE } = cameraState.actions;
 const { getCameraActive } = cameraState.selectors;
-const { UPDATE_FEEDS } = userState.actions;
-const { getId, getFeeds } = userState.selectors;
+const { getId } = userState.selectors;
 const { getSound, getSoundVolume, getVibration } = settingsState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
     id: getId,
     cameraActive: getCameraActive,
-    feeds: getFeeds,
     sound: getSound,
     soundVolume: getSoundVolume,
     vibration: getVibration
@@ -26,7 +24,7 @@ const mapStateToProps = () => {
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { id, feeds, sound, soundVolume, vibration } = stateProps;
+  const { id, sound, soundVolume, vibration } = stateProps;
   const { dispatch } = dispatchProps;
 
   return {
@@ -47,8 +45,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             message: feedMessage
           };
           await addFeed(id, feed);
-          const updatedFeeds = feeds.concat(feed);
-          dispatch(UPDATE_FEEDS(updatedFeeds));
           pushNotification.localNotification({
             title: `You just added ${friend.firstName} ${friend.surname}`,
             message: "You two met at Botany Down Centre.",
