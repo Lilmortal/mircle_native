@@ -40,6 +40,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       let friends;
       try {
         friends = await getListOfFriends(id);
+        console.log(friends);
       } catch (err) {
         Alert.alert(
           "Attempting to get your list of friends failed.",

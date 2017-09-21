@@ -52,7 +52,7 @@ export default class Friends extends Component {
                     </Text>
                     <View style={styles.profileDescription}>
                       <Text>
-                        {item.occupation && `Worked as a {item.occupation}`}
+                        {item.occupation && `Worked as a ${item.occupation}`}
                       </Text>
                       <Text>
                         Added each other on {item.addedTime}

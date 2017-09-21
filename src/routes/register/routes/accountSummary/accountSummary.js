@@ -45,15 +45,16 @@ class RegisterAccountSummary extends Component {
       gender,
       phoneNumber,
       birthDate,
-      occupation,
+      occupation
     };
 
     return (
       <RegisterLayout
         title="Is this you?"
-        onPress={() => {
+        onPress={async () => {
           this.setIsLoading(true);
-          register(user, profileImage);
+          await register(user, profileImage);
+          this.setIsLoading(false);
         }}
         buttonMessage="SUBMIT"
       >
