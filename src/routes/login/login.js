@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Image, TouchableOpacity, Modal, Alert } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
+import Spinner from "../../components/spinner";
 import BackgroundImage from "../../components/backgroundImage";
 import TextInput from "../../components/textInput";
 import Button from "../../components/button";
@@ -17,7 +18,8 @@ class Login extends Component {
     super(props);
     this.state = {
       emailAddress: "",
-      password: ""
+      password: "",
+      loading: false
     };
   }
 
@@ -34,6 +36,10 @@ class Login extends Component {
     this.setState({ password });
   }
 
+  setLoading(loading) {
+    this.setState({ loading });
+  }
+
   render() {
     const {
       login,
@@ -43,6 +49,7 @@ class Login extends Component {
 
     return (
       <View style={styles.login}>
+        <Spinner show={this.state.loading} />
         <View style={styles.title}>
           <LoginText style={styles.titleText}>Mircle</LoginText>
           <LoginText style={styles.titleDescription}>
@@ -69,7 +76,11 @@ class Login extends Component {
           </View>
 
           <Button
-            onPress={() => login(this.state.emailAddress, this.state.password)}
+            onPress={async () => {
+              this.setLoading(true);
+              await login(this.state.emailAddress, this.state.password);
+              this.setLoading(false);
+            }}
           >
             <View>
               <LoginText style={styles.loginText}>

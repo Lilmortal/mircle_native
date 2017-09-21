@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, Image, FlatList, TouchableOpacity } from "react-native";
 
 import Feed from "../../components/feed";
+import Spinner from "../../components/spinner";
 import ProfileImage from "../../components/profileImage";
 
 import { images, routeKeys } from "../../config";
@@ -11,15 +12,16 @@ export default class Friends extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: []
+      dataSource: [],
+      loading: true
     };
   }
 
   async componentDidMount() {
     const { getListOfFriends } = this.props;
     const friends = await getListOfFriends();
-    console.log(friends);
     this.setState({ dataSource: friends });
+    this.setState({ loading: false });
   }
 
   render() {
@@ -27,6 +29,7 @@ export default class Friends extends Component {
 
     return (
       <View>
+        <Spinner show={this.state.loading} />
         <FlatList
           data={this.state.dataSource}
           keyExtractor={item => item.id}

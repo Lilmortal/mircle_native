@@ -75,7 +75,7 @@ const friendsStack = StackNavigator({
     hasHamburgerMenu: false,
     hasCamera: true,
     navigationOptions: appNavigationOptions,
-    title: "Will Smith",
+    title: "Friend profile",
     drawerIcon: () => <Icon name="user" color="black" />
   }),
   [routeKeys.FriendsMap]: withOptions(AppLayout)(MapScreen)({

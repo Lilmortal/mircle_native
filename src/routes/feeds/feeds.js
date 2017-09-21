@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, Image, FlatList } from "react-native";
 
 import Feed from "../../components/feed";
+import Spinner from "../../components/spinner";
 import ProfileImage from "../../components/profileImage";
 import { images } from "../../config";
 import styles from "./styles";
@@ -10,20 +11,22 @@ export default class Feeds extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: []
+      dataSource: [],
+      loading: true
     };
   }
 
   async componentDidMount() {
     const { getFeeds } = this.props;
     const feeds = await getFeeds();
-    console.log(feeds);
     this.setState({ dataSource: feeds });
+    this.setState({ loading: false });
   }
 
   render() {
     return (
       <View>
+        <Spinner show={this.state.loading} />
         <FlatList
           data={this.state.dataSource}
           keyExtractor={item => item.id}

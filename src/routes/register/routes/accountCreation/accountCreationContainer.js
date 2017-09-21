@@ -38,7 +38,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           Alert.alert("Please enter the correct details.");
         }
       } catch (err) {
-        console.log(err);
         Alert.alert("It looks like there is an error.", err);
       }
     }

@@ -1,12 +1,14 @@
 import { StyleSheet, Dimensions } from "react-native";
+import { Header } from "react-navigation";
 
-const windowHeight = Dimensions.get("window").height;
+const window = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   noFriendsMessage: {
     justifyContent: "center",
     alignItems: "center",
-    height: windowHeight,
+    //TODO: Why I have to minus 24 to remove the vertical bar? Where does the 24 come from?
+    height: window.height - Header.HEIGHT - 24,
     paddingLeft: 20,
     paddingRight: 20
   },

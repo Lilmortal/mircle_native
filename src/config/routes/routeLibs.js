@@ -11,13 +11,14 @@ export const withOptions = BaseLayout => Component => options => {
     <BaseLayout>
       <Component navigation={navigation} />
     </BaseLayout>;
-  options.navigationOptions = {
+
+  screen.navigationOptions = {
     ...options.navigationOptions,
     drawerIcon: options.drawerIcon,
     title: options.title,
-    headerLeft: options.headerLeft
+    headerLeft: options.headerLeft,
+    ...Component.navigationOptions
   };
-  screen.navigationOptions = options.navigationOptions;
 
   return {
     screen,

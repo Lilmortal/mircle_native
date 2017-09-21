@@ -47,7 +47,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           await addFeed(id, feed);
           pushNotification.localNotification({
             title: `You just added ${friend.firstName} ${friend.surname}`,
-            message: "You two met at Botany Down Centre.",
+            message: "In the future this message will show where you two meet.",
             playSound: sound,
             number: soundVolume,
             vibrate: vibration
