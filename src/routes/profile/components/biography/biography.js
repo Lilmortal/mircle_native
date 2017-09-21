@@ -32,7 +32,7 @@ class Biography extends Component {
     } = this.props;
 
     const selectedStyle = this.state.isSelected
-      ? { backgroundColor: "red" }
+      ? { backgroundColor: "#778899" }
       : {};
 
     const Display = () =>

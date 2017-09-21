@@ -6,7 +6,7 @@ import { updateUserPassword } from "../../api";
 import Settings from "./settings";
 import { userState, settingsState } from "../../states";
 
-const { getEmailAddress } = userState.selectors;
+const { getId } = userState.selectors;
 
 const {
   UPDATE_SOUND,
