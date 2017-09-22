@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { View } from "react-native";
 import moment from "moment";
 
 import TextInput from "../../../../components/textInput";

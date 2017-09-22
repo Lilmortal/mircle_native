@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, DeviceEventEmitter, CameraRoll, Alert } from "react-native";
+import { View } from "react-native";
 
 import { RegularText, ButtonText } from "../../../../components/text";
 import ProfileImage from "../../../../components/profileImage";

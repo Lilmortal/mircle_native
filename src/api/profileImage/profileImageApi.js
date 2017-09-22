@@ -1,5 +1,5 @@
 import { URL } from "../constants";
-import { checkApiStatus, getToken, populateQueryParam } from "../libs";
+import { checkApiStatus, getToken } from "../libs";
 
 export const getDefaultProfileImage = async () => {
   const token = await getToken();

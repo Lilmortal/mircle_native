@@ -5,13 +5,7 @@ export const getToken = async () => {
   return token;
 };
 
-export const populateQueryParam = id => {
-  const query = Number.isInteger(id) ? `?id=${id}` : `?emailAddress=${id}`;
-  return query;
-};
-
 export const checkApiStatus = async response => {
-  console.log(response);
   if (!response.ok) {
     let data;
     const responseText = await response.text();

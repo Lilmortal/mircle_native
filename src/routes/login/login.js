@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Image, TouchableOpacity, Modal, Alert } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import Spinner from "../../components/spinner";

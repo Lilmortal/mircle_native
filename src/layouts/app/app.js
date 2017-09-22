@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Camera from "react-native-camera";
 import * as Animatable from "react-native-animatable";
 

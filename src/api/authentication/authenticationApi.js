@@ -1,5 +1,5 @@
 import { URL } from "../constants";
-import { checkApiStatus, populateQueryParam } from "../libs";
+import { checkApiStatus } from "../libs";
 
 export const validateUserExist = async emailAddress => {
   let response;

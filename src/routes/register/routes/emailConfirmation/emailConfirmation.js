@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { View } from "react-native";
 
 import { RegularText } from "../../../../components/text";
 import RegisterLayout from "../../layout/registerLayout";
