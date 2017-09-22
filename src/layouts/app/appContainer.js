@@ -10,7 +10,10 @@ import { cameraState, userState, settingsState } from "../../states";
 
 const { UPDATE_CAMERA_ACTIVE } = cameraState.actions;
 const { getCameraActive } = cameraState.selectors;
+
+const { UPDATE_FEEDS, UPDATE_FRIENDS } = userState.actions;
 const { getId } = userState.selectors;
+
 const { getSound, getSoundVolume, getVibration } = settingsState.selectors;
 
 const mapStateToProps = () => {
@@ -36,6 +39,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           dispatch(UPDATE_CAMERA_ACTIVE(false));
           await addFriend(id, qrCode.data);
           const friend = await getUserById(qrCode.data);
+          dispatch(UPDATE_FRIENDS(friend));
           const feedMessage = `You and ${friend.firstName} ${friend.surname} are now friends!`;
           const feed = {
             profileImage: friend.profileImage,
@@ -45,6 +49,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             message: feedMessage
           };
           await addFeed(id, feed);
+          dispatch(UPDATE_FEEDS(feed));
           pushNotification.localNotification({
             title: `You just added ${friend.firstName} ${friend.surname}`,
             message: "In the future this message will show where you two meet.",

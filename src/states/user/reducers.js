@@ -20,7 +20,9 @@ const initialState = {
   },
   createdOn: "",
   lastLoggedIn: "",
-  isLoggedIn: false
+  isLoggedIn: false,
+  feeds: [],
+  friends: []
 };
 
 const reducer = (state = initialState, payload) => {
@@ -111,6 +113,18 @@ const reducer = (state = initialState, payload) => {
       return {
         ...state,
         isLoggedIn: payload.isLoggedIn
+      };
+    }
+    case actionTypes.UPDATE_FRIENDS: {
+      return {
+        ...state,
+        friends: [payload.friends, ...state.friends]
+      };
+    }
+    case actionTypes.UPDATE_FEEDS: {
+      return {
+        ...state,
+        feeds: [payload.feeds, ...state.feeds]
       };
     }
     default:

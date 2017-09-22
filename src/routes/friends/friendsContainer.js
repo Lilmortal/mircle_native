@@ -8,11 +8,14 @@ import { getListOfFriends, getUserById } from "../../api";
 import { userState, friendState } from "../../states";
 
 const { POPULATE_FRIEND_STATE } = friendState.actions;
-const { getId } = userState.selectors;
+
+const { UPDATE_FRIENDS } = userState.actions;
+const { getId, getFriends } = userState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
-    id: getId
+    id: getId,
+    friends: getFriends
   });
 };
 
@@ -36,11 +39,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         );
       }
     },
-    getListOfFriends: async () => {
+    populateFriends: async () => {
       let friends;
       try {
         friends = await getListOfFriends(id);
-        console.log(friends);
+        dispatch(UPDATE_FRIENDS(friends));
       } catch (err) {
         Alert.alert(
           "Attempting to get your list of friends failed.",

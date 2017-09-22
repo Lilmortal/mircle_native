@@ -69,3 +69,13 @@ export const UPDATE_IS_LOGGED_IN = isLoggedIn => ({
   type: actionTypes.UPDATE_IS_LOGGED_IN,
   isLoggedIn
 });
+
+export const UPDATE_FEEDS = friends => ({
+  type: actionTypes.UPDATE_FEEDS,
+  friends
+});
+
+export const UPDATE_FRIENDS = friends => ({
+  type: actionTypes.UPDATE_FRIENDS,
+  friends
+});

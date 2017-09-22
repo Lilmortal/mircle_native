@@ -13,26 +13,24 @@ export default class Friends extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: [],
       loading: true
     };
   }
 
   async componentDidMount() {
-    const { getListOfFriends } = this.props;
-    const friends = await getListOfFriends();
-    this.setState({ dataSource: friends });
+    const { populateFriends } = this.props;
+    await populateFriends();
     this.setState({ loading: false });
   }
 
   render() {
-    const { goToFriendProfilePage } = this.props;
+    const { friends, goToFriendProfilePage } = this.props;
 
     return (
       <View>
         <Spinner show={this.state.loading} />
         <FlatList
-          data={this.state.dataSource}
+          data={friends}
           keyExtractor={item => item.id}
           ListEmptyComponent={
             <View style={styles.noFriendsMessage}>

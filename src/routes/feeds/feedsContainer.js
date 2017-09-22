@@ -5,11 +5,13 @@ import Feeds from "./feeds";
 import { getFeeds } from "../../api";
 import { userState } from "../../states";
 
-const { getId } = userState.selectors;
+const { UPDATE_FEEDS } = userState.actions;
+const { getId, getFeeds } = userState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
-    id: getId
+    id: getId,
+    feeds: getFeeds
   });
 };
 
@@ -21,14 +23,13 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   return {
     ...ownProps,
     ...stateProps,
-    getFeeds: async () => {
-      let feeds;
+    populateFeeds: async () => {
       try {
-        feeds = await getFeeds(id);
+        const feeds = await getFeeds(id);
+        dispatch(UPDATE_FEEDS(feeds));
       } catch (err) {
         Alert.alert("Attempting to get feeds failed.", err.toString());
       }
-      return feeds;
     }
   };
 };

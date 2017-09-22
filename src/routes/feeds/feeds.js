@@ -12,24 +12,24 @@ export default class Feeds extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: [],
       loading: true
     };
   }
 
   async componentDidMount() {
-    const { getFeeds } = this.props;
-    const feeds = await getFeeds();
-    this.setState({ dataSource: feeds });
+    const { populateFeeds } = this.props;
+    await populateFeeds();
     this.setState({ loading: false });
   }
 
   render() {
+    const { feeds } = this.props;
+
     return (
       <View>
         <Spinner show={this.state.loading} />
         <FlatList
-          data={this.state.dataSource}
+          data={feeds}
           keyExtractor={item => item.id}
           ListEmptyComponent={
             <View style={styles.noFeedMessage}>

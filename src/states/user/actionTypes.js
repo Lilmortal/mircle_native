@@ -27,3 +27,7 @@ export const UPDATE_CREATED_ON = "user/UPDATE_CREATED_ON";
 export const UPDATE_LAST_LOGGED_IN = "user/UPDATE_LAST_LOGGED_IN";
 
 export const UPDATE_IS_LOGGED_IN = "user/UPDATE_IS_LOGGED_IN";
+
+export const UPDATE_FEEDS = "user/UPDATE_FEEDS";
+
+export const UPDATE_FRIENDS = "user/UPDATE_FRIENDS";
