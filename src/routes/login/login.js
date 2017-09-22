@@ -6,7 +6,12 @@ import Spinner from "../../components/spinner";
 import BackgroundImage from "../../components/backgroundImage";
 import TextInput from "../../components/textInput";
 import Button from "../../components/button";
-import LoginText from "./components/loginText";
+import {
+  LogoText,
+  TitleDescriptionText,
+  RegularText,
+  ButtonText
+} from "../../components/text";
 
 import styles from "./styles";
 
@@ -51,10 +56,12 @@ class Login extends Component {
       <View style={styles.login}>
         <Spinner show={this.state.loading} />
         <View style={styles.title}>
-          <LoginText style={styles.titleText}>Mircle</LoginText>
-          <LoginText style={styles.titleDescription}>
+          <LogoText color="white" style={styles.titleText}>
+            Mircle
+          </LogoText>
+          <TitleDescriptionText color="white">
             connect to each other stress free
-          </LoginText>
+          </TitleDescriptionText>
         </View>
 
         <View style={styles.loginForm}>
@@ -83,15 +90,15 @@ class Login extends Component {
             }}
           >
             <View>
-              <LoginText style={styles.loginText}>
+              <ButtonText color="white" bold>
                 Login to my account >
-              </LoginText>
+              </ButtonText>
             </View>
           </Button>
         </View>
 
         <View style={styles.seperator}>
-          <LoginText>OR</LoginText>
+          <RegularText color="white">OR</RegularText>
         </View>
 
         <View style={styles.socialMediaLogin}>
@@ -107,12 +114,12 @@ class Login extends Component {
         <View style={styles.help}>
           <TouchableOpacity onPress={goToRegistrationPage}>
             <View>
-              <LoginText style={styles.helpText}>Register</LoginText>
+              <RegularText color="white">Register</RegularText>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={goToForgottenPasswordPage}>
             <View>
-              <LoginText style={styles.helpText}>Forgot password?</LoginText>
+              <RegularText color="white">Forgot password?</RegularText>
             </View>
           </TouchableOpacity>
         </View>

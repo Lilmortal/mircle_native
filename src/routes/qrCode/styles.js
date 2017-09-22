@@ -13,10 +13,6 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20
   },
-  titleText: {
-    fontSize: 20,
-    fontWeight: "bold"
-  },
   qrCode: {
     flex: 2
   }

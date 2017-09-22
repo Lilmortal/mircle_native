@@ -10,11 +10,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  titleText: {
-    fontSize: 30,
-    fontWeight: "500",
-    color: "black"
-  },
   registerChildren: {
     flex: 7,
     justifyContent: "center"

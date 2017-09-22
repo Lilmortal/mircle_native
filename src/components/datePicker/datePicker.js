@@ -1,16 +1,17 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import DatePicker from "react-native-datepicker";
 
+import { RegularText } from "../text";
 import styles from "./styles";
 
 const CustomizedDatePicker = ({ title, value, onDateChange, placeholder }) =>
   <View style={styles.datePickerContainer}>
     {title &&
       <View style={styles.dateTextContainer}>
-        <Text style={styles.dateText}>
+        <RegularText>
           {title}
-        </Text>
+        </RegularText>
       </View>}
     <DatePicker
       style={styles.datePicker}

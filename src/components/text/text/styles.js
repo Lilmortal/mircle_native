@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  emailConfirmationText: {
-    color: "black"
+  regularText: {
+    fontSize: 15
   },
-  emailText: {
-    fontWeight: "500"
+  buttonText: {
+    fontSize: 18
   }
 });
 

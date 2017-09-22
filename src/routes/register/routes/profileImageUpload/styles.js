@@ -6,18 +6,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  uploadInstructionText: {
-    color: "black"
-  },
   uploadButtons: {
     flex: 1
   },
   uploadButton: {
     borderColor: "black"
-  },
-  buttonText: {
-    justifyContent: "center",
-    color: "black"
   }
 });
 

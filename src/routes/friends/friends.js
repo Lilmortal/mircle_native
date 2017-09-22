@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { View, Text, Image, FlatList, TouchableOpacity } from "react-native";
+import { View, Image, FlatList, TouchableOpacity } from "react-native";
 
+import { RegularText } from "../../components/text";
 import Feed from "../../components/feed";
 import Spinner from "../../components/spinner";
 import ProfileImage from "../../components/profileImage";
@@ -35,10 +36,10 @@ export default class Friends extends Component {
           keyExtractor={item => item.id}
           ListEmptyComponent={
             <View style={styles.noFriendsMessage}>
-              <Text>
+              <RegularText>
                 You don&#39;t have any friends on Mircle at the moment, start
                 adding new friends now!
-              </Text>
+              </RegularText>
             </View>
           }
           renderItem={({ item }) =>
@@ -47,16 +48,16 @@ export default class Friends extends Component {
                 <Feed key={item.id} isSelectable>
                   <ProfileImage source={item.profileImage} />
                   <View style={styles.profileContainer}>
-                    <Text style={styles.profileName}>
+                    <RegularText bold>
                       {item.firstName + " " + item.surname}
-                    </Text>
+                    </RegularText>
                     <View style={styles.profileDescription}>
-                      <Text>
+                      <RegularText>
                         {item.occupation && `Worked as a ${item.occupation}`}
-                      </Text>
-                      <Text>
+                      </RegularText>
+                      <RegularText>
                         Added each other on {item.addedTime}
-                      </Text>
+                      </RegularText>
                     </View>
                   </View>
                 </Feed>

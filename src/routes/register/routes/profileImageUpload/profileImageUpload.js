@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  DeviceEventEmitter,
-  CameraRoll,
-  Alert
-} from "react-native";
+import { View, DeviceEventEmitter, CameraRoll, Alert } from "react-native";
 
+import { RegularText, ButtonText } from "../../../../components/text";
 import ProfileImage from "../../../../components/profileImage";
 import Button from "../../../../components/button";
 import RegisterLayout from "../../layout/registerLayout";
@@ -20,9 +15,9 @@ const ProfileImageUpload = ({
   <RegisterLayout title="Upload a photo of yourself" onPress={goNextPage}>
     <View style={styles.uploadInstruction}>
       {profileImage.isDefault
-        ? <Text style={styles.uploadInstructionText}>
+        ? <RegularText>
             Upload a photo of yourself, or you can do it later.
-          </Text>
+          </RegularText>
         : <ProfileImage source={profileImage} size={200} />}
     </View>
 
@@ -31,13 +26,13 @@ const ProfileImageUpload = ({
         onPress={() => getProfileImageFromMedium("camera")}
         style={styles.uploadButton}
       >
-        <Text style={styles.buttonText}>Take a photo of yourself</Text>
+        <ButtonText>Take a photo of yourself</ButtonText>
       </Button>
       <Button
         onPress={() => getProfileImageFromMedium("gallery")}
         style={styles.uploadButton}
       >
-        <Text style={styles.buttonText}>Check your gallery</Text>
+        <ButtonText>Check your gallery</ButtonText>
       </Button>
     </View>
   </RegisterLayout>;

@@ -1,6 +1,7 @@
 import React from "react";
-import { View, TextInput, Text } from "react-native";
+import { View, TextInput } from "react-native";
 
+import { RegularText } from "../text";
 import styles from "./styles";
 
 const CustomTextInput = ({
@@ -38,11 +39,11 @@ const CustomTextInput = ({
           secureTextEntry={secureTextEntry}
           {...props}
         />
-        {compulsory && <Text style={styles.compulsory}>*</Text>}
+        {compulsory && <RegularText color="red">*</RegularText>}
       </View>
-      <Text style={styles.error}>
+      <RegularText color="red">
         {error}
-      </Text>
+      </RegularText>
     </View>
   );
 };

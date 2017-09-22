@@ -16,16 +16,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  name: {
-    fontWeight: "500",
-    fontSize: 35,
-    textAlign: "center",
-    color: "white"
-  },
-  email: {
-    fontSize: 15,
-    textAlign: "center",
-    color: "white"
+  headerUserInfo: {
+    textAlign: "center"
   },
   map: {
     flexDirection: "row",

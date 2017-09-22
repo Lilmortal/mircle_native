@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 
 import TextInput from "../../components/textInput";
 import Button from "../../components/button";
-import LoginText from "./components/loginText";
+import { LogoText, RegularText, ButtonText } from "../../components/text";
 import { images, routeKeys } from "../../config";
 import styles from "./styles";
 
@@ -27,11 +27,13 @@ export default class ForgotPassword extends Component {
     return (
       <View style={styles.forgotPassword}>
         <View style={styles.title}>
-          <LoginText style={styles.titleText}>Forgotten Password</LoginText>
-          <LoginText style={styles.forgottenPasswordDescription}>
-            Enter your email address, we will send you an email to confirm if
-            you want to reset your password.
-          </LoginText>
+          <LogoText color="white">Forgotten Password</LogoText>
+          <View style={styles.forgottenPasswordDescription}>
+            <RegularText color="white">
+              Enter your email address, we will send you an email to confirm if
+              you want to reset your password.
+            </RegularText>
+          </View>
         </View>
         <TextInput
           Icon={emailIcon}
@@ -42,12 +44,16 @@ export default class ForgotPassword extends Component {
         <View style={styles.forgottenPasswordSubmitArea}>
           <Button onPress={() => sendEmail(this.state.emailAddress)}>
             <View>
-              <LoginText>Send email</LoginText>
+              <ButtonText color="white" bold>
+                Send email
+              </ButtonText>
             </View>
           </Button>
           <Button onPress={cancelPage}>
             <View>
-              <LoginText>Cancel</LoginText>
+              <ButtonText color="white" bold>
+                Cancel
+              </ButtonText>
             </View>
           </Button>
         </View>

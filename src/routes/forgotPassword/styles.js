@@ -11,14 +11,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  titleText: {
-    fontSize: 40,
-    alignItems: "center",
-    fontFamily: fonts.loginTitleFont,
-    textAlign: "center"
-  },
   forgottenPasswordDescription: {
-    color: "white",
     paddingLeft: 20,
     paddingRight: 20,
     textAlign: "center"

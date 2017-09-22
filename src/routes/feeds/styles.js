@@ -15,12 +15,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     marginLeft: 20
   },
-  feedName: {
-    fontWeight: "500"
-  },
-  date: {
-    fontWeight: "400"
-  },
   feedMessage: {
     marginTop: 20
   }

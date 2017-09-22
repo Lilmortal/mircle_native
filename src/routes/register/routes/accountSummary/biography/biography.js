@@ -1,19 +1,20 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
+import { RegularText, SmallText } from "../../../../../components/text";
 import styles from "./styles";
 
 const Biography = ({ label, value, lastChild }) =>
   <View style={[styles.biography, lastChild && { marginBottom: 0 }]}>
     <View style={styles.biographyLabel}>
-      <Text style={styles.biographyLabelText}>
+      <RegularText bold>
         {label}
-      </Text>
+      </RegularText>
     </View>
     <View style={styles.biographyValue}>
-      <Text style={styles.biographyValueText}>
+      <SmallText>
         {value}
-      </Text>
+      </SmallText>
     </View>
   </View>;
 

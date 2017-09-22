@@ -26,9 +26,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     marginLeft: 20
   },
-  profileName: {
-    fontWeight: "500"
-  },
   profileDescription: {
     marginTop: 20
   }

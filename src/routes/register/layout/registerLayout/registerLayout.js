@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 
 import Spinner from "../../../../components/spinner";
 import Button from "../../../../components/button";
+import { TitleText, ButtonText } from "../../../../components/text";
 import styles from "./styles";
 
 class RegisterLayout extends Component {
@@ -31,9 +32,9 @@ class RegisterLayout extends Component {
       <View style={styles.register}>
         <Spinner show={this.state.loading} />
         <View style={styles.title}>
-          <Text style={styles.titleText}>
+          <TitleText>
             {title}
-          </Text>
+          </TitleText>
         </View>
         <View style={[styles.registerChildren, style]}>
           {children}
@@ -46,9 +47,9 @@ class RegisterLayout extends Component {
           }}
           style={styles.submitButton}
         >
-          <Text style={styles.buttonText}>
+          <ButtonText color="white" bold>
             {buttonMessage}
-          </Text>
+          </ButtonText>
         </Button>
       </View>
     );

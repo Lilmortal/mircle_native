@@ -9,16 +9,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center"
   },
-  biographyLabelText: {
-    fontWeight: "500",
-    fontSize: 15
-  },
   biographyValue: {
     flex: 1,
     paddingLeft: 20
-  },
-  biographyValueText: {
-    fontSize: 15
   }
 });
 

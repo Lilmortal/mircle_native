@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import * as Progress from "react-native-progress";
 
 import { Camera } from "./components";

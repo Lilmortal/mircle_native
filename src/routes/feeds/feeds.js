@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { View, Text, Image, FlatList } from "react-native";
+import { View, Image, FlatList } from "react-native";
 
+import { RegularText, SmallText } from "../../components/text";
 import Feed from "../../components/feed";
 import Spinner from "../../components/spinner";
 import ProfileImage from "../../components/profileImage";
@@ -32,22 +33,24 @@ export default class Feeds extends Component {
           keyExtractor={item => item.id}
           ListEmptyComponent={
             <View style={styles.noFeedMessage}>
-              <Text>Start adding new friends to populate your feeds!</Text>
+              <RegularText>
+                Start adding new friends to populate your feeds!
+              </RegularText>
             </View>
           }
           renderItem={({ item }) =>
             <Feed key={item.id}>
               <ProfileImage source={item.profileImage} />
               <View style={styles.feedContainer}>
-                <Text style={styles.feedName}>
+                <RegularText bold>
                   {item.name}
-                </Text>
-                <Text style={styles.feedDate}>
+                </RegularText>
+                <SmallText>
                   {item.date}
-                </Text>
-                <Text style={styles.feedMessage}>
+                </SmallText>
+                <RegularText>
                   {item.message}
-                </Text>
+                </RegularText>
               </View>
             </Feed>}
         />

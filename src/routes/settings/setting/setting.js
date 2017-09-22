@@ -1,15 +1,16 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
+import { RegularText } from "../../../components/text";
 import styles from "./styles";
 
 const Setting = ({ title, children }) =>
   <View>
-    <Text style={styles.title}>
+    <RegularText bold style={styles.title}>
       {title}
-    </Text>
+    </RegularText>
     <View style={styles.setting}>
-    {children}
+      {children}
     </View>
   </View>;
 

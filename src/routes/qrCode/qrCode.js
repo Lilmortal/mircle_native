@@ -1,15 +1,16 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import QRCode from "react-native-qrcode";
 
+import { TitleDescriptionText } from "../../components/text";
 import styles from "./styles";
 
 const QrCodeScreen = ({ id }) =>
   <View style={styles.container}>
     <View style={styles.title}>
-      <Text style={styles.titleText}>
+      <TitleDescriptionText bold>
         Your friend will add you by scanning this QR Code.
-      </Text>
+      </TitleDescriptionText>
     </View>
 
     <View style={styles.qrCode}>

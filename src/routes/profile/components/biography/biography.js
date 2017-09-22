@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity, Dimensions } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 
+import { RegularText, SmallText } from "../../../../components/text";
 import TextInput from "../../../../components/textInput";
-import { NUM_OF_COLUMNS } from "../../constants";
 import styles from "./styles";
-
-const windowWidth = Dimensions.get("window").width;
 
 class Biography extends Component {
   constructor(props) {
@@ -31,14 +29,10 @@ class Biography extends Component {
       style
     } = this.props;
 
-    const selectedStyle = this.state.isSelected
-      ? { backgroundColor: "#778899" }
-      : {};
-
-    const Display = () =>
-      <Text style={styles.value}>
+    const Value = () =>
+      <RegularText style={styles.biographyText}>
         {value}
-      </Text>;
+      </RegularText>;
 
     return (
       <TouchableOpacity
@@ -47,16 +41,15 @@ class Biography extends Component {
         <View
           style={[
             styles.biography,
-            { width: windowWidth / NUM_OF_COLUMNS },
-            selectedStyle,
+            this.state.isSelected && { backgroundColor: "#778899" },
             disabled && { backgroundColor: "gray" },
             style
           ]}
         >
-          {this.state.isSelected ? <InputComponent /> : <Display />}
-          <Text style={styles.label}>
+          {this.state.isSelected ? <InputComponent /> : <Value />}
+          <SmallText style={styles.biographyText}>
             {label}
-          </Text>
+          </SmallText>
         </View>
       </TouchableOpacity>
     );

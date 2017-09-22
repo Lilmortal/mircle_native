@@ -12,21 +12,12 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   titleText: {
-    fontSize: 40,
     alignItems: "center",
-    fontFamily: fonts.loginTitleFont,
     textAlign: "center"
-  },
-  titleDescription: {
-    fontSize: 20
   },
   loginForm: {
     flex: 2,
     justifyContent: "center"
-  },
-  loginText: {
-    fontSize: 18,
-    fontWeight: "500"
   },
   seperator: {
     paddingTop: 5,

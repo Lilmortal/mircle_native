@@ -1,10 +1,16 @@
 import React, { Component } from "react";
-import { View, Text, Image, FlatList, TouchableOpacity } from "react-native";
+import { View, Image, FlatList, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import { validate } from "../../libs";
 import { NUM_OF_COLUMNS } from "./constants";
 import { images } from "../../config";
+import {
+  TitleText,
+  TitleDescriptionText,
+  RegularText,
+  SmallText
+} from "../../components/text";
 import Modal from "../../components/modal";
 import Picker from "../../components/picker";
 import DatePicker from "../../components/datePicker";
@@ -70,12 +76,14 @@ class Profile extends Component {
                     <ProfileImage source={profileImage} size={250} />
                   </View>
                 </TouchableOpacity>
-                <Text style={styles.name}>
-                  {firstName} {surname}
-                </Text>
-                <Text style={styles.email}>
-                  {emailAddress}
-                </Text>
+                <View style={styles.headerUserInfo}>
+                  <TitleText color="white" bold>
+                    {firstName} {surname}
+                  </TitleText>
+                  <RegularText>
+                    {emailAddress}
+                  </RegularText>
+                </View>
               </View>
               {isAFriend &&
                 <View style={styles.map}>
@@ -112,7 +120,9 @@ class Profile extends Component {
               }}
               style={styles.uploadButton}
             >
-              <Text style={styles.buttonText}>Take a photo of yourself</Text>
+              <RegularText style={styles.buttonText}>
+                Take a photo of yourself
+              </RegularText>
             </Button>
             <Button
               onPress={async () => {
@@ -121,7 +131,9 @@ class Profile extends Component {
               }}
               style={styles.uploadButton}
             >
-              <Text style={styles.buttonText}>Get it from your gallery</Text>
+              <RegularText style={styles.buttonText}>
+                Get it from your gallery
+              </RegularText>
             </Button>
           </View>
         </Modal>

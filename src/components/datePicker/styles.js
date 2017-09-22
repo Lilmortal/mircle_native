@@ -13,9 +13,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingLeft: 7
   },
-  dateText: {
-    color: "black"
-  },
   datePicker: {
     flex: 2
   }

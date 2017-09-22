@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import { validate } from "../../libs";
+import { RegularText, ButtonText } from "../../components/text";
 import TextInput from "../../components/textInput";
 import Button from "../../components/button";
 import Modal from "../../components/modal";
@@ -94,7 +95,7 @@ export default class Settings extends Component {
               lastChild
               onPress={() => this.setPasswordModalVisible(true)}
             >
-              <Text>Change Password</Text>
+              <RegularText>Change Password</RegularText>
             </ListItem>
           </Setting>
 
@@ -104,7 +105,7 @@ export default class Settings extends Component {
               switchValue={sound}
               switchOnPress={updatedSound => updateSound(updatedSound)}
             >
-              <Text>Sound</Text>
+              <RegularText>Sound</RegularText>
             </ListItem>
             <ListItem
               disabled={!sound}
@@ -113,7 +114,7 @@ export default class Settings extends Component {
               sliderOnRelease={updatedSoundVolume =>
                 updateSoundVolume(updatedSoundVolume)}
             >
-              <Text>Volume</Text>
+              <RegularText>Volume</RegularText>
             </ListItem>
             <ListItem
               hasSwitch
@@ -122,7 +123,7 @@ export default class Settings extends Component {
                 updateVibration(updatedVibration)}
               lastChild
             >
-              <Text>Vibration</Text>
+              <RegularText>Vibration</RegularText>
             </ListItem>
           </Setting>
 
@@ -131,14 +132,14 @@ export default class Settings extends Component {
               isSelectable
               onPress={() => this.setAboutMircleModalVisible(true)}
             >
-              <Text>About Mircle</Text>
+              <RegularText>About Mircle</RegularText>
             </ListItem>
             <ListItem
               isSelectable
               onPress={() => this.setAboutCreatorModalVisible(true)}
               lastChild
             >
-              <Text>About the creator of this app</Text>
+              <RegularText>About the creator of this app</RegularText>
             </ListItem>
           </Setting>
         </View>
@@ -197,14 +198,14 @@ export default class Settings extends Component {
               }}
               color="black"
             >
-              <Text>Save changes</Text>
+              <ButtonText>Save changes</ButtonText>
             </Button>
 
             <Button
               onPress={() => this.setPasswordModalVisible(false)}
               color="black"
             >
-              <Text>Cancel</Text>
+              <ButtonText>Cancel</ButtonText>
             </Button>
           </View>
         </Modal>
@@ -215,7 +216,7 @@ export default class Settings extends Component {
           Icon={<Icon name="lock" size={25} />}
           title="About Mircle"
         >
-          <Text>Long long time ago</Text>
+          <RegularText>Long long time ago</RegularText>
         </Modal>
 
         <Modal
@@ -224,7 +225,7 @@ export default class Settings extends Component {
           Icon={<Icon name="user" size={25} />}
           title="About creator"
         >
-          <Text>Dont want to add an image on me there</Text>
+          <RegularText>Dont want to add an image on me there</RegularText>
         </Modal>
       </View>
     );

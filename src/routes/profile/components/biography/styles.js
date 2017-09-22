@@ -1,7 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+import { NUM_OF_COLUMNS } from "../../constants";
+
+const windowWidth = Dimensions.get("window").width;
 
 const styles = StyleSheet.create({
   biography: {
+    width: windowWidth / NUM_OF_COLUMNS,
     borderRightWidth: 1,
     borderBottomWidth: 1,
     borderColor: "black",
@@ -10,13 +15,8 @@ const styles = StyleSheet.create({
     height: 100,
     justifyContent: "center"
   },
-  value: {
-    textAlign: "center",
-    fontSize: 20
-  },
-  label: {
-    textAlign: "center",
-    fontSize: 10
+  biographyText: {
+    textAlign: "center"
   }
 });
 
