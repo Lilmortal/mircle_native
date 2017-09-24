@@ -1,5 +1,7 @@
 import * as actionTypes from "./actionTypes";
 
+export const RESET_USER_STATE = "user/RESET_USER_STATE";
+
 export const POPULATE_USER_STATE = "user/POPULATE_USER_STATE";
 
 export const UPDATE_ID = "user/UPDATE_ID";

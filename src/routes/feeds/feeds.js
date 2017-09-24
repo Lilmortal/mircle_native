@@ -17,14 +17,12 @@ export default class Feeds extends Component {
   }
 
   async componentDidMount() {
-    const { populateFeeds } = this.props;
-    await populateFeeds();
     this.setState({ loading: false });
   }
 
   render() {
     const { feeds } = this.props;
-
+    console.log(feeds);
     return (
       <View>
         <Spinner show={this.state.loading} />

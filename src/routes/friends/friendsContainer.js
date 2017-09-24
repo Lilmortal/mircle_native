@@ -38,19 +38,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           err.toString()
         );
       }
-    },
-    populateFriends: async () => {
-      let friends;
-      try {
-        friends = await getListOfFriends(id);
-        dispatch(UPDATE_FRIENDS(friends));
-      } catch (err) {
-        Alert.alert(
-          "Attempting to get your list of friends failed.",
-          err.toString()
-        );
-      }
-      return friends;
     }
   };
 };

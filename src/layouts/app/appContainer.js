@@ -37,9 +37,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       if (qrCode.type === "QR_CODE") {
         try {
           dispatch(UPDATE_CAMERA_ACTIVE(false));
-          await addFriend(id, qrCode.data);
-          const friend = await getUserById(qrCode.data);
-          dispatch(UPDATE_FRIENDS(friend));
+
+          const friendId = qrCode.data;
+          const friend = await addFriend(id, friendId);
+          console.log(friend);
+
           const feedMessage = `You and ${friend.firstName} ${friend.surname} are now friends!`;
           const feed = {
             profileImage: friend.profileImage,
@@ -61,6 +63,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             "You added a friend!",
             `${friend.firstName} ${friend.surname} is now on your friend list.`
           );
+
+          dispatch(UPDATE_FRIENDS(friend));
         } catch (err) {
           Alert.alert("Attempting to add a friend failed.", err.toString());
         }

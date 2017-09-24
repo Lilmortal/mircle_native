@@ -27,6 +27,9 @@ const initialState = {
 
 const reducer = (state = initialState, payload) => {
   switch (payload.type) {
+    case actionTypes.RESET_USER_STATE: {
+      return initialState;
+    }
     case actionTypes.POPULATE_USER_STATE: {
       return {
         ...state,
@@ -116,15 +119,37 @@ const reducer = (state = initialState, payload) => {
       };
     }
     case actionTypes.UPDATE_FRIENDS: {
+      if (!payload.friends) {
+        return state;
+      }
+
+      let updatedFriends;
+
+      if (Array.isArray(payload.friends)) {
+        updatedFriends = payload.friends.concat(state.friends);
+      } else {
+        updatedFriends = [payload.friends, ...state.friends];
+      }
+
       return {
         ...state,
-        friends: [payload.friends, ...state.friends]
+        friends: updatedFriends
       };
     }
     case actionTypes.UPDATE_FEEDS: {
+      if (!payload.feeds) {
+        return state;
+      }
+      let updatedFeeds;
+
+      if (Array.isArray(payload.feeds)) {
+        updatedFeeds = payload.feeds.concat(state.feeds);
+      } else {
+        updatedFeeds = [payload.feeds, ...state.feeds];
+      }
       return {
         ...state,
-        feeds: [payload.feeds, ...state.feeds]
+        feeds: updatedFeeds
       };
     }
     default:

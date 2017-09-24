@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 
-import { RegularText, SmallText } from "../../../../../components/text";
+import { RegularText } from "../../../../../components/text";
 import styles from "./styles";
 
 const Biography = ({ label, value, lastChild }) =>
@@ -12,9 +12,9 @@ const Biography = ({ label, value, lastChild }) =>
       </RegularText>
     </View>
     <View style={styles.biographyValue}>
-      <SmallText>
+      <RegularText>
         {value}
-      </SmallText>
+      </RegularText>
     </View>
   </View>;
 

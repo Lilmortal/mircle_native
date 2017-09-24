@@ -102,8 +102,9 @@ export const setUserProfileImage = async (id, profileImage = undefined) => {
 
 export const addFriend = async (id, friendId) => {
   const token = await getToken();
+  let response;
   try {
-    const response = await fetch(`${URL}/user/${id}/friend/${friendId}`, {
+    response = await fetch(`${URL}/user/${id}/friend/${friendId}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -115,6 +116,12 @@ export const addFriend = async (id, friendId) => {
   } catch (err) {
     return Promise.reject(err);
   }
+  const json = await response.json();
+  const friend = {
+    addedTime: json.addedTime,
+    ...json.pk.friend
+  };
+  return friend;
 };
 
 export const getListOfFriends = async id => {

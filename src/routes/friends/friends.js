@@ -17,9 +17,7 @@ export default class Friends extends Component {
     };
   }
 
-  async componentDidMount() {
-    const { populateFriends } = this.props;
-    await populateFriends();
+  componentDidMount() {
     this.setState({ loading: false });
   }
 

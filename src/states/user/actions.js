@@ -1,5 +1,9 @@
 import * as actionTypes from "./actionTypes";
 
+export const RESET_USER_STATE = () => ({
+  type: actionTypes.RESET_USER_STATE
+});
+
 export const POPULATE_USER_STATE = user => ({
   type: actionTypes.POPULATE_USER_STATE,
   user
@@ -70,12 +74,15 @@ export const UPDATE_IS_LOGGED_IN = isLoggedIn => ({
   isLoggedIn
 });
 
-export const UPDATE_FEEDS = friends => ({
+export const UPDATE_FEEDS = feeds => ({
   type: actionTypes.UPDATE_FEEDS,
-  friends
+  feeds
 });
 
-export const UPDATE_FRIENDS = friends => ({
-  type: actionTypes.UPDATE_FRIENDS,
-  friends
-});
+export const UPDATE_FRIENDS = friends => {
+  console.log(friends);
+  return {
+    type: actionTypes.UPDATE_FRIENDS,
+    friends
+  };
+};

@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import Feeds from "./feeds";
-import { getFeeds } from "../../api";
+import { getFeeds as getFeedsApi } from "../../api";
 import { userState } from "../../states";
 
 const { UPDATE_FEEDS } = userState.actions;
@@ -25,7 +25,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     ...stateProps,
     populateFeeds: async () => {
       try {
-        const feeds = await getFeeds(id);
+        const feeds = await getFeedsApi(id);
         dispatch(UPDATE_FEEDS(feeds));
       } catch (err) {
         Alert.alert("Attempting to get feeds failed.", err.toString());
