@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import moment from "moment";
 
-import TextInput from "../../../../components/textInput";
-import Picker from "../../../../components/picker";
-import DatePicker from "../../../../components/datePicker";
+import TextInput from "@jacktan/mircle_native_components/textInput";
+import Picker from "@jacktan/mircle_native_components/picker";
+import DatePicker from "@jacktan/mircle_native_components/datePicker";
 import RegisterLayout from "../../layout/registerLayout";
 import validate from "../../../../libs/validate";
 

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 
-import Spinner from "../../../../components/spinner";
-import Button from "../../../../components/button";
-import { TitleText, ButtonText } from "../../../../components/text";
+import Spinner from "@jacktan/mircle_native_components/spinner";
+import Button from "@jacktan/mircle_native_components/button";
+import { TitleText, ButtonText } from "@jacktan/mircle_native_components/text";
 import styles from "./styles";
 
 class RegisterLayout extends Component {
@@ -32,13 +32,9 @@ class RegisterLayout extends Component {
       <View style={styles.register}>
         <Spinner show={this.state.loading} />
         <View style={styles.title}>
-          <TitleText>
-            {title}
-          </TitleText>
+          <TitleText>{title}</TitleText>
         </View>
-        <View style={[styles.registerChildren, style]}>
-          {children}
-        </View>
+        <View style={[styles.registerChildren, style]}>{children}</View>
         <Button
           onPress={async () => {
             this.setLoading(true);

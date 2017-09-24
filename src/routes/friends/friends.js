@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { View, Image, FlatList, TouchableOpacity } from "react-native";
 
-import { RegularText } from "../../components/text";
-import Feed from "../../components/feed";
-import Spinner from "../../components/spinner";
-import ProfileImage from "../../components/profileImage";
+import { RegularText } from "@jacktan/mircle_native_components/text";
+import Feed from "@jacktan/mircle_native_components/feed";
+import Spinner from "@jacktan/mircle_native_components/spinner";
+import ProfileImage from "@jacktan/mircle_native_components/profileImage";
 
 import { images, routeKeys } from "../../config";
 import styles from "./styles";
@@ -38,7 +38,7 @@ export default class Friends extends Component {
               </RegularText>
             </View>
           }
-          renderItem={({ item }) =>
+          renderItem={({ item }) => (
             <TouchableOpacity onPress={() => goToFriendProfilePage(item.id)}>
               <View>
                 <Feed key={item.id} isSelectable>
@@ -58,7 +58,8 @@ export default class Friends extends Component {
                   </View>
                 </Feed>
               </View>
-            </TouchableOpacity>}
+            </TouchableOpacity>
+          )}
         />
       </View>
     );

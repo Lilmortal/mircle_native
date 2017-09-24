@@ -1,7 +1,5 @@
 import { StyleSheet } from "react-native";
 
-import { colors, fonts } from "../../config";
-
 const styles = StyleSheet.create({
   forgotPassword: {
     flex: 1

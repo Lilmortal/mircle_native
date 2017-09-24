@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import { View, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-import Spinner from "../../components/spinner";
-import BackgroundImage from "../../components/backgroundImage";
-import TextInput from "../../components/textInput";
-import Button from "../../components/button";
+import Spinner from "@jacktan/mircle_native_components/spinner";
+import BackgroundImage from "@jacktan/mircle_native_components/backgroundImage";
+import TextInput from "@jacktan/mircle_native_components/textInput";
+import Button from "@jacktan/mircle_native_components/button";
 import {
   LogoText,
   TitleDescriptionText,
   RegularText,
   ButtonText
-} from "../../components/text";
+} from "@jacktan/mircle_native_components/text";
 
 import styles from "./styles";
 

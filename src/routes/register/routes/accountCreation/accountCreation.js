@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 
-import TextInput from "../../../../components/textInput";
+import TextInput from "@jacktan/mircle_native_components/textInput";
 import RegisterLayout from "../../layout/registerLayout";
 import { validate } from "../../../../libs";
 

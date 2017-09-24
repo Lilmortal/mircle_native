@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { View, Image, FlatList } from "react-native";
 
-import { RegularText, SmallText } from "../../components/text";
-import Feed from "../../components/feed";
-import Spinner from "../../components/spinner";
-import ProfileImage from "../../components/profileImage";
+import { RegularText, SmallText } from "@jacktan/mircle_native_components/text";
+import Feed from "@jacktan/mircle_native_components/feed";
+import Spinner from "@jacktan/mircle_native_components/spinner";
+import ProfileImage from "@jacktan/mircle_native_components/profileImage";
 import { images } from "../../config";
 import styles from "./styles";
 
@@ -36,21 +36,16 @@ export default class Feeds extends Component {
               </RegularText>
             </View>
           }
-          renderItem={({ item }) =>
+          renderItem={({ item }) => (
             <Feed key={item.id}>
               <ProfileImage source={item.profileImage} />
               <View style={styles.feedContainer}>
-                <RegularText bold>
-                  {item.name}
-                </RegularText>
-                <SmallText>
-                  {item.date}
-                </SmallText>
-                <RegularText>
-                  {item.message}
-                </RegularText>
+                <RegularText bold>{item.name}</RegularText>
+                <SmallText>{item.date}</SmallText>
+                <RegularText>{item.message}</RegularText>
               </View>
-            </Feed>}
+            </Feed>
+          )}
         />
       </View>
     );

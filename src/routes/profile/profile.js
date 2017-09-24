@@ -10,13 +10,13 @@ import {
   TitleDescriptionText,
   RegularText,
   SmallText
-} from "../../components/text";
-import Modal from "../../components/modal";
-import Picker from "../../components/picker";
-import DatePicker from "../../components/datePicker";
-import TextInput from "../../components/textInput";
-import Button from "../../components/button";
-import ProfileImage from "../../components/profileImage";
+} from "@jacktan/mircle_native_components/text";
+import Modal from "@jacktan/mircle_native_components/modal";
+import Picker from "@jacktan/mircle_native_components/picker";
+import DatePicker from "@jacktan/mircle_native_components/datePicker";
+import TextInput from "@jacktan/mircle_native_components/textInput";
+import Button from "@jacktan/mircle_native_components/button";
+import ProfileImage from "@jacktan/mircle_native_components/profileImage";
 import Biography from "./components/biography";
 import styles from "./styles";
 
@@ -80,22 +80,21 @@ class Profile extends Component {
                   <TitleText color="white" bold>
                     {firstName} {surname}
                   </TitleText>
-                  <RegularText>
-                    {emailAddress}
-                  </RegularText>
+                  <RegularText>{emailAddress}</RegularText>
                 </View>
               </View>
-              {isAFriend &&
+              {isAFriend && (
                 <View style={styles.map}>
                   <TouchableOpacity onPress={goToMap}>
                     <Icon name="map" size={25} />
                   </TouchableOpacity>
-                </View>}
+                </View>
+              )}
             </Image>
           }
           data={data}
           keyExtractor={item => item.id}
-          renderItem={({ item }) =>
+          renderItem={({ item }) => (
             <Biography
               label={item.label}
               value={item.value}
@@ -103,7 +102,8 @@ class Profile extends Component {
               disabled={item.disabled}
               selectable={!isAFriend}
               style={() => this.checkIfTileIsInEdge(item.id, data)}
-            />}
+            />
+          )}
         />
 
         <Modal

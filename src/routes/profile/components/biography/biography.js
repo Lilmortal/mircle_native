@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { View, TouchableOpacity } from "react-native";
 
-import { RegularText, SmallText } from "../../../../components/text";
-import TextInput from "../../../../components/textInput";
+import { RegularText, SmallText } from "@jacktan/mircle_native_components/text";
+import TextInput from "@jacktan/mircle_native_components/textInput";
 import styles from "./styles";
 
 class Biography extends Component {
@@ -29,10 +29,9 @@ class Biography extends Component {
       style
     } = this.props;
 
-    const Value = () =>
-      <RegularText style={styles.biographyText}>
-        {value}
-      </RegularText>;
+    const Value = () => (
+      <RegularText style={styles.biographyText}>{value}</RegularText>
+    );
 
     return (
       <TouchableOpacity
@@ -47,9 +46,7 @@ class Biography extends Component {
           ]}
         >
           {this.state.isSelected ? <InputComponent /> : <Value />}
-          <SmallText style={styles.biographyText}>
-            {label}
-          </SmallText>
+          <SmallText style={styles.biographyText}>{label}</SmallText>
         </View>
       </TouchableOpacity>
     );

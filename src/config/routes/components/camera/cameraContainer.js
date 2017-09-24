@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import Camera from "../../../../components/camera";
+import Camera from "@jacktan/mircle_native_components/camera";
 import { cameraState } from "../../../../states";
 
 const { UPDATE_CAMERA_ACTIVE } = cameraState.actions;
