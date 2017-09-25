@@ -3,8 +3,8 @@ import { View } from "react-native";
 import moment from "moment";
 
 import { mapGenderValueToLabel } from "../../../../libs";
-import { RegularText } from "../../../../components/text";
-import ProfileImage from "../../../../components/profileImage";
+import { RegularText } from "@jacktan/mircle_native_components/text";
+import ProfileImage from "@jacktan/mircle_native_components/profileImage";
 import RegisterLayout from "../../layout/registerLayout";
 import Biography from "./biography";
 import styles from "./styles";
@@ -41,14 +41,16 @@ const RegisterAccountSummary = ({
       buttonMessage="SUBMIT"
     >
       <View style={styles.profileImage}>
-        {profileImage.isDefault
-          ? <View>
-              <RegularText>
-                You have not uploaded a profile image, a default profile image
-                will be provided to you once you registered your account.
-              </RegularText>
-            </View>
-          : <ProfileImage source={profileImage} size={125} />}
+        {profileImage.isDefault ? (
+          <View>
+            <RegularText>
+              You have not uploaded a profile image, a default profile image
+              will be provided to you once you registered your account.
+            </RegularText>
+          </View>
+        ) : (
+          <ProfileImage source={profileImage} size={125} />
+        )}
       </View>
       <View style={styles.biography}>
         <Biography label="Email address" value={emailAddress} />

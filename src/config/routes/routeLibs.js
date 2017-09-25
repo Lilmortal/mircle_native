@@ -3,14 +3,15 @@ import { View, Image } from "react-native";
 import * as Progress from "react-native-progress";
 
 import { Camera } from "./components";
-import Hamburger from "../../components/hamburger";
+import Hamburger from "@jacktan/mircle_native_components/hamburger";
 import { routeKeys, images } from "../../config";
 
 export const withOptions = BaseLayout => Component => options => {
-  const screen = ({ navigation }) =>
+  const screen = ({ navigation }) => (
     <BaseLayout>
       <Component navigation={navigation} />
-    </BaseLayout>;
+    </BaseLayout>
+  );
 
   screen.navigationOptions = {
     ...options.navigationOptions,
@@ -40,12 +41,13 @@ export const withOptions = BaseLayout => Component => options => {
           }}
         >
           {options.hasCamera && <Camera />}
-          {options.hasProgressBar &&
+          {options.hasProgressBar && (
             <Progress.Bar
               progress={options.progress}
               showsText
               style={{ marginRight: 10 }}
-            />}
+            />
+          )}
         </View>
       );
 

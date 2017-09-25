@@ -5,9 +5,9 @@ import { createStructuredSelector } from "reselect";
 import moment from "moment";
 
 import { mapGenderValueToLabel, camera } from "../../../libs";
-import Picker from "../../../components/picker";
-import DatePicker from "../../../components/datePicker";
-import TextInput from "../../../components/textInput";
+import Picker from "@jacktan/mircle_native_components/picker";
+import DatePicker from "@jacktan/mircle_native_components/datePicker";
+import TextInput from "@jacktan/mircle_native_components/textInput";
 import { updateUser, setUserProfileImage } from "../../../api";
 import Profile from "../profile";
 import { userState } from "../../../states";
@@ -71,7 +71,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       id: 1,
       label: "Gender",
       value: mapGenderValueToLabel(gender),
-      InputComponent: () =>
+      InputComponent: () => (
         <Picker
           selectedValue={gender}
           items={[
@@ -97,12 +97,13 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             }
           }}
         />
+      )
     },
     {
       id: 2,
       label: "Phone Number",
       value: phoneNumber,
-      InputComponent: () =>
+      InputComponent: () => (
         <TextInput
           onEndEditing={async value => {
             const text = value.nativeEvent.text;
@@ -116,12 +117,13 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           keyboardType={"phone-pad"}
           defaultValue={phoneNumber}
         />
+      )
     },
     {
       id: 3,
       label: "Birth Date",
       value: birthDate.toLocaleString(),
-      InputComponent: () =>
+      InputComponent: () => (
         <DatePicker
           value={birthDate}
           onDateChange={async value => {
@@ -133,12 +135,13 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             }
           }}
         />
+      )
     },
     {
       id: 4,
       label: "Occupation",
       value: occupation,
-      InputComponent: () =>
+      InputComponent: () => (
         <TextInput
           onEndEditing={async value => {
             const text = value.nativeEvent.text;
@@ -151,6 +154,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           }}
           defaultValue={occupation}
         />
+      )
     },
     {
       id: 5,

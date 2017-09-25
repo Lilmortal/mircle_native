@@ -3,11 +3,14 @@ import { View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import { validate } from "../../libs";
-import { RegularText, ButtonText } from "../../components/text";
-import TextInput from "../../components/textInput";
-import Button from "../../components/button";
-import Modal from "../../components/modal";
-import ListItem from "../../components/listItem";
+import {
+  RegularText,
+  ButtonText
+} from "@jacktan/mircle_native_components/text";
+import TextInput from "@jacktan/mircle_native_components/textInput";
+import Button from "@jacktan/mircle_native_components/button";
+import Modal from "@jacktan/mircle_native_components/modal";
+import ListItem from "@jacktan/mircle_native_components/listItem";
 import Setting from "./setting";
 import styles from "./styles";
 

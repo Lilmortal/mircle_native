@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import { View, Alert } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-import TextInput from "../../components/textInput";
-import Button from "../../components/button";
-import { LogoText, RegularText, ButtonText } from "../../components/text";
+import TextInput from "@jacktan/mircle_native_components/textInput";
+import Button from "@jacktan/mircle_native_components/button";
+import {
+  LogoText,
+  RegularText,
+  ButtonText
+} from "@jacktan/mircle_native_components/text";
 import { images, routeKeys } from "../../config";
 import styles from "./styles";
 

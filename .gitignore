@@ -54,3 +54,4 @@ fastlane/screenshots
 
 # Our files
 .vscode
+android/app/mircle_native.keystore

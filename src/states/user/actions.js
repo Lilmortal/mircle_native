@@ -79,10 +79,7 @@ export const UPDATE_FEEDS = feeds => ({
   feeds
 });
 
-export const UPDATE_FRIENDS = friends => {
-  console.log(friends);
-  return {
-    type: actionTypes.UPDATE_FRIENDS,
-    friends
-  };
-};
+export const UPDATE_FRIENDS = friends => ({
+  type: actionTypes.UPDATE_FRIENDS,
+  friends
+});
