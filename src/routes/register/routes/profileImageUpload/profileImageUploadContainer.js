@@ -37,7 +37,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         }
       }
     },
-    goNextPage: () => navigation.navigate(routeKeys.RegisterAccountSummary)
+    goNextPage: async () =>
+      navigation.navigate(routeKeys.RegisterAccountSummary)
   };
 };
 

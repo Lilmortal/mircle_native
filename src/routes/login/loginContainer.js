@@ -40,9 +40,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         const token = await login(emailAddress, password);
         await AsyncStorage.setItem("token", token);
         const user = await getUserByEmailAddress(emailAddress);
-        const friends = user.friends;
+        const friends = await getListOfFriends(user.id);
 
-        user.friends = [];
+        console.log(friends);
+        user.friends = friends;
 
         dispatch(RESET_USER_STATE());
 
@@ -53,9 +54,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           dispatch(UPDATE_FEEDS(feeds));
         }
 
-        //const friends = await getListOfFriends(user.id);
-
-        const s = [];
+        /*const s = [];
         const userFriends = friends.map(friend => {
           const updatedFriend = {};
           const pkFriend = friend.pk.friend;
@@ -65,11 +64,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           updatedFriend.surname = pkFriend.surname;
           updatedFriend.addedTime = friend.addedTime;
           return s.push(updatedFriend);
-        });
+        });*/
 
-        if (friends) {
+        /*if (friends) {
           dispatch(UPDATE_FRIENDS(s));
-        }
+        }*/
 
         navigation.navigate(routeKeys.QrCode);
       } catch (err) {

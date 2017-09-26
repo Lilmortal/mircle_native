@@ -22,9 +22,14 @@ export default class Feeds extends Component {
 
   render() {
     const { feeds } = this.props;
-    console.log(feeds);
     return (
-      <View>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: !feeds ? "column" : "row",
+          alignItems: !feeds ? "flex-start" : "center"
+        }}
+      >
         <Spinner show={this.state.loading} />
         <FlatList
           data={feeds}
@@ -36,16 +41,21 @@ export default class Feeds extends Component {
               </RegularText>
             </View>
           }
-          renderItem={({ item }) => (
+          renderItem={({ item }) =>
             <Feed key={item.id}>
               <ProfileImage source={item.profileImage} />
               <View style={styles.feedContainer}>
-                <RegularText bold>{item.name}</RegularText>
-                <SmallText>{item.date}</SmallText>
-                <RegularText>{item.message}</RegularText>
+                <RegularText bold>
+                  {item.name}
+                </RegularText>
+                <SmallText>
+                  {item.date}
+                </SmallText>
+                <RegularText>
+                  {item.message}
+                </RegularText>
               </View>
-            </Feed>
-          )}
+            </Feed>}
         />
       </View>
     );

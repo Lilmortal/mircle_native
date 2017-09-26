@@ -25,7 +25,13 @@ export default class Friends extends Component {
     const { friends, goToFriendProfilePage } = this.props;
 
     return (
-      <View>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: !friends ? "column" : "row",
+          alignItems: !friends ? "flex-start" : "center"
+        }}
+      >
         <Spinner show={this.state.loading} />
         <FlatList
           data={friends}
@@ -38,7 +44,7 @@ export default class Friends extends Component {
               </RegularText>
             </View>
           }
-          renderItem={({ item }) => (
+          renderItem={({ item }) =>
             <TouchableOpacity onPress={() => goToFriendProfilePage(item.id)}>
               <View>
                 <Feed key={item.id} isSelectable>
@@ -58,8 +64,7 @@ export default class Friends extends Component {
                   </View>
                 </Feed>
               </View>
-            </TouchableOpacity>
-          )}
+            </TouchableOpacity>}
         />
       </View>
     );
