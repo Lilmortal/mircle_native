@@ -41,7 +41,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 
           const friendId = qrCode.data;
           const friend = await addFriend(id, friendId);
-          console.log(friend);
 
           const feedMessage = `You and ${friend.firstName} ${friend.surname} are now friends!`;
           const feed = {

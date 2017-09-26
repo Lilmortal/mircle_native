@@ -28,8 +28,8 @@ export default class Friends extends Component {
       <View
         style={{
           flex: 1,
-          flexDirection: !friends ? "column" : "row",
-          alignItems: !friends ? "flex-start" : "center"
+          flexDirection: friends.length > 0 ? "column" : "row",
+          alignItems: friends.length > 0 ? "stretch" : "center"
         }}
       >
         <Spinner show={this.state.loading} />
@@ -44,7 +44,7 @@ export default class Friends extends Component {
               </RegularText>
             </View>
           }
-          renderItem={({ item }) =>
+          renderItem={({ item }) => (
             <TouchableOpacity onPress={() => goToFriendProfilePage(item.id)}>
               <View>
                 <Feed key={item.id} isSelectable>
@@ -64,7 +64,8 @@ export default class Friends extends Component {
                   </View>
                 </Feed>
               </View>
-            </TouchableOpacity>}
+            </TouchableOpacity>
+          )}
         />
       </View>
     );

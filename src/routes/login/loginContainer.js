@@ -41,34 +41,15 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         await AsyncStorage.setItem("token", token);
         const user = await getUserByEmailAddress(emailAddress);
         const friends = await getListOfFriends(user.id);
-
-        console.log(friends);
         user.friends = friends;
 
         dispatch(RESET_USER_STATE());
-
         dispatch(POPULATE_USER_STATE(user));
-        const feeds = await getFeeds(user.id);
 
+        const feeds = await getFeeds(user.id);
         if (feeds && feeds.length) {
           dispatch(UPDATE_FEEDS(feeds));
         }
-
-        /*const s = [];
-        const userFriends = friends.map(friend => {
-          const updatedFriend = {};
-          const pkFriend = friend.pk.friend;
-          updatedFriend.id = pkFriend.id;
-          updatedFriend.profileImage = pkFriend.profileImage;
-          updatedFriend.firstName = pkFriend.firstName;
-          updatedFriend.surname = pkFriend.surname;
-          updatedFriend.addedTime = friend.addedTime;
-          return s.push(updatedFriend);
-        });*/
-
-        /*if (friends) {
-          dispatch(UPDATE_FRIENDS(s));
-        }*/
 
         navigation.navigate(routeKeys.QrCode);
       } catch (err) {

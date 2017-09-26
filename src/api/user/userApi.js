@@ -116,12 +116,7 @@ export const addFriend = async (id, friendId) => {
   } catch (err) {
     return Promise.reject(err);
   }
-  const json = await response.json();
-  const friend = {
-    addedTime: json.addedTime,
-    ...json.pk.friend
-  };
-  return friend;
+  return response.json();
 };
 
 export const getListOfFriends = async id => {
