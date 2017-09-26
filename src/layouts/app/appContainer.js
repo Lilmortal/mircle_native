@@ -1,6 +1,7 @@
 import { Alert } from "react-native";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { withNavigation } from "react-navigation";
 
 import App from "./app";
 
@@ -72,4 +73,4 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     }
   };
 };
-export default connect(mapStateToProps, null, mergeProps)(App);
+export default connect(mapStateToProps, null, mergeProps)(withNavigation(App));

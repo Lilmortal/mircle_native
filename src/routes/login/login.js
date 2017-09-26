@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import { View, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity, BackHandler, Platform } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { NavigationActions } from "react-navigation";
 
 import Spinner from "@jacktan/mircle_native_components/spinner";
 import BackgroundImage from "@jacktan/mircle_native_components/backgroundImage";
 import TextInput from "@jacktan/mircle_native_components/textInput";
 import Button from "@jacktan/mircle_native_components/button";
+import Modal from "@jacktan/mircle_native_components/modal";
 import {
   LogoText,
   TitleDescriptionText,
@@ -24,13 +26,26 @@ class Login extends Component {
     this.state = {
       emailAddress: "",
       password: "",
-      loading: false
+      loading: false,
+      quitAppModalVisible: false
     };
   }
 
   componentDidMount() {
     // register pages redirect to login page no matter what, this resets its state.
     this.props.resetRegisterDetails();
+    NavigationActions.reset();
+
+    if (Platform.OS === "android") {
+      BackHandler.addEventListener("hardwareBackPress", () => {
+        this.setQuitAppModalVisible(true);
+        return true;
+      });
+    }
+  }
+
+  setQuitAppModalVisible(quitAppModalVisible) {
+    this.setState({ quitAppModalVisible });
   }
 
   setEmailAddress(emailAddress) {
@@ -123,6 +138,31 @@ class Login extends Component {
             </View>
           </TouchableOpacity>
         </View>
+
+        <Modal
+          visible={this.state.quitAppModalVisible}
+          onRequestClose={() => this.setQuitAppModalVisible(false)}
+          Icon={<Icon name="lock" size={25} />}
+          title="Are you sure you want to quit?"
+        >
+          <View>
+            <Button
+              onPress={() => {
+                BackHandler.exitApp();
+              }}
+              color="black"
+            >
+              <ButtonText>Yes</ButtonText>
+            </Button>
+
+            <Button
+              onPress={() => this.setQuitAppModalVisible(false)}
+              color="black"
+            >
+              <ButtonText>No</ButtonText>
+            </Button>
+          </View>
+        </Modal>
       </View>
     );
   }
