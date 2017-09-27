@@ -1,5 +1,6 @@
 const navigationOptions = {
-  header: null
+  header: null,
+  gesturesEnabled: false
 };
 
 export default navigationOptions;

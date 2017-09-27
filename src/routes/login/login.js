@@ -44,6 +44,12 @@ class Login extends Component {
     }
   }
 
+  componentWillUnmount() {
+    BackHandler.removeEventListener("hardwareBackPress", () => {
+      this.setQuitAppModalVisible(true);
+    });
+  }
+
   setQuitAppModalVisible(quitAppModalVisible) {
     this.setState({ quitAppModalVisible });
   }

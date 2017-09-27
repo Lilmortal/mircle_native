@@ -9,6 +9,8 @@ import Button from "@jacktan/mircle_native_components/button";
 import Modal from "@jacktan/mircle_native_components/modal";
 import { ButtonText } from "@jacktan/mircle_native_components/text";
 
+import { routeKeys } from "../../config";
+
 import styles from "./styles";
 
 class AppLayout extends Component {
@@ -20,23 +22,57 @@ class AppLayout extends Component {
   }
 
   componentDidMount() {
-    const { navigation } = this.props;
+    const { navigation, navigator, stacks, updateStack, popStack } = this.props;
+
+    //console.log("DIDMOUNT " + stacks);
+    //when u click back, this adds it back
+    if (stacks[stacks.length - 1] !== navigation.state.routeName) {
+      updateStack(navigation.state.routeName);
+      // This is because stacks inside hardwareBackPress is not updated due to it being a callback
+      //stacks.push(navigation.state.routeName);
+    }
 
     if (Platform.OS === "android") {
-      BackHandler.addEventListener("hardwareBackPress", () => {
-        console.log(navigation, navigation.navigate.length);
-        this.setLogoutModalVisible(true);
-        return true;
-      });
+      BackHandler.addEventListener("hardwareBackPress", () =>
+        this.backHandler()
+      );
     }
   }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener("hardwareBackPress", () =>
+      this.backHandler()
+    );
+  }
+
+  backHandler = () => {
+    const { navigation, stacks, popStack } = this.props;
+    // Check if the previous stack is the login page
+    if (stacks[stacks.length - 2] === routeKeys.Login) {
+      this.setLogoutModalVisible(true);
+      return true;
+    } else {
+      popStack();
+      //stacks.pop();
+      //console.log("BACK " + stacks, stacks[stacks.length - 1]);
+      navigation.navigate(stacks[stacks.length - 2]);
+    }
+
+    return true;
+  };
 
   setLogoutModalVisible(logoutModalVisible) {
     this.setState({ logoutModalVisible });
   }
 
   render() {
-    const { cameraActive, readQRCode, children, navigation } = this.props;
+    const {
+      cameraActive,
+      readQRCode,
+      children,
+      navigation,
+      clearStacks
+    } = this.props;
     return (
       <Animatable.View animation="fadeIn" style={styles.appLayout}>
         {cameraActive &&
@@ -56,7 +92,8 @@ class AppLayout extends Component {
           <View>
             <Button
               onPress={() => {
-                BackHandler.exitApp();
+                clearStacks();
+                navigation.goBack(null);
               }}
               color="black"
             >

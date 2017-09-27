@@ -7,10 +7,18 @@ import App from "./app";
 
 import { pushNotification } from "../../libs";
 import { addFriend, getUserById, addFeed } from "../../api";
-import { cameraState, userState, settingsState } from "../../states";
+import {
+  cameraState,
+  stacksState,
+  userState,
+  settingsState
+} from "../../states";
 
 const { UPDATE_CAMERA_ACTIVE } = cameraState.actions;
 const { getCameraActive } = cameraState.selectors;
+
+const { UPDATE_STACKS, CLEAR_STACKS, POP_STACK } = stacksState.actions;
+const { getStacks } = stacksState.selectors;
 
 const { UPDATE_FEEDS, UPDATE_FRIENDS } = userState.actions;
 const { getId } = userState.selectors;
@@ -23,7 +31,8 @@ const mapStateToProps = () => {
     cameraActive: getCameraActive,
     sound: getSound,
     soundVolume: getSoundVolume,
-    vibration: getVibration
+    vibration: getVibration,
+    stacks: getStacks
   });
 };
 
@@ -34,6 +43,15 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   return {
     ...ownProps,
     ...stateProps,
+    clearStacks: () => {
+      dispatch(CLEAR_STACKS());
+    },
+    updateStack: stacks => {
+      dispatch(UPDATE_STACKS(stacks));
+    },
+    popStack: () => {
+      dispatch(POP_STACK());
+    },
     readQRCode: async qrCode => {
       if (qrCode.type === "QR_CODE") {
         try {

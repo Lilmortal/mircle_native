@@ -21,6 +21,12 @@ import Biography from "./components/biography";
 import styles from "./styles";
 
 class Profile extends Component {
+  static navigationOptions = ({ navigation }) => {
+    if (navigation.state.params && navigation.state.params.user) {
+      return { title: `${navigation.state.params.user}` };
+    }
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -80,21 +86,22 @@ class Profile extends Component {
                   <TitleText color="white" bold>
                     {firstName} {surname}
                   </TitleText>
-                  <RegularText>{emailAddress}</RegularText>
+                  <RegularText>
+                    {emailAddress}
+                  </RegularText>
                 </View>
               </View>
-              {isAFriend && (
+              {isAFriend &&
                 <View style={styles.map}>
                   <TouchableOpacity onPress={goToMap}>
                     <Icon name="map" size={25} />
                   </TouchableOpacity>
-                </View>
-              )}
+                </View>}
             </Image>
           }
           data={data}
           keyExtractor={item => item.id}
-          renderItem={({ item }) => (
+          renderItem={({ item }) =>
             <Biography
               label={item.label}
               value={item.value}
@@ -102,8 +109,7 @@ class Profile extends Component {
               disabled={item.disabled}
               selectable={!isAFriend}
               style={() => this.checkIfTileIsInEdge(item.id, data)}
-            />
-          )}
+            />}
         />
 
         <Modal

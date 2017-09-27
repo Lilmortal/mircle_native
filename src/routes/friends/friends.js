@@ -44,7 +44,7 @@ export default class Friends extends Component {
               </RegularText>
             </View>
           }
-          renderItem={({ item }) => (
+          renderItem={({ item }) =>
             <TouchableOpacity onPress={() => goToFriendProfilePage(item.id)}>
               <View>
                 <Feed key={item.id} isSelectable>
@@ -64,8 +64,7 @@ export default class Friends extends Component {
                   </View>
                 </Feed>
               </View>
-            </TouchableOpacity>
-          )}
+            </TouchableOpacity>}
         />
       </View>
     );
