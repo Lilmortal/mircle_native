@@ -13,6 +13,8 @@ import { routeKeys } from "../../config";
 
 import styles from "./styles";
 
+let listener = null;
+
 class AppLayout extends Component {
   constructor(props) {
     super(props);
@@ -26,14 +28,20 @@ class AppLayout extends Component {
 
     //console.log("DIDMOUNT " + stacks);
     //when u click back, this adds it back
+    console.log(
+      "Mount ",
+      stacks,
+      stacks[stacks.length - 1],
+      navigation.state.routeName
+    );
     if (stacks[stacks.length - 1] !== navigation.state.routeName) {
       updateStack(navigation.state.routeName);
       // This is because stacks inside hardwareBackPress is not updated due to it being a callback
       //stacks.push(navigation.state.routeName);
     }
 
-    if (Platform.OS === "android") {
-      BackHandler.addEventListener("hardwareBackPress", () =>
+    if (Platform.OS === "android" && listener === null) {
+      listener = BackHandler.addEventListener("hardwareBackPress", () =>
         this.backHandler()
       );
     }
@@ -47,6 +55,12 @@ class AppLayout extends Component {
 
   backHandler = () => {
     const { navigation, stacks, popStack } = this.props;
+    console.log(
+      "Back button ",
+      stacks,
+      stacks[stacks.length - 1],
+      stacks[stacks.length - 2]
+    );
     // Check if the previous stack is the login page
     if (stacks[stacks.length - 2] === routeKeys.Login) {
       this.setLogoutModalVisible(true);
@@ -55,7 +69,7 @@ class AppLayout extends Component {
       popStack();
       //stacks.pop();
       //console.log("BACK " + stacks, stacks[stacks.length - 1]);
-      navigation.navigate(stacks[stacks.length - 2]);
+      //navigation.goBack(navigation.state.routeName);
     }
 
     return true;
@@ -75,12 +89,13 @@ class AppLayout extends Component {
     } = this.props;
     return (
       <Animatable.View animation="fadeIn" style={styles.appLayout}>
-        {cameraActive &&
+        {cameraActive && (
           <Camera
             style={styles.camera}
             onBarCodeRead={qrCode => readQRCode(qrCode)}
             barCodeTypes={["qr"]}
-          />}
+          />
+        )}
         {!cameraActive && children}
 
         <Modal
