@@ -7,17 +7,17 @@ import Hamburger from "@jacktan/mircle_native_components/hamburger";
 import { routeKeys, images } from "../../config";
 
 export const withOptions = BaseLayout => Component => options => {
-  const screen = ({ navigation }) => (
+  const screen = ({ navigation }) =>
     <BaseLayout>
       <Component navigation={navigation} />
-    </BaseLayout>
-  );
+    </BaseLayout>;
 
   screen.navigationOptions = {
     ...options.navigationOptions,
     drawerIcon: options.drawerIcon,
     title: options.title,
     headerLeft: options.headerLeft,
+    gesturesEnabled: options.gesturesEnabled,
     ...Component.navigationOptions
   };
 
@@ -41,13 +41,12 @@ export const withOptions = BaseLayout => Component => options => {
           }}
         >
           {options.hasCamera && <Camera />}
-          {options.hasProgressBar && (
+          {options.hasProgressBar &&
             <Progress.Bar
               progress={options.progress}
               showsText
               style={{ marginRight: 10 }}
-            />
-          )}
+            />}
         </View>
       );
 

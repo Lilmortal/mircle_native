@@ -31,7 +31,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       try {
         const friend = await getUserById(friendId);
         dispatch(POPULATE_FRIEND_STATE(friend));
-        navigation.navigate(routeKeys.FriendsProfile);
+        navigation.navigate(routeKeys.FriendsProfile, { user: `${friend.firstName} ${friend.surname}`});
       } catch (err) {
         Alert.alert(
           "Attempting to populate friends profile failed.",

@@ -14,11 +14,14 @@ import {
   RegularText,
   ButtonText
 } from "@jacktan/mircle_native_components/text";
+import { routeKeys } from "../../config";
 
 import styles from "./styles";
 
 const emailIcon = <Icon name="envelope" color="white" />;
 const passwordIcon = <Icon name="lock" color="white" />;
+
+let listener = null;
 
 class Login extends Component {
   constructor(props) {
@@ -32,16 +35,26 @@ class Login extends Component {
   }
 
   componentDidMount() {
+    const { isLoggedIn, navigation, resetRegisterDetails } = this.props;
+
     // register pages redirect to login page no matter what, this resets its state.
-    this.props.resetRegisterDetails();
+    resetRegisterDetails();
     NavigationActions.reset();
 
-    if (Platform.OS === "android") {
-      BackHandler.addEventListener("hardwareBackPress", () => {
+    if (isLoggedIn) {
+      navigation.navigate(routeKeys.QrCode);
+    }
+
+    if (Platform.OS === "android" && listener === null) {
+      listener = BackHandler.addEventListener("hardwareBackPress", () => {
         this.setQuitAppModalVisible(true);
         return true;
       });
     }
+  }
+
+  componentWillUnmount() {
+    listener.remove();
   }
 
   setQuitAppModalVisible(quitAppModalVisible) {

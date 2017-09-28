@@ -11,6 +11,7 @@ import routeKeys from "../routeKeys";
 import {
   appNavigationOptions,
   loginNavigationOptions,
+  registrationNavigationOptions,
   settingsNavigationOptions
 } from "./navigationOptions";
 
@@ -20,6 +21,7 @@ import RegisterLayout from "../../layouts/register";
 
 import ForgotPasswordScreen from "../../routes/forgotPassword";
 import LoginScreen from "../../routes/login";
+import LogoutScreen from "../../routes/logout";
 import RegisterAccountCreationScreen from "../../routes/register/routes/accountCreation";
 import RegisterAdditionalDetailsScreen from "../../routes/register/routes/additionalDetails";
 import RegisterProfileImageUploadScreen from "../../routes/register/routes/profileImageUpload";
@@ -97,14 +99,25 @@ const settingsStack = StackNavigator({
   })
 });
 
+const logoutStack = StackNavigator({
+  [routeKeys.Logout]: withOptions(LoginLayout)(LogoutScreen)({
+    hasHamburgerMenu: false,
+    hasCamera: false,
+    navigationOptions: {
+      header: null
+    },
+    title: "Logout",
+    drawerIcon: () => <Icon name="sign-out" color="black" />
+  })
+});
+
 const loginStack = StackNavigator({
   [routeKeys.Login]: withOptions(LoginLayout)(LoginScreen)({
     hasHamburgerMenu: false,
     hasCamera: false,
-    navigationOptions: loginNavigationOptions,
-    title: "Logout",
-    drawerIcon: () => <Icon name="sign-out" color="black" />
+    navigationOptions: loginNavigationOptions
   }),
+
   [routeKeys.ForgotPassword]: withOptions(LoginLayout)(ForgotPasswordScreen)({
     hasHamburgerMenu: false,
     hasCamera: false,
@@ -118,7 +131,7 @@ const loginStack = StackNavigator({
     hasCamera: false,
     hasProgressBar: true,
     progress: 0,
-    navigationOptions: settingsNavigationOptions,
+    navigationOptions: registrationNavigationOptions,
     title: "Step 1"
   }),
   [routeKeys.RegisterAdditionalDetails]: withOptions(RegisterLayout)(
@@ -128,7 +141,7 @@ const loginStack = StackNavigator({
     hasCamera: false,
     hasProgressBar: true,
     progress: 0.25,
-    navigationOptions: settingsNavigationOptions,
+    navigationOptions: registrationNavigationOptions,
     title: "Step 2"
   }),
   [routeKeys.RegisterProfileImageUpload]: withOptions(RegisterLayout)(
@@ -138,7 +151,7 @@ const loginStack = StackNavigator({
     hasCamera: false,
     hasProgressBar: true,
     progress: 0.5,
-    navigationOptions: settingsNavigationOptions,
+    navigationOptions: registrationNavigationOptions,
     title: "Photo Upload"
   }),
   [routeKeys.RegisterAccountSummary]: withOptions(RegisterLayout)(
@@ -148,7 +161,7 @@ const loginStack = StackNavigator({
     hasCamera: false,
     hasProgressBar: true,
     progress: 0.75,
-    navigationOptions: settingsNavigationOptions,
+    navigationOptions: registrationNavigationOptions,
     title: "Summary"
   }),
   [routeKeys.RegisterEmailConfirmation]: withOptions(RegisterLayout)(
@@ -158,7 +171,7 @@ const loginStack = StackNavigator({
     hasCamera: false,
     hasProgressBar: true,
     progress: 1,
-    navigationOptions: settingsNavigationOptions,
+    navigationOptions: registrationNavigationOptions,
     headerLeft: null,
     title: "Email confirmation"
   })
@@ -171,18 +184,20 @@ const drawerNav = DrawerNavigator(
     Feeds: { screen: feedsStack },
     Friends: { screen: friendsStack },
     Settings: { screen: settingsStack },
+    Logout: { screen: logoutStack },
     Login: { screen: loginStack }
   },
   {
     initialRouteName: "Login",
     drawerWidth: 300,
-    contentComponent: props =>
+    contentComponent: props => (
       <View>
         <DrawerPanel
           onPress={() => props.navigation.navigate(routeKeys.UserProfile)}
         />
         <DrawerItems {...props} />
       </View>
+    )
   }
 );
 
