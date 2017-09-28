@@ -34,7 +34,9 @@
     "redux": "^3.7.2",
     "redux-persist": "^4.9.1",
     "redux-thunk": "^2.2.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "sockjs-client": "^1.1.4",
+    "webstomp-client": "^1.0.8"
   },
   "devDependencies": {
     "@npmsoluto/enzyme-react-16": "github:Soluto/enzyme-react-16",

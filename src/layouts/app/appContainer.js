@@ -6,20 +6,23 @@ import { withNavigation } from "react-navigation";
 import App from "./app";
 
 import { pushNotification } from "../../libs";
-import { addFriend, getUserById, addFeed } from "../../api";
+import { addFriend, getUserById, addFeed, sendAFriendRequest } from "../../api";
 import { cameraState, userState, settingsState } from "../../states";
 
 const { UPDATE_CAMERA_ACTIVE } = cameraState.actions;
 const { getCameraActive } = cameraState.selectors;
 
 const { UPDATE_FEEDS, UPDATE_FRIENDS } = userState.actions;
-const { getId } = userState.selectors;
+const { getId, getFirstName, getSurname, getStompClient } = userState.selectors;
 
 const { getSound, getSoundVolume, getVibration } = settingsState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
     id: getId,
+    firstName: getFirstName,
+    surname: getSurname,
+    stompClient: getStompClient,
     cameraActive: getCameraActive,
     sound: getSound,
     soundVolume: getSoundVolume,
@@ -28,7 +31,15 @@ const mapStateToProps = () => {
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { id, sound, soundVolume, vibration } = stateProps;
+  const {
+    id,
+    firstName,
+    surname,
+    stompClient,
+    sound,
+    soundVolume,
+    vibration
+  } = stateProps;
   const { dispatch } = dispatchProps;
 
   return {
@@ -65,6 +76,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           );
 
           dispatch(UPDATE_FRIENDS(friend));
+
+          sendAFriendRequest(stompClient, id, friendId, firstName, surname);
         } catch (err) {
           Alert.alert("Attempting to add a friend failed.", err.toString());
         }

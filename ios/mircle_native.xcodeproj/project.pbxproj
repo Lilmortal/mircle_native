@@ -282,14 +282,14 @@
 			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
 			remoteInfo = RNImagePicker;
 		};
-		76DB8D491F7BBB0300D729CA /* PBXContainerItemProxy */ = {
+		76DB8D811F7CCA8300D729CA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3D383D3C1EBD27B6005632C8;
 			remoteInfo = "third-party-tvOS";
 		};
-		76DB8D4B1F7BBB0300D729CA /* PBXContainerItemProxy */ = {
+		76DB8D831F7CCA8300D729CA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 			proxyType = 2;
@@ -525,9 +525,9 @@
 				3DAD3EAD1DF850E9000B6D8A /* libjschelpers.a */,
 				3DAD3EAF1DF850E9000B6D8A /* libjschelpers.a */,
 				76C129331F616A26004AC57D /* libthird-party.a */,
-				76DB8D4A1F7BBB0300D729CA /* libthird-party.a */,
+				76DB8D821F7CCA8300D729CA /* libthird-party.a */,
 				76C129351F616A26004AC57D /* libdouble-conversion.a */,
-				76DB8D4C1F7BBB0300D729CA /* libdouble-conversion.a */,
+				76DB8D841F7CCA8300D729CA /* libdouble-conversion.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -581,7 +581,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		76DB8D281F7BBB0200D729CA /* Recovered References */ = {
+		76DB8D601F7CCA7B00D729CA /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				D131E5BDAEC4416CB307DBF1 /* libRCTCamera.a */,
@@ -644,7 +644,7 @@
 				00E356EF1AD99517003FC87E /* mircle_nativeTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				C79F80216A6C47E29021C77D /* Resources */,
-				76DB8D281F7BBB0200D729CA /* Recovered References */,
+				76DB8D601F7CCA7B00D729CA /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -1078,18 +1078,18 @@
 			remoteRef = 76C129481F616A27004AC57D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		76DB8D4A1F7BBB0300D729CA /* libthird-party.a */ = {
+		76DB8D821F7CCA8300D729CA /* libthird-party.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libthird-party.a";
-			remoteRef = 76DB8D491F7BBB0300D729CA /* PBXContainerItemProxy */;
+			remoteRef = 76DB8D811F7CCA8300D729CA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		76DB8D4C1F7BBB0300D729CA /* libdouble-conversion.a */ = {
+		76DB8D841F7CCA8300D729CA /* libdouble-conversion.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libdouble-conversion.a";
-			remoteRef = 76DB8D4B1F7BBB0300D729CA /* PBXContainerItemProxy */;
+			remoteRef = 76DB8D831F7CCA8300D729CA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {

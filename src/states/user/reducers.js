@@ -22,7 +22,8 @@ const initialState = {
   lastLoggedIn: "",
   isLoggedIn: false,
   feeds: [],
-  friends: []
+  friends: [],
+  stompClient: undefined
 };
 
 const reducer = (state = initialState, payload) => {
@@ -150,6 +151,12 @@ const reducer = (state = initialState, payload) => {
       return {
         ...state,
         feeds: updatedFeeds
+      };
+    }
+    case actionTypes.UPDATE_STOMP_CLIENT: {
+      return {
+        ...state,
+        stompClient: payload.stompClient
       };
     }
     default:

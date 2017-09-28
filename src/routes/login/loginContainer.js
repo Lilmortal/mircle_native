@@ -8,7 +8,8 @@ import {
   login,
   getFeeds,
   getListOfFriends,
-  getUserByEmailAddress
+  getUserByEmailAddress,
+  connectToWebSocket
 } from "../../api";
 import { registrationState, userState } from "../../states";
 
@@ -17,7 +18,8 @@ const {
   POPULATE_USER_STATE,
   UPDATE_FEEDS,
   UPDATE_FRIENDS,
-  UPDATE_IS_LOGGED_IN
+  UPDATE_IS_LOGGED_IN,
+  UPDATE_STOMP_CLIENT
 } = userState.actions;
 
 const { isLoggedIn } = userState.selectors;
@@ -55,12 +57,13 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         dispatch(POPULATE_USER_STATE(user));
         dispatch(UPDATE_IS_LOGGED_IN(true));
 
+        const stompClient = await connectToWebSocket();
+        dispatch(UPDATE_STOMP_CLIENT(stompClient));
         const feeds = await getFeeds(user.id);
         if (feeds && feeds.length) {
           dispatch(UPDATE_FEEDS(feeds));
         }
 
-        const socket = new WebSocket("ws://localhost:")
         navigation.navigate(routeKeys.QrCode);
       } catch (err) {
         Alert.alert("Attempting to login failed.", err.toString());
