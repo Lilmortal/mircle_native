@@ -21,6 +21,7 @@ import RegisterLayout from "../../layouts/register";
 
 import ForgotPasswordScreen from "../../routes/forgotPassword";
 import LoginScreen from "../../routes/login";
+import LogoutScreen from "../../routes/logout";
 import RegisterAccountCreationScreen from "../../routes/register/routes/accountCreation";
 import RegisterAdditionalDetailsScreen from "../../routes/register/routes/additionalDetails";
 import RegisterProfileImageUploadScreen from "../../routes/register/routes/profileImageUpload";
@@ -98,14 +99,25 @@ const settingsStack = StackNavigator({
   })
 });
 
+const logoutStack = StackNavigator({
+  [routeKeys.Logout]: withOptions(LoginLayout)(LogoutScreen)({
+    hasHamburgerMenu: false,
+    hasCamera: false,
+    navigationOptions: {
+      header: null
+    },
+    title: "Logout",
+    drawerIcon: () => <Icon name="sign-out" color="black" />
+  })
+});
+
 const loginStack = StackNavigator({
   [routeKeys.Login]: withOptions(LoginLayout)(LoginScreen)({
     hasHamburgerMenu: false,
     hasCamera: false,
-    navigationOptions: loginNavigationOptions,
-    title: "Logout",
-    drawerIcon: () => <Icon name="sign-out" color="black" />
+    navigationOptions: loginNavigationOptions
   }),
+
   [routeKeys.ForgotPassword]: withOptions(LoginLayout)(ForgotPasswordScreen)({
     hasHamburgerMenu: false,
     hasCamera: false,
@@ -172,18 +184,20 @@ const drawerNav = DrawerNavigator(
     Feeds: { screen: feedsStack },
     Friends: { screen: friendsStack },
     Settings: { screen: settingsStack },
+    Logout: { screen: logoutStack },
     Login: { screen: loginStack }
   },
   {
     initialRouteName: "Login",
     drawerWidth: 300,
-    contentComponent: props =>
+    contentComponent: props => (
       <View>
         <DrawerPanel
           onPress={() => props.navigation.navigate(routeKeys.UserProfile)}
         />
         <DrawerItems {...props} />
       </View>
+    )
   }
 );
 

@@ -14,11 +14,19 @@ import { registrationState, userState } from "../../states";
 
 const { RESET_REGISTER_DETAILS } = registrationState.actions;
 const {
-  RESET_USER_STATE,
   POPULATE_USER_STATE,
   UPDATE_FEEDS,
-  UPDATE_FRIENDS
+  UPDATE_FRIENDS,
+  UPDATE_IS_LOGGED_IN
 } = userState.actions;
+
+const { isLoggedIn } = userState.selectors;
+
+const mapStateToProps = () => {
+  return createStructuredSelector({
+    isLoggedIn
+  });
+};
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { dispatch } = dispatchProps;
@@ -26,6 +34,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 
   return {
     ...ownProps,
+    ...stateProps,
     resetRegisterDetails: () => {
       dispatch(RESET_REGISTER_DETAILS());
     },
@@ -43,8 +52,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         const friends = await getListOfFriends(user.id);
         user.friends = friends;
 
-        dispatch(RESET_USER_STATE());
         dispatch(POPULATE_USER_STATE(user));
+        dispatch(UPDATE_IS_LOGGED_IN(true));
 
         const feeds = await getFeeds(user.id);
         if (feeds && feeds.length) {
@@ -59,4 +68,4 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   };
 };
 
-export default connect(null, null, mergeProps)(Login);
+export default connect(mapStateToProps, null, mergeProps)(Login);
