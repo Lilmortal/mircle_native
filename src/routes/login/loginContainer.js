@@ -60,6 +60,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           dispatch(UPDATE_FEEDS(feeds));
         }
 
+        const socket = new WebSocket("ws://localhost:")
         navigation.navigate(routeKeys.QrCode);
       } catch (err) {
         Alert.alert("Attempting to login failed.", err.toString());
