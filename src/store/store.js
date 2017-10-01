@@ -4,9 +4,12 @@ import thunkMiddleware from "redux-thunk";
 import rootReducer from "./rootReducer";
 
 //ws://192.168.1.113:8080/mircle/echo
+//ws://10.214.12.66:8080/mircle/echo
+//wss://echo.websocket.org
 const Singleton = () => {
   let socket;
-  const createSocket = () => new WebSocket("ws://echo.websocket.org");
+  const createSocket = () =>
+    new WebSocket("wss://10.214.12.66:8080/mircle/echo");
 
   return {
     getSocket: () => {

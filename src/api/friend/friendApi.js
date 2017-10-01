@@ -1,6 +1,3 @@
-import SockJS from "sockjs-client";
-import Stomp from "webstomp-client";
-
 import { URL, WEB_SOCKET_URL } from "../constants";
 import { checkApiStatus, getToken } from "../libs";
 
