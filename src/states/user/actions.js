@@ -83,8 +83,3 @@ export const UPDATE_FRIENDS = friends => ({
   type: actionTypes.UPDATE_FRIENDS,
   friends
 });
-
-export const UPDATE_STOMP_CLIENT = stompClient => ({
-  type: actionTypes.UPDATE_STOMP_CLIENT,
-  stompClient
-});

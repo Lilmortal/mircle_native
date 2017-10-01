@@ -11,7 +11,7 @@ import {
   getUserByEmailAddress,
   connectToWebSocket
 } from "../../api";
-import { registrationState, userState } from "../../states";
+import { registrationState, userState, webSocketState } from "../../states";
 
 const { RESET_REGISTER_DETAILS } = registrationState.actions;
 const {
@@ -19,10 +19,14 @@ const {
   UPDATE_FEEDS,
   UPDATE_FRIENDS,
   UPDATE_IS_LOGGED_IN,
-  UPDATE_STOMP_CLIENT
+  SEND_WEB_SOCKET_MESSAGE
 } = userState.actions;
 
 const { isLoggedIn } = userState.selectors;
+
+const { CONNECT_TO_WEB_SOCKET, SEND_MESSAGE } = webSocketState.actions;
+
+const { getMessage } = webSocketState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
@@ -46,8 +50,15 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     goToForgottenPasswordPage: () => {
       navigation.navigate(routeKeys.ForgotPassword);
     },
+    connect: () => {
+      dispatch(CONNECT_TO_WEB_SOCKET());
+    },
+    sendMessage: message => {
+      dispatch(SEND_MESSAGE(message));
+    },
     login: async (emailAddress, password) => {
       try {
+        dispatch(SEND_MESSAGE("gg"));
         const token = await login(emailAddress, password);
         await AsyncStorage.setItem("token", token);
         const user = await getUserByEmailAddress(emailAddress);
@@ -57,8 +68,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         dispatch(POPULATE_USER_STATE(user));
         dispatch(UPDATE_IS_LOGGED_IN(true));
 
-        const stompClient = await connectToWebSocket();
-        dispatch(UPDATE_STOMP_CLIENT(stompClient));
         const feeds = await getFeeds(user.id);
         if (feeds && feeds.length) {
           dispatch(UPDATE_FEEDS(feeds));

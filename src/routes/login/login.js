@@ -34,6 +34,11 @@ class Login extends Component {
     };
   }
 
+  componentWillMount() {
+    const { connect, sendMessage } = this.props;
+    const ws = connect();
+    sendMessage("Test");
+  }
   componentDidMount() {
     const { isLoggedIn, navigation, resetRegisterDetails } = this.props;
 

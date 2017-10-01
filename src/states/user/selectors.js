@@ -31,5 +31,3 @@ export const isLoggedIn = state => state[NAME].isLoggedIn;
 export const getFeeds = state => state[NAME].feeds;
 
 export const getFriends = state => state[NAME].friends;
-
-export const getStompClient = state => state[NAME].stompClient;

@@ -4,34 +4,27 @@ import Stomp from "webstomp-client";
 import { URL, WEB_SOCKET_URL } from "../constants";
 import { checkApiStatus, getToken } from "../libs";
 
-export const connectToWebSocket = () => {
-  //const token = await getToken();
-  let stompClient;
-  try {
-    const socket = new SockJS("http://192.168.1.113:8080");
-    stompClient = Stomp.over(socket);
+// export const connectToWebSocket = async () => {
+//   const ws = new WebSocket("ws://192.168.1.113:8080");
+//   ws.onmessage = data => {
+//     console.log(data.data);
+//   };
+//   ws.onopen = () => {
+//     ws.send("GG");
+//   };
+//   ws.onerror = error => {
+//     console.log(error);
+//   };
 
-    stompClient.connect({}, frame => {
-      stompClient.subscribe("/friend/request", messageOutput => {
-        console.log(JSON.parse(messageOutput.body));
-      });
-    });
-  } catch (err) {
-    return Promise.reject(err);
-  }
-  return stompClient;
-};
+//   return ws;
+// };
 
-export const sendAFriendRequest = async (
-  stompClient,
-  id,
-  friendId,
-  firstName,
-  surname
-) => {
-  return stompClient.send(
-    "/friend/connect",
-    {},
-    JSON.stringify({ id, friendId, firstName, surname })
-  );
-};
+// export const sendAFriendRequest = async (
+//   webSocket,
+//   id,
+//   friendId,
+//   firstName,
+//   surname
+// ) => {
+//   webSocket.send("Lol");
+// };

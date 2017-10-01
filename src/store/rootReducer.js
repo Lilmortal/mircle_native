@@ -4,13 +4,15 @@ import {
   friendState,
   registrationState,
   userState,
-  settingsState
-} from "./states";
+  settingsState,
+  webSocketState
+} from "../states";
 
 export default combineReducers({
   [cameraState.constants.NAME]: cameraState.reducers,
   [friendState.constants.NAME]: friendState.reducers,
   [registrationState.constants.NAME]: registrationState.reducers,
   [userState.constants.NAME]: userState.reducers,
-  [settingsState.constants.NAME]: settingsState.reducers
+  [settingsState.constants.NAME]: settingsState.reducers,
+  [webSocketState.constants.NAME]: webSocketState.reducers
 });

@@ -110,7 +110,6 @@ describe("Authentication API test", () => {
       }
     };
 
-    console.log(header);
     const response = new Response(HTTP_OK, header);
 
     fetchMock.post(`${URL}/login`, response);

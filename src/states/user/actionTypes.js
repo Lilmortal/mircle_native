@@ -33,5 +33,3 @@ export const UPDATE_IS_LOGGED_IN = "user/UPDATE_IS_LOGGED_IN";
 export const UPDATE_FEEDS = "user/UPDATE_FEEDS";
 
 export const UPDATE_FRIENDS = "user/UPDATE_FRIENDS";
-
-export const UPDATE_STOMP_CLIENT = "user/UPDATE_STOMP_CLIENT";

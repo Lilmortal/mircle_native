@@ -13,7 +13,7 @@ const { UPDATE_CAMERA_ACTIVE } = cameraState.actions;
 const { getCameraActive } = cameraState.selectors;
 
 const { UPDATE_FEEDS, UPDATE_FRIENDS } = userState.actions;
-const { getId, getFirstName, getSurname, getStompClient } = userState.selectors;
+const { getId, getFirstName, getSurname } = userState.selectors;
 
 const { getSound, getSoundVolume, getVibration } = settingsState.selectors;
 
@@ -22,7 +22,6 @@ const mapStateToProps = () => {
     id: getId,
     firstName: getFirstName,
     surname: getSurname,
-    stompClient: getStompClient,
     cameraActive: getCameraActive,
     sound: getSound,
     soundVolume: getSoundVolume,
@@ -31,15 +30,7 @@ const mapStateToProps = () => {
 };
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const {
-    id,
-    firstName,
-    surname,
-    stompClient,
-    sound,
-    soundVolume,
-    vibration
-  } = stateProps;
+  const { id, firstName, surname, sound, soundVolume, vibration } = stateProps;
   const { dispatch } = dispatchProps;
 
   return {
@@ -77,7 +68,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 
           dispatch(UPDATE_FRIENDS(friend));
 
-          sendAFriendRequest(stompClient, id, friendId, firstName, surname);
+          //await sendAFriendRequest(webSocket, id, friendId, firstName, surname);
         } catch (err) {
           Alert.alert("Attempting to add a friend failed.", err.toString());
         }
