@@ -6,23 +6,22 @@ import rootReducer from "./rootReducer";
 //ws://192.168.1.113:8080/mircle/echo
 //ws://10.214.12.66:8080/mircle/echo
 //wss://echo.websocket.org
-const Singleton = () => {
-  let socket;
-  const createSocket = () =>
-    new WebSocket("wss://10.214.12.66:8080/mircle/echo");
+// const Singleton = () => {
+//   let socket;
+//   const createSocket = () => new WebSocket("/mircle/request");
 
-  return {
-    getSocket: () => {
-      if (!socket) {
-        socket = createSocket();
-      }
-      return socket;
-    }
-  };
-};
+//   return {
+//     getSocket: () => {
+//       if (!socket) {
+//         socket = createSocket();
+//       }
+//       return socket;
+//     }
+//   };
+// };
 
 const middleware = applyMiddleware(
-  thunkMiddleware.withExtraArgument(Singleton)
+  thunkMiddleware //.withExtraArgument(Singleton)
 );
 
 const store = compose(middleware)(createStore)(rootReducer);

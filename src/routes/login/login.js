@@ -18,6 +18,9 @@ import { routeKeys } from "../../config";
 
 import styles from "./styles";
 
+import SockJS from "sockjs-client";
+import Stomp from "webstomp-client";
+
 const emailIcon = <Icon name="envelope" color="white" />;
 const passwordIcon = <Icon name="lock" color="white" />;
 
@@ -35,10 +38,36 @@ class Login extends Component {
   }
 
   componentWillMount() {
-    const { connect, sendMessage } = this.props;
-    const ws = connect();
-    sendMessage("Test");
+    // const { connect, sendMessage } = this.props;
+    // const ws = connect();
+    // sendMessage("Test");
+    //10.214.12.66:8080
+    const socket = new SockJS("/request");
+    socket.onopen = () => {
+      const stompClient = Stomp.over(socket);
+      stompClient.connect({}, frame => {
+        console.log(frame);
+        stompClient.subscribe("/pending/request", message => {
+          console.log(JSON.parse(message.body));
+        });
+      });
+
+      stompClient.send(
+        "/friend/request",
+        {},
+        { id: 1, friendId: 1, firstName: "T", surname: "E" }
+      );
+    };
+
+    socket.onerror = error => {
+      console.log(error);
+    };
+
+    socket.onclose = error => {
+      console.log("CLOSE", error);
+    };
   }
+
   componentDidMount() {
     const { isLoggedIn, navigation, resetRegisterDetails } = this.props;
 
