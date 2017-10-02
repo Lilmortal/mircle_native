@@ -131,7 +131,7 @@ const loginStack = StackNavigator({
     hasCamera: false,
     hasProgressBar: true,
     progress: 0,
-    navigationOptions: registrationNavigationOptions,
+    navigationOptions: settingsNavigationOptions,
     title: "Step 1"
   }),
   [routeKeys.RegisterAdditionalDetails]: withOptions(RegisterLayout)(
@@ -141,7 +141,7 @@ const loginStack = StackNavigator({
     hasCamera: false,
     hasProgressBar: true,
     progress: 0.25,
-    navigationOptions: registrationNavigationOptions,
+    navigationOptions: settingsNavigationOptions,
     title: "Step 2"
   }),
   [routeKeys.RegisterProfileImageUpload]: withOptions(RegisterLayout)(
@@ -151,7 +151,7 @@ const loginStack = StackNavigator({
     hasCamera: false,
     hasProgressBar: true,
     progress: 0.5,
-    navigationOptions: registrationNavigationOptions,
+    navigationOptions: settingsNavigationOptions,
     title: "Photo Upload"
   }),
   [routeKeys.RegisterAccountSummary]: withOptions(RegisterLayout)(
@@ -161,7 +161,7 @@ const loginStack = StackNavigator({
     hasCamera: false,
     hasProgressBar: true,
     progress: 0.75,
-    navigationOptions: registrationNavigationOptions,
+    navigationOptions: settingsNavigationOptions,
     title: "Summary"
   }),
   [routeKeys.RegisterEmailConfirmation]: withOptions(RegisterLayout)(
@@ -171,7 +171,7 @@ const loginStack = StackNavigator({
     hasCamera: false,
     hasProgressBar: true,
     progress: 1,
-    navigationOptions: registrationNavigationOptions,
+    navigationOptions: settingsNavigationOptions,
     headerLeft: null,
     title: "Email confirmation"
   })
