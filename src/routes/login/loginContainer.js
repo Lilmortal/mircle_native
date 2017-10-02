@@ -58,7 +58,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     },
     login: async (emailAddress, password) => {
       try {
-        dispatch(SEND_MESSAGE("gg"));
         const token = await login(emailAddress, password);
         await AsyncStorage.setItem("token", token);
         const user = await getUserByEmailAddress(emailAddress);

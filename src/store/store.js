@@ -9,7 +9,7 @@ import rootReducer from "./rootReducer";
 const Singleton = () => {
   let socket;
   const createSocket = () =>
-    new WebSocket("wss://10.214.12.66:8080/mircle/echo");
+    new WebSocket("ws://10.214.12.66:8080/mircle/echo");
 
   return {
     getSocket: () => {

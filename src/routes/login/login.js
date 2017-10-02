@@ -39,6 +39,7 @@ class Login extends Component {
     const ws = connect();
     sendMessage("Test");
   }
+
   componentDidMount() {
     const { isLoggedIn, navigation, resetRegisterDetails } = this.props;
 
