@@ -15,31 +15,29 @@ const { getId, getFriends } = userState.selectors;
 const mapStateToProps = () => {
   return createStructuredSelector({
     id: getId,
-    friends: getFriends
+    friends: getFriends,
   });
 };
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { id } = stateProps;
-  const { dispatch } = dispatchProps;
+const mapDispatchToProps = (dispatch, ownProps) => {
   const { navigation } = ownProps;
 
   return {
-    ...stateProps,
-    ...ownProps,
     goToFriendProfilePage: async friendId => {
       try {
         const friend = await getUserById(friendId);
         dispatch(POPULATE_FRIEND_STATE(friend));
-        navigation.navigate(routeKeys.FriendsProfile, { user: `${friend.firstName} ${friend.surname}`});
+        navigation.navigate(routeKeys.FriendsProfile, {
+          user: `${friend.firstName} ${friend.surname}`,
+        });
       } catch (err) {
         Alert.alert(
           "Attempting to populate friends profile failed.",
           err.toString()
         );
       }
-    }
+    },
   };
 };
 
-export default connect(mapStateToProps, null, mergeProps)(Friends);
+export default connect(mapStateToProps, mapDispatchToProps)(Friends);

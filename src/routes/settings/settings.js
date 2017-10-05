@@ -5,7 +5,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { validate } from "../../libs";
 import {
   RegularText,
-  ButtonText
+  ButtonText,
 } from "@jacktan/mircle_native_components/text";
 import TextInput from "@jacktan/mircle_native_components/textInput";
 import Button from "@jacktan/mircle_native_components/button";
@@ -28,37 +28,37 @@ export default class Settings extends Component {
       newPasswordErrorMessage: "",
       passwordModalVisible: false,
       aboutMircleModalVisible: false,
-      aboutCreatorModalVisible: false
+      aboutCreatorModalVisible: false,
     };
   }
 
   setPasswordModalVisible = passwordModalVisible => {
     this.setState({
-      passwordModalVisible
+      passwordModalVisible,
     });
   };
 
   setAboutMircleModalVisible = aboutMircleModalVisible => {
     this.setState({
-      aboutMircleModalVisible
+      aboutMircleModalVisible,
     });
   };
 
   setAboutCreatorModalVisible = aboutCreatorModalVisible => {
     this.setState({
-      aboutCreatorModalVisible
+      aboutCreatorModalVisible,
     });
   };
 
   setOldPasswordState = oldPassword => {
     this.setState({
-      oldPassword
+      oldPassword,
     });
   };
 
   setNewPasswordState = newPassword => {
     this.setState({
-      newPassword
+      newPassword,
     });
   };
 
@@ -68,11 +68,11 @@ export default class Settings extends Component {
 
     this.setState({
       oldPasswordValid: oldPasswordValidation.isValid,
-      oldPasswordErrorMessage: oldPasswordValidation.errorMessage
+      oldPasswordErrorMessage: oldPasswordValidation.errorMessage,
     });
     this.setState({
       newPasswordValid: newPasswordValidation.isValid,
-      newPasswordErrorMessage: newPasswordValidation.errorMessage
+      newPasswordErrorMessage: newPasswordValidation.errorMessage,
     });
 
     return oldPasswordValidation.isValid && newPasswordValidation.isValid;
@@ -80,13 +80,14 @@ export default class Settings extends Component {
 
   render() {
     const {
+      id,
       sound,
       soundVolume,
       vibration,
       updateSound,
       updateSoundVolume,
       updateVibration,
-      updateUserPassword
+      updateUserPassword,
     } = this.props;
 
     return (
@@ -165,7 +166,7 @@ export default class Settings extends Component {
                 const validation = validate(e.nativeEvent.text, "password");
                 this.setState({
                   oldPasswordValid: validation.isValid,
-                  oldPasswordErrorMessage: validation.errorMessage
+                  oldPasswordErrorMessage: validation.errorMessage,
                 });
               }}
               value={this.state.oldPassword}
@@ -182,7 +183,7 @@ export default class Settings extends Component {
                 const validation = validate(e.nativeEvent.text, "password");
                 this.setState({
                   newPasswordValid: validation.isValid,
-                  newPasswordErrorMessage: validation.errorMessage
+                  newPasswordErrorMessage: validation.errorMessage,
                 });
               }}
               value={this.state.newPassword}
@@ -193,6 +194,7 @@ export default class Settings extends Component {
               onPress={() => {
                 if (this.validateForm()) {
                   updateUserPassword(
+                    id,
                     this.state.oldPassword,
                     this.state.newPassword
                   );

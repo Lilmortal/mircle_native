@@ -10,17 +10,15 @@ const { getEmailAddress, getPhoneNumber } = registrationState.selectors;
 const mapStateToProps = () => {
   return createStructuredSelector({
     email: getEmailAddress,
-    phoneNumber: getPhoneNumber
+    phoneNumber: getPhoneNumber,
   });
 };
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   const { navigation } = ownProps;
   return {
-    ...stateProps,
-    ...ownProps,
-    goNextPage: () => navigation.navigate(routeKeys.Login)
+    goNextPage: () => navigation.navigate(routeKeys.Login),
   };
 };
 
-export default connect(mapStateToProps, null, mergeProps)(EmailConfirmation);
+export default connect(mapStateToProps, mapDispatchToProps)(EmailConfirmation);

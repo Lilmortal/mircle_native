@@ -11,7 +11,7 @@ const { getId } = userState.selectors;
 const {
   UPDATE_SOUND,
   UPDATE_SOUND_VOLUME,
-  UPDATE_VIBRATION
+  UPDATE_VIBRATION,
 } = settingsState.actions;
 const { getSound, getSoundVolume, getVibration } = settingsState.selectors;
 
@@ -20,17 +20,12 @@ const mapStateToProps = () => {
     id: getId,
     sound: getSound,
     soundVolume: getSoundVolume,
-    vibration: getVibration
+    vibration: getVibration,
   });
 };
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { id } = stateProps;
-  const { dispatch } = dispatchProps;
-
+const mapDispatchToProps = dispatch => {
   return {
-    ...ownProps,
-    ...stateProps,
     updateSound: sound => {
       dispatch(UPDATE_SOUND(sound));
     },
@@ -40,7 +35,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     updateVibration: vibration => {
       dispatch(UPDATE_VIBRATION(vibration));
     },
-    updateUserPassword: async (oldPassword, newPassword) => {
+    updateUserPassword: async (id, oldPassword, newPassword) => {
       try {
         await updateUserPassword(id, oldPassword, newPassword);
         Alert.alert("Your password has been updated.");
@@ -50,7 +45,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           err
         );
       }
-    }
+    },
   };
 };
-export default connect(mapStateToProps, null, mergeProps)(Settings);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);

@@ -7,7 +7,7 @@ import Button from "@jacktan/mircle_native_components/button";
 import {
   LogoText,
   RegularText,
-  ButtonText
+  ButtonText,
 } from "@jacktan/mircle_native_components/text";
 import { images, routeKeys } from "../../config";
 import styles from "./styles";
@@ -18,7 +18,7 @@ export default class ForgotPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      emailAddress: ""
+      emailAddress: "",
     };
   }
 
@@ -31,7 +31,9 @@ export default class ForgotPassword extends Component {
     return (
       <View style={styles.forgotPassword}>
         <View style={styles.title}>
-          <LogoText color="white">Forgotten Password</LogoText>
+          <LogoText color="white" style={styles.titleText}>
+            Forgotten Password
+          </LogoText>
           <View style={styles.forgottenPasswordDescription}>
             <RegularText color="white">
               Enter your email address, we will send you an email to confirm if

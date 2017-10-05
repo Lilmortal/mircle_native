@@ -8,7 +8,7 @@ import {
   login,
   getFeeds,
   getListOfFriends,
-  getUserByEmailAddress
+  getUserByEmailAddress,
 } from "../../api";
 import { registrationState, userState } from "../../states";
 
@@ -17,24 +17,21 @@ const {
   POPULATE_USER_STATE,
   UPDATE_FEEDS,
   UPDATE_FRIENDS,
-  UPDATE_IS_LOGGED_IN
+  UPDATE_IS_LOGGED_IN,
 } = userState.actions;
 
 const { isLoggedIn } = userState.selectors;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
-    isLoggedIn
+    isLoggedIn,
   });
 };
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { dispatch } = dispatchProps;
+const mapDispatchToProps = (dispatch, ownProps) => {
   const { navigation } = ownProps;
 
   return {
-    ...ownProps,
-    ...stateProps,
     resetRegisterDetails: () => {
       dispatch(RESET_REGISTER_DETAILS());
     },
@@ -64,8 +61,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       } catch (err) {
         Alert.alert("Attempting to login failed.", err.toString());
       }
-    }
+    },
   };
 };
 
-export default connect(mapStateToProps, null, mergeProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

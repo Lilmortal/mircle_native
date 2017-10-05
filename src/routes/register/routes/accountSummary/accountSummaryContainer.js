@@ -18,7 +18,7 @@ const {
   getPhoneNumber,
   getBirthDate,
   getOccupation,
-  getProfileImage
+  getProfileImage,
 } = registrationState.selectors;
 
 const mapStateToProps = () => {
@@ -31,15 +31,13 @@ const mapStateToProps = () => {
     phoneNumber: getPhoneNumber,
     birthDate: getBirthDate,
     occupation: getOccupation,
-    profileImage: getProfileImage
+    profileImage: getProfileImage,
   });
 };
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   const { navigation } = ownProps;
   return {
-    ...stateProps,
-    ...ownProps,
     register: async (user, profileImage) => {
       try {
         const id = await register(user);
@@ -52,8 +50,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       } catch (err) {
         Alert.alert("Account is not created due to an error", err.toString());
       }
-    }
+    },
   };
 };
 
-export default connect(mapStateToProps, null, mergeProps)(AccountSummary);
+export default connect(mapStateToProps, mapDispatchToProps)(AccountSummary);

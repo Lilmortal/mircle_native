@@ -14,16 +14,13 @@ const { getProfileImageFromMedium } = camera;
 
 const mapStateToProps = () => {
   return createStructuredSelector({
-    profileImage: getProfileImage
+    profileImage: getProfileImage,
   });
 };
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { dispatch } = dispatchProps;
+const mapDispatchToProps = (dispatch, ownProps) => {
   const { navigation } = ownProps;
   return {
-    ...stateProps,
-    ...ownProps,
     getProfileImageFromMedium: async medium => {
       try {
         const profileImage = await getProfileImageFromMedium(medium);
@@ -38,8 +35,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       }
     },
     goNextPage: async () =>
-      navigation.navigate(routeKeys.RegisterAccountSummary)
+      navigation.navigate(routeKeys.RegisterAccountSummary),
   };
 };
 
-export default connect(mapStateToProps, null, mergeProps)(ProfileImageUpload);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileImageUpload);

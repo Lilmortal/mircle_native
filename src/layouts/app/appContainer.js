@@ -23,24 +23,20 @@ const mapStateToProps = () => {
     cameraActive: getCameraActive,
     sound: getSound,
     soundVolume: getSoundVolume,
-    vibration: getVibration
+    vibration: getVibration,
   });
 };
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { id, sound, soundVolume, vibration } = stateProps;
-  const { dispatch } = dispatchProps;
-
+const mapDispatchToProps = dispatch => {
   return {
-    ...ownProps,
-    ...stateProps,
-    readQRCode: async qrCode => {
+    addFriend: async (qrCode, id) => {
+      let friend = null;
       if (qrCode.type === "QR_CODE") {
         try {
           dispatch(UPDATE_CAMERA_ACTIVE(false));
 
           const friendId = qrCode.data;
-          const friend = await addFriend(id, friendId);
+          friend = await addFriend(id, friendId);
 
           const feedMessage = `You and ${friend.firstName} ${friend.surname} are now friends!`;
           const feed = {
@@ -48,17 +44,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
             firstName: friend.firstName,
             surname: friend.surname,
             feedDate: new Date(),
-            message: feedMessage
+            message: feedMessage,
           };
           await addFeed(id, feed);
           dispatch(UPDATE_FEEDS(feed));
-          pushNotification.localNotification({
-            title: `You just added ${friend.firstName} ${friend.surname}`,
-            message: "In the future this message will show where you two meet.",
-            playSound: sound,
-            number: soundVolume,
-            vibrate: vibration
-          });
           Alert.alert(
             "You added a friend!",
             `${friend.firstName} ${friend.surname} is now on your friend list.`
@@ -69,7 +58,20 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
           Alert.alert("Attempting to add a friend failed.", err.toString());
         }
       }
-    }
+      return friend;
+    },
+    sendANotification: (friend, sound, soundVolume, vibration) => {
+      pushNotification.localNotification({
+        title: `You just added ${friend.firstName} ${friend.surname}`,
+        message: "In the future this message will show where you two meet.",
+        playSound: sound,
+        number: soundVolume,
+        vibrate: vibration,
+      });
+    },
   };
 };
-export default connect(mapStateToProps, null, mergeProps)(withNavigation(App));
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+  withNavigation(App)
+);

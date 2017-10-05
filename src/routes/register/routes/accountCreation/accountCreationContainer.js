@@ -13,16 +13,13 @@ const { getEmailAddress, getPassword } = registrationState.selectors;
 const mapStateToProps = () => {
   return createStructuredSelector({
     emailAddress: getEmailAddress,
-    password: getPassword
+    password: getPassword,
   });
 };
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { dispatch } = dispatchProps;
+const mapDispatchToProps = (dispatch, ownProps) => {
   const { navigation } = ownProps;
   return {
-    ...ownProps,
-    ...stateProps,
     registerEmailAddress: emailAddress => {
       dispatch(UPDATE_EMAIL_ADDRESS(emailAddress));
     },
@@ -40,8 +37,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       } catch (err) {
         Alert.alert("It looks like there is an error.", err);
       }
-    }
+    },
   };
 };
 
-export default connect(mapStateToProps, null, mergeProps)(AccountCreation);
+export default connect(mapStateToProps, mapDispatchToProps)(AccountCreation);

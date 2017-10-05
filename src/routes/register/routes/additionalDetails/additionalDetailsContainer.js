@@ -13,7 +13,7 @@ const {
   UPDATE_PHONE_NUMBER,
   UPDATE_BIRTH_DATE,
   UPDATE_OCCUPATION,
-  UPDATE_PROFILE_IMAGE
+  UPDATE_PROFILE_IMAGE,
 } = registrationState.actions;
 
 const {
@@ -22,7 +22,7 @@ const {
   getBirthDate,
   getGender,
   getPhoneNumber,
-  getOccupation
+  getOccupation,
 } = registrationState.selectors;
 
 const mapStateToProps = () => {
@@ -32,17 +32,14 @@ const mapStateToProps = () => {
     birthDate: getBirthDate,
     gender: getGender,
     phoneNumber: getPhoneNumber,
-    occupation: getOccupation
+    occupation: getOccupation,
   });
 };
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { dispatch } = dispatchProps;
+const mapDispatchToProps = (dispatch, ownProps) => {
   const { navigation } = ownProps;
 
   return {
-    ...stateProps,
-    ...ownProps,
     registerFirstName: firstName => {
       dispatch(UPDATE_FIRST_NAME(firstName));
     },
@@ -67,8 +64,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     goToNextPage: validateForm =>
       validateForm
         ? navigation.navigate(routeKeys.RegisterProfileImageUpload)
-        : Alert.alert("Please enter the correct details.")
+        : Alert.alert("Please enter the correct details."),
   };
 };
 
-export default connect(mapStateToProps, null, mergeProps)(AdditionalDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(AdditionalDetails);

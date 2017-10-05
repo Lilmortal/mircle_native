@@ -6,17 +6,23 @@ import * as Animatable from "react-native-animatable";
 import styles from "./styles";
 
 const AppLayout = ({
+  id,
+  sound,
+  soundVolume,
+  vibration,
   cameraActive,
-  readQRCode,
+  addFriend,
+  sendANotification,
   children,
-  navigation,
-  clearStacks
 }) => (
   <Animatable.View animation="fadeIn" style={styles.appLayout}>
     {cameraActive && (
       <Camera
         style={styles.camera}
-        onBarCodeRead={qrCode => readQRCode(qrCode)}
+        onBarCodeRead={async qrCode => {
+          const friend = await addFriend(qrCode, id);
+          sendANotification(friend, sound, soundVolume, vibration);
+        }}
         barCodeTypes={["qr"]}
       />
     )}
