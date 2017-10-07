@@ -45,6 +45,7 @@ class Login extends Component {
       navigation.navigate(routeKeys.QrCode);
     }
 
+    console.log(listener);
     if (Platform.OS === "android" && listener === null) {
       listener = BackHandler.addEventListener("hardwareBackPress", () => {
         this.setQuitAppModalVisible(true);
@@ -54,6 +55,7 @@ class Login extends Component {
   }
 
   componentWillUnmount() {
+    console.log(listener);
     listener.remove();
   }
 

@@ -176,7 +176,6 @@ export const addFeed = async (id, feed) => {
 };
 
 export const getFeeds = async id => {
-  console.log(id);
   const token = await getToken();
   let response;
   try {

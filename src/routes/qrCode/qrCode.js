@@ -1,11 +1,10 @@
-import React from "react";
-import { View } from "react-native";
+import React, { View } from "react-native";
 import QRCode from "react-native-qrcode";
 
 import { TitleDescriptionText } from "@jacktan/mircle_native_components/text";
 import styles from "./styles";
 
-const QrCodeScreen = ({ id }) => (
+const QrCodeScreen = ({ id }) =>
   <View style={styles.container}>
     <View style={styles.title}>
       <TitleDescriptionText bold>
@@ -16,7 +15,6 @@ const QrCodeScreen = ({ id }) => (
     <View style={styles.qrCode}>
       <QRCode value={id} size={200} />
     </View>
-  </View>
-);
+  </View>;
 
 export default QrCodeScreen;

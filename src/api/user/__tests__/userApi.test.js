@@ -59,7 +59,7 @@ describe("User API test", () => {
   });
 
   it("should update user", async () => {
-    const emailAddress = "test@test.com";
+    const id = "1";
     const key = "firstName";
     const value = "John";
 
@@ -68,12 +68,9 @@ describe("User API test", () => {
       Authorization: TOKEN
     };
 
-    fetchMock.patch(
-      `${URL}/user?emailAddress=${emailAddress}&${key}=${value}`,
-      options
-    );
+    fetchMock.patch(`${URL}/user/${id}?${key}=${value}`, options);
 
-    const result = await userApi.updateUser(emailAddress, key, value);
+    const result = await userApi.updateUser(id, key, value);
     expect(result.status).toEqual(HTTP_OK);
   });
 
@@ -89,7 +86,7 @@ describe("User API test", () => {
     };
 
     fetchMock.patch(
-      `${URL}/user/password?id=${id}&oldPassword=${oldPassword}&newPassword=${newPassword}`,
+      `${URL}/user/${id}/password?oldpassword=${oldPassword}&newpassword=${newPassword}`,
       options
     );
 
@@ -111,7 +108,7 @@ describe("User API test", () => {
     };
 
     const formData = new FormData();
-    formData.append("profileImage", JSON.stringify(profileImage));
+    formData.append("profileimage", JSON.stringify(profileImage));
 
     const options = {
       body: formData,

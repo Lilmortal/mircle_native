@@ -42,7 +42,7 @@ export const registerProfileImage = async (id, profileImage = null) => {
   let response;
   try {
     const formData = new FormData();
-    formData.append("profileimage", profileImage);
+    formData.append("profileimage", JSON.stringify(profileImage));
 
     response = await fetch(`${URL}/register/${id}/profileimage`, {
       method: "POST",

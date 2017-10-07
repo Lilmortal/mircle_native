@@ -21,7 +21,7 @@ describe("Authentication API test", () => {
     const emailAddress = "test@test.com";
     const response = { validated: true };
     fetchMock.get(
-      `${URL}/register/user/validate?emailAddress=${emailAddress}`,
+      `${URL}/register/user/validate?emailaddress=${emailAddress}`,
       response
     );
 
@@ -35,7 +35,7 @@ describe("Authentication API test", () => {
     const emailAddress = "test@test.com";
     const response = { throws: HTTP_SERVER_ERROR };
     fetchMock.get(
-      `${URL}/register/user/validate?emailAddress=${emailAddress}`,
+      `${URL}/register/user/validate?emailaddress=${emailAddress}`,
       response
     );
 
@@ -54,21 +54,20 @@ describe("Authentication API test", () => {
     fetchMock.post(`${URL}/register`, { body: user });
 
     const result = await AuthenticationApi.register(user);
-    const json = await result.json();
-    expect(result.status).toEqual(HTTP_OK);
-    expect(json).toEqual(user);
+    expect(result).toEqual(user);
   });
 
   it("should register the user profile image to be default.", async () => {
     const id = 1;
+    const response = {};
+
     const formData = new FormData();
-    formData.append("profileImage", JSON.stringify(null));
+    formData.append("profileimage", {});
     const options = {
-      method: "POST",
       body: formData
     };
 
-    fetchMock.mock(`${URL}/register/profileimage?id=${id}`, options);
+    fetchMock.post(`${URL}/register/profileimage?id=${id}`, response, options);
 
     const result = await AuthenticationApi.registerProfileImage(id);
     expect(result.status).toEqual(HTTP_OK);
@@ -82,7 +81,7 @@ describe("Authentication API test", () => {
       url: "http://test.com",
       type: "png",
       name: "test",
-      isDefault: false
+      isDefault: "false"
     };
     const formData = new FormData();
     formData.append("profileImage", JSON.stringify(profileImage));
@@ -110,7 +109,6 @@ describe("Authentication API test", () => {
       }
     };
 
-    console.log(header);
     const response = new Response(HTTP_OK, header);
 
     fetchMock.post(`${URL}/login`, response);
